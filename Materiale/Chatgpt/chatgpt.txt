@@ -1,0 +1,8 @@
+creare una pagina dedicata a ogni tour;
+inserire facilmente foto e video;
+avere il sito in italiano e inglese e magari altre lingue;
+lavorare bene sulla SEO, ad esempio per ricerche come e-bike tour Sicily, bike tours Sicily, Etna e-bike tour, Aeolian Islands bike tour;
+inserire richieste di disponibilità e prenotazioni;
+collegare WhatsApp;
+modificare prezzi, itinerari e contenuti senza chiamare ogni volta lo sviluppatore;
+creare articoli/blog utili per attirare turisti stranieri da Google.

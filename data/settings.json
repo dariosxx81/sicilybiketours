@@ -1,0 +1,48 @@
+{
+  "site_name": "Sicily Bike Tours",
+  "site_tagline": "Escursioni & Tour in E-Bike in Sicilia",
+  "site_description": "Organizziamo tour giornalieri e plurigiornalieri in e-bike sull'Etna, Parco dei Nebrodi, Gole dell'Alcantara, Val di Noto e Isole Eolie.",
+  "contact_phone": "+39 329 756 8883",
+  "wa_number": "393297568883",
+  "contact_email": "info@sicilybiketours.it",
+  "contact_address": "Via Bonaventura, 66 - 95036 Randazzo (CT), Sicilia",
+  "founder_name": "Mariella Cutispoto",
+  "instagram_url": "https://www.instagram.com/sicilybiketours",
+  "facebook_url": "https://www.facebook.com/groups/768589132144246",
+  "hero_badge_it": "E-Bike Tours & Escursioni Guidate in Sicilia",
+  "hero_badge_en": "Guided E-Bike Tours & Day Excursions in Sicily",
+  "hero_title_it": "Vivi la vera Sicilia in E-Bike",
+  "hero_title_en": "Experience Authentic Sicily by E-Bike",
+  "hero_subtitle_it": "Dalle vette dell'Etna ai boschi secolari dei Nebrodi, dai borghi medievali al fascino delle Isole Eolie. Tour esclusivi a ritmo lento e sostenibile.",
+  "hero_subtitle_en": "From Mount Etna peaks to the ancient Nebrodi forests, medieval villages to the Aeolian islands. Exclusive tours at an authentic, sustainable pace.",
+  "features": [
+    {
+      "icon": "mountain",
+      "title_it": "Percorsi Autentici",
+      "title_en": "Authentic Routes",
+      "desc_it": "Sentieri unici e scenari mozzafiato lontani dal turismo di massa.",
+      "desc_en": "Unique trails and breathtaking scenery away from mass tourism."
+    },
+    {
+      "icon": "shield-check",
+      "title_it": "Guide & Assistenza",
+      "title_en": "Certified Guides",
+      "desc_it": "Guide locali esperte del territorio e mezzo di supporto sempre presente.",
+      "desc_en": "Local expert guides and support vehicle always on standby."
+    },
+    {
+      "icon": "bolt",
+      "title_it": "E-Bike Top di Gamma",
+      "title_en": "Premium E-Bikes",
+      "desc_it": "Mountain bike elettriche biammortizzate e front con autonomia elevata.",
+      "desc_en": "Full-suspension & front e-mtb with high capacity batteries."
+    },
+    {
+      "icon": "utensils",
+      "title_it": "Enogastronomia Siciliana",
+      "title_en": "Sicilian Flavors",
+      "desc_it": "Pranzi tipici, cantine DOC sull'Etna e prodotti genuini a km 0.",
+      "desc_en": "Typical tastings, Etna DOC wineries and authentic local products."
+    }
+  ]
+}

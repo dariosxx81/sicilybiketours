@@ -1,0 +1,10 @@
+node_modules/
+*.amr
+*.mp3
+*.wav
+*.zip
+wp_posts.json
+wp_pages.json
+structured_tours.json
+Materiale/Audio/
+Materiale/Credenziali/

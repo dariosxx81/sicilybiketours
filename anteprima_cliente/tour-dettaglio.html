@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etna Summit: la scalata del vulcano in E-Bike | Sicily Bike Tours</title>
+    <meta name="description" content="Una giornata memorabile tra colate laviche storiche, crateri e paesaggi lunari fino alle quote sommitali.">
+    <link rel="canonical" href="https://www.sicilybiketours.it/tour-dettaglio.php?slug=etna-summit-vulcano-avventura">
+    
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sicily Bike Tours">
+    <meta property="og:title" content="Etna Summit: la scalata del vulcano in E-Bike | Sicily Bike Tours">
+    <meta property="og:description" content="Una giornata memorabile tra colate laviche storiche, crateri e paesaggi lunari fino alle quote sommitali.">
+    <meta property="og:image" content="/assets/img/gallery/summit.jpg">
+    <meta property="og:url" content="https://www.sicilybiketours.it/tour-dettaglio.php?slug=etna-summit-vulcano-avventura">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Etna Summit: la scalata del vulcano in E-Bike | Sicily Bike Tours">
+    <meta name="twitter:description" content="Una giornata memorabile tra colate laviche storiche, crateri e paesaggi lunari fino alle quote sommitali.">
+    <meta name="twitter:image" content="/assets/img/gallery/summit.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/logo/logo.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css?v=2.0">
+    
+    <!-- FontAwesome 6 Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Alpine.js Core -->
+    <script defer src="assets/js/alpine.min.js"></script>
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "Sicily Bike Tours",
+      "image": "/assets/img/gallery/summit.jpg",
+      "@id": "https://www.sicilybiketours.it",
+      "url": "https://www.sicilybiketours.it",
+      "telephone": "+39 329 756 8883",
+      "email": "info@sicilybiketours.it",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Bonaventura, 66",
+        "addressLocality": "Randazzo",
+        "addressRegion": "CT",
+        "postalCode": "95036",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.8767,
+        "longitude": 14.9458
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/sicilybiketours",
+        "https://www.facebook.com/groups/768589132144246"
+      ]
+    }
+    </script>
+</head>
+<body x-data="{ 
+    mobileMenuOpen: false, 
+    scrolled: false,
+    bookingModalOpen: false,
+    selectedTour: null,
+    openBooking(tour) {
+        this.selectedTour = tour;
+        this.bookingModalOpen = true;
+    }
+}" @scroll.window="scrolled = (window.pageYOffset > 40)">
+<!-- Main Header / Navbar -->
+<header class="site-navbar" :class="{ 'scrolled': scrolled }">
+    <div class="container">
+        <div class="navbar-inner">
+            <!-- Brand Logo -->
+            <a href="/" class="navbar-brand">
+                <img src="assets/img/logo/logo-light.png" x-show="!scrolled" alt="Sicily Bike Tours" class="navbar-brand-logo">
+                <img src="assets/img/logo/logo.png" x-show="scrolled" style="display: none;" alt="Sicily Bike Tours" class="navbar-brand-logo">
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/" class="nav-link ">Home</a></li>
+                    <li><a href="chi-siamo.html" class="nav-link ">Chi Siamo</a></li>
+                    <li><a href="escursioni.html" class="nav-link ">Escursioni Giornaliere</a></li>
+                    <li><a href="tour.html" class="nav-link ">Tour Itineranti</a></li>
+                    <li><a href="personalizza-tour.html" class="nav-link ">Tour su Misura</a></li>
+                    <li><a href="#calendario" class="nav-link">Calendario & Date</a></li>
+                    <li><a href="contatti.html" class="nav-link ">Contatti</a></li>
+                </ul>
+            </nav>
+
+            <!-- Actions & Lang Switcher -->
+            <div class="nav-actions">
+                <!-- Language Selector -->
+                <div class="lang-switcher">
+                    <a href="?lang=it" class="lang-btn active" title="Italiano">IT</a>
+                    <a href="?lang=en" class="lang-btn " title="English">EN</a>
+                </div>
+
+                <a href="personalizza-tour.html" class="btn btn-accent btn-sm btn-book-nav">
+                    <i class="fa-solid fa-bicycle"></i> Prenota un Tour                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="mobile-toggle" @click="mobileMenuOpen = true" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Flyout Drawer -->
+<div class="drawer-backdrop" x-show="mobileMenuOpen" x-transition.opacity @click="mobileMenuOpen = false" style="display: none;"></div>
+<div class="mobile-drawer" :class="{ 'open': mobileMenuOpen }" style="display: none;" x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="transform translate-x-full" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform translate-x-full">
+    <div class="drawer-header">
+        <a href="/">
+            <img src="assets/img/logo/logo.png" alt="Sicily Bike Tours" style="height: 38px;">
+        </a>
+        <button class="modal-close-btn" @click="mobileMenuOpen = false">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <ul class="drawer-nav">
+        <li><a href="/" class="drawer-link" @click="mobileMenuOpen = false">Home</a></li>
+        <li><a href="chi-siamo.html" class="drawer-link" @click="mobileMenuOpen = false">Chi Siamo</a></li>
+        <li><a href="escursioni.html" class="drawer-link" @click="mobileMenuOpen = false">Escursioni Giornaliere</a></li>
+        <li><a href="tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour Itineranti</a></li>
+        <li><a href="personalizza-tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour su Misura</a></li>
+        <li><a href="#calendario" class="drawer-link" @click="mobileMenuOpen = false">Calendario & Date</a></li>
+        <li><a href="contatti.html" class="drawer-link" @click="mobileMenuOpen = false">Contatti</a></li>
+    </ul>
+
+    <div style="margin-top: auto; padding-top: 2rem;">
+        <div class="lang-switcher" style="margin-bottom: 1.2rem; justify-content: center;">
+            <a href="?lang=it" class="lang-btn active">Italiano</a>
+            <a href="?lang=en" class="lang-btn ">English</a>
+        </div>
+        <a href="https://wa.me/393297568883" target="_blank" class="btn btn-accent btn-sm" style="width: 100%;">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Info
+        </a>
+    </div>
+</div>
+
+<!-- Tour Hero Banner -->
+<section style="background: linear-gradient(rgba(15, 44, 48, 0.82), rgba(15, 44, 48, 0.94)), url('/assets/img/gallery/summit.jpg') center/cover no-repeat; padding: 8.5rem 0 3.5rem 0; color: var(--color-white);">
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 1rem; display: flex; gap: 0.5rem; align-items: center;">
+            <a href="/">Home</a>
+            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+            <a href="escursioni.html">Escursioni Giornaliere</a>
+            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+            <span style="color: var(--color-accent);">Etna Summit: la scalata del vulcano in E-Bike</span>
+        </div>
+
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <span class="badge badge-accent"><i class="fa-solid fa-location-dot"></i> Etna</span>
+            <span class="badge badge-dark"><i class="fa-solid fa-clock"></i> 5-6 ore</span>
+            <span class="badge badge-dark"><i class="fa-solid fa-gauge"></i> Medio / Difficile</span>
+        </div>
+
+        <h1 style="font-size: clamp(2rem, 4vw, 3rem); color: var(--color-white); max-width: 900px; line-height: 1.2; margin-bottom: 1rem;">
+            Etna Summit: la scalata del vulcano in E-Bike        </h1>
+        <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.9); max-width: 800px;">
+            Una giornata memorabile tra colate laviche storiche, crateri e paesaggi lunari fino alle quote sommitali.        </p>
+    </div>
+</section>
+
+<!-- Main Tour Body Content & Sticky Booking Sidebar -->
+<section class="section-spacing" style="background: var(--color-gray-50);">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1.8fr 1fr; gap: 3rem; align-items: start;">
+            
+            <!-- Left Column: Tour Details & Gallery -->
+            <div>
+                <!-- Technical Specs Strip Card -->
+                <div style="background: var(--color-white); border-radius: var(--radius-lg); padding: 1.8rem; box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center;">
+                    <div>
+                        <i class="fa-solid fa-route" style="color: var(--color-primary); font-size: 1.3rem; margin-bottom: 0.3rem;"></i>
+                        <strong style="display: block; font-size: 1.05rem;">40 km</strong>
+                        <span style="font-size: 0.78rem; color: var(--color-gray-500); text-transform: uppercase;">Lunghezza</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-mountain" style="color: var(--color-primary); font-size: 1.3rem; margin-bottom: 0.3rem;"></i>
+                        <strong style="display: block; font-size: 1.05rem;">+1.300 m</strong>
+                        <span style="font-size: 0.78rem; color: var(--color-gray-500); text-transform: uppercase;">Dislivello</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-clock" style="color: var(--color-primary); font-size: 1.3rem; margin-bottom: 0.3rem;"></i>
+                        <strong style="display: block; font-size: 1.05rem;">5-6 ore</strong>
+                        <span style="font-size: 0.78rem; color: var(--color-gray-500); text-transform: uppercase;">Durata</span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-calendar-check" style="color: var(--color-primary); font-size: 1.3rem; margin-bottom: 0.3rem;"></i>
+                        <strong style="display: block; font-size: 0.85rem;">Aprile - Ottobre</strong>
+                        <span style="font-size: 0.78rem; color: var(--color-gray-500); text-transform: uppercase;">Periodo</span>
+                    </div>
+                </div>
+
+                <!-- Highlights Section -->
+                <div style="background: var(--color-white); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.45rem; color: var(--color-primary-dark); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;">
+                        <i class="fa-solid fa-star" style="color: var(--color-volcano);"></i> Punti Salienti                    </h3>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.85rem;">
+                                                    <li style="display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-700);">
+                                <i class="fa-solid fa-circle-check" style="color: var(--color-accent); font-size: 1.15rem; margin-top: 0.2rem;"></i>
+                                <span>Salita panoramica verso i crateri sommitali</span>
+                            </li>
+                                                    <li style="display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-700);">
+                                <i class="fa-solid fa-circle-check" style="color: var(--color-accent); font-size: 1.15rem; margin-top: 0.2rem;"></i>
+                                <span>Attraversamento delle colate laviche storiche e deserto di sabbia vulcanica</span>
+                            </li>
+                                                    <li style="display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-700);">
+                                <i class="fa-solid fa-circle-check" style="color: var(--color-accent); font-size: 1.15rem; margin-top: 0.2rem;"></i>
+                                <span>Sosta panoramica sulla Valle del Bove e vista fino al Mar Ionio</span>
+                            </li>
+                                                    <li style="display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1rem; color: var(--color-gray-700);">
+                                <i class="fa-solid fa-circle-check" style="color: var(--color-accent); font-size: 1.15rem; margin-top: 0.2rem;"></i>
+                                <span>Guida esperta di vulcanologia e cicloturismo</span>
+                            </li>
+                                            </ul>
+                </div>
+
+                <!-- Image Gallery Lightbox (Alpine.js) -->
+                <div style="background: var(--color-white); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem;" x-data="{
+                    activeImg: '/assets/img/gallery/summit.jpg',
+                    modalOpen: false
+                }">
+                    <h3 style="font-size: 1.45rem; color: var(--color-primary-dark); margin-bottom: 1.2rem;">
+                        <i class="fa-solid fa-camera" style="color: var(--color-primary);"></i> Galleria Fotografica
+                    </h3>
+                    
+                    <div style="border-radius: var(--radius-md); overflow: hidden; height: 380px; margin-bottom: 1rem; cursor: pointer;" @click="modalOpen = true">
+                        <img :src="activeImg" alt="Etna Summit: la scalata del vulcano in E-Bike" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" class="hover:scale-105">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;">
+                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
+                                 :style="activeImg === '/assets/img/gallery/summit.jpg' ? 'border-color: var(--color-primary)' : ''"
+                                 @click="activeImg = '/assets/img/gallery/summit.jpg'">
+                                <img src="assets/img/gallery/summit.jpg" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
+                                 :style="activeImg === '/assets/img/gallery/Etna-home-page.jpg' ? 'border-color: var(--color-primary)' : ''"
+                                 @click="activeImg = '/assets/img/gallery/Etna-home-page.jpg'">
+                                <img src="assets/img/gallery/Etna-home-page.jpg" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
+                                 :style="activeImg === '/assets/img/gallery/etna-2.jpg' ? 'border-color: var(--color-primary)' : ''"
+                                 @click="activeImg = '/assets/img/gallery/etna-2.jpg'">
+                                <img src="assets/img/gallery/etna-2.jpg" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
+                                 :style="activeImg === '/assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-113.jpg' ? 'border-color: var(--color-primary)' : ''"
+                                 @click="activeImg = '/assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-113.jpg'">
+                                <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-113.jpg" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                                            </div>
+                </div>
+
+                <!-- Included & Excluded Breakdown -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem;">
+                    <!-- Included -->
+                    <div style="background: #f0fdf4; border: 1.5px solid rgba(144, 201, 92, 0.6); border-radius: var(--radius-lg); padding: 1.8rem;">
+                        <h4 style="font-size: 1.2rem; color: #166534; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fa-solid fa-check"></i> Cosa è Incluso                        </h4>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.92rem; color: #14532d;">
+                                                            <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                    <i class="fa-solid fa-check" style="margin-top: 0.2rem; color: #15803d;"></i>
+                                    <span>Noleggio E-MTB biammortizzata di ultima generazione</span>
+                                </li>
+                                                            <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                    <i class="fa-solid fa-check" style="margin-top: 0.2rem; color: #15803d;"></i>
+                                    <span>Casco, kit riparazione e sacca idrica</span>
+                                </li>
+                                                            <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                    <i class="fa-solid fa-check" style="margin-top: 0.2rem; color: #15803d;"></i>
+                                    <span>Guida cicloturistica certificata</span>
+                                </li>
+                                                            <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                    <i class="fa-solid fa-check" style="margin-top: 0.2rem; color: #15803d;"></i>
+                                    <span>Assicurazione infortuni</span>
+                                </li>
+                                                            <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                    <i class="fa-solid fa-check" style="margin-top: 0.2rem; color: #15803d;"></i>
+                                    <span>Snack energetico e acqua</span>
+                                </li>
+                                                    </ul>
+                    </div>
+
+                    <!-- Excluded -->
+                    <div style="background: #fff1f2; border: 1.5px solid rgba(244, 63, 94, 0.4); border-radius: var(--radius-lg); padding: 1.8rem;">
+                        <h4 style="font-size: 1.2rem; color: #9f1239; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fa-solid fa-xmark"></i> Cosa Non è Incluso                        </h4>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.92rem; color: #881337;">
+                                                            <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                    <i class="fa-solid fa-minus" style="margin-top: 0.2rem; color: #be123c;"></i>
+                                    <span>Pranzo completo (disponibile su richiesta)</span>
+                                </li>
+                                                            <li style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                    <i class="fa-solid fa-minus" style="margin-top: 0.2rem; color: #be123c;"></i>
+                                    <span>Transfer da hotel (su richiesta)</span>
+                                </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Sticky Booking Card -->
+            <div style="position: sticky; top: 100px;">
+                <div style="background: var(--color-white); border-radius: var(--radius-xl); padding: 2.2rem; box-shadow: var(--shadow-xl); border: 1.5px solid rgba(144, 201, 92, 0.5);">
+                    <div style="margin-bottom: 1.2rem; border-bottom: 1px solid var(--color-gray-100); padding-bottom: 1.2rem;">
+                        <span style="font-size: 0.85rem; color: var(--color-gray-500); text-transform: uppercase; font-weight: 700;">A partire da</span>
+                        <div style="display: flex; align-items: baseline; gap: 0.4rem; margin-top: 0.2rem;">
+                            <span style="font-size: 2.4rem; font-weight: 800; color: var(--color-primary-dark);">€85</span>
+                            <span style="font-size: 0.88rem; color: var(--color-gray-500);">a persona (guida + e-bike inclusa)</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--color-gray-600); display: flex; flex-direction: column; gap: 0.6rem;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span><i class="fa-solid fa-map-pin" style="color: var(--color-primary);"></i> Partenza da:</span>
+                            <strong style="color: var(--color-gray-800);">Randazzo / Rifugio Nord Etna</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span><i class="fa-solid fa-users" style="color: var(--color-primary);"></i> Gruppi:</span>
+                            <strong style="color: var(--color-gray-800);">Min. 2 - Max 12 persone</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span><i class="fa-solid fa-bicycle" style="color: var(--color-primary);"></i> Mezzo:</span>
+                            <strong style="color: var(--color-gray-800);">E-Bike MTB Inclusa</strong>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-accent btn-lg" style="width: 100%; margin-bottom: 0.85rem;" @click="openBooking({&quot;id&quot;:1,&quot;slug&quot;:&quot;etna-summit-vulcano-avventura&quot;,&quot;title&quot;:&quot;Etna Summit: la scalata del vulcano in E-Bike&quot;,&quot;price&quot;:85,&quot;duration&quot;:&quot;5-6 ore&quot;})">
+                        <i class="fa-solid fa-calendar-check"></i> Prenota / Richiedi Data
+                    </button>
+
+                    <a href="https://wa.me/393297568883?text=Ciao+Mariella%21+Vorrei+prenotare+o+chiedere+info+per+il+tour%3A+Etna+Summit%3A+la+scalata+del+vulcano+in+E-Bike" target="_blank" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 1.5rem;">
+                        <i class="fa-brands fa-whatsapp"></i> Chiedi subito su WhatsApp
+                    </a>
+
+                    <div style="text-align: center; font-size: 0.8rem; color: var(--color-gray-500); border-top: 1px solid var(--color-gray-100); padding-top: 1rem;">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--color-primary);"></i> Cancellazione gratuita fino a 48h prima o cambio data in caso di maltempo.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Main Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Brand & Mission -->
+            <div class="footer-col">
+                <img src="assets/img/logo/logo-light.png" alt="Sicily Bike Tours" style="height: 48px; margin-bottom: 1.2rem;">
+                <p style="font-size: 0.92rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin-bottom: 1.5rem;">
+                    Sicily Bike Tours nasce dalla passione di Mariella e delle nostre guide locali per far conoscere la Sicilia più vera e incontaminata in sella a performanti biciclette elettriche.                </p>
+                <div style="display: flex; gap: 0.75rem;">
+                    <a href="https://www.instagram.com/sicilybiketours" target="_blank" class="btn btn-outline-white btn-icon-round" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/groups/768589132144246" target="_blank" class="btn btn-outline-white btn-icon-round" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/393297568883" target="_blank" class="btn btn-outline-white btn-icon-round" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h5>Navigazione Rapida</h5>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                    <li><a href="escursioni.html">Escursioni Giornaliere</a></li>
+                    <li><a href="tour.html">Tour Itineranti</a></li>
+                    <li><a href="personalizza-tour.html">Tour su Misura</a></li>
+                    <li><a href="contatti.html">Contatti</a></li>
+                </ul>
+            </div>
+
+            <!-- Destinations -->
+            <div class="footer-col">
+                <h5>Destinazioni Principali</h5>
+                <ul class="footer-links">
+                    <li><a href="/escursioni.php?area=etna">Vulcano Etna & Crateri</a></li>
+                    <li><a href="/escursioni.php?area=nebrodi">Parco dei Monti Nebrodi</a></li>
+                    <li><a href="/tour.php?area=nebrodi">Megaliti dell'Argimusco</a></li>
+                    <li><a href="/tour.php?area=isole">Isole Eolie Bici & Barca</a></li>
+                    <li><a href="/tour.php?area=barocco">Val di Noto & Città Barocche</a></li>
+                    <li><a href="/escursioni.php?area=etna">Strada del Vino Etna DOC</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact & Office -->
+            <div class="footer-col">
+                <h5>Recapiti & Sede</h5>
+                <ul class="footer-links" style="color: rgba(255, 255, 255, 0.85); font-size: 0.92rem;">
+                    <li style="display: flex; gap: 0.6rem; align-items: flex-start;">
+                        <i class="fa-solid fa-location-dot" style="color: var(--color-accent); margin-top: 0.25rem;"></i>
+                        <span>Via Bonaventura, 66 - 95036 Randazzo (CT), Sicilia</span>
+                    </li>
+                    <li style="display: flex; gap: 0.6rem; align-items: center;">
+                        <i class="fa-solid fa-phone" style="color: var(--color-accent);"></i>
+                        <a href="tel:+393297568883">+39 329 756 8883</a>
+                    </li>
+                    <li style="display: flex; gap: 0.6rem; align-items: center;">
+                        <i class="fa-solid fa-envelope" style="color: var(--color-accent);"></i>
+                        <a href="mailto:info@sicilybiketours.it">info@sicilybiketours.it</a>
+                    </li>
+                    <li style="display: flex; gap: 0.6rem; align-items: center;">
+                        <i class="fa-brands fa-whatsapp" style="color: var(--color-accent);"></i>
+                        <a href="https://wa.me/393297568883" target="_blank">Chat WhatsApp Diretta</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <div>
+                &copy; 2026 Sicily Bike Tours. Tutti i diritti riservati.            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="https://www.iubenda.com/privacy-policy/22750170" target="_blank">Privacy Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/22750170/cookie-policy.pdf" target="_blank">Cookie Policy</a>
+                <a href="/admin/">Area Gestione</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Floating WhatsApp Beacon -->
+<a href="https://wa.me/393297568883?text=Ciao+Sicily+Bike+Tours%21+Vorrei+informazioni+sui+vostri+tour+in+e-bike." target="_blank" class="floating-whatsapp" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp" style="font-size: 2rem;"></i>
+</a>
+
+<!-- Booking & Quick Quote Modal -->
+<!-- Booking & Quick Quote Modal (Alpine.js) -->
+<div class="modal-overlay" x-show="bookingModalOpen" style="display: none;" x-transition.opacity @click.self="bookingModalOpen = false" x-data="{
+    date: '2026-10-10',
+    participants: 2,
+    hasRiddenEbike: 'yes',
+    needTransfer: false,
+    needGourmetLunch: false,
+    specialNotes: '',
+    clientName: '',
+    clientEmail: '',
+    clientPhone: '',
+    formSubmitted: false,
+    isSubmitting: false,
+    
+    calcTotal() {
+        if (!this.selectedTour) return 0;
+        let base = Number(this.selectedTour.price) * this.participants;
+        if (this.needTransfer) base += (35 * this.participants);
+        if (this.needGourmetLunch) base += (30 * this.participants);
+        return base;
+    },
+    
+    getWaLink() {
+        if (!this.selectedTour) return 'https://wa.me/393297568883';
+        let msg = `Ciao Sicily Bike Tours! Vorrei richiedere informazioni e disponibilità per: *${this.selectedTour.title}*\n📅 Data: ${this.date}\n👥 Partecipanti: ${this.participants}\nNome: ${this.clientName || 'Un viaggiatore'}\nNote: ${this.specialNotes || 'Nessuna'}`;
+        return `https://wa.me/393297568883?text=` + encodeURIComponent(msg);
+    },
+    
+    submitBooking() {
+        this.isSubmitting = true;
+        setTimeout(() => {
+            this.isSubmitting = false;
+            this.formSubmitted = true;
+        }, 800);
+    }
+}">
+    <div class="modal-dialog" x-show="bookingModalOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
+        <button class="modal-close-btn" @click="bookingModalOpen = false">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <template x-if="!formSubmitted">
+            <div>
+                <div style="margin-bottom: 1.5rem;">
+                    <span class="badge badge-accent" style="margin-bottom: 0.5rem;">
+                        <i class="fa-solid fa-calendar-check"></i> Richiesta Disponibilità & Prenotazione
+                    </span>
+                    <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);" x-text="selectedTour ? selectedTour.title : 'Prenota il tuo Tour in E-Bike'"></h3>
+                    <p style="font-size: 0.92rem; color: var(--color-gray-600);" x-text="selectedTour ? ('Prezzo base: €' + selectedTour.price + ' a persona') : 'Seleziona data e partecipanti per verificare la disponibilità.'"></p>
+                </div>
+
+                <form @submit.prevent="submitBooking">
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label class="form-label">Data Desiderata</label>
+                            <input type="date" class="form-control" x-model="date" min="2026-10-07" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Numero Partecipanti</label>
+                            <input type="number" class="form-control" x-model="participants" min="1" max="30" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label class="form-label">Nome e Cognome *</label>
+                            <input type="text" class="form-control" placeholder="Mario Rossi" x-model="clientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Telefono / WhatsApp *</label>
+                            <input type="tel" class="form-control" placeholder="+39 333 1234567" x-model="clientPhone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-control" placeholder="mario@email.com" x-model="clientEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Hai già guidato una E-Bike?</label>
+                        <div style="display: flex; gap: 1.5rem; margin-top: 0.3rem;">
+                            <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.95rem;">
+                                <input type="radio" name="ebike_exp" value="yes" x-model="hasRiddenEbike"> Sì                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.95rem;">
+                                <input type="radio" name="ebike_exp" value="no" x-model="hasRiddenEbike"> No                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Extra Services -->
+                    <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-gray-600); display: block; margin-bottom: 0.6rem;">Servizi Aggiuntivi & Extra</span>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
+                                <span><input type="checkbox" x-model="needTransfer"> Transfer A/R dal vostro Hotel / Alloggio</span>
+                                <span style="font-weight: 700; color: var(--color-primary);">+€35/persona</span>
+                            </label>
+                            <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
+                                <span><input type="checkbox" x-model="needGourmetLunch"> Pranzo Gourmet tipico o Degustazione Vini</span>
+                                <span style="font-weight: 700; color: var(--color-primary);">+€30/persona</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Note / Richieste Particolari</label>
+                        <textarea class="form-control" rows="2" placeholder="Altezza partecipanti per le taglie e-bike, intolleranze alimentari, orari preferiti..." x-model="specialNotes"></textarea>
+                    </div>
+
+                    <!-- Live Total Calculation Bar -->
+                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary);">Preventivo Stimato:</span>
+                            <div style="font-size: 1.45rem; font-weight: 800; color: var(--color-primary-dark);">
+                                €<span x-text="calcTotal()"></span>
+                            </div>
+                        </div>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-600);">Pagamento e conferma in loco/accordo</span>
+                    </div>
+
+                    <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                        <button type="submit" class="btn btn-primary" style="flex: 1;" :disabled="isSubmitting">
+                            <i class="fa-solid fa-paper-plane"></i> <span x-text="isSubmitting ? 'Invio in corso...' : 'Invia Richiesta di Prenotazione'"></span>
+                        </button>
+                        <a :href="getWaLink()" target="_blank" class="btn btn-accent">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </template>
+
+        <!-- Success Message -->
+        <template x-if="formSubmitted">
+            <div style="text-align: center; padding: 2.5rem 1rem;">
+                <div style="width: 70px; height: 70px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.5rem auto;">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem; color: var(--color-primary-dark);">Richiesta Inviata con Successo!</h3>
+                <p style="font-size: 1.05rem; color: var(--color-gray-600); max-width: 500px; margin: 0 auto 2rem auto;">
+                    Grazie <strong x-text="clientName"></strong>! Abbiamo ricevuto la tua richiesta di disponibilità per il tour <strong><span x-text="selectedTour ? selectedTour.title : ''"></span></strong> in data <strong><span x-text="date"></span></strong>. Ti risponderemo entro pochissime ore.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem;">
+                    <a :href="getWaLink()" target="_blank" class="btn btn-accent">
+                        <i class="fa-brands fa-whatsapp"></i> Conferma Rapida su WhatsApp
+                    </a>
+                    <button class="btn btn-outline-primary" @click="bookingModalOpen = false; formSubmitted = false;">
+                        Chiudi
+                    </button>
+                </div>
+            </div>
+        </template>
+    </div>
+</div>
+
+</body>
+</html>

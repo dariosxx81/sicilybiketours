@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Itineranti in E-Bike in Sicilia: Weekend e Viaggi di Più Giorni | Sicily Bike Tours</title>
+    <meta name="description" content="Tour cicloturistici itineranti in Sicilia di 2, 3, 4, 5 e 7 giorni. Viaggi guidati con e-bike e van di supporto tra Etna, Nebrodi, Isole Eolie e Val di Noto.">
+    <link rel="canonical" href="https://www.sicilybiketours.it/tour.php">
+    
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Sicily Bike Tours">
+    <meta property="og:title" content="Tour Itineranti in E-Bike in Sicilia: Weekend e Viaggi di Più Giorni | Sicily Bike Tours">
+    <meta property="og:description" content="Tour cicloturistici itineranti in Sicilia di 2, 3, 4, 5 e 7 giorni. Viaggi guidati con e-bike e van di supporto tra Etna, Nebrodi, Isole Eolie e Val di Noto.">
+    <meta property="og:image" content="/assets/img/gallery/summit.jpg">
+    <meta property="og:url" content="https://www.sicilybiketours.it/tour.php">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tour Itineranti in E-Bike in Sicilia: Weekend e Viaggi di Più Giorni | Sicily Bike Tours">
+    <meta name="twitter:description" content="Tour cicloturistici itineranti in Sicilia di 2, 3, 4, 5 e 7 giorni. Viaggi guidati con e-bike e van di supporto tra Etna, Nebrodi, Isole Eolie e Val di Noto.">
+    <meta name="twitter:image" content="/assets/img/gallery/summit.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/logo/logo.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css?v=2.0">
+    
+    <!-- FontAwesome 6 Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Alpine.js Core -->
+    <script defer src="assets/js/alpine.min.js"></script>
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "Sicily Bike Tours",
+      "image": "assets/img/gallery/summit.jpg",
+      "@id": "https://www.sicilybiketours.it",
+      "url": "https://www.sicilybiketours.it",
+      "telephone": "+39 329 756 8883",
+      "email": "info@sicilybiketours.it",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Bonaventura, 66",
+        "addressLocality": "Randazzo",
+        "addressRegion": "CT",
+        "postalCode": "95036",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.8767,
+        "longitude": 14.9458
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/sicilybiketours",
+        "https://www.facebook.com/groups/768589132144246"
+      ]
+    }
+    </script>
+</head>
+<body x-data="{ 
+    mobileMenuOpen: false, 
+    scrolled: false,
+    bookingModalOpen: false,
+    selectedTour: null,
+    openBooking(tour) {
+        this.selectedTour = tour;
+        this.bookingModalOpen = true;
+    }
+}" @scroll.window="scrolled = (window.pageYOffset > 40)">
+<!-- Main Header / Navbar -->
+<header class="site-navbar" :class="{ 'scrolled': scrolled }">
+    <div class="container">
+        <div class="navbar-inner">
+            <!-- Brand Logo -->
+            <a href="index.html" class="navbar-brand">
+                <img src="assets/img/logo/logo-light.png" x-show="!scrolled" alt="Sicily Bike Tours" class="navbar-brand-logo">
+                <img src="assets/img/logo/logo.png" x-show="scrolled" style="display: none;" alt="Sicily Bike Tours" class="navbar-brand-logo">
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link ">Home</a></li>
+                    <li><a href="chi-siamo.html" class="nav-link ">Chi Siamo</a></li>
+                    <li><a href="escursioni.html" class="nav-link ">Escursioni Giornaliere</a></li>
+                    <li><a href="tour.html" class="nav-link active">Tour Itineranti</a></li>
+                    <li><a href="personalizza-tour.html" class="nav-link ">Tour su Misura</a></li>
+                    <li><a href="#calendario" class="nav-link">Calendario & Date</a></li>
+                    <li><a href="contatti.html" class="nav-link ">Contatti</a></li>
+                </ul>
+            </nav>
+
+            <!-- Actions & Lang Switcher -->
+            <div class="nav-actions">
+                <!-- Language Selector -->
+                <div class="lang-switcher">
+                    <a href="?lang=it" class="lang-btn active" title="Italiano">IT</a>
+                    <a href="?lang=en" class="lang-btn " title="English">EN</a>
+                </div>
+
+                <a href="personalizza-tour.html" class="btn btn-accent btn-sm btn-book-nav">
+                    <i class="fa-solid fa-bicycle"></i> Prenota un Tour                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="mobile-toggle" @click="mobileMenuOpen = true" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Flyout Drawer -->
+<div class="drawer-backdrop" x-show="mobileMenuOpen" x-transition.opacity @click="mobileMenuOpen = false" style="display: none;"></div>
+<div class="mobile-drawer" :class="{ 'open': mobileMenuOpen }" style="display: none;" x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="transform translate-x-full" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform translate-x-full">
+    <div class="drawer-header">
+        <a href="index.html">
+            <img src="assets/img/logo/logo.png" alt="Sicily Bike Tours" style="height: 38px;">
+        </a>
+        <button class="modal-close-btn" @click="mobileMenuOpen = false">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <ul class="drawer-nav">
+        <li><a href="index.html" class="drawer-link" @click="mobileMenuOpen = false">Home</a></li>
+        <li><a href="chi-siamo.html" class="drawer-link" @click="mobileMenuOpen = false">Chi Siamo</a></li>
+        <li><a href="escursioni.html" class="drawer-link" @click="mobileMenuOpen = false">Escursioni Giornaliere</a></li>
+        <li><a href="tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour Itineranti</a></li>
+        <li><a href="personalizza-tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour su Misura</a></li>
+        <li><a href="#calendario" class="drawer-link" @click="mobileMenuOpen = false">Calendario & Date</a></li>
+        <li><a href="contatti.html" class="drawer-link" @click="mobileMenuOpen = false">Contatti</a></li>
+    </ul>
+
+    <div style="margin-top: auto; padding-top: 2rem;">
+        <div class="lang-switcher" style="margin-bottom: 1.2rem; justify-content: center;">
+            <a href="?lang=it" class="lang-btn active">Italiano</a>
+            <a href="?lang=en" class="lang-btn ">English</a>
+        </div>
+        <a href="https://wa.me/393297568883" target="_blank" class="btn btn-accent btn-sm" style="width: 100%;">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp Info
+        </a>
+    </div>
+</div>
+
+<!-- Page Header Banner -->
+<section style="background: linear-gradient(rgba(15, 44, 48, 0.85), rgba(15, 44, 48, 0.95)), url('/assets/img/gallery/IMG-20251008-WA0031-scaled.jpg') center/cover no-repeat; padding: 8.5rem 0 4rem 0; color: var(--color-white); text-align: center;">
+    <div class="container">
+        <span class="badge badge-accent" style="margin-bottom: 0.8rem;">
+            <i class="fa-solid fa-calendar-days"></i> Tour Itineranti        </span>
+        <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--color-white); margin-bottom: 1rem;">
+            Tour Itineranti & Weekend in E-Bike        </h1>
+        <p style="font-size: 1.15rem; color: rgba(255, 255, 255, 0.85); max-width: 700px; margin: 0 auto 2rem auto;">
+            Vacanze in bicicletta complete da 2 a 7 giorni con pernottamento in dimore di charme, furgone appoggio e trasporto bagagli.        </p>
+    </div>
+</section>
+
+<!-- Tours Catalog -->
+<section class="section-spacing" x-data="{
+    filterArea: 'all',
+    
+    match(tour) {
+        let areaMatch = (this.filterArea === 'all' || tour.area_tag === this.filterArea);
+        return areaMatch;
+    }
+}">
+    <div class="container">
+        <!-- Filter Toolbar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; background: var(--color-white); padding: 1.2rem 1.6rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200);">
+            <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+                <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-gray-500); margin-right: 0.4rem;">Filtra Destinazione:</span>
+                <button class="filter-pill btn-sm" :class="{ 'active': filterArea === 'all' }" @click="filterArea = 'all'">Tutte le Destinazioni</button>
+                <button class="filter-pill btn-sm" :class="{ 'active': filterArea === 'etna' }" @click="filterArea = 'etna'">Etna & Dintorni</button>
+                <button class="filter-pill btn-sm" :class="{ 'active': filterArea === 'nebrodi' }" @click="filterArea = 'nebrodi'">Nebrodi & Megaliti</button>
+                <button class="filter-pill btn-sm" :class="{ 'active': filterArea === 'isole' }" @click="filterArea = 'isole'">Isole Eolie</button>
+                <button class="filter-pill btn-sm" :class="{ 'active': filterArea === 'barocco' }" @click="filterArea = 'barocco'">Val di Noto</button>
+            </div>
+            
+            <a href="personalizza-tour.html" class="btn btn-accent btn-sm">
+                <i class="fa-solid fa-sliders"></i> Richiedi Tour su Misura
+            </a>
+        </div>
+
+        <div class="tours-grid">
+                            <div x-show="match({&quot;id&quot;:8,&quot;slug&quot;:&quot;tour-2-giorni-nebrodi-montalbano-elicona-alcantara&quot;,&quot;type&quot;:&quot;tour&quot;,&quot;category&quot;:&quot;Tour Itineranti &amp; Weekend&quot;,&quot;category_en&quot;:&quot;Multi-Day Tours &amp; Weekends&quot;,&quot;area&quot;:&quot;Nebrodi &amp; Alcantara&quot;,&quot;area_tag&quot;:&quot;nebrodi&quot;,&quot;featured&quot;:true,&quot;title&quot;:&quot;Weekend in Sicilia: Randazzo, Megaliti dell'Argimusco &amp; Alcantara&quot;,&quot;title_en&quot;:&quot;Sicily Weekend: Megaliths of Argimusco, Nebrodi &amp; Alcantara&quot;,&quot;subtitle&quot;:&quot;Un weekend tra storia, natura e mistero: pedalando tra i borghi pi\u00f9 belli d'Italia, la Stonehenge siciliana e le gole fluviali.&quot;,&quot;subtitle_en&quot;:&quot;A weekend between history, mystery and nature: riding through Italy's top heritage villages, the Sicilian Stonehenge and river canyons.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/IMG-20251008-WA0031-scaled.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/IMG-20251008-WA0031-scaled.jpg&quot;,&quot;assets\/img\/gallery\/IMG-20251008-WA0036.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-106.jpg&quot;],&quot;price&quot;:240,&quot;price_note&quot;:&quot;a persona (2 giorni \/ 1 notte in B&amp;B \/ agriturismo + e-bike + guida)&quot;,&quot;price_note_en&quot;:&quot;per person (2 days \/ 1 night in agriturismo + e-bike + guide)&quot;,&quot;duration&quot;:&quot;2 Giorni \/ 1 Notte&quot;,&quot;duration_en&quot;:&quot;2 Days \/ 1 Night&quot;,&quot;days&quot;:2,&quot;distance&quot;:&quot;120 km&quot;,&quot;elevation&quot;:&quot;+2.100 m&quot;,&quot;difficulty&quot;:&quot;Medio&quot;,&quot;difficulty_en&quot;:&quot;Moderate&quot;,&quot;start_location&quot;:&quot;Randazzo&quot;,&quot;season&quot;:&quot;Marzo - Novembre&quot;,&quot;season_en&quot;:&quot;March - November&quot;,&quot;highlights&quot;:[&quot;Visita ai misteriosi Megaliti dell'Argimusco, luogo sacro millenario&quot;,&quot;Sosta nel borgo medievale di Montalbano Elicona con castello federiciano&quot;,&quot;Pedalata lungo il corso del fiume Alcantara e le sue gole basaltiche&quot;,&quot;Pernottamento in agriturismo tipico con cena a base di specialit\u00e0 locali&quot;],&quot;highlights_en&quot;:[&quot;Visit the mystical Argimusco Megaliths, an ancient sacred stone site&quot;,&quot;Explore medieval Montalbano Elicona with its Swabian-Aragonese castle&quot;,&quot;Cycle along the Alcantara river and its deep basalt canyon&quot;,&quot;Overnight in an authentic agriturismo with traditional dinner&quot;],&quot;included&quot;:[&quot;2 giorni di noleggio E-Bike con batteria ad alta capacit\u00e0&quot;,&quot;1 notte con colazione in agriturismo\/struttura caratteristica&quot;,&quot;Guida cicloturistica per entrambi i giorni&quot;,&quot;Furgone di supporto e trasporto bagagli&quot;,&quot;Cena tipica del sabato sera con vino incluso&quot;,&quot;Assicurazione medico\/bagaglio&quot;],&quot;included_en&quot;:[&quot;2 days E-Bike rental with high-capacity battery&quot;,&quot;1 night accommodation with breakfast in charming agriturismo&quot;,&quot;Full-time cycling guide for both days&quot;,&quot;Support van and luggage transfer&quot;,&quot;Traditional Saturday dinner with wine included&quot;,&quot;Travel &amp; injury insurance&quot;],&quot;excluded&quot;:[&quot;Pranzi veloci lungo il percorso&quot;,&quot;Spese personali&quot;],&quot;excluded_en&quot;:[&quot;Light lunches on the route&quot;,&quot;Personal extras&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-18&quot;,&quot;2026-05-09&quot;,&quot;2026-05-30&quot;,&quot;2026-06-20&quot;,&quot;2026-09-12&quot;,&quot;2026-10-03&quot;,&quot;2026-10-24&quot;]})" x-transition>
+                    <div class="tour-card" data-category="tour" data-area="nebrodi">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/gallery/IMG-20251008-WA0031-scaled.jpg" alt="Weekend in Sicilia: Randazzo, Megaliti dell'Argimusco &amp; Alcantara" loading="lazy">
+        </a>
+        
+        <div class="tour-card-badges">
+            <span class="badge badge-dark">
+                <i class="fa-solid fa-clock"></i> 2 Giorni / 1 Notte            </span>
+                            <span class="badge badge-accent">
+                    <i class="fa-solid fa-star"></i> Top Choice
+                </span>
+                    </div>
+
+        <div class="tour-card-price-tag">
+            A partire da <span>€240</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-area">
+            <i class="fa-solid fa-location-dot"></i> Nebrodi &amp; Alcantara        </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Weekend in Sicilia: Randazzo, Megaliti dell'Argimusco &amp; Alcantara            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            Un weekend tra storia, natura e mistero: pedalando tra i borghi più belli d'Italia, la Stonehenge siciliana e le gole fluviali.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">120 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+2.100 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
+                Dettagli & Itinerario            </a>
+            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:8,&quot;slug&quot;:&quot;tour-2-giorni-nebrodi-montalbano-elicona-alcantara&quot;,&quot;title&quot;:&quot;Weekend in Sicilia: Randazzo, Megaliti dell'Argimusco &amp; Alcantara&quot;,&quot;price&quot;:240,&quot;duration&quot;:&quot;2 Giorni \/ 1 Notte&quot;})">
+                Prenota / Disponibilità            </button>
+        </div>
+    </div>
+</div>
+                </div>
+                            <div x-show="match({&quot;id&quot;:9,&quot;slug&quot;:&quot;tour-ebike-etna-sicilia-3-giorni&quot;,&quot;type&quot;:&quot;tour&quot;,&quot;category&quot;:&quot;Tour Itineranti &amp; Weekend&quot;,&quot;category_en&quot;:&quot;Multi-Day Tours &amp; Weekends&quot;,&quot;area&quot;:&quot;Etna &amp; Borghi&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:true,&quot;title&quot;:&quot;Tour 3 Giorni: Bike &amp; Taste tra Etna, Randazzo &amp; Bronte&quot;,&quot;title_en&quot;:&quot;3-Day Tour: Bike &amp; Taste around Etna, Randazzo &amp; Bronte&quot;,&quot;subtitle&quot;:&quot;La circumnavigazione dell'Etna in 3 tappe indimenticabili: sapori di cantina, boschi vulcanici e le colate pi\u00f9 scenografiche.&quot;,&quot;subtitle_en&quot;:&quot;Circumnavigate Mount Etna in 3 stunning stages: winery tastings, volcanic woods and the most scenic lava flows.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/Etna-home-page.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/Etna-home-page.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-113.jpg&quot;,&quot;assets\/img\/gallery\/PXL_20250704_081536971.MP_-scaled.jpg&quot;],&quot;price&quot;:390,&quot;price_note&quot;:&quot;a persona (3 giorni \/ 2 notti in mezza pensione + e-bike + guida)&quot;,&quot;price_note_en&quot;:&quot;per person (3 days \/ 2 nights half board + e-bike + guide)&quot;,&quot;duration&quot;:&quot;3 Giorni \/ 2 Notti&quot;,&quot;duration_en&quot;:&quot;3 Days \/ 2 Nights&quot;,&quot;days&quot;:3,&quot;distance&quot;:&quot;160 km&quot;,&quot;elevation&quot;:&quot;+3.200 m&quot;,&quot;difficulty&quot;:&quot;Medio&quot;,&quot;difficulty_en&quot;:&quot;Moderate&quot;,&quot;start_location&quot;:&quot;Randazzo (Anello Completo)&quot;,&quot;season&quot;:&quot;Marzo - Novembre&quot;,&quot;season_en&quot;:&quot;March - November&quot;,&quot;highlights&quot;:[&quot;Tappa 1: Versante Nord, la Pineta Ragabo e la Grotta dei Lamponi&quot;,&quot;Tappa 2: Versante Est, Milo e le celebri cantine dell'Etna DOC&quot;,&quot;Tappa 3: Versante Ovest, le lave cordate e i pistacchieti di Bronte&quot;,&quot;Pernottamenti in relais di charme e cene gourmet tipiche&quot;],&quot;highlights_en&quot;:[&quot;Stage 1: North slope, Ragabo pine forest and Raspberry Cave&quot;,&quot;Stage 2: East slope, Milo village and renowned Etna DOC wine estates&quot;,&quot;Stage 3: West slope, ropey lava fields and Bronte pistachio groves&quot;,&quot;Overnights in charming countryside relais with authentic gourmet dinners&quot;],&quot;included&quot;:[&quot;3 giorni di noleggio E-MTB biammortizzata&quot;,&quot;2 notti in camera doppia con colazione in relais\/agriturismi&quot;,&quot;2 cene tipiche gourmet con vini del vulcano&quot;,&quot;Guida cicloturistica certificata per tutte le tappe&quot;,&quot;Van di appoggio al seguito e trasporto valigie&quot;,&quot;Assicurazione completa&quot;],&quot;included_en&quot;:[&quot;3 days full-suspension E-MTB rental&quot;,&quot;2 nights in double room with breakfast in charming country relais&quot;,&quot;2 typical gourmet dinners with Etna volcano wines&quot;,&quot;Certified cycling guide for all stages&quot;,&quot;Support van with luggage transport between stages&quot;,&quot;Comprehensive insurance&quot;],&quot;excluded&quot;:[&quot;Pranzi leggeri a mezzogiorno&quot;,&quot;Supplemento singola&quot;],&quot;excluded_en&quot;:[&quot;Light midday lunches&quot;,&quot;Single room supplement&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-24&quot;,&quot;2026-05-15&quot;,&quot;2026-06-05&quot;,&quot;2026-06-26&quot;,&quot;2026-09-18&quot;,&quot;2026-10-09&quot;,&quot;2026-10-30&quot;]})" x-transition>
+                    <div class="tour-card" data-category="tour" data-area="etna">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/gallery/Etna-home-page.jpg" alt="Tour 3 Giorni: Bike &amp; Taste tra Etna, Randazzo &amp; Bronte" loading="lazy">
+        </a>
+        
+        <div class="tour-card-badges">
+            <span class="badge badge-dark">
+                <i class="fa-solid fa-clock"></i> 3 Giorni / 2 Notti            </span>
+                            <span class="badge badge-accent">
+                    <i class="fa-solid fa-star"></i> Top Choice
+                </span>
+                    </div>
+
+        <div class="tour-card-price-tag">
+            A partire da <span>€390</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-area">
+            <i class="fa-solid fa-location-dot"></i> Etna &amp; Borghi        </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Tour 3 Giorni: Bike &amp; Taste tra Etna, Randazzo &amp; Bronte            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            La circumnavigazione dell'Etna in 3 tappe indimenticabili: sapori di cantina, boschi vulcanici e le colate più scenografiche.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">160 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+3.200 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
+                Dettagli & Itinerario            </a>
+            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:9,&quot;slug&quot;:&quot;tour-ebike-etna-sicilia-3-giorni&quot;,&quot;title&quot;:&quot;Tour 3 Giorni: Bike &amp; Taste tra Etna, Randazzo &amp; Bronte&quot;,&quot;price&quot;:390,&quot;duration&quot;:&quot;3 Giorni \/ 2 Notti&quot;})">
+                Prenota / Disponibilità            </button>
+        </div>
+    </div>
+</div>
+                </div>
+                            <div x-show="match({&quot;id&quot;:10,&quot;slug&quot;:&quot;tour-ebike-etna-nebrodi-sicilia-4giorni&quot;,&quot;type&quot;:&quot;tour&quot;,&quot;category&quot;:&quot;Tour Itineranti &amp; Weekend&quot;,&quot;category_en&quot;:&quot;Multi-Day Tours &amp; Weekends&quot;,&quot;area&quot;:&quot;Nebrodi &amp; Etna&quot;,&quot;area_tag&quot;:&quot;nebrodi&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Grand Tour 4 Giorni: Cicloturismo tra Parco dei Nebrodi ed Etna&quot;,&quot;title_en&quot;:&quot;4-Day Grand Tour: Cycling between Nebrodi Park &amp; Mount Etna&quot;,&quot;subtitle&quot;:&quot;Una grande traversata tra la Sicilia pi\u00f9 verde e selvaggia e le imponenti quote vulcaniche dell'Etna.&quot;,&quot;subtitle_en&quot;:&quot;A grand mountain traverse between wild green Sicily and the majestic volcano elevations of Etna.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/IMG-20251008-WA0024.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/IMG-20251008-WA0024.jpg&quot;,&quot;assets\/img\/gallery\/IMG-20251008-WA0029-scaled.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-106.jpg&quot;],&quot;price&quot;:520,&quot;price_note&quot;:&quot;a persona (4 giorni \/ 3 notti mezza pensione + e-bike + van)&quot;,&quot;price_note_en&quot;:&quot;per person (4 days \/ 3 nights half board + e-bike + van)&quot;,&quot;duration&quot;:&quot;4 Giorni \/ 3 Notti&quot;,&quot;duration_en&quot;:&quot;4 Days \/ 3 Nights&quot;,&quot;days&quot;:4,&quot;distance&quot;:&quot;210 km&quot;,&quot;elevation&quot;:&quot;+4.100 m&quot;,&quot;difficulty&quot;:&quot;Medio \/ Impegnativo&quot;,&quot;difficulty_en&quot;:&quot;Moderate \/ Challenging&quot;,&quot;start_location&quot;:&quot;Cesar\u00f2 -&gt; Floresta -&gt; Randazzo -&gt; Etna&quot;,&quot;season&quot;:&quot;Maggio - Ottobre&quot;,&quot;season_en&quot;:&quot;May - October&quot;,&quot;highlights&quot;:[&quot;Attraversamento dell'intera Dorsale dei Nebrodi con i suoi laghi&quot;,&quot;Sosta nei borghi autentici di Cesar\u00f2, Floresta e Randazzo&quot;,&quot;Salita sulle piste d'alta quota dell'Etna fino a 2.000 metri&quot;,&quot;Esperienze gastronomiche uniche: Provola DOP, Maialino Nero e Vini DOC&quot;],&quot;highlights_en&quot;:[&quot;Traversing the entire high Nebrodi ridge with its alpine lakes&quot;,&quot;Overnights in untouched mountain hamlets: Cesar\u00f2, Floresta, Randazzo&quot;,&quot;High altitude Etna climb up to 2,000 meters above sea level&quot;,&quot;Signature gourmet experiences: Nebrodi Black Pig, PDO cheeses, DOC wines&quot;],&quot;included&quot;:[&quot;4 giorni noleggio E-Bike Full Suspension&quot;,&quot;3 notti con colazione e 3 cene tipiche&quot;,&quot;Guida ciclistica esperta per l'intero tour&quot;,&quot;Mezzo di supporto al seguito, trasporto bagagli e ricariche batterie&quot;,&quot;Assicurazione infortuni e assistenza&quot;],&quot;included_en&quot;:[&quot;4 days Full-Suspension E-Bike rental&quot;,&quot;3 nights with breakfast and 3 traditional dinners&quot;,&quot;Expert cycling guide for the whole expedition&quot;,&quot;Support vehicle, luggage transfer and battery recharge logistics&quot;,&quot;Full insurance&quot;],&quot;excluded&quot;:[&quot;Pranzi a buffet lungo i sentieri&quot;,&quot;Voli \/ treni per la Sicilia&quot;],&quot;excluded_en&quot;:[&quot;Light lunch snacks along trails&quot;,&quot;Flights \/ trains to Sicily&quot;],&quot;schedule_dates&quot;:[&quot;2026-05-21&quot;,&quot;2026-06-11&quot;,&quot;2026-07-02&quot;,&quot;2026-09-03&quot;,&quot;2026-09-24&quot;,&quot;2026-10-15&quot;]})" x-transition>
+                    <div class="tour-card" data-category="tour" data-area="nebrodi">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/gallery/IMG-20251008-WA0024.jpg" alt="Grand Tour 4 Giorni: Cicloturismo tra Parco dei Nebrodi ed Etna" loading="lazy">
+        </a>
+        
+        <div class="tour-card-badges">
+            <span class="badge badge-dark">
+                <i class="fa-solid fa-clock"></i> 4 Giorni / 3 Notti            </span>
+                    </div>
+
+        <div class="tour-card-price-tag">
+            A partire da <span>€520</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-area">
+            <i class="fa-solid fa-location-dot"></i> Nebrodi &amp; Etna        </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Grand Tour 4 Giorni: Cicloturismo tra Parco dei Nebrodi ed Etna            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            Una grande traversata tra la Sicilia più verde e selvaggia e le imponenti quote vulcaniche dell'Etna.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">210 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+4.100 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio / Impegnativo</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
+                Dettagli & Itinerario            </a>
+            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:10,&quot;slug&quot;:&quot;tour-ebike-etna-nebrodi-sicilia-4giorni&quot;,&quot;title&quot;:&quot;Grand Tour 4 Giorni: Cicloturismo tra Parco dei Nebrodi ed Etna&quot;,&quot;price&quot;:520,&quot;duration&quot;:&quot;4 Giorni \/ 3 Notti&quot;})">
+                Prenota / Disponibilità            </button>
+        </div>
+    </div>
+</div>
+                </div>
+                            <div x-show="match({&quot;id&quot;:11,&quot;slug&quot;:&quot;tour-isole-eolie-bici-barca-5giorni&quot;,&quot;type&quot;:&quot;tour&quot;,&quot;category&quot;:&quot;Tour Itineranti &amp; Weekend&quot;,&quot;category_en&quot;:&quot;Multi-Day Tours &amp; Weekends&quot;,&quot;area&quot;:&quot;Isole Eolie&quot;,&quot;area_tag&quot;:&quot;isole&quot;,&quot;featured&quot;:true,&quot;title&quot;:&quot;Cicloturismo alle Isole Eolie: Bici &amp; Barca tra Mare e Vulcani&quot;,&quot;title_en&quot;:&quot;Aeolian Islands Bike &amp; Boat: Cycling between Sea &amp; Volcanoes&quot;,&quot;subtitle&quot;:&quot;Una vacanza da sogno a pedali navigando tra Lipari, Vulcano, Salina e Stromboli con e-bike e barca privata.&quot;,&quot;subtitle_en&quot;:&quot;A dream cycling &amp; sailing holiday hopping between Lipari, Vulcano, Salina and Stromboli on private boat.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/Immagine-WhatsApp-2025-04-06-ore-09.21.16_3d0a628f.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/Immagine-WhatsApp-2025-04-06-ore-09.21.16_3d0a628f.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-106.jpg&quot;],&quot;price&quot;:790,&quot;price_note&quot;:&quot;a persona (5 giorni \/ 4 notti + barca + e-bike + guida + hotel)&quot;,&quot;price_note_en&quot;:&quot;per person (5 days \/ 4 nights + boat + e-bike + guide + hotels)&quot;,&quot;duration&quot;:&quot;5 Giorni \/ 4 Notti&quot;,&quot;duration_en&quot;:&quot;5 Days \/ 4 Nights&quot;,&quot;days&quot;:5,&quot;distance&quot;:&quot;220 km&quot;,&quot;elevation&quot;:&quot;+3.500 m&quot;,&quot;difficulty&quot;:&quot;Medio&quot;,&quot;difficulty_en&quot;:&quot;Moderate&quot;,&quot;start_location&quot;:&quot;Milazzo \/ Lipari&quot;,&quot;season&quot;:&quot;Aprile - Maggio &amp; Settembre - Ottobre&quot;,&quot;season_en&quot;:&quot;April - May &amp; September - October&quot;,&quot;highlights&quot;:[&quot;Lipari: il periplo dell'isola tra scogliere bianche di pomice e tramonti&quot;,&quot;Vulcano: salita al Gran Cratere della Fossa e bagni nelle acque termali&quot;,&quot;Salina: la verde isola del film \&quot;Il Postino\&quot;, la Malvasia e i capperi&quot;,&quot;Navigazione privata in caicco\/barca con tuffi nelle calette pi\u00f9 segrete&quot;],&quot;highlights_en&quot;:[&quot;Lipari: island circumference ride past white pumice cliffs and sunset lookouts&quot;,&quot;Vulcano: hiking\/riding to the Gran Cratere and relaxing in geothermal hot springs&quot;,&quot;Salina: the lush island of \&quot;Il Postino\&quot; movie, sweet Malvasia wine and capers&quot;,&quot;Private boat cruising with refreshing swims in secluded turquoise coves&quot;],&quot;included&quot;:[&quot;5 giorni noleggio E-Bike&quot;,&quot;4 notti in hotel 3*\/4* con colazione sulle isole&quot;,&quot;Tutti i trasferimenti marittimi in barca \/ aliscafo con trasporto bici&quot;,&quot;Guida esperta per tutto il viaggio&quot;,&quot;Degustazione Malvasia e prodotti tipici a Salina&quot;,&quot;Assistenza e assicurazione&quot;],&quot;included_en&quot;:[&quot;5 days E-Bike rental&quot;,&quot;4 nights in 3*\/4* hotels with breakfast on the islands&quot;,&quot;All boat \/ ferry island transfers with bike transport&quot;,&quot;Full-time expert local guide&quot;,&quot;Malvasia wine and local specialty tasting in Salina&quot;,&quot;Assistance and insurance&quot;],&quot;excluded&quot;:[&quot;Cene libere nei tipici ristorantini isolani&quot;,&quot;Tassa di soggiorno comunale&quot;],&quot;excluded_en&quot;:[&quot;Dinners at typical island seaside restaurants&quot;,&quot;City tourist tax&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-29&quot;,&quot;2026-05-20&quot;,&quot;2026-06-10&quot;,&quot;2026-09-09&quot;,&quot;2026-09-30&quot;,&quot;2026-10-14&quot;]})" x-transition>
+                    <div class="tour-card" data-category="tour" data-area="isole">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/gallery/Immagine-WhatsApp-2025-04-06-ore-09.21.16_3d0a628f.jpg" alt="Cicloturismo alle Isole Eolie: Bici &amp; Barca tra Mare e Vulcani" loading="lazy">
+        </a>
+        
+        <div class="tour-card-badges">
+            <span class="badge badge-dark">
+                <i class="fa-solid fa-clock"></i> 5 Giorni / 4 Notti            </span>
+                            <span class="badge badge-accent">
+                    <i class="fa-solid fa-star"></i> Top Choice
+                </span>
+                    </div>
+
+        <div class="tour-card-price-tag">
+            A partire da <span>€790</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-area">
+            <i class="fa-solid fa-location-dot"></i> Isole Eolie        </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Cicloturismo alle Isole Eolie: Bici &amp; Barca tra Mare e Vulcani            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            Una vacanza da sogno a pedali navigando tra Lipari, Vulcano, Salina e Stromboli con e-bike e barca privata.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">220 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+3.500 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
+                Dettagli & Itinerario            </a>
+            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:11,&quot;slug&quot;:&quot;tour-isole-eolie-bici-barca-5giorni&quot;,&quot;title&quot;:&quot;Cicloturismo alle Isole Eolie: Bici &amp; Barca tra Mare e Vulcani&quot;,&quot;price&quot;:790,&quot;duration&quot;:&quot;5 Giorni \/ 4 Notti&quot;})">
+                Prenota / Disponibilità            </button>
+        </div>
+    </div>
+</div>
+                </div>
+                            <div x-show="match({&quot;id&quot;:12,&quot;slug&quot;:&quot;sicilia-ebike-citta-barocche-spiagge-val-di-noto&quot;,&quot;type&quot;:&quot;tour&quot;,&quot;category&quot;:&quot;Tour Itineranti &amp; Weekend&quot;,&quot;category_en&quot;:&quot;Multi-Day Tours &amp; Weekends&quot;,&quot;area&quot;:&quot;Val di Noto &amp; Sud Est&quot;,&quot;area_tag&quot;:&quot;barocco&quot;,&quot;featured&quot;:true,&quot;title&quot;:&quot;Barocco Siciliano &amp; Costa: 7 Giorni di Bellezza nella Val di Noto&quot;,&quot;title_en&quot;:&quot;Sicilian Baroque &amp; Coastline: 7 Days in Val di Noto&quot;,&quot;subtitle&quot;:&quot;Un viaggio da favola tra le meraviglie UNESCO di Noto, Modica, Scicli, Ragusa Ibla e la riserva marina di Vendicari.&quot;,&quot;subtitle_en&quot;:&quot;A fairytale ride through the UNESCO Baroque marvels of Noto, Modica, Scicli, Ragusa Ibla and Vendicari reserve.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-106.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-106.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-113.jpg&quot;,&quot;assets\/img\/gallery\/PXL_20250704_081536971.MP_-scaled.jpg&quot;],&quot;price&quot;:890,&quot;price_note&quot;:&quot;a persona (7 giorni \/ 6 notti in dimore storiche + e-bike + guida + van)&quot;,&quot;price_note_en&quot;:&quot;per person (7 days \/ 6 nights in historic stays + e-bike + guide + van)&quot;,&quot;duration&quot;:&quot;7 Giorni \/ 6 Notti&quot;,&quot;duration_en&quot;:&quot;7 Days \/ 6 Nights&quot;,&quot;days&quot;:7,&quot;distance&quot;:&quot;280 km&quot;,&quot;elevation&quot;:&quot;+2.500 m&quot;,&quot;difficulty&quot;:&quot;Medio \/ Facile&quot;,&quot;difficulty_en&quot;:&quot;Moderate \/ Easy&quot;,&quot;start_location&quot;:&quot;Siracusa \/ Noto&quot;,&quot;season&quot;:&quot;Marzo - Giugno &amp; Settembre - Novembre&quot;,&quot;season_en&quot;:&quot;March - June &amp; September - November&quot;,&quot;highlights&quot;:[&quot;I gioielli barocchi Patrimonio UNESCO: Noto, Scicli, Modica e Ragusa Ibla&quot;,&quot;Degustazione del celebre Cioccolato artigianale di Modica lavorato a freddo&quot;,&quot;Pedalata tra i fenicotteri della Riserva di Vendicari e l'antica tonnara&quot;,&quot;Sosta marinara nel suggestivo borgo di pescatori di Marzamemi&quot;],&quot;highlights_en&quot;:[&quot;UNESCO Baroque masterpieces: Noto, Scicli, Modica and Ragusa Ibla&quot;,&quot;Tasting of the world-famous cold-pressed Aztec chocolate in Modica&quot;,&quot;Coastal ride among flamingos in Vendicari Nature Reserve and ancient tuna fishery&quot;,&quot;Seaside stop at the postcard-perfect fishing hamlet of Marzamemi&quot;],&quot;included&quot;:[&quot;7 giorni di noleggio E-Bike touring\/gravel di alta gamma&quot;,&quot;6 notti con colazione in boutique hotel e dimore storiche&quot;,&quot;Guida cicloturistica e culturale al seguito&quot;,&quot;Furgone di assistenza, scopa e trasporto bagagli da hotel a hotel&quot;,&quot;Visite guidate e degustazioni di prodotti tipici (cioccolato, vino, formaggi)&quot;,&quot;Assicurazione completa&quot;],&quot;included_en&quot;:[&quot;7 days premium touring\/gravel E-Bike rental&quot;,&quot;6 nights with breakfast in boutique hotels and historic estates&quot;,&quot;Professional cycling and cultural guide&quot;,&quot;Support van, mechanical assistance and hotel-to-hotel luggage transport&quot;,&quot;Guided visits and signature tastings (Modica chocolate, Nero d'Avola wine)&quot;,&quot;Comprehensive insurance&quot;],&quot;excluded&quot;:[&quot;Pranzi e cene non specificati&quot;,&quot;Voli per Catania\/Comiso&quot;],&quot;excluded_en&quot;:[&quot;Unspecified lunches and dinners&quot;,&quot;Flights to Catania\/Comiso&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-18&quot;,&quot;2026-05-09&quot;,&quot;2026-05-30&quot;,&quot;2026-09-12&quot;,&quot;2026-10-03&quot;,&quot;2026-10-24&quot;]})" x-transition>
+                    <div class="tour-card" data-category="tour" data-area="barocco">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-106.jpg" alt="Barocco Siciliano &amp; Costa: 7 Giorni di Bellezza nella Val di Noto" loading="lazy">
+        </a>
+        
+        <div class="tour-card-badges">
+            <span class="badge badge-dark">
+                <i class="fa-solid fa-clock"></i> 7 Giorni / 6 Notti            </span>
+                            <span class="badge badge-accent">
+                    <i class="fa-solid fa-star"></i> Top Choice
+                </span>
+                    </div>
+
+        <div class="tour-card-price-tag">
+            A partire da <span>€890</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-area">
+            <i class="fa-solid fa-location-dot"></i> Val di Noto &amp; Sud Est        </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Barocco Siciliano &amp; Costa: 7 Giorni di Bellezza nella Val di Noto            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            Un viaggio da favola tra le meraviglie UNESCO di Noto, Modica, Scicli, Ragusa Ibla e la riserva marina di Vendicari.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">280 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+2.500 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio / Facile</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
+                Dettagli & Itinerario            </a>
+            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:12,&quot;slug&quot;:&quot;sicilia-ebike-citta-barocche-spiagge-val-di-noto&quot;,&quot;title&quot;:&quot;Barocco Siciliano &amp; Costa: 7 Giorni di Bellezza nella Val di Noto&quot;,&quot;price&quot;:890,&quot;duration&quot;:&quot;7 Giorni \/ 6 Notti&quot;})">
+                Prenota / Disponibilità            </button>
+        </div>
+    </div>
+</div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+<!-- Main Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Brand & Mission -->
+            <div class="footer-col">
+                <img src="assets/img/logo/logo-light.png" alt="Sicily Bike Tours" style="height: 48px; margin-bottom: 1.2rem;">
+                <p style="font-size: 0.92rem; line-height: 1.6; color: rgba(255, 255, 255, 0.75); margin-bottom: 1.5rem;">
+                    Sicily Bike Tours nasce dalla passione di Mariella e delle nostre guide locali per far conoscere la Sicilia più vera e incontaminata in sella a performanti biciclette elettriche.                </p>
+                <div style="display: flex; gap: 0.75rem;">
+                    <a href="https://www.instagram.com/sicilybiketours" target="_blank" class="btn btn-outline-white btn-icon-round" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/groups/768589132144246" target="_blank" class="btn btn-outline-white btn-icon-round" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/393297568883" target="_blank" class="btn btn-outline-white btn-icon-round" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h5>Navigazione Rapida</h5>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                    <li><a href="escursioni.html">Escursioni Giornaliere</a></li>
+                    <li><a href="tour.html">Tour Itineranti</a></li>
+                    <li><a href="personalizza-tour.html">Tour su Misura</a></li>
+                    <li><a href="contatti.html">Contatti</a></li>
+                </ul>
+            </div>
+
+            <!-- Destinations -->
+            <div class="footer-col">
+                <h5>Destinazioni Principali</h5>
+                <ul class="footer-links">
+                    <li><a href="/escursioni.php?area=etna">Vulcano Etna & Crateri</a></li>
+                    <li><a href="/escursioni.php?area=nebrodi">Parco dei Monti Nebrodi</a></li>
+                    <li><a href="/tour.php?area=nebrodi">Megaliti dell'Argimusco</a></li>
+                    <li><a href="/tour.php?area=isole">Isole Eolie Bici & Barca</a></li>
+                    <li><a href="/tour.php?area=barocco">Val di Noto & Città Barocche</a></li>
+                    <li><a href="/escursioni.php?area=etna">Strada del Vino Etna DOC</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact & Office -->
+            <div class="footer-col">
+                <h5>Recapiti & Sede</h5>
+                <ul class="footer-links" style="color: rgba(255, 255, 255, 0.85); font-size: 0.92rem;">
+                    <li style="display: flex; gap: 0.6rem; align-items: flex-start;">
+                        <i class="fa-solid fa-location-dot" style="color: var(--color-accent); margin-top: 0.25rem;"></i>
+                        <span>Via Bonaventura, 66 - 95036 Randazzo (CT), Sicilia</span>
+                    </li>
+                    <li style="display: flex; gap: 0.6rem; align-items: center;">
+                        <i class="fa-solid fa-phone" style="color: var(--color-accent);"></i>
+                        <a href="tel:+393297568883">+39 329 756 8883</a>
+                    </li>
+                    <li style="display: flex; gap: 0.6rem; align-items: center;">
+                        <i class="fa-solid fa-envelope" style="color: var(--color-accent);"></i>
+                        <a href="mailto:info@sicilybiketours.it">info@sicilybiketours.it</a>
+                    </li>
+                    <li style="display: flex; gap: 0.6rem; align-items: center;">
+                        <i class="fa-brands fa-whatsapp" style="color: var(--color-accent);"></i>
+                        <a href="https://wa.me/393297568883" target="_blank">Chat WhatsApp Diretta</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <div>
+                &copy; 2026 Sicily Bike Tours. Tutti i diritti riservati.            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="https://www.iubenda.com/privacy-policy/22750170" target="_blank">Privacy Policy</a>
+                <a href="https://www.iubenda.com/privacy-policy/22750170/cookie-policy.pdf" target="_blank">Cookie Policy</a>
+                <a href="/admin/">Area Gestione</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Floating WhatsApp Beacon -->
+<a href="https://wa.me/393297568883?text=Ciao+Sicily+Bike+Tours%21+Vorrei+informazioni+sui+vostri+tour+in+e-bike." target="_blank" class="floating-whatsapp" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp" style="font-size: 2rem;"></i>
+</a>
+
+<!-- Booking & Quick Quote Modal -->
+<!-- Booking & Quick Quote Modal (Alpine.js) -->
+<div class="modal-overlay" x-show="bookingModalOpen" style="display: none;" x-transition.opacity @click.self="bookingModalOpen = false" x-data="{
+    date: '2026-10-10',
+    participants: 2,
+    hasRiddenEbike: 'yes',
+    needTransfer: false,
+    needGourmetLunch: false,
+    specialNotes: '',
+    clientName: '',
+    clientEmail: '',
+    clientPhone: '',
+    formSubmitted: false,
+    isSubmitting: false,
+    
+    calcTotal() {
+        if (!this.selectedTour) return 0;
+        let base = Number(this.selectedTour.price) * this.participants;
+        if (this.needTransfer) base += (35 * this.participants);
+        if (this.needGourmetLunch) base += (30 * this.participants);
+        return base;
+    },
+    
+    getWaLink() {
+        if (!this.selectedTour) return 'https://wa.me/393297568883';
+        let msg = `Ciao Sicily Bike Tours! Vorrei richiedere informazioni e disponibilità per: *${this.selectedTour.title}*\n📅 Data: ${this.date}\n👥 Partecipanti: ${this.participants}\nNome: ${this.clientName || 'Un viaggiatore'}\nNote: ${this.specialNotes || 'Nessuna'}`;
+        return `https://wa.me/393297568883?text=` + encodeURIComponent(msg);
+    },
+    
+    submitBooking() {
+        this.isSubmitting = true;
+        setTimeout(() => {
+            this.isSubmitting = false;
+            this.formSubmitted = true;
+        }, 800);
+    }
+}">
+    <div class="modal-dialog" x-show="bookingModalOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
+        <button class="modal-close-btn" @click="bookingModalOpen = false">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <template x-if="!formSubmitted">
+            <div>
+                <div style="margin-bottom: 1.5rem;">
+                    <span class="badge badge-accent" style="margin-bottom: 0.5rem;">
+                        <i class="fa-solid fa-calendar-check"></i> Richiesta Disponibilità & Prenotazione
+                    </span>
+                    <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);" x-text="selectedTour ? selectedTour.title : 'Prenota il tuo Tour in E-Bike'"></h3>
+                    <p style="font-size: 0.92rem; color: var(--color-gray-600);" x-text="selectedTour ? ('Prezzo base: €' + selectedTour.price + ' a persona') : 'Seleziona data e partecipanti per verificare la disponibilità.'"></p>
+                </div>
+
+                <form @submit.prevent="submitBooking">
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label class="form-label">Data Desiderata</label>
+                            <input type="date" class="form-control" x-model="date" min="2026-10-07" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Numero Partecipanti</label>
+                            <input type="number" class="form-control" x-model="participants" min="1" max="30" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label class="form-label">Nome e Cognome *</label>
+                            <input type="text" class="form-control" placeholder="Mario Rossi" x-model="clientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Telefono / WhatsApp *</label>
+                            <input type="tel" class="form-control" placeholder="+39 333 1234567" x-model="clientPhone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-control" placeholder="mario@email.com" x-model="clientEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Hai già guidato una E-Bike?</label>
+                        <div style="display: flex; gap: 1.5rem; margin-top: 0.3rem;">
+                            <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.95rem;">
+                                <input type="radio" name="ebike_exp" value="yes" x-model="hasRiddenEbike"> Sì                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.95rem;">
+                                <input type="radio" name="ebike_exp" value="no" x-model="hasRiddenEbike"> No                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Extra Services -->
+                    <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                        <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-gray-600); display: block; margin-bottom: 0.6rem;">Servizi Aggiuntivi & Extra</span>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
+                                <span><input type="checkbox" x-model="needTransfer"> Transfer A/R dal vostro Hotel / Alloggio</span>
+                                <span style="font-weight: 700; color: var(--color-primary);">+€35/persona</span>
+                            </label>
+                            <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
+                                <span><input type="checkbox" x-model="needGourmetLunch"> Pranzo Gourmet tipico o Degustazione Vini</span>
+                                <span style="font-weight: 700; color: var(--color-primary);">+€30/persona</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Note / Richieste Particolari</label>
+                        <textarea class="form-control" rows="2" placeholder="Altezza partecipanti per le taglie e-bike, intolleranze alimentari, orari preferiti..." x-model="specialNotes"></textarea>
+                    </div>
+
+                    <!-- Live Total Calculation Bar -->
+                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary);">Preventivo Stimato:</span>
+                            <div style="font-size: 1.45rem; font-weight: 800; color: var(--color-primary-dark);">
+                                €<span x-text="calcTotal()"></span>
+                            </div>
+                        </div>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-600);">Pagamento e conferma in loco/accordo</span>
+                    </div>
+
+                    <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                        <button type="submit" class="btn btn-primary" style="flex: 1;" :disabled="isSubmitting">
+                            <i class="fa-solid fa-paper-plane"></i> <span x-text="isSubmitting ? 'Invio in corso...' : 'Invia Richiesta di Prenotazione'"></span>
+                        </button>
+                        <a :href="getWaLink()" target="_blank" class="btn btn-accent">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </template>
+
+        <!-- Success Message -->
+        <template x-if="formSubmitted">
+            <div style="text-align: center; padding: 2.5rem 1rem;">
+                <div style="width: 70px; height: 70px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.5rem auto;">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 0.75rem; color: var(--color-primary-dark);">Richiesta Inviata con Successo!</h3>
+                <p style="font-size: 1.05rem; color: var(--color-gray-600); max-width: 500px; margin: 0 auto 2rem auto;">
+                    Grazie <strong x-text="clientName"></strong>! Abbiamo ricevuto la tua richiesta di disponibilità per il tour <strong><span x-text="selectedTour ? selectedTour.title : ''"></span></strong> in data <strong><span x-text="date"></span></strong>. Ti risponderemo entro pochissime ore.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem;">
+                    <a :href="getWaLink()" target="_blank" class="btn btn-accent">
+                        <i class="fa-brands fa-whatsapp"></i> Conferma Rapida su WhatsApp
+                    </a>
+                    <button class="btn btn-outline-primary" @click="bookingModalOpen = false; formSubmitted = false;">
+                        Chiudi
+                    </button>
+                </div>
+            </div>
+        </template>
+    </div>
+</div>
+
+</body>
+</html>
