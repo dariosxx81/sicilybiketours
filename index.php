@@ -114,8 +114,56 @@ require_once BASE_PATH . '/includes/navbar.php';
     </div>
 </div>
 
+<!-- Welcome & 3 Actions Section (dal sito originale) -->
+<section class="welcome-section">
+    <div class="container">
+        <div class="section-header" style="max-width: 860px; margin: 0 auto 1.5rem auto;">
+            <span class="section-tag"><i class="fa-solid fa-map-location-dot"></i> Sicily Bike Tours</span>
+            <h2 class="section-title"><?= t('welcome_title') ?></h2>
+            <p class="section-subtitle" style="font-size: 1.12rem; color: var(--color-gray-700); line-height: 1.7;">
+                <?= t('welcome_lead') ?>
+            </p>
+        </div>
+
+        <div class="action-cards-grid">
+            <a href="#esperienze" class="action-box-card">
+                <div class="action-box-icon">
+                    <i class="fa-solid fa-bicycle"></i>
+                </div>
+                <h3 class="action-box-title"><?= t('action_find_title') ?></h3>
+                <p class="action-box-sub"><?= t('action_find_sub') ?></p>
+                <span class="action-box-arrow">
+                    <?= CURRENT_LANG === 'en' ? 'Explore Tours' : 'Vedi tutte le escursioni' ?> <i class="fa-solid fa-arrow-right"></i>
+                </span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/contatti.php" class="action-box-card">
+                <div class="action-box-icon">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+                <h3 class="action-box-title"><?= t('action_contact_title') ?></h3>
+                <p class="action-box-sub"><?= t('action_contact_sub') ?></p>
+                <span class="action-box-arrow">
+                    <?= CURRENT_LANG === 'en' ? 'Get in Touch' : 'Scrivici o Chiamaci' ?> <i class="fa-solid fa-arrow-right"></i>
+                </span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/chi-siamo.php" class="action-box-card">
+                <div class="action-box-icon">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                </div>
+                <h3 class="action-box-title"><?= t('action_nature_title') ?></h3>
+                <p class="action-box-sub"><?= t('action_nature_sub') ?></p>
+                <span class="action-box-arrow">
+                    <?= CURRENT_LANG === 'en' ? 'Our Territory' : 'Scopri la Sicilia' ?> <i class="fa-solid fa-arrow-right"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- Tour Catalog Showcase (Alpine.js Interactive Filters) -->
-<section id="esperienze" class="section-spacing" x-data="{
+<section id="esperienze" class="section-spacing" style="background: var(--color-gray-50);" x-data="{
     activeCategory: 'all',
     activeArea: 'all',
     toursList: <?= htmlspecialchars(json_encode($tours)) ?>,
@@ -167,6 +215,134 @@ require_once BASE_PATH . '/includes/navbar.php';
         <div style="text-align: center; margin-top: 3.5rem;">
             <a href="<?= BASE_URL ?>/personalizza-tour.php" class="btn btn-primary btn-lg">
                 <i class="fa-solid fa-sliders"></i> <?= CURRENT_LANG === 'en' ? 'Want a custom itinerary? Build your Tour' : 'Vuoi un itinerario personalizzato? Crea il tuo Tour su Misura' ?>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- E-Bike Educational Section (Che cosa è l'ebike / A chi è rivolto) -->
+<section class="ebike-info-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-bolt"></i> Il Piacere di Pedalare</span>
+            <h2 class="section-title"><?= CURRENT_LANG === 'en' ? 'Why Choose an E-Bike in Sicily?' : 'Perché Scegliere l\'E-Bike in Sicilia?' ?></h2>
+            <p class="section-subtitle"><?= CURRENT_LANG === 'en' ? 'Comfort, freedom and pure fun for riders of every age and fitness level.' : 'Comfort, libertà e divertimento assicurato per ciclisti di ogni età e livello di allenamento.' ?></p>
+        </div>
+
+        <div class="ebike-info-grid">
+            <!-- Box 1: Che cosa è l'ebike -->
+            <div class="ebike-info-card">
+                <div class="ebike-info-media">
+                    <img src="<?= BASE_URL ?>/assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-31.jpg" alt="Che cosa è l'ebike">
+                </div>
+                <div class="ebike-info-body">
+                    <h3><i class="fa-solid fa-circle-question" style="color: var(--color-primary);"></i> <?= t('ebike_what_title') ?></h3>
+                    <p><?= t('ebike_what_desc') ?></p>
+                    <ul class="ebike-highlights-list">
+                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? 'Smooth pedal assist for effortless climbs' : 'Assistenza elettrica fluida per superare qualsiasi dislivello' ?></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? 'Up to 120km battery range on all routes' : 'Autonomia fino a 120 km per esplorare senza pensieri' ?></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? '100% eco-friendly and silent exploration' : '100% sostenibile, silenzioso e a contatto con la natura' ?></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Box 2: A chi è rivolto -->
+            <div class="ebike-info-card">
+                <div class="ebike-info-media">
+                    <img src="<?= BASE_URL ?>/assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-32.jpg" alt="A chi è rivolto l'ebike">
+                </div>
+                <div class="ebike-info-body">
+                    <h3><i class="fa-solid fa-users" style="color: var(--color-primary);"></i> <?= t('ebike_who_title') ?></h3>
+                    <p><strong><?= t('ebike_who_lead') ?></strong> <?= t('ebike_who_desc') ?></p>
+                    <ul class="ebike-highlights-list">
+                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? 'Perfect for beginners, families and passionate cyclists' : 'Perfetto per principianti, famiglie con ragazzi e cicloamatori' ?></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? 'No extreme fitness needed, everyone rides together' : 'Non serve allenamento: azzera le differenze di ritmo nel gruppo' ?></li>
+                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? 'Always accompanied by certified guides & support van' : 'Guide esperte al seguito e furgone d\'appoggio sempre presente' ?></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 10 Category Badges Section (Organizziamo tour per tutti) -->
+<section class="category-badges-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-shapes"></i> Esperienze Su Misura</span>
+            <h2 class="section-title"><?= t('tours_for_all_title') ?></h2>
+            <p class="section-subtitle"><?= t('tours_for_all_desc') ?></p>
+        </div>
+
+        <div class="category-badges-grid">
+            <a href="<?= BASE_URL ?>/escursioni.php" class="category-badge-card">
+                <div class="category-badge-icon">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <span class="category-badge-title"><?= t('badge_beginners') ?></span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/escursioni.php" class="category-badge-card">
+                <div class="category-badge-icon">
+                    <i class="fa-solid fa-mountain"></i>
+                </div>
+                <span class="category-badge-title"><?= t('badge_experts') ?></span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/escursioni.php" class="category-badge-card">
+                <div class="category-badge-icon">
+                    <i class="fa-solid fa-people-roof"></i>
+                </div>
+                <span class="category-badge-title"><?= t('badge_families') ?></span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/personalizza-tour.php" class="category-badge-card">
+                <div class="category-badge-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <span class="category-badge-title"><?= t('badge_groups') ?></span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/tour.php" class="category-badge-card">
+                <div class="category-badge-icon">
+                    <i class="fa-solid fa-calendar-week"></i>
+                </div>
+                <span class="category-badge-title"><?= t('badge_multiday') ?></span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/escursioni.php?area=etna" class="category-badge-card">
+                <div class="category-badge-icon">
+                    <i class="fa-solid fa-volcano"></i>
+                </div>
+                <span class="category-badge-title"><?= t('badge_mountain') ?></span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/escursioni.php?area=nebrodi" class="category-badge-card">
+                <div class="category-badge-icon">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                </div>
+                <span class="category-badge-title"><?= t('badge_hills') ?></span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/escursioni.php?area=nebrodi" class="category-badge-card">
+                <div class="category-badge-icon">
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
+                <span class="category-badge-title"><?= t('badge_villages') ?></span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/escursioni.php?area=etna" class="category-badge-card">
+                <div class="category-badge-icon">
+                    <i class="fa-solid fa-wine-glass"></i>
+                </div>
+                <span class="category-badge-title"><?= t('badge_foodwine') ?></span>
+            </a>
+
+            <a href="<?= BASE_URL ?>/escursioni.php" class="category-badge-card">
+                <div class="category-badge-icon">
+                    <i class="fa-solid fa-sun"></i>
+                </div>
+                <span class="category-badge-title"><?= t('badge_daytrips') ?></span>
             </a>
         </div>
     </div>
