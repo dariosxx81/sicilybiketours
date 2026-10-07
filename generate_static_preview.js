@@ -8,6 +8,8 @@ const pagesToFetch = [
   { url: 'http://127.0.0.1:8000/personalizza-tour.php', dest: 'personalizza-tour.html' },
   { url: 'http://127.0.0.1:8000/chi-siamo.php', dest: 'chi-siamo.html' },
   { url: 'http://127.0.0.1:8000/contatti.php', dest: 'contatti.html' },
+  { url: 'http://127.0.0.1:8000/magazine.php', dest: 'magazine.html' },
+  { url: 'http://127.0.0.1:8000/articolo.php?slug=guida-ebike-etna-percorsi-consigli', dest: 'articolo.html' },
   { url: 'http://127.0.0.1:8000/tour-dettaglio.php?slug=etna-summit-vulcano-avventura', dest: 'tour-dettaglio.html' }
 ];
 
@@ -26,6 +28,8 @@ async function generateStaticSite() {
       html = html.replace(/href=["'](?:\/|\.\/)?personalizza-tour\.php["']/g, 'href="personalizza-tour.html"');
       html = html.replace(/href=["'](?:\/|\.\/)?chi-siamo\.php["']/g, 'href="chi-siamo.html"');
       html = html.replace(/href=["'](?:\/|\.\/)?contatti\.php["']/g, 'href="contatti.html"');
+      html = html.replace(/href=["'](?:\/|\.\/)?magazine\.php["']/g, 'href="magazine.html"');
+      html = html.replace(/href=["'](?:\/|\.\/)?articolo\.php\?slug=([^"']+)["']/g, 'href="articolo.html"');
       html = html.replace(/href=["'](?:\/|\.\/)?tour-dettaglio\.php\?slug=([^"']+)["']/g, 'href="tour-dettaglio.html"');
       html = html.replace(/href=["']\/["']/g, 'href="index.html"');
       html = html.replace(/href=["']\/(#\w+)["']/g, 'href="$1"');

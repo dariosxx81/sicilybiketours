@@ -19,6 +19,7 @@ $currentScript = basename($_SERVER['PHP_SELF']);
                     <li><a href="<?= BASE_URL ?>/escursioni.php" class="nav-link <?= $currentScript === 'escursioni.php' ? 'active' : '' ?>"><?= t('nav_excursions') ?></a></li>
                     <li><a href="<?= BASE_URL ?>/tour.php" class="nav-link <?= $currentScript === 'tour.php' ? 'active' : '' ?>"><?= t('nav_tours') ?></a></li>
                     <li><a href="<?= BASE_URL ?>/personalizza-tour.php" class="nav-link <?= $currentScript === 'personalizza-tour.php' ? 'active' : '' ?>"><?= t('nav_custom') ?></a></li>
+                    <li><a href="<?= BASE_URL ?>/magazine.php" class="nav-link <?= $currentScript === 'magazine.php' ? 'active' : '' ?>"><?= t('nav_magazine') ?></a></li>
                     <li><a href="<?= BASE_URL ?>/#calendario" class="nav-link"><?= t('nav_calendar') ?></a></li>
                     <li><a href="<?= BASE_URL ?>/contatti.php" class="nav-link <?= $currentScript === 'contatti.php' ? 'active' : '' ?>"><?= t('nav_contact') ?></a></li>
                 </ul>
@@ -63,6 +64,7 @@ $currentScript = basename($_SERVER['PHP_SELF']);
         <li><a href="<?= BASE_URL ?>/escursioni.php" class="drawer-link" @click="mobileMenuOpen = false"><?= t('nav_excursions') ?></a></li>
         <li><a href="<?= BASE_URL ?>/tour.php" class="drawer-link" @click="mobileMenuOpen = false"><?= t('nav_tours') ?></a></li>
         <li><a href="<?= BASE_URL ?>/personalizza-tour.php" class="drawer-link" @click="mobileMenuOpen = false"><?= t('nav_custom') ?></a></li>
+        <li><a href="<?= BASE_URL ?>/magazine.php" class="drawer-link" @click="mobileMenuOpen = false"><?= t('nav_magazine') ?></a></li>
         <li><a href="<?= BASE_URL ?>/#calendario" class="drawer-link" @click="mobileMenuOpen = false"><?= t('nav_calendar') ?></a></li>
         <li><a href="<?= BASE_URL ?>/contatti.php" class="drawer-link" @click="mobileMenuOpen = false"><?= t('nav_contact') ?></a></li>
     </ul>

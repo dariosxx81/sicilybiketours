@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <i class="fa-solid fa-arrow-left"></i> Torna al Sito Pubblico
                 </a>
                 <h1 style="font-size: 2rem; color: var(--color-primary-dark);">Pannello di Configurazione</h1>
-                <p style="color: var(--color-gray-600); font-size: 0.95rem;">Modifica recapiti, testi e impostazioni generali senza toccare il codice.</p>
+                <p style="color: var(--color-gray-600); font-size: 0.95rem;">Modifica recapiti, WhatsApp, partner e consulta tour e articoli del magazine.</p>
             </div>
             <img src="<?= BASE_URL ?>/assets/img/logo/logo.png" alt="Logo" style="height: 50px;">
         </div>
@@ -49,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         <?php endif; ?>
 
-        <div style="background: var(--color-white); border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-md); border: 1px solid var(--color-gray-200);">
+        <!-- General Settings Form -->
+        <div style="background: var(--color-white); border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-md); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem;">
             <form method="POST">
                 <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--color-gray-100); padding-bottom: 0.75rem; color: var(--color-primary-dark);">
                     <i class="fa-solid fa-address-card" style="color: var(--color-primary);"></i> Recapiti & WhatsApp
@@ -100,8 +101,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
 
+        <!-- Partners Management Box -->
+        <div style="background: var(--color-white); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-md); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-primary-dark);">
+                <i class="fa-solid fa-handshake" style="color: var(--color-primary);"></i> Partner Configurati in Home Page (<?= count($currentSettings['partners'] ?? []) ?>)
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--color-gray-600); margin-bottom: 1.5rem;">I partner mostrati nella home page del sito per accrescere la fiducia dei clienti.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem;">
+                <?php foreach (($currentSettings['partners'] ?? []) as $p): ?>
+                    <div style="padding: 1rem; background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem;">
+                        <i class="<?= htmlspecialchars($p['icon'] ?? 'fa-solid fa-check') ?>" style="font-size: 1.3rem; color: var(--color-primary);"></i>
+                        <div>
+                            <strong style="display: block; font-size: 0.95rem; color: var(--color-primary-dark);"><?= htmlspecialchars($p['name']) ?></strong>
+                            <span style="font-size: 0.78rem; color: var(--color-gray-500);"><?= htmlspecialchars($p['role_it']) ?></span>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <!-- Magazine Articles Summary Box -->
+        <div style="background: var(--color-white); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-md); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-primary-dark);">
+                <i class="fa-solid fa-newspaper" style="color: var(--color-primary);"></i> Articoli Magazine Pubblicati (<?= count($articles) ?> Articoli)
+            </h3>
+            <p style="font-size: 0.9rem; color: var(--color-gray-600); margin-bottom: 1.5rem;">Articoli ottimizzati per la SEO turistica internazionale (Etna, Nebrodi, Eolie).</p>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <?php foreach ($articles as $art): ?>
+                    <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1rem; background: var(--color-gray-50); border-radius: var(--radius-md); border: 1px solid var(--color-gray-200); flex-wrap: wrap; gap: 0.5rem;">
+                        <div>
+                            <strong style="color: var(--color-primary-dark);"><?= htmlspecialchars($art['title']) ?></strong>
+                            <span style="font-size: 0.8rem; color: var(--color-gray-500); margin-left: 0.5rem;">(<?= htmlspecialchars($art['category']) ?> | <?= htmlspecialchars($art['date']) ?>)</span>
+                        </div>
+                        <a href="<?= BASE_URL ?>/articolo.php?slug=<?= urlencode($art['slug']) ?>" target="_blank" class="btn btn-outline-primary btn-sm">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Leggi
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
         <!-- Tour Quick List Summary -->
-        <div style="margin-top: 3rem; background: var(--color-white); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-md); border: 1px solid var(--color-gray-200);">
+        <div style="background: var(--color-white); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-md); border: 1px solid var(--color-gray-200);">
             <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-primary-dark);">
                 <i class="fa-solid fa-bicycle" style="color: var(--color-primary);"></i> Catalogo Tour Registrati (<?= count($tours) ?> Tour)
             </h3>

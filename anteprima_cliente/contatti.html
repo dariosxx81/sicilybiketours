@@ -38,7 +38,7 @@
       "@context": "https://schema.org",
       "@type": "SportsActivityLocation",
       "name": "Sicily Bike Tours",
-      "image": "/assets/img/gallery/summit.jpg",
+      "image": "assets/img/gallery/summit.jpg",
       "@id": "https://www.sicilybiketours.it",
       "url": "https://www.sicilybiketours.it",
       "telephone": "+39 329 756 8883",
@@ -93,7 +93,7 @@
     <div class="container">
         <div class="navbar-inner">
             <!-- Brand Logo -->
-            <a href="/" class="navbar-brand">
+            <a href="index.html" class="navbar-brand">
                 <img src="assets/img/logo/logo-light.png" x-show="!scrolled" alt="Sicily Bike Tours" class="navbar-brand-logo">
                 <img src="assets/img/logo/logo.png" x-show="scrolled" style="display: none;" alt="Sicily Bike Tours" class="navbar-brand-logo">
             </a>
@@ -101,11 +101,12 @@
             <!-- Desktop Menu -->
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="/" class="nav-link ">Home</a></li>
+                    <li><a href="index.html" class="nav-link ">Home</a></li>
                     <li><a href="chi-siamo.html" class="nav-link ">Chi Siamo</a></li>
                     <li><a href="escursioni.html" class="nav-link ">Escursioni Giornaliere</a></li>
                     <li><a href="tour.html" class="nav-link ">Tour Itineranti</a></li>
                     <li><a href="personalizza-tour.html" class="nav-link ">Tour su Misura</a></li>
+                    <li><a href="magazine.html" class="nav-link ">Magazine & Guide</a></li>
                     <li><a href="#calendario" class="nav-link">Calendario & Date</a></li>
                     <li><a href="contatti.html" class="nav-link active">Contatti</a></li>
                 </ul>
@@ -135,7 +136,7 @@
 <div class="drawer-backdrop" x-show="mobileMenuOpen" x-transition.opacity @click="mobileMenuOpen = false" style="display: none;"></div>
 <div class="mobile-drawer" :class="{ 'open': mobileMenuOpen }" style="display: none;" x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="transform translate-x-full" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform translate-x-full">
     <div class="drawer-header">
-        <a href="/">
+        <a href="index.html">
             <img src="assets/img/logo/logo.png" alt="Sicily Bike Tours" style="height: 38px;">
         </a>
         <button class="modal-close-btn" @click="mobileMenuOpen = false">
@@ -144,11 +145,12 @@
     </div>
 
     <ul class="drawer-nav">
-        <li><a href="/" class="drawer-link" @click="mobileMenuOpen = false">Home</a></li>
+        <li><a href="index.html" class="drawer-link" @click="mobileMenuOpen = false">Home</a></li>
         <li><a href="chi-siamo.html" class="drawer-link" @click="mobileMenuOpen = false">Chi Siamo</a></li>
         <li><a href="escursioni.html" class="drawer-link" @click="mobileMenuOpen = false">Escursioni Giornaliere</a></li>
         <li><a href="tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour Itineranti</a></li>
         <li><a href="personalizza-tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour su Misura</a></li>
+        <li><a href="magazine.html" class="drawer-link" @click="mobileMenuOpen = false">Magazine & Guide</a></li>
         <li><a href="#calendario" class="drawer-link" @click="mobileMenuOpen = false">Calendario & Date</a></li>
         <li><a href="contatti.html" class="drawer-link" @click="mobileMenuOpen = false">Contatti</a></li>
     </ul>
@@ -396,7 +398,7 @@
             <div class="footer-col">
                 <h5>Navigazione Rapida</h5>
                 <ul class="footer-links">
-                    <li><a href="/">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="chi-siamo.html">Chi Siamo</a></li>
                     <li><a href="escursioni.html">Escursioni Giornaliere</a></li>
                     <li><a href="tour.html">Tour Itineranti</a></li>

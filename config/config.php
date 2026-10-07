@@ -40,6 +40,7 @@ define('CURRENT_LANG', $_SESSION['lang'] ?? 'it');
 
 require_once BASE_PATH . '/config/lang.php';
 require_once BASE_PATH . '/data/tours.php';
+require_once BASE_PATH . '/data/articles.php';
 
 function t($key, $default = '') {
     global $translations;

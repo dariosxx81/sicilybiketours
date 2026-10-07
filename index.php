@@ -343,8 +343,75 @@ require_once BASE_PATH . '/includes/navbar.php';
     </div>
 </section>
 
-<!-- Testimonials & Reviews -->
+<!-- Magazine & Stories Section (3 Articoli) -->
 <section class="section-spacing" style="background: var(--color-white);">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-newspaper"></i> <?= t('nav_magazine') ?></span>
+            <h2 class="section-title"><?= t('magazine_title') ?></h2>
+            <p class="section-subtitle"><?= t('magazine_subtitle') ?></p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2.5rem;">
+            <?php foreach (array_slice($articles, 0, 3) as $art): ?>
+                <?php
+                $artTitle = CURRENT_LANG === 'en' ? ($art['title_en'] ?? $art['title']) : $art['title'];
+                $artExcerpt = CURRENT_LANG === 'en' ? ($art['excerpt_en'] ?? $art['excerpt']) : $art['excerpt'];
+                $artCategory = CURRENT_LANG === 'en' ? ($art['category_en'] ?? $art['category']) : $art['category'];
+                $artDate = CURRENT_LANG === 'en' ? ($art['date_en'] ?? $art['date']) : $art['date'];
+                $artLink = BASE_URL . '/articolo.php?slug=' . urlencode($art['slug']);
+                ?>
+                <div class="tour-card" style="display: flex; flex-direction: column;">
+                    <div class="tour-card-media" style="height: 220px;">
+                        <a href="<?= $artLink ?>">
+                            <img src="<?= BASE_URL ?>/<?= htmlspecialchars($art['image']) ?>" alt="<?= htmlspecialchars($artTitle) ?>" loading="lazy">
+                        </a>
+                        <div class="tour-card-badges">
+                            <span class="badge badge-dark">
+                                <i class="fa-solid fa-tag"></i> <?= htmlspecialchars($artCategory) ?>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="tour-card-body" style="flex: 1; display: flex; flex-direction: column;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--color-gray-500); margin-bottom: 0.5rem;">
+                            <span><i class="fa-regular fa-calendar"></i> <?= htmlspecialchars($artDate) ?></span>
+                            <span><i class="fa-regular fa-clock"></i> <?= htmlspecialchars($art['read_time']) ?></span>
+                        </div>
+
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; line-height: 1.35;">
+                            <a href="<?= $artLink ?>" style="color: inherit;">
+                                <?= htmlspecialchars($artTitle) ?>
+                            </a>
+                        </h3>
+
+                        <p style="font-size: 0.92rem; color: var(--color-gray-600); margin-bottom: 1.5rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6;">
+                            <?= htmlspecialchars($artExcerpt) ?>
+                        </p>
+
+                        <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--color-gray-100); padding-top: 1rem;">
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-dark);">
+                                <i class="fa-solid fa-pen-nib" style="color: var(--color-primary);"></i> <?= htmlspecialchars($art['author']) ?>
+                            </span>
+                            <a href="<?= $artLink ?>" class="btn btn-outline-primary btn-sm">
+                                <?= t('magazine_read_more') ?> <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="<?= BASE_URL ?>/magazine.php" class="btn btn-primary">
+                <i class="fa-solid fa-book-open"></i> <?= t('magazine_all') ?>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials & Reviews -->
+<section class="section-spacing" style="background: var(--color-gray-50);">
     <div class="container">
         <div class="section-header">
             <span class="section-tag"><i class="fa-solid fa-heart"></i> Dicono di Noi</span>
@@ -378,6 +445,33 @@ require_once BASE_PATH . '/includes/navbar.php';
     </div>
 </section>
 
+<!-- Partners Section (Configurabile da settings.json) -->
+<?php $partnersList = $settings['partners'] ?? []; ?>
+<?php if (!empty($partnersList)): ?>
+<section class="section-spacing" style="background: var(--color-white); border-top: 1px solid var(--color-gray-200);">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-handshake"></i> Network di Qualità</span>
+            <h2 class="section-title"><?= t('partners_title') ?></h2>
+            <p class="section-subtitle"><?= t('partners_subtitle') ?></p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(<?= count($partnersList) ?>, 1fr); gap: 1.25rem;" class="partners-responsive-grid">
+            <?php foreach ($partnersList as $p): ?>
+                <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
+                        <i class="<?= htmlspecialchars($p['icon'] ?? 'fa-solid fa-check') ?>" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);"><?= htmlspecialchars($p['name']) ?></h4>
+                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;"><?= CURRENT_LANG === 'en' ? ($p['role_en'] ?? $p['role_it']) : $p['role_it'] ?></span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem;"><?= htmlspecialchars($p['badge']) ?></span>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
 <!-- FAQs Section -->
 <section class="section-spacing" style="background: var(--color-gray-50);">
     <div class="container container-narrow">
@@ -406,3 +500,4 @@ require_once BASE_PATH . '/includes/navbar.php';
 </section>
 
 <?php require_once BASE_PATH . '/includes/footer.php'; ?>
+

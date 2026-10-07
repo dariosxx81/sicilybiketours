@@ -1,0 +1,116 @@
+<?php
+/**
+ * SICILY BIKE TOURS - Magazine & Guide Articoli
+ * Archivio configurabile di articoli ed approfondimenti SEO sul cicloturismo in Sicilia.
+ */
+
+$articles = [
+    [
+        'id' => 1,
+        'slug' => 'guida-ebike-etna-percorsi-consigli',
+        'title' => 'Guida Completa all\'E-Bike sull\'Etna: Percorsi, Quote e Consigli Utili',
+        'title_en' => 'Complete Guide to E-Biking on Mount Etna: Trails, Elevations & Tips',
+        'category' => 'Guide Cicloturismo',
+        'category_en' => 'Cycling Guides',
+        'read_time' => '5 min',
+        'date' => '15 Marzo 2026',
+        'date_en' => 'March 15, 2026',
+        'author' => 'Mariella Cutispoto',
+        'author_role' => 'Fondatrice & Guida',
+        'image' => 'assets/img/gallery/summit.jpg',
+        'excerpt' => 'Tutto quello che devi sapere prima di salire sull\'Etna in bicicletta elettrica: dai sentieri sterrati tra le pinete della Ragabo alle quote sommitali e ai tunnel di scorrimento lavico.',
+        'excerpt_en' => 'Everything you need to know before tackling Mount Etna on an electric bike: from gravel pine trails to high altitude summit views and ancient volcanic lava tubes.',
+        'content_it' => '<p>Pedalare sull\'<strong>Etna in e-bike</strong> è una delle esperienze cicloturistiche più emozionanti d\'Europa. Il vulcano attivo più alto del continente offre paesaggi in continua evoluzione, passando in pochi chilometri da lussureggianti vigneti di Nerello Mascalese e boschi di castagni a neri deserti di sabbia vulcanica e colate laviche recenti.</p>
+
+<h3>1. Perché scegliere l\'E-Bike per esplorare l\'Etna?</h3>
+<p>L\'altitudine e le pendenze dell\'Etna possono risultare impegnative con una mountain bike tradizionale. Grazie alla <strong>spinta della pedalata assistita</strong>, anche chi non ha un allenamento da atleta può superare dislivelli di oltre 1.000 metri senza affanno, godendosi a pieno la vista mozzafiato che spazia dal cratere centrale fino al Mar Ionio e alle coste della Calabria.</p>
+
+<h3>2. I percorsi più belli: Versante Nord e Pista Altomontana</h3>
+<p>Il versante Nord (con partenza da Randazzo o Linguaglossa) è rinomato per la secolare <em>Pineta Ragabo</em>, la suggestiva <em>Grotta dei Lamponi</em> (un tunnel di scorrimento lavico lungo oltre 700 metri esplorabile con caschetto e torcia) e la maestosa colata del 2002 a Piano Provenzana.</p>
+
+<h3>3. Equipaggiamento consigliato</h3>
+<ul>
+    <li>Abbigliamento a strati (la temperatura in quota può variare rapidamente)</li>
+    <li>Giacca antivento o gilet termico leggero</li>
+    <li>Scarpe con suola scolpita adatte sia alla pedalata che a brevi camminate su terreno lavico</li>
+    <li>Occhiali da sole protettivi e crema solare</li>
+</ul>
+
+<p>Unisciti a una delle nostre escursioni giornaliere guidate per scoprire l\'Etna con la sicurezza di guide locali certificate e le migliori E-MTB biammortizzate a disposizione.</p>',
+        'content_en' => '<p>E-biking on <strong>Mount Etna</strong> is one of the most exhilarating cycling adventures in Europe. Europe\'s highest active volcano boasts ever-changing landscapes: cycling from lush vineyards and chestnut forests to lunar black lava fields in just a few miles.</p>
+
+<h3>1. Why choose an E-Bike on Etna?</h3>
+<p>The volcano steep inclines and high elevations can challenge regular mountain bikers. With modern pedal-assist motors, riders of all skill levels can easily conquer over 1,000 meters of elevation gain and admire breathtaking panoramas extending from the summit craters down to the Ionian Sea.</p>
+
+<h3>2. The best trails: North Slope & Altomontana Track</h3>
+<p>The North Slope departing from Randazzo offers the ancient Ragabo pine forest, the fascinating Raspberry Lava Cave, and the historic 2002 lava flows near Piano Provenzana.</p>'
+    ],
+    [
+        'id' => 2,
+        'slug' => 'cicloturismo-nebrodi-megaliti-argimusco',
+        'title' => 'Cicloturismo tra i Nebrodi e l\'Argimusco: La Stonehenge Siciliana su Due Ruote',
+        'title_en' => 'Cycling the Nebrodi & Argimusco: The Sicilian Stonehenge on Two Wheels',
+        'category' => 'Itinerari & Natura',
+        'category_en' => 'Trails & Nature',
+        'read_time' => '6 min',
+        'date' => '28 Febbraio 2026',
+        'date_en' => 'February 28, 2026',
+        'author' => 'Team Guide Sicily Bike',
+        'author_role' => 'Guide del Territorio',
+        'image' => 'assets/img/gallery/IMG-20251008-WA0031-scaled.jpg',
+        'excerpt' => 'Un itinerario affascinante tra boschi secolari, borghi medievali come Montalbano Elicona e le misteriose formazioni rocciose dell\'altopiano dell\'Argimusco.',
+        'excerpt_en' => 'A captivating itinerary through ancient beech forests, medieval hill villages like Montalbano Elicona and the mystical rock formations of the Argimusco high plateau.',
+        'content_it' => '<p>Immerso tra il Parco dei Monti Nebrodi e i monti Peloritani si trova uno dei luoghi più magici e misteriosi di tutta la Sicilia: l\'<strong>Altopiano dei Megaliti dell\'Argimusco</strong>, spesso definito la <em>Stonehenge siciliana</em>.</p>
+
+<h3>Pedalare tra storia millenaria e natura incontaminata</h3>
+<p>Questo itinerario in e-bike parte dal borgo medievale di <strong>Randazzo</strong>, attraversa fitti boschi di querce e faggi e sale verso <strong>Montalbano Elicona</strong>, eletto tra i Borghi più Belli d\'Italia per il suo spettacolare castello federiciano.</p>
+
+<h3>L\'energia dei Megaliti</h3>
+<p>Raggiungere l\'Argimusco a 1.200 metri di quota regala una sensazione indescrivibile: giganteschi massi di arenaria quarzosa modellati dal vento e dall\'acqua con forme zoomorfe e antropomorfe (come l\'Aquila, la Dea Orante e il Sacerdote). Dalla cima si ammira una vista a 360° che abbraccia contemporaneamente l\'Etna a sud, le Isole Eolie a nord e la costa tirrenica.</p>
+
+<h3>La sosta gastronomica nei Nebrodi</h3>
+<p>Nessun tour sui Nebrodi è completo senza una sosta presso i casari locali per assaggiare la <strong>Provola dei Nebrodi DOP</strong>, i salumi di Suino Nero e il pane casereccio cotto a legna.</p>',
+        'content_en' => '<p>Nestled between the Nebrodi Mountains and Peloritani ranges lies one of Sicily\'s most mystical destinations: the <strong>Argimusco Megalithic Plateau</strong>, often called the Sicilian Stonehenge.</p>
+
+<h3>Riding between history and pristine wilderness</h3>
+<p>Departing from medieval Randazzo, this route climbs through oak forests to Montalbano Elicona before reaching the monumental quartzite sandstone megaliths that overlook both Mount Etna and the Aeolian archipelago.</p>'
+    ],
+    [
+        'id' => 3,
+        'slug' => 'isole-eolie-bici-e-barca-consigli-avventura',
+        'title' => 'Isole Eolie in Bici e Barca: L\'Avventura Cicloturistica tra Mare e Vulcani',
+        'title_en' => 'Aeolian Islands by Bike & Boat: Cycling between Sea & Volcanoes',
+        'category' => 'Viaggi & Weekend',
+        'category_en' => 'Trips & Weekends',
+        'read_time' => '7 min',
+        'date' => '10 Febbraio 2026',
+        'date_en' => 'February 10, 2026',
+        'author' => 'Mariella Cutispoto',
+        'author_role' => 'Fondatrice & Guida',
+        'image' => 'assets/img/gallery/Immagine-WhatsApp-2025-04-06-ore-09.21.16_3d0a628f.jpg',
+        'excerpt' => 'Come organizzare una vacanza indimenticabile combinando la barca privata e l\'e-bike tra Lipari, Salina e Vulcano: tappe panoramiche, calette segrete e degustazioni di Malvasia.',
+        'excerpt_en' => 'How to plan an unforgettable holiday combining private boat sailing and e-biking across Lipari, Salina and Vulcano: scenic roads, secret coves and sweet Malvasia wine.',
+        'content_it' => '<p>Cosa c\'è di più affascinante che navigare nel blu del Mar Tirreno e scendere a terra con la propria bicicletta elettrica per esplorare isole vulcaniche cariche di profumi mediterranei? Il nostro tour <strong>Bike & Boat alle Isole Eolie</strong> unisce il meglio del cicloturismo e della vita di mare.</p>
+
+<h3>Le tappe imperdibili dell\'arcipelago</h3>
+<ul>
+    <li><strong>Lipari:</strong> Il periplo dell\'isola regala panorami sulle scogliere bianche di pomice, cave di ossidiana e terrazze sul tramonto con vista su Salina e Filicudi.</li>
+    <li><strong>Salina:</strong> L\'isola più verde dell\'arcipelago, resa celebre dal film <em>Il Postino</em> di Massimo Troisi. Pedalare tra i vigneti terrazzati di Malvasia e le coltivazioni di capperi a Pollara è un\'esperienza sensoriale indimenticabile.</li>
+    <li><strong>Vulcano:</strong> Pedalata fino alla zona delle acque termali calde e salita al Gran Cratere della Fossa per ammirare le fumarole di zolfo giallo e la baia di Levante.</li>
+</ul>
+
+<h3>Il valore aggiunto della barca privata</h3>
+<p>Spostarsi in barca privata permette di raggiungere calette inaccessibili via terra, fare tuffi rinfrescanti a fine pedalata e vivere il viaggio con un ritmo rilassato e autentico.</p>',
+        'content_en' => '<p>Combining sailing on turquoise Mediterranean waters with e-biking across volcanic islands is the ultimate Italian cycling holiday. Our <strong>Aeolian Bike & Boat Tour</strong> connects Lipari, Salina and Vulcano with panoramic coastal roads, sunset lookouts and refreshing sea swims.</p>'
+    ]
+];
+
+function get_article_by_slug($slug) {
+    global $articles;
+    foreach ($articles as $a) {
+        if ($a['slug'] === $slug) {
+            return $a;
+        }
+    }
+    return null;
+}

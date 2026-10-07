@@ -1313,6 +1313,22 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================================================
    FOOTER
    ========================================================================== */
+@media (max-width: 992px) {
+  .partners-responsive-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+@media (max-width: 640px) {
+  .partners-responsive-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 420px) {
+  .partners-responsive-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 .site-footer {
   background: var(--color-primary-dark);
   color: rgba(255, 255, 255, 0.85);

@@ -44,5 +44,42 @@
       "desc_it": "Pranzi tipici, cantine DOC sull'Etna e prodotti genuini a km 0.",
       "desc_en": "Typical tastings, Etna DOC wineries and authentic local products."
     }
+  ],
+  "partners": [
+    {
+      "name": "Parco dell'Etna",
+      "role_it": "Ente Parco Naturale",
+      "role_en": "Natural Park Authority",
+      "badge": "Patrimonio UNESCO",
+      "icon": "fa-solid fa-mountain"
+    },
+    {
+      "name": "Parco dei Monti Nebrodi",
+      "role_it": "Riserva Naturale Regionale",
+      "role_en": "Regional Nature Reserve",
+      "badge": "La Sicilia Verde",
+      "icon": "fa-solid fa-tree"
+    },
+    {
+      "name": "Strada del Vino dell'Etna DOC",
+      "role_it": "Consorzio Enogastronomico",
+      "role_en": "Food & Wine Consortium",
+      "badge": "Cantine Selezionate",
+      "icon": "fa-solid fa-wine-glass"
+    },
+    {
+      "name": "FCI - Federazione Ciclistica",
+      "role_it": "Guide Cicloturistiche Certificate",
+      "role_en": "Certified Cycling Guides",
+      "badge": "Sicurezza & Tecnica",
+      "icon": "fa-solid fa-bicycle"
+    },
+    {
+      "name": "Isole Eolie Boat & Bike",
+      "role_it": "Charter & Servizi Marittimi",
+      "role_en": "Maritime Charter & Transfers",
+      "badge": "Tour Barca + E-Bike",
+      "icon": "fa-solid fa-ship"
+    }
   ]
 }

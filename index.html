@@ -106,6 +106,7 @@
                     <li><a href="escursioni.html" class="nav-link ">Escursioni Giornaliere</a></li>
                     <li><a href="tour.html" class="nav-link ">Tour Itineranti</a></li>
                     <li><a href="personalizza-tour.html" class="nav-link ">Tour su Misura</a></li>
+                    <li><a href="magazine.html" class="nav-link ">Magazine & Guide</a></li>
                     <li><a href="#calendario" class="nav-link">Calendario & Date</a></li>
                     <li><a href="contatti.html" class="nav-link ">Contatti</a></li>
                 </ul>
@@ -149,6 +150,7 @@
         <li><a href="escursioni.html" class="drawer-link" @click="mobileMenuOpen = false">Escursioni Giornaliere</a></li>
         <li><a href="tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour Itineranti</a></li>
         <li><a href="personalizza-tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour su Misura</a></li>
+        <li><a href="magazine.html" class="drawer-link" @click="mobileMenuOpen = false">Magazine & Guide</a></li>
         <li><a href="#calendario" class="drawer-link" @click="mobileMenuOpen = false">Calendario & Date</a></li>
         <li><a href="contatti.html" class="drawer-link" @click="mobileMenuOpen = false">Contatti</a></li>
     </ul>
@@ -1538,8 +1540,129 @@
     </div>
 </section>
 
-<!-- Testimonials & Reviews -->
+<!-- Magazine & Stories Section (3 Articoli) -->
 <section class="section-spacing" style="background: var(--color-white);">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-newspaper"></i> Magazine & Guide</span>
+            <h2 class="section-title">Sicily Bike Magazine & Guide</h2>
+            <p class="section-subtitle">Approfondimenti, consigli tecnici e itinerari imperdibili per vivere la Sicilia in bicicletta.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2.5rem;">
+                                            <div class="tour-card" style="display: flex; flex-direction: column;">
+                    <div class="tour-card-media" style="height: 220px;">
+                        <a href="articolo.html">
+                            <img src="assets/img/gallery/summit.jpg" alt="Guida Completa all'E-Bike sull'Etna: Percorsi, Quote e Consigli Utili" loading="lazy">
+                        </a>
+                        <div class="tour-card-badges">
+                            <span class="badge badge-dark">
+                                <i class="fa-solid fa-tag"></i> Guide Cicloturismo                            </span>
+                        </div>
+                    </div>
+
+                    <div class="tour-card-body" style="flex: 1; display: flex; flex-direction: column;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--color-gray-500); margin-bottom: 0.5rem;">
+                            <span><i class="fa-regular fa-calendar"></i> 15 Marzo 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 5 min</span>
+                        </div>
+
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; line-height: 1.35;">
+                            <a href="articolo.html" style="color: inherit;">
+                                Guida Completa all'E-Bike sull'Etna: Percorsi, Quote e Consigli Utili                            </a>
+                        </h3>
+
+                        <p style="font-size: 0.92rem; color: var(--color-gray-600); margin-bottom: 1.5rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6;">
+                            Tutto quello che devi sapere prima di salire sull'Etna in bicicletta elettrica: dai sentieri sterrati tra le pinete della Ragabo alle quote sommitali e ai tunnel di scorrimento lavico.                        </p>
+
+                        <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--color-gray-100); padding-top: 1rem;">
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-dark);">
+                                <i class="fa-solid fa-pen-nib" style="color: var(--color-primary);"></i> Mariella Cutispoto                            </span>
+                            <a href="articolo.html" class="btn btn-outline-primary btn-sm">
+                                Leggi l'Articolo <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                                            <div class="tour-card" style="display: flex; flex-direction: column;">
+                    <div class="tour-card-media" style="height: 220px;">
+                        <a href="articolo.html">
+                            <img src="assets/img/gallery/IMG-20251008-WA0031-scaled.jpg" alt="Cicloturismo tra i Nebrodi e l'Argimusco: La Stonehenge Siciliana su Due Ruote" loading="lazy">
+                        </a>
+                        <div class="tour-card-badges">
+                            <span class="badge badge-dark">
+                                <i class="fa-solid fa-tag"></i> Itinerari &amp; Natura                            </span>
+                        </div>
+                    </div>
+
+                    <div class="tour-card-body" style="flex: 1; display: flex; flex-direction: column;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--color-gray-500); margin-bottom: 0.5rem;">
+                            <span><i class="fa-regular fa-calendar"></i> 28 Febbraio 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 6 min</span>
+                        </div>
+
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; line-height: 1.35;">
+                            <a href="articolo.html" style="color: inherit;">
+                                Cicloturismo tra i Nebrodi e l'Argimusco: La Stonehenge Siciliana su Due Ruote                            </a>
+                        </h3>
+
+                        <p style="font-size: 0.92rem; color: var(--color-gray-600); margin-bottom: 1.5rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6;">
+                            Un itinerario affascinante tra boschi secolari, borghi medievali come Montalbano Elicona e le misteriose formazioni rocciose dell'altopiano dell'Argimusco.                        </p>
+
+                        <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--color-gray-100); padding-top: 1rem;">
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-dark);">
+                                <i class="fa-solid fa-pen-nib" style="color: var(--color-primary);"></i> Team Guide Sicily Bike                            </span>
+                            <a href="articolo.html" class="btn btn-outline-primary btn-sm">
+                                Leggi l'Articolo <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                                            <div class="tour-card" style="display: flex; flex-direction: column;">
+                    <div class="tour-card-media" style="height: 220px;">
+                        <a href="articolo.html">
+                            <img src="assets/img/gallery/Immagine-WhatsApp-2025-04-06-ore-09.21.16_3d0a628f.jpg" alt="Isole Eolie in Bici e Barca: L'Avventura Cicloturistica tra Mare e Vulcani" loading="lazy">
+                        </a>
+                        <div class="tour-card-badges">
+                            <span class="badge badge-dark">
+                                <i class="fa-solid fa-tag"></i> Viaggi &amp; Weekend                            </span>
+                        </div>
+                    </div>
+
+                    <div class="tour-card-body" style="flex: 1; display: flex; flex-direction: column;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--color-gray-500); margin-bottom: 0.5rem;">
+                            <span><i class="fa-regular fa-calendar"></i> 10 Febbraio 2026</span>
+                            <span><i class="fa-regular fa-clock"></i> 7 min</span>
+                        </div>
+
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; line-height: 1.35;">
+                            <a href="articolo.html" style="color: inherit;">
+                                Isole Eolie in Bici e Barca: L'Avventura Cicloturistica tra Mare e Vulcani                            </a>
+                        </h3>
+
+                        <p style="font-size: 0.92rem; color: var(--color-gray-600); margin-bottom: 1.5rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6;">
+                            Come organizzare una vacanza indimenticabile combinando la barca privata e l'e-bike tra Lipari, Salina e Vulcano: tappe panoramiche, calette segrete e degustazioni di Malvasia.                        </p>
+
+                        <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--color-gray-100); padding-top: 1rem;">
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-dark);">
+                                <i class="fa-solid fa-pen-nib" style="color: var(--color-primary);"></i> Mariella Cutispoto                            </span>
+                            <a href="articolo.html" class="btn btn-outline-primary btn-sm">
+                                Leggi l'Articolo <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
+        <div style="text-align: center;">
+            <a href="magazine.html" class="btn btn-primary">
+                <i class="fa-solid fa-book-open"></i> Vedi Tutti gli Articoli            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials & Reviews -->
+<section class="section-spacing" style="background: var(--color-gray-50);">
     <div class="container">
         <div class="section-header">
             <span class="section-tag"><i class="fa-solid fa-heart"></i> Dicono di Noi</span>
@@ -1610,6 +1733,60 @@
                         </div>
                         <span class="badge badge-accent" style="font-size: 0.72rem;">Da Randazzo a Floresta - Parco dei Nebrodi</span>
                     </div>
+                </div>
+                    </div>
+    </div>
+</section>
+
+<!-- Partners Section (Configurabile da settings.json) -->
+<section class="section-spacing" style="background: var(--color-white); border-top: 1px solid var(--color-gray-200);">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-handshake"></i> Network di Qualità</span>
+            <h2 class="section-title">I Nostri Partner & Istituzioni</h2>
+            <p class="section-subtitle">Collaboriamo con enti parco, consorzi vinicoli e realtà certificate per garantire la massima qualità e sicurezza.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem;" class="partners-responsive-grid">
+                            <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
+                        <i class="fa-solid fa-mountain" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);">Parco dell'Etna</h4>
+                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;">Ente Parco Naturale</span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem;">Patrimonio UNESCO</span>
+                </div>
+                            <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
+                        <i class="fa-solid fa-tree" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);">Parco dei Monti Nebrodi</h4>
+                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;">Riserva Naturale Regionale</span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem;">La Sicilia Verde</span>
+                </div>
+                            <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
+                        <i class="fa-solid fa-wine-glass" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);">Strada del Vino dell'Etna DOC</h4>
+                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;">Consorzio Enogastronomico</span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem;">Cantine Selezionate</span>
+                </div>
+                            <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
+                        <i class="fa-solid fa-bicycle" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);">FCI - Federazione Ciclistica</h4>
+                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;">Guide Cicloturistiche Certificate</span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem;">Sicurezza &amp; Tecnica</span>
+                </div>
+                            <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
+                        <i class="fa-solid fa-ship" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);">Isole Eolie Boat &amp; Bike</h4>
+                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;">Charter & Servizi Marittimi</span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem;">Tour Barca + E-Bike</span>
                 </div>
                     </div>
     </div>
@@ -1922,3 +2099,4 @@
 
 </body>
 </html>
+
