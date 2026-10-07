@@ -51,35 +51,35 @@
       "role_it": "Ente Parco Naturale",
       "role_en": "Natural Park Authority",
       "badge": "Patrimonio UNESCO",
-      "icon": "fa-solid fa-mountain"
+      "logo": "assets/img/partners/parco-etna.svg"
     },
     {
       "name": "Parco dei Monti Nebrodi",
       "role_it": "Riserva Naturale Regionale",
       "role_en": "Regional Nature Reserve",
       "badge": "La Sicilia Verde",
-      "icon": "fa-solid fa-tree"
+      "logo": "assets/img/partners/parco-nebrodi.svg"
     },
     {
-      "name": "Strada del Vino dell'Etna DOC",
-      "role_it": "Consorzio Enogastronomico",
-      "role_en": "Food & Wine Consortium",
-      "badge": "Cantine Selezionate",
-      "icon": "fa-solid fa-wine-glass"
-    },
-    {
-      "name": "FCI - Federazione Ciclistica",
-      "role_it": "Guide Cicloturistiche Certificate",
+      "name": "Federazione Ciclistica Italiana",
+      "role_it": "Guide Ufficiali FCI",
       "role_en": "Certified Cycling Guides",
-      "badge": "Sicurezza & Tecnica",
-      "icon": "fa-solid fa-bicycle"
+      "badge": "Sicurezza & Qualità",
+      "logo": "assets/img/partners/federciclismo.svg"
     },
     {
-      "name": "Isole Eolie Boat & Bike",
-      "role_it": "Charter & Servizi Marittimi",
-      "role_en": "Maritime Charter & Transfers",
-      "badge": "Tour Barca + E-Bike",
-      "icon": "fa-solid fa-ship"
+      "name": "Regione Siciliana",
+      "role_it": "Assessorato Turismo",
+      "role_en": "Tourism Board Sicily",
+      "badge": "Promozione Cicloturismo",
+      "logo": "assets/img/partners/regione-sicilia.svg"
+    },
+    {
+      "name": "Bosch eBike Systems",
+      "role_it": "Partner Tecnologico",
+      "role_en": "Technical Partner",
+      "badge": "Motori & Batterie E-MTB",
+      "logo": "assets/img/partners/bosch-ebike.svg"
     }
   ]
 }

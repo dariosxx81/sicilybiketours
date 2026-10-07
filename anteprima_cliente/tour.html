@@ -103,9 +103,19 @@
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link ">Home</a></li>
                     <li><a href="chi-siamo.html" class="nav-link ">Chi Siamo</a></li>
-                    <li><a href="escursioni.html" class="nav-link ">Escursioni Giornaliere</a></li>
-                    <li><a href="tour.html" class="nav-link active">Tour Itineranti</a></li>
-                    <li><a href="personalizza-tour.html" class="nav-link ">Tour su Misura</a></li>
+                    
+                    <!-- Esperienze Dropdown (senza link diretto) -->
+                    <li class="nav-item-dropdown" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle active" @click.prevent="open = !open">
+                            Esperienze <i class="fa-solid fa-chevron-down" style="font-size: 0.72rem; margin-left: 0.35rem;"></i>
+                        </a>
+                        <ul class="dropdown-menu" x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" style="display: none;">
+                            <li><a href="escursioni.html" class="dropdown-item"><i class="fa-solid fa-sun" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Escursioni Giornaliere</a></li>
+                            <li><a href="tour.html" class="dropdown-item"><i class="fa-solid fa-calendar-days" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Tour Itineranti</a></li>
+                            <li><a href="personalizza-tour.html" class="dropdown-item"><i class="fa-solid fa-sliders" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Tour su Misura</a></li>
+                        </ul>
+                    </li>
+
                     <li><a href="magazine.html" class="nav-link ">Magazine & Guide</a></li>
                     <li><a href="#calendario" class="nav-link">Calendario & Date</a></li>
                     <li><a href="contatti.html" class="nav-link ">Contatti</a></li>
@@ -121,7 +131,7 @@
                 </div>
 
                 <a href="personalizza-tour.html" class="btn btn-accent btn-sm btn-book-nav">
-                    <i class="fa-solid fa-bicycle"></i> Prenota un Tour                </a>
+                    <i class="fa-solid fa-calendar-check"></i> Prenota                </a>
 
                 <!-- Mobile Toggle -->
                 <button class="mobile-toggle" @click="mobileMenuOpen = true" aria-label="Menu">
@@ -144,12 +154,23 @@
         </button>
     </div>
 
-    <ul class="drawer-nav">
+    <ul class="drawer-nav" x-data="{ mobileExpOpen: false }">
         <li><a href="index.html" class="drawer-link" @click="mobileMenuOpen = false">Home</a></li>
         <li><a href="chi-siamo.html" class="drawer-link" @click="mobileMenuOpen = false">Chi Siamo</a></li>
-        <li><a href="escursioni.html" class="drawer-link" @click="mobileMenuOpen = false">Escursioni Giornaliere</a></li>
-        <li><a href="tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour Itineranti</a></li>
-        <li><a href="personalizza-tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour su Misura</a></li>
+        
+        <!-- Mobile Esperienze Accordion -->
+        <li>
+            <div style="display: flex; justify-content: space-between; align-items: center;" class="drawer-link" @click="mobileExpOpen = !mobileExpOpen">
+                <span>Esperienze</span>
+                <i class="fa-solid" :class="mobileExpOpen ? 'fa-chevron-up' : 'fa-chevron-down'" style="font-size: 0.8rem;"></i>
+            </div>
+            <div x-show="mobileExpOpen" style="padding-left: 1rem; display: none;">
+                <a href="escursioni.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false"><i class="fa-solid fa-sun" style="color: var(--color-accent); width: 20px;"></i> Escursioni Giornaliere</a>
+                <a href="tour.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false"><i class="fa-solid fa-calendar-days" style="color: var(--color-accent); width: 20px;"></i> Tour Itineranti</a>
+                <a href="personalizza-tour.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false"><i class="fa-solid fa-sliders" style="color: var(--color-accent); width: 20px;"></i> Tour su Misura</a>
+            </div>
+        </li>
+
         <li><a href="magazine.html" class="drawer-link" @click="mobileMenuOpen = false">Magazine & Guide</a></li>
         <li><a href="#calendario" class="drawer-link" @click="mobileMenuOpen = false">Calendario & Date</a></li>
         <li><a href="contatti.html" class="drawer-link" @click="mobileMenuOpen = false">Contatti</a></li>
@@ -160,7 +181,9 @@
             <a href="?lang=it" class="lang-btn active">Italiano</a>
             <a href="?lang=en" class="lang-btn ">English</a>
         </div>
-        <a href="https://wa.me/393297568883" target="_blank" class="btn btn-accent btn-sm" style="width: 100%;">
+        <a href="personalizza-tour.html" class="btn btn-accent btn-sm" style="width: 100%; margin-bottom: 0.75rem;">
+            <i class="fa-solid fa-calendar-check"></i> Prenota        </a>
+        <a href="https://wa.me/393297568883" target="_blank" class="btn btn-outline-white btn-sm" style="width: 100%;">
             <i class="fa-brands fa-whatsapp"></i> WhatsApp Info
         </a>
     </div>
@@ -257,9 +280,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:8,&quot;slug&quot;:&quot;tour-2-giorni-nebrodi-montalbano-elicona-alcantara&quot;,&quot;title&quot;:&quot;Weekend in Sicilia: Randazzo, Megaliti dell'Argimusco &amp; Alcantara&quot;,&quot;price&quot;:240,&quot;duration&quot;:&quot;2 Giorni \/ 1 Notte&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -316,9 +339,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:9,&quot;slug&quot;:&quot;tour-ebike-etna-sicilia-3-giorni&quot;,&quot;title&quot;:&quot;Tour 3 Giorni: Bike &amp; Taste tra Etna, Randazzo &amp; Bronte&quot;,&quot;price&quot;:390,&quot;duration&quot;:&quot;3 Giorni \/ 2 Notti&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -372,9 +395,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:10,&quot;slug&quot;:&quot;tour-ebike-etna-nebrodi-sicilia-4giorni&quot;,&quot;title&quot;:&quot;Grand Tour 4 Giorni: Cicloturismo tra Parco dei Nebrodi ed Etna&quot;,&quot;price&quot;:520,&quot;duration&quot;:&quot;4 Giorni \/ 3 Notti&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -431,9 +454,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:11,&quot;slug&quot;:&quot;tour-isole-eolie-bici-barca-5giorni&quot;,&quot;title&quot;:&quot;Cicloturismo alle Isole Eolie: Bici &amp; Barca tra Mare e Vulcani&quot;,&quot;price&quot;:790,&quot;duration&quot;:&quot;5 Giorni \/ 4 Notti&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -490,9 +513,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:12,&quot;slug&quot;:&quot;sicilia-ebike-citta-barocche-spiagge-val-di-noto&quot;,&quot;title&quot;:&quot;Barocco Siciliano &amp; Costa: 7 Giorni di Bellezza nella Val di Noto&quot;,&quot;price&quot;:890,&quot;duration&quot;:&quot;7 Giorni \/ 6 Notti&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>

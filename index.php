@@ -632,15 +632,23 @@ require_once BASE_PATH . '/includes/navbar.php';
             <p class="section-subtitle"><?= t('partners_subtitle') ?></p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(<?= count($partnersList) ?>, 1fr); gap: 1.25rem;" class="partners-responsive-grid">
+        <div style="display: grid; grid-template-columns: repeat(<?= count($partnersList) ?>, 1fr); gap: 1.5rem;" class="partners-responsive-grid">
             <?php foreach ($partnersList as $p): ?>
-                <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
-                        <i class="<?= htmlspecialchars($p['icon'] ?? 'fa-solid fa-check') ?>" style="font-size: 1.5rem;"></i>
+                <div class="partner-card" style="background: var(--color-white); border: 1px solid var(--color-gray-200); padding: 1.75rem 1.25rem; text-align: center; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: all var(--transition-normal); height: 100%; box-shadow: var(--shadow-sm);">
+                    <div class="partner-logo-container" style="height: 60px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+                        <?php if (!empty($p['logo'])): ?>
+                            <img src="<?= BASE_URL ?>/<?= htmlspecialchars($p['logo']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" style="max-height: 52px; max-width: 150px; width: auto; height: auto; object-fit: contain;">
+                        <?php else: ?>
+                            <div class="feature-icon-box" style="margin: 0 auto; width: 52px; height: 52px;">
+                                <i class="<?= htmlspecialchars($p['icon'] ?? 'fa-solid fa-check') ?>" style="font-size: 1.5rem;"></i>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);"><?= htmlspecialchars($p['name']) ?></h4>
-                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;"><?= CURRENT_LANG === 'en' ? ($p['role_en'] ?? $p['role_it']) : $p['role_it'] ?></span>
-                    <span class="badge badge-accent" style="font-size: 0.72rem;"><?= htmlspecialchars($p['badge']) ?></span>
+                    <div>
+                        <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--color-primary-dark); font-weight: 700;"><?= htmlspecialchars($p['name']) ?></h4>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500); display: block; margin-bottom: 0.75rem;"><?= CURRENT_LANG === 'en' ? ($p['role_en'] ?? $p['role_it']) : $p['role_it'] ?></span>
+                    </div>
+                    <span class="badge badge-accent" style="font-size: 0.72rem; margin-top: auto;"><?= htmlspecialchars($p['badge']) ?></span>
                 </div>
             <?php endforeach; ?>
         </div>

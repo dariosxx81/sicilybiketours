@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="100%" height="100%" fill="none"/>
+  <!-- Trees / Green leaf graphic -->
+  <circle cx="50" cy="42" r="22" fill="#EBF6E0"/>
+  <path d="M50 24 C40 32 40 50 50 60 C60 50 60 32 50 24 Z" fill="#90C95C"/>
+  <path d="M40 38 C32 44 34 56 42 60" stroke="#184449" stroke-width="2" fill="none"/>
+  <path d="M60 38 C68 44 66 56 58 60" stroke="#184449" stroke-width="2" fill="none"/>
+  <!-- Text -->
+  <text x="88" y="38" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="15" fill="#184449">PARCO DEI NEBRODI</text>
+  <text x="88" y="55" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="10" fill="#2E7D32" letter-spacing="1">RISERVA NATURALE</text>
+</svg>

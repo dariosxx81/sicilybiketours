@@ -103,9 +103,19 @@
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link active">Home</a></li>
                     <li><a href="chi-siamo.html" class="nav-link ">Chi Siamo</a></li>
-                    <li><a href="escursioni.html" class="nav-link ">Escursioni Giornaliere</a></li>
-                    <li><a href="tour.html" class="nav-link ">Tour Itineranti</a></li>
-                    <li><a href="personalizza-tour.html" class="nav-link ">Tour su Misura</a></li>
+                    
+                    <!-- Esperienze Dropdown (senza link diretto) -->
+                    <li class="nav-item-dropdown" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle " @click.prevent="open = !open">
+                            Esperienze <i class="fa-solid fa-chevron-down" style="font-size: 0.72rem; margin-left: 0.35rem;"></i>
+                        </a>
+                        <ul class="dropdown-menu" x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" style="display: none;">
+                            <li><a href="escursioni.html" class="dropdown-item"><i class="fa-solid fa-sun" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Escursioni Giornaliere</a></li>
+                            <li><a href="tour.html" class="dropdown-item"><i class="fa-solid fa-calendar-days" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Tour Itineranti</a></li>
+                            <li><a href="personalizza-tour.html" class="dropdown-item"><i class="fa-solid fa-sliders" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Tour su Misura</a></li>
+                        </ul>
+                    </li>
+
                     <li><a href="magazine.html" class="nav-link ">Magazine & Guide</a></li>
                     <li><a href="#calendario" class="nav-link">Calendario & Date</a></li>
                     <li><a href="contatti.html" class="nav-link ">Contatti</a></li>
@@ -121,7 +131,7 @@
                 </div>
 
                 <a href="personalizza-tour.html" class="btn btn-accent btn-sm btn-book-nav">
-                    <i class="fa-solid fa-bicycle"></i> Prenota un Tour                </a>
+                    <i class="fa-solid fa-calendar-check"></i> Prenota                </a>
 
                 <!-- Mobile Toggle -->
                 <button class="mobile-toggle" @click="mobileMenuOpen = true" aria-label="Menu">
@@ -144,12 +154,23 @@
         </button>
     </div>
 
-    <ul class="drawer-nav">
+    <ul class="drawer-nav" x-data="{ mobileExpOpen: false }">
         <li><a href="index.html" class="drawer-link" @click="mobileMenuOpen = false">Home</a></li>
         <li><a href="chi-siamo.html" class="drawer-link" @click="mobileMenuOpen = false">Chi Siamo</a></li>
-        <li><a href="escursioni.html" class="drawer-link" @click="mobileMenuOpen = false">Escursioni Giornaliere</a></li>
-        <li><a href="tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour Itineranti</a></li>
-        <li><a href="personalizza-tour.html" class="drawer-link" @click="mobileMenuOpen = false">Tour su Misura</a></li>
+        
+        <!-- Mobile Esperienze Accordion -->
+        <li>
+            <div style="display: flex; justify-content: space-between; align-items: center;" class="drawer-link" @click="mobileExpOpen = !mobileExpOpen">
+                <span>Esperienze</span>
+                <i class="fa-solid" :class="mobileExpOpen ? 'fa-chevron-up' : 'fa-chevron-down'" style="font-size: 0.8rem;"></i>
+            </div>
+            <div x-show="mobileExpOpen" style="padding-left: 1rem; display: none;">
+                <a href="escursioni.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false"><i class="fa-solid fa-sun" style="color: var(--color-accent); width: 20px;"></i> Escursioni Giornaliere</a>
+                <a href="tour.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false"><i class="fa-solid fa-calendar-days" style="color: var(--color-accent); width: 20px;"></i> Tour Itineranti</a>
+                <a href="personalizza-tour.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false"><i class="fa-solid fa-sliders" style="color: var(--color-accent); width: 20px;"></i> Tour su Misura</a>
+            </div>
+        </li>
+
         <li><a href="magazine.html" class="drawer-link" @click="mobileMenuOpen = false">Magazine & Guide</a></li>
         <li><a href="#calendario" class="drawer-link" @click="mobileMenuOpen = false">Calendario & Date</a></li>
         <li><a href="contatti.html" class="drawer-link" @click="mobileMenuOpen = false">Contatti</a></li>
@@ -160,7 +181,9 @@
             <a href="?lang=it" class="lang-btn active">Italiano</a>
             <a href="?lang=en" class="lang-btn ">English</a>
         </div>
-        <a href="https://wa.me/393297568883" target="_blank" class="btn btn-accent btn-sm" style="width: 100%;">
+        <a href="personalizza-tour.html" class="btn btn-accent btn-sm" style="width: 100%; margin-bottom: 0.75rem;">
+            <i class="fa-solid fa-calendar-check"></i> Prenota        </a>
+        <a href="https://wa.me/393297568883" target="_blank" class="btn btn-outline-white btn-sm" style="width: 100%;">
             <i class="fa-brands fa-whatsapp"></i> WhatsApp Info
         </a>
     </div>
@@ -403,9 +426,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:1,&quot;slug&quot;:&quot;etna-summit-vulcano-avventura&quot;,&quot;title&quot;:&quot;Etna Summit: la scalata del vulcano in E-Bike&quot;,&quot;price&quot;:85,&quot;duration&quot;:&quot;5-6 ore&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -460,9 +483,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:2,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;title&quot;:&quot;Escursione in E-Bike &amp; Pranzo Gourmet&quot;,&quot;price&quot;:95,&quot;duration&quot;:&quot;3-4 ore + pranzo&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -514,9 +537,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:3,&quot;slug&quot;:&quot;escursione-in-bicicletta-etna-grotta-lamponi&quot;,&quot;title&quot;:&quot;Escursione in E-Bike: Etna &amp; Grotta dei Lamponi&quot;,&quot;price&quot;:75,&quot;duration&quot;:&quot;4-6 ore&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -568,9 +591,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:4,&quot;slug&quot;:&quot;escursione-etna-degustazione-vino&quot;,&quot;title&quot;:&quot;Etna in E-Bike: Avventura e Degustazione di Vino&quot;,&quot;price&quot;:90,&quot;duration&quot;:&quot;4-5 ore&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -622,9 +645,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:5,&quot;slug&quot;:&quot;escursione-in-bici-randazzo-bronte&quot;,&quot;title&quot;:&quot;Da Randazzo a Bronte: Sapori dell'Etna e Castello di Nelson&quot;,&quot;price&quot;:80,&quot;duration&quot;:&quot;4-6 ore&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -676,9 +699,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:6,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta&quot;,&quot;title&quot;:&quot;Da Randazzo a Floresta: Vivi la Sicilia pi\u00f9 Verde&quot;,&quot;price&quot;:75,&quot;duration&quot;:&quot;4-6 ore&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -730,9 +753,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:7,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-dorsale&quot;,&quot;title&quot;:&quot;Escursione in E-Bike: Dorsale dei Nebrodi &amp; Laghi&quot;,&quot;price&quot;:80,&quot;duration&quot;:&quot;5 ore&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -787,9 +810,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:8,&quot;slug&quot;:&quot;tour-2-giorni-nebrodi-montalbano-elicona-alcantara&quot;,&quot;title&quot;:&quot;Weekend in Sicilia: Randazzo, Megaliti dell'Argimusco &amp; Alcantara&quot;,&quot;price&quot;:240,&quot;duration&quot;:&quot;2 Giorni \/ 1 Notte&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -844,9 +867,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:9,&quot;slug&quot;:&quot;tour-ebike-etna-sicilia-3-giorni&quot;,&quot;title&quot;:&quot;Tour 3 Giorni: Bike &amp; Taste tra Etna, Randazzo &amp; Bronte&quot;,&quot;price&quot;:390,&quot;duration&quot;:&quot;3 Giorni \/ 2 Notti&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -898,9 +921,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:10,&quot;slug&quot;:&quot;tour-ebike-etna-nebrodi-sicilia-4giorni&quot;,&quot;title&quot;:&quot;Grand Tour 4 Giorni: Cicloturismo tra Parco dei Nebrodi ed Etna&quot;,&quot;price&quot;:520,&quot;duration&quot;:&quot;4 Giorni \/ 3 Notti&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -955,9 +978,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:11,&quot;slug&quot;:&quot;tour-isole-eolie-bici-barca-5giorni&quot;,&quot;title&quot;:&quot;Cicloturismo alle Isole Eolie: Bici &amp; Barca tra Mare e Vulcani&quot;,&quot;price&quot;:790,&quot;duration&quot;:&quot;5 Giorni \/ 4 Notti&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -1012,9 +1035,9 @@
 
         <div class="tour-card-footer">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli & Itinerario            </a>
+                Dettagli            </a>
             <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:12,&quot;slug&quot;:&quot;sicilia-ebike-citta-barocche-spiagge-val-di-noto&quot;,&quot;title&quot;:&quot;Barocco Siciliano &amp; Costa: 7 Giorni di Bellezza nella Val di Noto&quot;,&quot;price&quot;:890,&quot;duration&quot;:&quot;7 Giorni \/ 6 Notti&quot;})">
-                Prenota / Disponibilità            </button>
+                Prenota            </button>
         </div>
     </div>
 </div>
@@ -1754,7 +1777,7 @@
                             <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-dark);">
                                 <i class="fa-solid fa-pen-nib" style="color: var(--color-primary);"></i> Mariella Cutispoto                            </span>
                             <a href="articolo.html" class="btn btn-outline-primary btn-sm">
-                                Leggi l'Articolo <i class="fa-solid fa-arrow-right"></i>
+                                Continua <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -1788,7 +1811,7 @@
                             <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-dark);">
                                 <i class="fa-solid fa-pen-nib" style="color: var(--color-primary);"></i> Team Guide Sicily Bike                            </span>
                             <a href="articolo.html" class="btn btn-outline-primary btn-sm">
-                                Leggi l'Articolo <i class="fa-solid fa-arrow-right"></i>
+                                Continua <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -1822,7 +1845,7 @@
                             <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-dark);">
                                 <i class="fa-solid fa-pen-nib" style="color: var(--color-primary);"></i> Mariella Cutispoto                            </span>
                             <a href="articolo.html" class="btn btn-outline-primary btn-sm">
-                                Leggi l'Articolo <i class="fa-solid fa-arrow-right"></i>
+                                Continua <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -1922,46 +1945,56 @@
             <p class="section-subtitle">Collaboriamo con enti parco, consorzi vinicoli e realtà certificate per garantire la massima qualità e sicurezza.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.25rem;" class="partners-responsive-grid">
-                            <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
-                        <i class="fa-solid fa-mountain" style="font-size: 1.5rem;"></i>
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem;" class="partners-responsive-grid">
+                            <div class="partner-card" style="background: var(--color-white); border: 1px solid var(--color-gray-200); padding: 1.75rem 1.25rem; text-align: center; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: all var(--transition-normal); height: 100%; box-shadow: var(--shadow-sm);">
+                    <div class="partner-logo-container" style="height: 60px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+                                                    <img src="assets/img/partners/parco-etna.svg" alt="Parco dell'Etna" style="max-height: 52px; max-width: 150px; width: auto; height: auto; object-fit: contain;">
+                                            </div>
+                    <div>
+                        <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--color-primary-dark); font-weight: 700;">Parco dell'Etna</h4>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500); display: block; margin-bottom: 0.75rem;">Ente Parco Naturale</span>
                     </div>
-                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);">Parco dell'Etna</h4>
-                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;">Ente Parco Naturale</span>
-                    <span class="badge badge-accent" style="font-size: 0.72rem;">Patrimonio UNESCO</span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem; margin-top: auto;">Patrimonio UNESCO</span>
                 </div>
-                            <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
-                        <i class="fa-solid fa-tree" style="font-size: 1.5rem;"></i>
+                            <div class="partner-card" style="background: var(--color-white); border: 1px solid var(--color-gray-200); padding: 1.75rem 1.25rem; text-align: center; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: all var(--transition-normal); height: 100%; box-shadow: var(--shadow-sm);">
+                    <div class="partner-logo-container" style="height: 60px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+                                                    <img src="assets/img/partners/parco-nebrodi.svg" alt="Parco dei Monti Nebrodi" style="max-height: 52px; max-width: 150px; width: auto; height: auto; object-fit: contain;">
+                                            </div>
+                    <div>
+                        <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--color-primary-dark); font-weight: 700;">Parco dei Monti Nebrodi</h4>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500); display: block; margin-bottom: 0.75rem;">Riserva Naturale Regionale</span>
                     </div>
-                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);">Parco dei Monti Nebrodi</h4>
-                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;">Riserva Naturale Regionale</span>
-                    <span class="badge badge-accent" style="font-size: 0.72rem;">La Sicilia Verde</span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem; margin-top: auto;">La Sicilia Verde</span>
                 </div>
-                            <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
-                        <i class="fa-solid fa-wine-glass" style="font-size: 1.5rem;"></i>
+                            <div class="partner-card" style="background: var(--color-white); border: 1px solid var(--color-gray-200); padding: 1.75rem 1.25rem; text-align: center; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: all var(--transition-normal); height: 100%; box-shadow: var(--shadow-sm);">
+                    <div class="partner-logo-container" style="height: 60px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+                                                    <img src="assets/img/partners/federciclismo.svg" alt="Federazione Ciclistica Italiana" style="max-height: 52px; max-width: 150px; width: auto; height: auto; object-fit: contain;">
+                                            </div>
+                    <div>
+                        <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--color-primary-dark); font-weight: 700;">Federazione Ciclistica Italiana</h4>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500); display: block; margin-bottom: 0.75rem;">Guide Ufficiali FCI</span>
                     </div>
-                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);">Strada del Vino dell'Etna DOC</h4>
-                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;">Consorzio Enogastronomico</span>
-                    <span class="badge badge-accent" style="font-size: 0.72rem;">Cantine Selezionate</span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem; margin-top: auto;">Sicurezza &amp; Qualità</span>
                 </div>
-                            <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
-                        <i class="fa-solid fa-bicycle" style="font-size: 1.5rem;"></i>
+                            <div class="partner-card" style="background: var(--color-white); border: 1px solid var(--color-gray-200); padding: 1.75rem 1.25rem; text-align: center; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: all var(--transition-normal); height: 100%; box-shadow: var(--shadow-sm);">
+                    <div class="partner-logo-container" style="height: 60px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+                                                    <img src="assets/img/partners/regione-sicilia.svg" alt="Regione Siciliana" style="max-height: 52px; max-width: 150px; width: auto; height: auto; object-fit: contain;">
+                                            </div>
+                    <div>
+                        <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--color-primary-dark); font-weight: 700;">Regione Siciliana</h4>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500); display: block; margin-bottom: 0.75rem;">Assessorato Turismo</span>
                     </div>
-                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);">FCI - Federazione Ciclistica</h4>
-                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;">Guide Cicloturistiche Certificate</span>
-                    <span class="badge badge-accent" style="font-size: 0.72rem;">Sicurezza &amp; Tecnica</span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem; margin-top: auto;">Promozione Cicloturismo</span>
                 </div>
-                            <div class="feature-card" style="padding: 1.6rem 1.2rem; text-align: center; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <div class="feature-icon-box" style="margin: 0 auto 1rem auto; width: 56px; height: 56px;">
-                        <i class="fa-solid fa-ship" style="font-size: 1.5rem;"></i>
+                            <div class="partner-card" style="background: var(--color-white); border: 1px solid var(--color-gray-200); padding: 1.75rem 1.25rem; text-align: center; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: all var(--transition-normal); height: 100%; box-shadow: var(--shadow-sm);">
+                    <div class="partner-logo-container" style="height: 60px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+                                                    <img src="assets/img/partners/bosch-ebike.svg" alt="Bosch eBike Systems" style="max-height: 52px; max-width: 150px; width: auto; height: auto; object-fit: contain;">
+                                            </div>
+                    <div>
+                        <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--color-primary-dark); font-weight: 700;">Bosch eBike Systems</h4>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500); display: block; margin-bottom: 0.75rem;">Partner Tecnologico</span>
                     </div>
-                    <h4 style="font-size: 1.1rem; margin-bottom: 0.35rem; color: var(--color-primary-dark);">Isole Eolie Boat &amp; Bike</h4>
-                    <span style="font-size: 0.82rem; color: var(--color-gray-500); margin-bottom: 0.6rem;">Charter & Servizi Marittimi</span>
-                    <span class="badge badge-accent" style="font-size: 0.72rem;">Tour Barca + E-Bike</span>
+                    <span class="badge badge-accent" style="font-size: 0.72rem; margin-top: auto;">Motori &amp; Batterie E-MTB</span>
                 </div>
                     </div>
     </div>
