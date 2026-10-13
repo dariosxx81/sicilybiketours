@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "author": "Mark & Sarah Thompson",
+    "country": "Regno Unito (UK)",
+    "rating": 5,
+    "tour": "Etna Summit & Grotta dei Lamponi",
+    "text_it": "Esperienza indimenticabile! Mariella e la nostra guida sono state fantastiche. Le e-bike erano potentissime e ci hanno permesso di raggiungere paesaggi vulcanici che tolgono il fiato senza fatica. Il pranzo in home restaurant poi è stato sublime!",
+    "text_en": "Unforgettable experience! Mariella and our guide were amazing. The e-bikes were super powerful, letting us reach breathtaking volcanic landscapes effortlessly. The home restaurant lunch was simply sublime!"
+  },
+  {
+    "id": 2,
+    "author": "Jean-Luc Dupont",
+    "country": "Francia",
+    "rating": 5,
+    "tour": "Cicloturismo Isole Eolie Bici & Barca",
+    "text_it": "5 giorni magici tra Lipari, Salina e Vulcano. Organizzazione impeccabile, hotel perfetti e percorsi cicloturistici spettacolari. Consiglio Sicily Bike Tours a chiunque voglia scoprire la vera Sicilia.",
+    "text_en": "5 magical days between Lipari, Salina and Vulcano. Flawless organization, charming hotels and spectacular cycling roads. I wholeheartedly recommend Sicily Bike Tours to anyone wishing to discover real Sicily."
+  },
+  {
+    "id": 3,
+    "author": "Famiglia Rossi",
+    "country": "Italia (Milano)",
+    "rating": 5,
+    "tour": "Tour dei Nebrodi & Borghi Medievali",
+    "text_it": "Siamo partiti con due ragazzi di 12 e 15 anni: si sono divertiti tantissimo e non hanno sentito la minima stanchezza! Natura rigogliosa, cavalli selvaggi e un'assistenza premurosa in ogni momento. Torneremo sicuramente!",
+    "text_en": "We rode with two kids aged 12 and 15: they had an absolute blast with zero fatigue! Lush nature, wild horses and caring assistance at every step. We will definitely come back!"
+  }
+]

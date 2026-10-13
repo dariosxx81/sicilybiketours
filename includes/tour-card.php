@@ -12,7 +12,13 @@ $difficulty = CURRENT_LANG === 'en' ? ($tour['difficulty_en'] ?? $tour['difficul
 $category = CURRENT_LANG === 'en' ? ($tour['category_en'] ?? $tour['category']) : $tour['category'];
 $detailUrl = BASE_URL . '/tour-dettaglio.php?slug=' . urlencode($tour['slug']);
 ?>
-<div class="tour-card" data-category="<?= htmlspecialchars($tour['type']) ?>" data-area="<?= htmlspecialchars($tour['area_tag']) ?>">
+<div class="tour-card" 
+     data-category="<?= htmlspecialchars($tour['type']) ?>" 
+     data-area="<?= htmlspecialchars($tour['area_tag']) ?>"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === '<?= $tour['type'] ?>') && (activeArea === 'all' || activeArea === '<?= $tour['area_tag'] ?>'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="<?= $detailUrl ?>">
             <img src="<?= BASE_URL ?>/<?= htmlspecialchars($tour['image']) ?>" alt="<?= htmlspecialchars($title) ?>" loading="lazy">
@@ -22,8 +28,13 @@ $detailUrl = BASE_URL . '/tour-dettaglio.php?slug=' . urlencode($tour['slug']);
             <span class="badge badge-dark">
                 <i class="fa-solid fa-clock"></i> <?= htmlspecialchars($duration) ?>
             </span>
+            <?php if (!empty($tour['category'])): ?>
+                <span class="badge badge-accent" style="font-weight: 700;">
+                    <i class="fa-solid fa-tag"></i> <?= htmlspecialchars($tour['category']) ?>
+                </span>
+            <?php endif; ?>
             <?php if (!empty($tour['featured'])): ?>
-                <span class="badge badge-accent">
+                <span class="badge badge-volcano" style="background: var(--color-volcano); color: #fff;">
                     <i class="fa-solid fa-star"></i> Top Choice
                 </span>
             <?php endif; ?>
@@ -67,18 +78,18 @@ $detailUrl = BASE_URL . '/tour-dettaglio.php?slug=' . urlencode($tour['slug']);
             </div>
         </div>
 
-        <div class="tour-card-footer">
-            <a href="<?= $detailUrl ?>" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                <?= t('tour_details') ?>
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="<?= $detailUrl ?>" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> <?= t('tour_details') ?>
             </a>
-            <button class="btn btn-accent btn-sm" @click="openBooking(<?= htmlspecialchars(json_encode([
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking(<?= htmlspecialchars(json_encode([
                 'id' => $tour['id'],
                 'slug' => $tour['slug'],
                 'title' => $title,
                 'price' => $tour['price'],
                 'duration' => $duration
             ])) ?>)">
-                <?= t('tour_book') ?>
+                <i class="fa-solid fa-calendar-check"></i> <?= t('tour_book') ?>
             </button>
         </div>
     </div>

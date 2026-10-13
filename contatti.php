@@ -26,7 +26,7 @@ require_once BASE_PATH . '/includes/navbar.php';
 <!-- Contact Form & Info Grid -->
 <section class="section-spacing" style="background: var(--color-gray-50);">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 3.5rem; align-items: start;">
+        <div class="contact-layout-grid">
             
             <!-- Left Contact Info Cards -->
             <div>
@@ -89,6 +89,35 @@ require_once BASE_PATH . '/includes/navbar.php';
                 hasEbikeExperience: 'yes',
                 notes: '',
                 sent: false,
+                sending: false,
+                
+                submitForm() {
+                    this.sending = true;
+                    fetch('<?= BASE_URL ?>/api/submit-lead.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: this.name,
+                            email: this.email,
+                            phone: this.phone,
+                            type: 'contatti',
+                            tour_title: this.selectedTourName || ('Esperienza ' + this.formType),
+                            date: this.date,
+                            participants: this.riders,
+                            notes: this.notes,
+                            details: {
+                                experience: this.hasEbikeExperience,
+                                form_type: this.formType
+                            }
+                        })
+                    }).then(r => r.json()).then(res => {
+                        this.sending = false;
+                        this.sent = true;
+                    }).catch(e => {
+                        this.sending = false;
+                        this.sent = true;
+                    });
+                },
                 
                 getFormWaLink() {
                     let msg = `*RICHIESTA DAL SITO SICILY BIKE TOURS*\n` +
@@ -104,7 +133,7 @@ require_once BASE_PATH . '/includes/navbar.php';
                 }
             }">
                 <template x-if="!sent">
-                    <form @submit.prevent="sent = true">
+                    <form @submit.prevent="submitForm">
                         <h3 style="font-size: 1.6rem; color: var(--color-primary-dark); margin-bottom: 1.5rem;">Inviaci un Messaggio</h3>
 
                         <div class="form-group">

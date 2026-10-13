@@ -1,0 +1,81 @@
+{
+    "hero": {
+        "badge": "E-Bike Tours & Escursioni Guidate in Sicilia",
+        "badge_icon": "bolt",
+        "title_it": "Vivi la vera Sicilia in <span class=\"text-gradient\">E-Bike<\/span>",
+        "subtitle_it": "Dalle vette dell'Etna ai boschi secolari dei Nebrodi, dai borghi medievali al fascino delle Isole Eolie. Tour esclusivi a ritmo lento e sostenibile con guide locali e furgone di supporto.",
+        "bg_image": "assets\/img\/uploads\/img_69ea24e100d8f6_90641565_1791892065_65ac7.jpeg",
+        "cta_explore_text": "Esplora i Tour",
+        "cta_explore_link": "#esperienze",
+        "cta_custom_text": "Tour su Misura",
+        "cta_custom_link": "personalizza-tour.php",
+        "quick_finder": {
+            "enabled": true,
+            "type_label_it": "Tipologia Tour",
+            "cat_label_it": "Categoria Esperienza",
+            "btn_text_it": "Cerca Tour"
+        }
+    },
+    "categories_section": {
+        "enabled": true,
+        "tag": "Esperienze Su Misura per Tutti",
+        "title": "Tour in E-Bike per Ogni livello, ritmo e passione",
+        "subtitle": "Pedalare in Sicilia con le nostre E-MTB di ultima generazione è un'emozione accessibile a tutti: dai principianti e famiglie con ragazzi fino ai ciclisti esperti. Grazie alla pedalata assistita intelligente e alla presenza costante delle nostre guide certificate locali e del furgone d'appoggio al seguito, superi ogni salita senza fatica e in totale sicurezza. Scegli lo stile della tua avventura:"
+    },
+    "showcase_section": {
+        "enabled": true,
+        "tag": "Le Nostre Proposte",
+        "title": "Esperienze in E-Bike & Tour Itineranti",
+        "subtitle": "Scorri tra le nostre migliori avventure su due ruote tra Etna, Nebrodi, Isole Eolie e Val di Noto.",
+        "carousel_filter": "all",
+        "day_card": {
+            "badge": "Avventure di 1 Giorno",
+            "icon": "sun",
+            "title": "Escursioni Giornaliere",
+            "desc": "Uscite da mezza giornata o giornata intera tra colate laviche, crateri, boschi e degustazioni in cantina. Ideali per chi vuole vivere un'esperienza indimenticabile.",
+            "btn_text": "Scopri tutte le Escursioni",
+            "link": "escursioni.php"
+        },
+        "multi_card": {
+            "badge": "Vacanze in Bici da 2 a 7 Giorni",
+            "icon": "calendar-days",
+            "title": "Tour Itineranti & Weekend",
+            "desc": "Vacanze complete in e-bike con pernottamento in dimore di charme, trasporto valigie da tappa a tappa, cene tipiche e furgone d'appoggio sempre al seguito.",
+            "btn_text": "Scopri tutti i Tour Itineranti",
+            "link": "tour.php"
+        }
+    },
+    "custom_builder_section": {
+        "enabled": true,
+        "tag": "Esperienze Su Misura",
+        "title": "Configura il tuo Viaggio in E-Bike su Misura",
+        "subtitle": "Personalizza tappe, ritmo, pernottamenti ed esperienze gastronomiche esclusive in pochi passaggi."
+    },
+    "magazine_section": {
+        "enabled": true,
+        "tag": "Il Nostro Magazine",
+        "title": "Storie, Percorsi & Consigli di Cicloturismo",
+        "subtitle": "Guide ai sentieri, altimetrie e racconti per scoprire la Sicilia autentica in sella a una e-bike.",
+        "btn_text": "Visita Magazine Completo",
+        "btn_link": "magazine.php",
+        "show_count": 3
+    },
+    "reviews_section": {
+        "enabled": true,
+        "tag": "Dicono di Noi",
+        "title": "Le Esperienze dei Nostri Viaggiatori",
+        "subtitle": "Ospiti provenienti da tutto il mondo che hanno pedalato con noi tra vulcano e mare."
+    },
+    "partners_section": {
+        "enabled": true,
+        "tag": "Network di Qualità",
+        "title": "Partner Ufficiali & Istituzionali",
+        "subtitle": "Collaboriamo con i migliori enti parco, federazioni sportive e produttori per garantire la massima qualità e sicurezza."
+    },
+    "faqs_section": {
+        "enabled": true,
+        "tag": "Domande Frequenti",
+        "title": "Tutto quello che c'è da sapere",
+        "subtitle": "Hai dubbi sulle nostre escursioni o sui tour in e-bike? Ecco le risposte più comuni per pedalare senza pensieri."
+    }
+}

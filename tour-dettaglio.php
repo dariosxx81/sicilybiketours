@@ -56,12 +56,12 @@ require_once BASE_PATH . '/includes/navbar.php';
 <!-- Main Tour Body Content & Sticky Booking Sidebar -->
 <section class="section-spacing" style="background: var(--color-gray-50);">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1.8fr 1fr; gap: 3rem; align-items: start;">
+        <div class="tour-detail-layout">
             
             <!-- Left Column: Tour Details & Gallery -->
             <div>
                 <!-- Technical Specs Strip Card -->
-                <div style="background: var(--color-white); border-radius: var(--radius-lg); padding: 1.8rem; box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center;">
+                <div class="tour-specs-card-grid">
                     <div>
                         <i class="fa-solid fa-route" style="color: var(--color-primary); font-size: 1.3rem; margin-bottom: 0.3rem;"></i>
                         <strong style="display: block; font-size: 1.05rem;"><?= htmlspecialchars($tour['distance']) ?></strong>
@@ -124,7 +124,7 @@ require_once BASE_PATH . '/includes/navbar.php';
                 </div>
 
                 <!-- Included & Excluded Breakdown -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem;">
+                <div class="tour-inc-exc-grid">
                     <!-- Included -->
                     <div style="background: #f0fdf4; border: 1.5px solid rgba(144, 201, 92, 0.6); border-radius: var(--radius-lg); padding: 1.8rem;">
                         <h4 style="font-size: 1.2rem; color: #166534; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
@@ -206,5 +206,31 @@ require_once BASE_PATH . '/includes/navbar.php';
         </div>
     </div>
 </section>
+
+<!-- Mobile Sticky Bottom Booking CTA Bar -->
+<div class="mobile-sticky-cta">
+    <div class="price-box">
+        <span class="price-lbl"><?= t('tour_price_from') ?></span>
+        <span class="price-val">€<?= htmlspecialchars($tour['price']) ?></span>
+    </div>
+    <div class="cta-actions">
+        <a href="https://wa.me/<?= WA_NUMBER ?>?text=<?= urlencode('Ciao Mariella! Vorrei info per il tour: ' . $title) ?>" target="_blank" class="btn btn-sm" style="background: #25D366; color: #fff; padding: 0.65rem 0.85rem;" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i>
+        </a>
+        <button class="btn btn-accent btn-sm" @click="openBooking(<?= htmlspecialchars(json_encode([
+            'id' => $tour['id'],
+            'slug' => $tour['slug'],
+            'title' => $title,
+            'price' => $tour['price'],
+            'duration' => $duration
+        ])) ?>)">
+            <i class="fa-solid fa-calendar-check"></i> Prenota Ora
+        </button>
+    </div>
+</div>
+
+<script>
+document.body.classList.add('has-sticky-cta');
+</script>
 
 <?php require_once BASE_PATH . '/includes/footer.php'; ?>

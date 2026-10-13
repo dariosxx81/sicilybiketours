@@ -1,0 +1,112 @@
+[
+  {
+    "id": "etna",
+    "slug": "etna",
+    "name_it": "Vulcano Etna & Crateri",
+    "name_en": "Mount Etna & Craters",
+    "icon": "volcano",
+    "filter_type": "all",
+    "badge_desc": "Colate laviche storiche, piste altomontane e grotte",
+    "show_in_home": true,
+    "order": 1
+  },
+  {
+    "id": "nebrodi",
+    "slug": "nebrodi",
+    "name_it": "Boschi & Laghi dei Nebrodi",
+    "name_en": "Nebrodi Forests & Lakes",
+    "icon": "mountain-sun",
+    "filter_type": "all",
+    "badge_desc": "La Sicilia verde: faggete incontaminate e cavalli selvaggi",
+    "show_in_home": true,
+    "order": 2
+  },
+  {
+    "id": "enogastronomia",
+    "slug": "enogastronomia",
+    "name_it": "Enogastronomia & Cantine DOC",
+    "name_en": "Food & Etna DOC Wine",
+    "icon": "wine-glass",
+    "filter_type": "all",
+    "badge_desc": "Degustazioni in cantine storiche e pranzi tipici genuini",
+    "show_in_home": true,
+    "order": 3
+  },
+  {
+    "id": "borghi",
+    "slug": "borghi",
+    "name_it": "Borghi Medievali & Castelli",
+    "name_en": "Medieval Villages & Castles",
+    "icon": "landmark",
+    "filter_type": "all",
+    "badge_desc": "Randazzo, Montalbano, Castiglione tra storia e tradizioni",
+    "show_in_home": true,
+    "order": 4
+  },
+  {
+    "id": "plurigiornalieri",
+    "slug": "plurigiornalieri",
+    "name_it": "Tour Itineranti di Più Giorni",
+    "name_en": "Multi-Day Cycling Holidays",
+    "icon": "calendar-week",
+    "filter_type": "tour",
+    "badge_desc": "Weekend e settimane da 2 a 7 giorni con bagagli trasferiti",
+    "show_in_home": true,
+    "order": 5
+  },
+  {
+    "id": "eolie",
+    "slug": "eolie",
+    "name_it": "Isole Eolie Bici & Barca",
+    "name_en": "Aeolian Islands Bike & Sail",
+    "icon": "ship",
+    "filter_type": "tour",
+    "badge_desc": "Lipari, Vulcano e Salina navigando con le e-bike a bordo",
+    "show_in_home": true,
+    "order": 6
+  },
+  {
+    "id": "principianti",
+    "slug": "principianti",
+    "name_it": "Principianti & Prima Volta",
+    "name_en": "Beginners & First Time",
+    "icon": "seedling",
+    "filter_type": "escursione",
+    "badge_desc": "Percorsi facili e rilassanti con assistenza continua",
+    "show_in_home": true,
+    "order": 7
+  },
+  {
+    "id": "famiglie",
+    "slug": "famiglie",
+    "name_it": "Famiglie & Ragazzi",
+    "name_en": "Families & Kids",
+    "icon": "people-roof",
+    "filter_type": "escursione",
+    "badge_desc": "Itinerari sicuri, soste panoramiche e ritmo dolce",
+    "show_in_home": true,
+    "order": 8
+  },
+  {
+    "id": "esperti",
+    "slug": "esperti",
+    "name_it": "Ciclisti Esperti & Trail",
+    "name_en": "Experienced Riders & Trail",
+    "icon": "mountain",
+    "filter_type": "all",
+    "badge_desc": "Singletrack tecnici, sabbia vulcanica e dislivelli",
+    "show_in_home": true,
+    "order": 9
+  },
+  {
+    "id": "gruppi",
+    "slug": "gruppi",
+    "name_it": "Gruppi Privati & Incentive",
+    "name_en": "Private Groups & Team Building",
+    "icon": "users",
+    "filter_type": "su_misura",
+    "badge_desc": "Eventi su misura con guida dedicata e furgone di supporto",
+    "show_in_home": true,
+    "order": 10
+  }
+]

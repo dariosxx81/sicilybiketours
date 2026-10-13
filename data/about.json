@@ -1,0 +1,59 @@
+{
+    "header": {
+        "bg_image": "assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-106.jpg",
+        "badge_it": "Chi Siamo",
+        "badge_en": "About Us",
+        "title_it": "La Nostra Storia & la Passione per la Sicilia",
+        "title_en": "Who We Are & Our Passion",
+        "subtitle_it": "Trasformare l'amore per la natura e la bicicletta in avventure indimenticabili alla scoperta degli angoli più veri della Sicilia.",
+        "subtitle_en": "Transforming a childhood love for nature and bicycles into unforgettable experiences across our island."
+    },
+    "story": {
+        "image": "assets\/img\/gallery\/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-58.jpg",
+        "floating_badge_number": "100%",
+        "floating_badge_text_it": "Sicilia Autentica, Guide Certificate & Amore per il Territorio",
+        "floating_badge_text_en": "",
+        "tag_it": "La Nostra Missione",
+        "tag_en": "Our Mission",
+        "title_it": "Vivi la Sicilia, pedala con noi",
+        "title_en": "",
+        "paragraph_1_it": "Mariella, fondatrice e appassionata ciclista locale, ha trasformato la sua passione in una realtà dedicata a viaggiatori provenienti da tutto il mondo. Insieme a un team di guide esperte del territorio, condividiamo i segreti dell'isola con chi desidera conoscerla in modo autentico, lento e rispettoso.",
+        "paragraph_2_it": "Ogni tour è curato nei minimi dettagli per offrirvi un'esperienza sicura, ricca di emozioni e fuori dai classici percorsi di massa. Dalle creste laviche dell'Etna ai borghi medievali dei Nebrodi e alle acque cristalline delle Isole Eolie, ogni pedalata è un'opportunità per assaporare la storia, la cultura e l'enogastronomia genuina della nostra terra.",
+        "values": [
+            {
+                "title_it": "Per Tutti (6-99 anni)",
+                "desc_it": "L'e-bike elimina lo sforzo in salita e rende il viaggio un puro piacere per gruppi e famiglie."
+            },
+            {
+                "title_it": "Massima Sicurezza",
+                "desc_it": "Furgone d'appoggio al seguito, caschi omologati, kit riparazione e assicurazione inclusa."
+            }
+        ]
+    },
+    "fleet": {
+        "tag_it": "Il Nostro Parco Bici",
+        "title_it": "E-Bike di Ultima Generazione",
+        "subtitle_it": "Comfort, potenza e affidabilità per ogni tipo di terreno: dalle piste vulcaniche alle strade panoramiche.",
+        "items": [
+            {
+                "icon": "mountain",
+                "title_it": "E-MTB Full Suspension",
+                "desc_it": "Doppia ammortizzazione anteriore e posteriore, motori potenti (fino a 85Nm) e batteria da 625\/750Wh per affrontare sentieri sconnessi, discese e pietraie in totale relax."
+            },
+            {
+                "icon": "route",
+                "title_it": "E-MTB Front",
+                "desc_it": "Ammortizzatore anteriore, peso contenuto e grande agilità. La scelta ideale per le escursioni giornaliere su strade bianche, boschi e strade panoramiche collinari."
+            },
+            {
+                "icon": "toolbox",
+                "title_it": "Equipaggiamento & Accessori",
+                "desc_it": "Caschi omologati igienizzati ad ogni uscita, sacche idriche, kit forature, borse da cicloturismo per i tour plurigiornalieri e batterie di scorta nel van di supporto."
+            }
+        ]
+    },
+    "seo": {
+        "page_title": "Chi Siamo | Sicily Bike Tours - La Passione di Mariella per la Sicilia in Bici",
+        "meta_description": "Scopri la storia di Mariella e del team di Sicily Bike Tours: guide cicloturistiche locali, escursioni autentiche in e-bike e amore per la nostra terra."
+    }
+}

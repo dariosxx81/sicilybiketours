@@ -28,10 +28,32 @@
     
     submitBooking() {
         this.isSubmitting = true;
-        setTimeout(() => {
+        fetch('<?= BASE_URL ?>/api/submit-lead.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: this.clientName,
+                email: this.clientEmail,
+                phone: this.clientPhone,
+                type: 'prenotazione_tour',
+                tour_title: this.selectedTour ? this.selectedTour.title : 'Tour Standard',
+                date: this.date,
+                participants: this.participants,
+                notes: this.specialNotes,
+                details: {
+                    has_ridden_ebike: this.hasRiddenEbike,
+                    need_transfer: this.needTransfer,
+                    need_lunch: this.needGourmetLunch,
+                    calculated_estimate: this.calcTotal()
+                }
+            })
+        }).then(r => r.json()).then(res => {
             this.isSubmitting = false;
             this.formSubmitted = true;
-        }, 800);
+        }).catch(e => {
+            this.isSubmitting = false;
+            this.formSubmitted = true;
+        });
     }
 }">
     <div class="modal-dialog" x-show="bookingModalOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">

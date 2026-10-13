@@ -1,17 +1,50 @@
+<?php
+/**
+ * SICILY BIKE TOURS - Tailor Made Custom Tour Builder Component
+ * Configurato dinamicamente tramite data/configurator.json
+ */
+
+$configuratorFile = BASE_PATH . '/data/configurator.json';
+$cfg = file_exists($configuratorFile) ? json_decode(file_get_contents($configuratorFile), true) : [];
+
+$cfgDestinations = $cfg['destinations'] ?? [
+    ['id' => 'Etna', 'name' => 'Vulcano Etna', 'desc_it' => 'Crateri, colate laviche, grotte e pinete d\'alta quota.', 'image' => 'assets/img/gallery/Etna-home-page.jpg'],
+    ['id' => 'Nebrodi', 'name' => 'Parco dei Nebrodi', 'desc_it' => 'La Sicilia verde: laghi montani, faggete e borghi.', 'image' => 'assets/img/gallery/summit.jpg']
+];
+$cfgBikes = $cfg['bike_types'] ?? [
+    ['name_it' => 'E-MTB Biammortizzata (Comfort e tenuta massima)'],
+    ['name_it' => 'E-MTB Front (Ammortizzata solo anteriore)'],
+    ['name_it' => 'E-Gravel / Touring']
+];
+$cfgDifficulties = $cfg['difficulty_levels'] ?? [
+    ['name_it' => 'Facile / Relax (Asfalto panoramico e strade facili)'],
+    ['name_it' => 'Medio (Sterrati forestali e ritmo piacevole)'],
+    ['name_it' => 'Sportivo / Esperto (Single-track e pietraie laviche)']
+];
+$cfgExtras = $cfg['extra_experiences'] ?? [
+    ['name_it' => 'Pranzo Tipico / Home Restaurant', 'desc_it' => 'Sosta gourmet con sapori tradizionali autentici.', 'icon' => 'utensils', 'price' => 28],
+    ['name_it' => 'Degustazione Vini DOC Etna', 'desc_it' => 'Visita in cantina storica con calici e tagliere.', 'icon' => 'wine-glass', 'price' => 30],
+    ['name_it' => 'Notte in Dimora / Agriturismo', 'desc_it' => 'Pernottamento immerso nella natura siciliana.', 'icon' => 'bed', 'price' => 70],
+    ['name_it' => 'Barca Privata Isole Eolie', 'desc_it' => 'Traversate con skipper e bici a bordo.', 'icon' => 'ship', 'price' => 120],
+    ['name_it' => 'Furgone di Supporto al Seguito & Trasporto Bagagli', 'desc_it' => 'Valigie trasferite da tappa a tappa e van di supporto.', 'icon' => 'van-shuttle', 'price' => 35]
+];
+$basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
+?>
 <!-- Tailor Made Custom Tour Builder Component (Alpine.js) -->
 <div class="builder-box" x-data="{
     step: 1,
     selectedRegions: ['Etna', 'Nebrodi'],
     durationDays: 3,
     participants: 2,
-    difficultyLevel: 'Medio (Percorsi panoramici e sterrati facili)',
+    difficultyLevel: 'Medio (Sterrati forestali e ritmo piacevole)',
     ebikeType: 'E-MTB Biammortizzata (Comfort e tenuta massima)',
-    selectedExtras: ['Pranzo tipico / Home Restaurant', 'Degustazione Vini DOC Etna'],
+    selectedExtras: ['Pranzo Tipico / Home Restaurant', 'Degustazione Vini DOC Etna'],
     customerName: '',
     customerEmail: '',
     customerPhone: '',
     customerNotes: '',
     builderSubmitted: false,
+    isSubmitting: false,
     
     toggleRegion(region) {
         if (this.selectedRegions.includes(region)) {
@@ -32,13 +65,46 @@
     },
     
     calculateEstimate() {
-        let basePerDay = 90; // €/day/person base with e-bike and guide
+        let basePerDay = <?= $basePerDay ?>;
         let total = basePerDay * this.durationDays * this.participants;
         if (this.selectedExtras.includes('Notte in Dimora / Agriturismo')) total += (70 * (this.durationDays - 1) * this.participants);
-        if (this.selectedExtras.includes('Barca privata Isole Eolie')) total += (120 * this.participants);
+        if (this.selectedExtras.includes('Barca Privata Isole Eolie')) total += (120 * this.participants);
         if (this.selectedExtras.includes('Degustazione Vini DOC Etna')) total += (30 * this.participants);
-        if (this.selectedExtras.includes('Pranzo tipico / Home Restaurant')) total += (28 * this.participants);
+        if (this.selectedExtras.includes('Pranzo Tipico / Home Restaurant')) total += (28 * this.participants);
+        if (this.selectedExtras.includes('Furgone di Supporto al Seguito & Trasporto Bagagli')) total += (35 * this.durationDays * this.participants);
         return total;
+    },
+
+    submitBuilder() {
+        this.isSubmitting = true;
+        fetch('<?= BASE_URL ?>/api/submit-lead.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: this.customerName,
+                email: this.customerEmail,
+                phone: this.customerPhone,
+                type: 'configuratore',
+                tour_title: 'Tour su Misura (' + this.selectedRegions.join(', ') + ')',
+                participants: this.participants,
+                notes: this.customerNotes,
+                details: {
+                    destinations: this.selectedRegions,
+                    duration_days: this.durationDays,
+                    participants: this.participants,
+                    difficulty: this.difficultyLevel,
+                    ebike: this.ebikeType,
+                    extras: this.selectedExtras,
+                    estimate: this.calculateEstimate()
+                }
+            })
+        }).then(r => r.json()).then(res => {
+            this.isSubmitting = false;
+            this.builderSubmitted = true;
+        }).catch(e => {
+            this.isSubmitting = false;
+            this.builderSubmitted = true;
+        });
     },
     
     getCustomWaLink() {
@@ -87,77 +153,22 @@
         </div>
 
         <div class="regions-selection-grid">
-            <!-- Etna -->
-            <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Etna') }" @click="toggleRegion('Etna')">
-                <img src="<?= BASE_URL ?>/assets/img/gallery/Etna-home-page.jpg" alt="Etna" class="region-card-img">
+            <?php foreach ($cfgDestinations as $dest): 
+                $destName = $dest['name'] ?? $dest['id'];
+                $destImg = $dest['image'] ?? 'assets/img/gallery/summit.jpg';
+                $destDesc = $dest['desc_it'] ?? '';
+            ?>
+            <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('<?= addslashes($destName) ?>') }" @click="toggleRegion('<?= addslashes($destName) ?>')">
+                <img src="<?= BASE_URL ?>/<?= htmlspecialchars($destImg) ?>" alt="<?= htmlspecialchars($destName) ?>" class="region-card-img">
                 <div class="region-card-content">
                     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem;">
-                        <h4 style="font-size: 1.15rem;">Vulcano Etna</h4>
-                        <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Etna') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
+                        <h4 style="font-size: 1.15rem;"><?= htmlspecialchars($destName) ?></h4>
+                        <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('<?= addslashes($destName) ?>') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
                     </div>
-                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">Crateri, colate laviche, grotte e pinete d'alta quota.</p>
+                    <p style="font-size: 0.85rem; color: var(--color-gray-600);"><?= htmlspecialchars($destDesc) ?></p>
                 </div>
             </div>
-
-            <!-- Parco dei Nebrodi -->
-            <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Nebrodi') }" @click="toggleRegion('Nebrodi')">
-                <img src="<?= BASE_URL ?>/assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-68.jpg" alt="Nebrodi" class="region-card-img">
-                <div class="region-card-content">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem;">
-                        <h4 style="font-size: 1.15rem;">Parco dei Nebrodi</h4>
-                        <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Nebrodi') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
-                    </div>
-                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">La Sicilia verde: laghi montani, faggete e borghi come Floresta.</p>
-                </div>
-            </div>
-
-            <!-- Megaliti Argimusco & Alcantara -->
-            <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Argimusco & Alcantara') }" @click="toggleRegion('Argimusco & Alcantara')">
-                <img src="<?= BASE_URL ?>/assets/img/gallery/IMG-20251008-WA0031-scaled.jpg" alt="Argimusco" class="region-card-img">
-                <div class="region-card-content">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem;">
-                        <h4 style="font-size: 1.15rem;">Megaliti & Gole Alcantara</h4>
-                        <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Argimusco & Alcantara') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
-                    </div>
-                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">Rocce sacre misteriose, Montalbano Elicona e canyon basaltici.</p>
-                </div>
-            </div>
-
-            <!-- Isole Eolie -->
-            <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Isole Eolie') }" @click="toggleRegion('Isole Eolie')">
-                <img src="<?= BASE_URL ?>/assets/img/gallery/Immagine-WhatsApp-2025-04-06-ore-09.21.16_3d0a628f.jpg" alt="Isole Eolie" class="region-card-img">
-                <div class="region-card-content">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem;">
-                        <h4 style="font-size: 1.15rem;">Isole Eolie in Barca</h4>
-                        <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Isole Eolie') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
-                    </div>
-                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">Lipari, Salina, Vulcano: combinazione indimenticabile e-bike & mare.</p>
-                </div>
-            </div>
-
-            <!-- Val di Noto & Barocco -->
-            <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Val di Noto & Barocco') }" @click="toggleRegion('Val di Noto & Barocco')">
-                <img src="<?= BASE_URL ?>/assets/img/gallery/PXL_20250704_081536971.MP_-scaled.jpg" alt="Val di Noto" class="region-card-img">
-                <div class="region-card-content">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem;">
-                        <h4 style="font-size: 1.15rem;">Val di Noto & Barocco</h4>
-                        <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Val di Noto & Barocco') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
-                    </div>
-                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">Noto, Modica, Scicli, riserva di Vendicari e mare cristallino.</p>
-                </div>
-            </div>
-
-            <!-- Borghi & Tradizioni -->
-            <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Borghi Storici & Cantine') }" @click="toggleRegion('Borghi Storici & Cantine')">
-                <img src="<?= BASE_URL ?>/assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-113.jpg" alt="Borghi" class="region-card-img">
-                <div class="region-card-content">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem;">
-                        <h4 style="font-size: 1.15rem;">Borghi Medievali & Sapori</h4>
-                        <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Borghi Storici & Cantine') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
-                    </div>
-                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">Randazzo, Bronte, Castiglione di Sicilia e antiche cantine DOC.</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
 
         <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
@@ -181,11 +192,11 @@
                     <span style="font-weight: 700; font-size: 1.05rem; color: var(--color-primary-dark);">Durata del Tour:</span>
                     <span style="font-size: 1.4rem; font-weight: 800; color: var(--color-primary);" x-text="durationDays + (durationDays == 1 ? ' Giorno' : ' Giorni')"></span>
                 </div>
-                <input type="range" min="1" max="10" x-model="durationDays" style="width: 100%; accent-color: var(--color-primary); cursor: pointer; height: 8px;">
+                <input type="range" min="1" max="14" x-model="durationDays" style="width: 100%; accent-color: var(--color-primary); cursor: pointer; height: 8px;">
                 <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--color-gray-500); margin-top: 0.5rem;">
                     <span>1 giorno (Escursione)</span>
-                    <span>3-4 giorni (Weekend lungo)</span>
-                    <span>7-10 giorni (Grand Tour)</span>
+                    <span>3-4 giorni (Weekend)</span>
+                    <span>7-10+ giorni (Grand Tour)</span>
                 </div>
             </div>
 
@@ -228,19 +239,19 @@
             <div class="form-group" style="margin-bottom: 1.8rem;">
                 <label class="form-label">Livello Ciclistico del Gruppo:</label>
                 <select class="form-control" x-model="difficultyLevel">
-                    <option value="Facile / Relax (Percorsi pianeggianti e asfalto/strade bianche)">🟢 Facile / Relax (Asfalto panoramico, pause frequenti, adatto a famiglie)</option>
-                    <option value="Medio (Percorsi panoramici e sterrati facili)">🟡 Medio (Sterrati forestali, altimetrie moderate, ritmo piacevole)</option>
-                    <option value="Sportivo / Esperto (Single track, pietraie laviche, dislivelli importanti)">🔴 Sportivo / Esperto (Single-track lavici, tratti tecnici ed esplorativi)</option>
+                    <?php foreach ($cfgDifficulties as $diff): ?>
+                        <option value="<?= htmlspecialchars($diff['name_it']) ?>"><?= htmlspecialchars($diff['name_it']) ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
 
             <div class="form-group" style="margin-bottom: 2rem;">
                 <label class="form-label">Tipologia di E-Bike Preferita:</label>
                 <select class="form-control" x-model="ebikeType">
-                    <option value="E-MTB Biammortizzata (Comfort e tenuta massima)">🚲 E-MTB Full Suspension (Massimo comfort su sentieri e pietraie)</option>
-                    <option value="E-MTB Front (Ammortizzata anteriore, leggera e agile)">🚲 E-MTB Front (Agile e scattante per sterrati e strade bianche)</option>
-                    <option value="E-Gravel / Touring (Per strade panoramiche e borghi)">🚲 E-Gravel / Trekking (Ideale per asfalto e viaggi misti)</option>
-                    <option value="Bici Propria (Partecipiamo con le nostre e-bike/bici)">🔧 Utilizziamo le nostre bici personali</option>
+                    <?php foreach ($cfgBikes as $b): ?>
+                        <option value="<?= htmlspecialchars($b['name_it']) ?>"><?= htmlspecialchars($b['name_it']) ?></option>
+                    <?php endforeach; ?>
+                    <option value="Bici Propria (Partecipiamo con le nostre bici)">🔧 Utilizziamo le nostre bici personali</option>
                 </select>
             </div>
 
@@ -258,54 +269,33 @@
     <!-- STEP 4: ESPERIENZE EXTRA -->
     <div x-show="step === 4" x-transition style="display: none;">
         <div style="margin-bottom: 2rem; text-align: center;">
-            <h3 style="font-size: 1.6rem; color: var(--color-primary-dark); margin-bottom: 0.4rem;">Arricchisci la tua Esperienza</h3>
-            <p style="color: var(--color-gray-600); font-size: 0.98rem;">Seleziona i servizi extra ed enogastronomici che vorresti includere.</p>
+            <h3 style="font-size: 1.6rem; color: var(--color-primary-dark); margin-bottom: 0.4rem;">Esperienze Autentiche & Comfort Extra</h3>
+            <p style="color: var(--color-gray-600); font-size: 0.98rem;">Rendi il tuo tour indimenticabile aggiungendo degustazioni, notti in dimora e servizi.</p>
         </div>
 
-        <div style="max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
-            <div class="slot-tour-item" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;" @click="toggleExtra('Pranzo tipico / Home Restaurant')">
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fa-solid fa-utensils" style="color: var(--color-primary); font-size: 1.2rem;"></i>
+        <div style="max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+            <?php foreach ($cfgExtras as $extra): 
+                $extraName = $extra['name_it'] ?? '';
+                $extraDesc = $extra['desc_it'] ?? '';
+                $extraIcon = $extra['icon'] ?? 'check';
+                $extraPrice = intval($extra['price'] ?? 0);
+            ?>
+            <div class="region-checkbox-card" style="padding: 1.25rem; display: flex; align-items: center; justify-content: space-between;" :class="{ 'selected': selectedExtras.includes('<?= addslashes($extraName) ?>') }" @click="toggleExtra('<?= addslashes($extraName) ?>')">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fa-solid fa-<?= htmlspecialchars($extraIcon) ?>" style="color: var(--color-primary); font-size: 1.3rem;"></i>
                     <div>
-                        <strong style="display: block; font-size: 0.98rem;">Pranzo Tipico in Home Restaurant</strong>
-                        <span style="font-size: 0.82rem; color: var(--color-gray-500);">Cucina genuina siciliana a km 0</span>
+                        <strong style="display: block; font-size: 0.98rem;"><?= htmlspecialchars($extraName) ?></strong>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500);"><?= htmlspecialchars($extraDesc) ?></span>
                     </div>
                 </div>
-                <input type="checkbox" :checked="selectedExtras.includes('Pranzo tipico / Home Restaurant')" style="accent-color: var(--color-primary); transform: scale(1.3);">
-            </div>
-
-            <div class="slot-tour-item" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;" @click="toggleExtra('Degustazione Vini DOC Etna')">
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fa-solid fa-wine-glass" style="color: var(--color-primary); font-size: 1.2rem;"></i>
-                    <div>
-                        <strong style="display: block; font-size: 0.98rem;">Degustazione Vini DOC Etna & Cantina</strong>
-                        <span style="font-size: 0.82rem; color: var(--color-gray-500);">Visita palmento storico e assaggi guidati</span>
-                    </div>
+                    <?php if ($extraPrice > 0): ?>
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€<?= $extraPrice ?></span>
+                    <?php endif; ?>
+                    <input type="checkbox" :checked="selectedExtras.includes('<?= addslashes($extraName) ?>')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
-                <input type="checkbox" :checked="selectedExtras.includes('Degustazione Vini DOC Etna')" style="accent-color: var(--color-primary); transform: scale(1.3);">
             </div>
-
-            <div class="slot-tour-item" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;" @click="toggleExtra('Notte in Dimora / Agriturismo')">
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fa-solid fa-bed" style="color: var(--color-primary); font-size: 1.2rem;"></i>
-                    <div>
-                        <strong style="display: block; font-size: 0.98rem;">Pernottamenti in Dimore Storiche / Agriturismi</strong>
-                        <span style="font-size: 0.82rem; color: var(--color-gray-500);">Alloggi selezionati di charme con colazione inclusa</span>
-                    </div>
-                </div>
-                <input type="checkbox" :checked="selectedExtras.includes('Notte in Dimora / Agriturismo')" style="accent-color: var(--color-primary); transform: scale(1.3);">
-            </div>
-
-            <div class="slot-tour-item" style="cursor: pointer; display: flex; align-items: center; justify-content: space-between;" @click="toggleExtra('Furgone di Supporto & Bagagli')">
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="fa-solid fa-van-shuttle" style="color: var(--color-primary); font-size: 1.2rem;"></i>
-                    <div>
-                        <strong style="display: block; font-size: 0.98rem;">Furgone di Supporto al Seguito & Trasporto Bagagli</strong>
-                        <span style="font-size: 0.82rem; color: var(--color-gray-500);">Zero pensieri: valigie trasferite da tappa a tappa</span>
-                    </div>
-                </div>
-                <input type="checkbox" :checked="selectedExtras.includes('Furgone di Supporto & Bagagli')" style="accent-color: var(--color-primary); transform: scale(1.3);">
-            </div>
+            <?php endforeach; ?>
         </div>
 
         <div style="max-width: 650px; margin: 0 auto; display: flex; justify-content: space-between;">
@@ -325,7 +315,7 @@
             <p style="color: var(--color-gray-600); font-size: 0.98rem;">Ecco il riassunto delle tue scelte. Inserisci i tuoi recapiti per ricevere la proposta personalizzata.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; align-items: start;">
+        <div class="builder-summary-grid">
             <!-- Box Riepilogo -->
             <div style="background: var(--color-accent-light); border: 1.5px solid rgba(144, 201, 92, 0.5); border-radius: var(--radius-lg); padding: 1.6rem;">
                 <h4 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--color-primary-dark);">Riepilogo Configurazione:</h4>
@@ -346,7 +336,7 @@
 
             <!-- Form Invio -->
             <div>
-                <form @submit.prevent="builderSubmitted = true">
+                <form @submit.prevent="submitBuilder">
                     <div class="form-group">
                         <label class="form-label"><?= t('form_name') ?> *</label>
                         <input type="text" class="form-control" placeholder="Mario Rossi" x-model="customerName" required>
@@ -369,8 +359,9 @@
                     </div>
 
                     <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
-                        <button type="submit" class="btn btn-primary" style="flex: 1;">
-                            <i class="fa-solid fa-paper-plane"></i> Invia Richiesta Tour
+                        <button type="submit" class="btn btn-primary" style="flex: 1;" :disabled="isSubmitting">
+                            <span x-show="!isSubmitting"><i class="fa-solid fa-paper-plane"></i> Invia Richiesta Tour</span>
+                            <span x-show="isSubmitting"><i class="fa-solid fa-spinner fa-spin"></i> Invio in corso...</span>
                         </button>
                         <a :href="getCustomWaLink()" target="_blank" class="btn btn-accent">
                             <i class="fa-brands fa-whatsapp"></i> Invia su WhatsApp

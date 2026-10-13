@@ -1,0 +1,32 @@
+[
+    {
+        "q_it": "A chi sono adatte le vostre escursioni in e-bike?",
+        "q_en": "Who are your e-bike tours suitable for?",
+        "a_it": "Le nostre escursioni sono adatte a tutti: da chi sale in bici per la prima volta fino ai ciclisti esperti, dai 6 ai 99 anni! Grazie alla pedalata assistita delle nostre e-bike di ultima generazione, salite e dislivelli non saranno più un ostacolo.",
+        "a_en": "Our tours are suitable for everyone from beginners to experienced cyclists, ages 6 to 99! Thanks to the pedal assistance of our latest-generation e-bikes, climbs and elevation gains become effortless and fun."
+    },
+    {
+        "q_it": "Cosa è incluso nel prezzo del tour?",
+        "q_en": "What is included in the tour price?",
+        "a_it": "Tutti i nostri tour includono il noleggio della e-bike (MTB o Touring), casco omologato, kit di riparazione, una guida locale certificata, assicurazione infortuni e acqua\/snack. Nei tour con degustazione o gourmet è incluso anche il pasto\/degustazione.",
+        "a_en": "All tours include high-end e-bike rental, certified helmet, repair kit, expert local guide, insurance and water\/snack. For wine & gourmet tours, full tasting\/meals are also included."
+    },
+    {
+        "q_it": "Posso richiedere un tour privato o personalizzato su misura?",
+        "q_en": "Can I request a private or customized tailor-made tour?",
+        "a_it": "Assolutamente sì! Oltre alle date standard a calendario, organizziamo tour privati e itinerari su misura in qualsiasi periodo dell'anno in base ai vostri giorni disponibili, tappe desiderate e ritmo di pedalata.",
+        "a_en": "Absolutely yes! Beyond fixed calendar departures, we design custom private itineraries year-round tailored to your available days, desired destinations and preferred cycling pace."
+    },
+    {
+        "q_it": "Cosa succede in caso di maltempo?",
+        "q_en": "What happens in case of bad weather?",
+        "a_it": "La sicurezza viene sempre al primo posto. In caso di condizioni meteo avverse o allerta vulcanica, il tour potrà essere riprogrammato in un'altra data oppure rimborsato integralmente.",
+        "a_en": "Safety always comes first. In case of severe weather or volcanic alerts, the tour can be rescheduled to another date or refunded in full."
+    },
+    {
+        "q_it": "Quale abbigliamento è consigliato?",
+        "q_en": "What clothing is recommended?",
+        "a_it": "Consigliamo abbigliamento sportivo a strati, scarpe da ginnastica o da trekking con suola scolpita, giacca antivento\/antipioggia leggera, occhiali da sole e crema solare. Per le quote alte dell'Etna una felpa è sempre utile.",
+        "a_en": "We recommend layered athletic clothing, comfortable trainers or light hiking shoes, a light windproof\/rain jacket, sunglasses and sunscreen. On Etna summits, an extra fleece layer is always recommended."
+    }
+]

@@ -11,11 +11,13 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Calcolo dinamico di BASE_URL
-$scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
-$baseUrl = ($scriptDir === '/' || $scriptDir === '.') ? '' : $scriptDir;
+define('BASE_PATH', str_replace('\\', '/', realpath(__DIR__ . '/..') ?: (__DIR__ . '/..')));
+
+// Calcolo dinamico di BASE_URL (evita che sottocartelle come /admin sporchino la root)
+$scriptDir = isset($_SERVER['SCRIPT_NAME']) ? str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])) : '';
+$cleanDir = preg_replace('#/(admin|includes|config|data)(/.*)?$#i', '', $scriptDir);
+$baseUrl = ($cleanDir === '/' || $cleanDir === '.' || empty($cleanDir)) ? '' : $cleanDir;
 define('BASE_URL', rtrim($baseUrl, '/'));
-define('BASE_PATH', str_replace('\\', '/', __DIR__ . '/..'));
 
 // Caricamento impostazioni dinamiche
 $settingsFile = BASE_PATH . '/data/settings.json';

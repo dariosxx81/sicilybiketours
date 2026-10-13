@@ -8,3 +8,4 @@ wp_pages.json
 structured_tours.json
 Materiale/Audio/
 Materiale/Credenziali/
+config/wordpress.php

@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escursioni Giornaliere in E-Bike sull'Etna e Nebrodi | Sicily Bike Tours</title>
-    <meta name="description" content="Scopri le migliori escursioni giornaliere in e-bike in Sicilia orientale. Percorsi guidati sull'Etna, nei boschi dei Nebrodi e degustazioni enogastronomiche.">
+    <title>Escursioni Giornaliere in E-Bike sull&#039;Etna e Nebrodi | Sicily Bike Tours</title>
+    <meta name="description" content="Scopri le migliori escursioni giornaliere in e-bike in Sicilia orientale. Percorsi guidati sull&#039;Etna, nei boschi dei Nebrodi e degustazioni enogastronomiche.">
     <link rel="canonical" href="https://www.sicilybiketours.it/escursioni.php">
     
     <!-- Open Graph / Social Meta -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sicily Bike Tours">
-    <meta property="og:title" content="Escursioni Giornaliere in E-Bike sull'Etna e Nebrodi | Sicily Bike Tours">
-    <meta property="og:description" content="Scopri le migliori escursioni giornaliere in e-bike in Sicilia orientale. Percorsi guidati sull'Etna, nei boschi dei Nebrodi e degustazioni enogastronomiche.">
+    <meta property="og:title" content="Escursioni Giornaliere in E-Bike sull&#039;Etna e Nebrodi | Sicily Bike Tours">
+    <meta property="og:description" content="Scopri le migliori escursioni giornaliere in e-bike in Sicilia orientale. Percorsi guidati sull&#039;Etna, nei boschi dei Nebrodi e degustazioni enogastronomiche.">
     <meta property="og:image" content="/assets/img/gallery/summit.jpg">
     <meta property="og:url" content="https://www.sicilybiketours.it/escursioni.php">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Escursioni Giornaliere in E-Bike sull'Etna e Nebrodi | Sicily Bike Tours">
-    <meta name="twitter:description" content="Scopri le migliori escursioni giornaliere in e-bike in Sicilia orientale. Percorsi guidati sull'Etna, nei boschi dei Nebrodi e degustazioni enogastronomiche.">
+    <meta name="twitter:title" content="Escursioni Giornaliere in E-Bike sull&#039;Etna e Nebrodi | Sicily Bike Tours">
+    <meta name="twitter:description" content="Scopri le migliori escursioni giornaliere in e-bike in Sicilia orientale. Percorsi guidati sull&#039;Etna, nei boschi dei Nebrodi e degustazioni enogastronomiche.">
     <meta name="twitter:image" content="/assets/img/gallery/summit.jpg">
 
     <!-- Favicon -->
@@ -101,25 +101,49 @@
             <!-- Desktop Menu -->
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link ">Home</a></li>
-                    <li><a href="chi-siamo.html" class="nav-link ">Chi Siamo</a></li>
-                    
-                    <!-- Esperienze Dropdown (senza link diretto) -->
-                    <li class="nav-item-dropdown" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                        <a href="javascript:void(0)" class="nav-link dropdown-toggle active" @click.prevent="open = !open">
-                            Esperienze <i class="fa-solid fa-chevron-down" style="font-size: 0.72rem; margin-left: 0.35rem;"></i>
-                        </a>
-                        <ul class="dropdown-menu" x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" style="display: none;">
-                            <li><a href="escursioni.html" class="dropdown-item"><i class="fa-solid fa-sun" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Escursioni Giornaliere</a></li>
-                            <li><a href="tour.html" class="dropdown-item"><i class="fa-solid fa-calendar-days" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Tour Itineranti</a></li>
-                            <li><a href="personalizza-tour.html" class="dropdown-item"><i class="fa-solid fa-sliders" style="color: var(--color-accent); margin-right: 0.5rem;"></i> Tour su Misura</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="magazine.html" class="nav-link ">Magazine & Guide</a></li>
-                    <li><a href="#calendario" class="nav-link">Calendario & Date</a></li>
-                    <li><a href="contatti.html" class="nav-link ">Contatti</a></li>
-                </ul>
+                                                                        <li>
+                                <a href="index.html" class="nav-link ">
+                                    Home                                </a>
+                            </li>
+                                                                                                <li>
+                                <a href="chi-siamo.html" class="nav-link ">
+                                    Chi Siamo                                </a>
+                            </li>
+                                                                                                <li class="nav-item-dropdown" x-data="{ open: false, timer: null }" @mouseenter="clearTimeout(timer); open = true" @mouseleave="timer = setTimeout(() => { open = false }, 200)">
+                                <a href="javascript:void(0)" class="nav-link dropdown-toggle active" @click.prevent="open = !open">
+                                    Esperienze <i class="fa-solid fa-chevron-down" style="font-size: 0.72rem; margin-left: 0.35rem;"></i>
+                                </a>
+                                <ul class="dropdown-menu" x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" style="display: none;">
+                                                                            <li>
+                                            <a href="escursioni.html" class="dropdown-item">
+                                                <i class="fa-solid fa-sun" style="color: var(--color-accent); margin-right: 0.5rem;"></i>
+                                                Escursioni Giornaliere                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="tour.html" class="dropdown-item">
+                                                <i class="fa-solid fa-calendar-days" style="color: var(--color-accent); margin-right: 0.5rem;"></i>
+                                                Tour Itineranti                                            </a>
+                                        </li>
+                                                                            <li>
+                                            <a href="personalizza-tour.html" class="dropdown-item">
+                                                <i class="fa-solid fa-sliders" style="color: var(--color-accent); margin-right: 0.5rem;"></i>
+                                                Tour su Misura                                            </a>
+                                        </li>
+                                                                    </ul>
+                            </li>
+                                                                                                <li>
+                                <a href="personalizza-tour.html" class="nav-link ">
+                                    Su Misura                                </a>
+                            </li>
+                                                                                                <li>
+                                <a href="magazine.html" class="nav-link ">
+                                    Magazine                                </a>
+                            </li>
+                                                                                                <li>
+                                <a href="contatti.html" class="nav-link ">
+                                    Contatti                                </a>
+                            </li>
+                                                            </ul>
             </nav>
 
             <!-- Actions & Lang Switcher -->
@@ -131,7 +155,7 @@
                 </div>
 
                 <a href="personalizza-tour.html" class="btn btn-accent btn-sm btn-book-nav">
-                    <i class="fa-solid fa-calendar-check"></i> Prenota                </a>
+                    <i class="fa-solid fa-calendar-check"></i> Prenota Ora                </a>
 
                 <!-- Mobile Toggle -->
                 <button class="mobile-toggle" @click="mobileMenuOpen = true" aria-label="Menu">
@@ -155,39 +179,58 @@
     </div>
 
     <ul class="drawer-nav" x-data="{ mobileExpOpen: false }">
-        <li><a href="index.html" class="drawer-link" @click="mobileMenuOpen = false">Home</a></li>
-        <li><a href="chi-siamo.html" class="drawer-link" @click="mobileMenuOpen = false">Chi Siamo</a></li>
-        
-        <!-- Mobile Esperienze Accordion -->
-        <li>
-            <div style="display: flex; justify-content: space-between; align-items: center;" class="drawer-link" @click="mobileExpOpen = !mobileExpOpen">
-                <span>Esperienze</span>
-                <i class="fa-solid" :class="mobileExpOpen ? 'fa-chevron-up' : 'fa-chevron-down'" style="font-size: 0.8rem;"></i>
-            </div>
-            <div x-show="mobileExpOpen" style="padding-left: 1rem; display: none;">
-                <a href="escursioni.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false"><i class="fa-solid fa-sun" style="color: var(--color-accent); width: 20px;"></i> Escursioni Giornaliere</a>
-                <a href="tour.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false"><i class="fa-solid fa-calendar-days" style="color: var(--color-accent); width: 20px;"></i> Tour Itineranti</a>
-                <a href="personalizza-tour.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false"><i class="fa-solid fa-sliders" style="color: var(--color-accent); width: 20px;"></i> Tour su Misura</a>
-            </div>
-        </li>
+                                    <li>
+                    <a href="index.html" class="drawer-link" @click="mobileMenuOpen = false">
+                        Home                    </a>
+                </li>
+                                                <li>
+                    <a href="chi-siamo.html" class="drawer-link" @click="mobileMenuOpen = false">
+                        Chi Siamo                    </a>
+                </li>
+                                                <li>
+                    <div style="display: flex; justify-content: space-between; align-items: center;" class="drawer-link" @click="mobileExpOpen = !mobileExpOpen">
+                        <span>Esperienze</span>
+                        <i class="fa-solid" :class="mobileExpOpen ? 'fa-chevron-up' : 'fa-chevron-down'" style="font-size: 0.8rem;"></i>
+                    </div>
+                    <div x-show="mobileExpOpen" style="padding-left: 1rem; display: none;">
+                                                    <a href="escursioni.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false">
+                                <i class="fa-solid fa-sun" style="color: var(--color-accent); width: 20px;"></i>
+                                Escursioni Giornaliere                            </a>
+                                                    <a href="tour.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false">
+                                <i class="fa-solid fa-calendar-days" style="color: var(--color-accent); width: 20px;"></i>
+                                Tour Itineranti                            </a>
+                                                    <a href="personalizza-tour.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false">
+                                <i class="fa-solid fa-sliders" style="color: var(--color-accent); width: 20px;"></i>
+                                Tour su Misura                            </a>
+                                            </div>
+                </li>
+                                                <li>
+                    <a href="personalizza-tour.html" class="drawer-link" @click="mobileMenuOpen = false">
+                        Su Misura                    </a>
+                </li>
+                                                <li>
+                    <a href="magazine.html" class="drawer-link" @click="mobileMenuOpen = false">
+                        Magazine                    </a>
+                </li>
+                                                <li>
+                    <a href="contatti.html" class="drawer-link" @click="mobileMenuOpen = false">
+                        Contatti                    </a>
+                </li>
+                        </ul>
 
-        <li><a href="magazine.html" class="drawer-link" @click="mobileMenuOpen = false">Magazine & Guide</a></li>
-        <li><a href="#calendario" class="drawer-link" @click="mobileMenuOpen = false">Calendario & Date</a></li>
-        <li><a href="contatti.html" class="drawer-link" @click="mobileMenuOpen = false">Contatti</a></li>
-    </ul>
-
-    <div style="margin-top: auto; padding-top: 2rem;">
+    <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--color-gray-100);">
         <div class="lang-switcher" style="margin-bottom: 1.2rem; justify-content: center;">
             <a href="?lang=it" class="lang-btn active">Italiano</a>
             <a href="?lang=en" class="lang-btn ">English</a>
         </div>
-        <a href="personalizza-tour.html" class="btn btn-accent btn-sm" style="width: 100%; margin-bottom: 0.75rem;">
-            <i class="fa-solid fa-calendar-check"></i> Prenota        </a>
-        <a href="https://wa.me/393297568883" target="_blank" class="btn btn-outline-white btn-sm" style="width: 100%;">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp Info
+        <a href="personalizza-tour.html" class="btn btn-accent btn-sm" style="width: 100%; margin-bottom: 0.75rem;" @click="mobileMenuOpen = false">
+            <i class="fa-solid fa-calendar-check"></i> Prenota Ora        </a>
+        <a href="https://wa.me/393297568883" target="_blank" class="btn btn-sm" style="width: 100%; background: #25D366; color: #ffffff; font-weight: 700; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.1rem;"></i> WhatsApp Info
         </a>
     </div>
 </div>
+
 
 <!-- Page Header Banner -->
 <section style="background: linear-gradient(rgba(15, 44, 48, 0.85), rgba(15, 44, 48, 0.95)), url('/assets/img/gallery/summit.jpg') center/cover no-repeat; padding: 8.5rem 0 4rem 0; color: var(--color-white); text-align: center;">
@@ -201,34 +244,116 @@
     </div>
 </section>
 
-<!-- Escursioni Catalog -->
+<!-- Escursioni Catalog & Dynamic Category Filters -->
 <section class="section-spacing" x-data="{
+    filterCat: 'all',
     filterArea: 'all',
-    filterDifficulty: 'all',
     
+    init() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('cat')) this.filterCat = urlParams.get('cat');
+        if (urlParams.get('area')) this.filterArea = urlParams.get('area');
+    },
+
+    setCat(cat) {
+        this.filterCat = cat;
+        this.updateUrl();
+    },
+
+    setArea(area) {
+        this.filterArea = area;
+        this.updateUrl();
+    },
+
+    updateUrl() {
+        const url = new URL(window.location);
+        if (this.filterCat === 'all') url.searchParams.delete('cat');
+        else url.searchParams.set('cat', this.filterCat);
+
+        if (this.filterArea === 'all') url.searchParams.delete('area');
+        else url.searchParams.set('area', this.filterArea);
+
+        window.history.replaceState({}, '', url);
+    },
+
     match(tour) {
-        let areaMatch = (this.filterArea === 'all' || tour.area_tag === this.filterArea);
-        return areaMatch;
+        // Filtro Area
+        const areaMatch = (this.filterArea === 'all' || 
+                          tour.area_tag === this.filterArea || 
+                          (tour.area && tour.area.toLowerCase().includes(this.filterArea.toLowerCase())));
+        
+        // Filtro Categoria Dinamico
+        if (this.filterCat === 'all') return areaMatch;
+
+        const cat = this.filterCat.toLowerCase();
+        const catMatch = (
+            (tour.category_slug && tour.category_slug.toLowerCase() === cat) ||
+            (tour.categories && Array.isArray(tour.categories) && tour.categories.map(c => c.toLowerCase()).includes(cat)) ||
+            (tour.category && tour.category.toLowerCase().includes(cat)) ||
+            (tour.area_tag && tour.area_tag.toLowerCase() === cat) ||
+            (tour.slug && tour.slug.toLowerCase().includes(cat)) ||
+            (tour.difficulty && tour.difficulty.toLowerCase().includes(cat)) ||
+            (tour.title && tour.title.toLowerCase().includes(cat))
+        );
+
+        return areaMatch && catMatch;
     }
 }">
     <div class="container">
-        <!-- Filter Toolbar -->
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; background: var(--color-white); padding: 1.2rem 1.6rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200);">
-            <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
-                <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-gray-500); margin-right: 0.4rem;">Filtra per Area:</span>
-                <button class="filter-pill btn-sm" :class="{ 'active': filterArea === 'all' }" @click="filterArea = 'all'">Tutte le Aree</button>
-                <button class="filter-pill btn-sm" :class="{ 'active': filterArea === 'etna' }" @click="filterArea = 'etna'">Etna Nord & Crateri</button>
-                <button class="filter-pill btn-sm" :class="{ 'active': filterArea === 'nebrodi' }" @click="filterArea = 'nebrodi'">Parco dei Nebrodi</button>
-            </div>
+        <!-- Dynamic Filter Toolbar -->
+        <div style="background: var(--color-white); padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem;">
             
-            <span style="font-size: 0.9rem; color: var(--color-gray-500); font-weight: 600;">
-                7 Escursioni Disponibili
-            </span>
+            <!-- Riga 1: Categorie Dinamiche -->
+            <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-gray-100);">
+                <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-dark); margin-right: 0.5rem;">
+                    <i class="fa-solid fa-shapes" style="color: var(--color-primary);"></i> Categorie:
+                </span>
+                <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === 'all' }" @click="setCat('all')">
+                    Tutte le Categorie
+                </button>
+                                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === 'etna' }" @click="setCat('etna')">
+                        <i class="fa-solid fa-volcano"></i> Vulcano Etna &amp; Crateri                    </button>
+                                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === 'nebrodi' }" @click="setCat('nebrodi')">
+                        <i class="fa-solid fa-mountain-sun"></i> Boschi &amp; Laghi dei Nebrodi                    </button>
+                                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === 'enogastronomia' }" @click="setCat('enogastronomia')">
+                        <i class="fa-solid fa-wine-glass"></i> Enogastronomia &amp; Cantine DOC                    </button>
+                                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === 'borghi' }" @click="setCat('borghi')">
+                        <i class="fa-solid fa-landmark"></i> Borghi Medievali &amp; Castelli                    </button>
+                                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === 'principianti' }" @click="setCat('principianti')">
+                        <i class="fa-solid fa-seedling"></i> Principianti &amp; Prima Volta                    </button>
+                                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === 'famiglie' }" @click="setCat('famiglie')">
+                        <i class="fa-solid fa-people-roof"></i> Famiglie &amp; Ragazzi                    </button>
+                                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === 'esperti' }" @click="setCat('esperti')">
+                        <i class="fa-solid fa-mountain"></i> Ciclisti Esperti &amp; Trail                    </button>
+                            </div>
+
+            <!-- Riga 2: Aree Geografiche -->
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+                    <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-gray-600); margin-right: 0.5rem;">
+                        <i class="fa-solid fa-map-location-dot" style="color: var(--color-primary);"></i> Area:
+                    </span>
+                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'all' }" @click="setArea('all')">Tutta la Sicilia</button>
+                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'etna' }" @click="setArea('etna')">Etna Nord & Crateri</button>
+                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'nebrodi' }" @click="setArea('nebrodi')">Parco dei Nebrodi</button>
+                </div>
+
+                <a href="personalizza-tour.html" class="btn btn-accent btn-sm">
+                    <i class="fa-solid fa-sliders"></i> Richiedi Tour su Misura
+                </a>
+            </div>
         </div>
 
+        <!-- Tours Grid -->
         <div class="tours-grid">
-                            <div x-show="match({&quot;id&quot;:1,&quot;slug&quot;:&quot;etna-summit-vulcano-avventura&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Escursioni Giornaliere&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Etna&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:true,&quot;title&quot;:&quot;Etna Summit: la scalata del vulcano in E-Bike&quot;,&quot;title_en&quot;:&quot;Etna Summit: E-Bike Volcano Climb&quot;,&quot;subtitle&quot;:&quot;Una giornata memorabile tra colate laviche storiche, crateri e paesaggi lunari fino alle quote sommitali.&quot;,&quot;subtitle_en&quot;:&quot;An unforgettable day through historical lava flows, craters and moonscapes up to the high peaks.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/summit.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/summit.jpg&quot;,&quot;assets\/img\/gallery\/Etna-home-page.jpg&quot;,&quot;assets\/img\/gallery\/etna-2.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-113.jpg&quot;],&quot;price&quot;:85,&quot;price_note&quot;:&quot;a persona (guida + e-bike inclusa)&quot;,&quot;price_note_en&quot;:&quot;per person (guide + e-bike included)&quot;,&quot;duration&quot;:&quot;5-6 ore&quot;,&quot;duration_en&quot;:&quot;5-6 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;40 km&quot;,&quot;elevation&quot;:&quot;+1.300 m&quot;,&quot;difficulty&quot;:&quot;Medio \/ Difficile&quot;,&quot;difficulty_en&quot;:&quot;Medium \/ Challenging&quot;,&quot;start_location&quot;:&quot;Randazzo \/ Rifugio Nord Etna&quot;,&quot;season&quot;:&quot;Aprile - Ottobre&quot;,&quot;season_en&quot;:&quot;April - October&quot;,&quot;highlights&quot;:[&quot;Salita panoramica verso i crateri sommitali&quot;,&quot;Attraversamento delle colate laviche storiche e deserto di sabbia vulcanica&quot;,&quot;Sosta panoramica sulla Valle del Bove e vista fino al Mar Ionio&quot;,&quot;Guida esperta di vulcanologia e cicloturismo&quot;],&quot;highlights_en&quot;:[&quot;Panoramic ascent towards the summit craters&quot;,&quot;Riding through historical lava fields and volcanic sand&quot;,&quot;Panoramic stop overlooking the Valle del Bove and Ionian Sea&quot;,&quot;Certified volcanological &amp; cycling local guide&quot;],&quot;included&quot;:[&quot;Noleggio E-MTB biammortizzata di ultima generazione&quot;,&quot;Casco, kit riparazione e sacca idrica&quot;,&quot;Guida cicloturistica certificata&quot;,&quot;Assicurazione infortuni&quot;,&quot;Snack energetico e acqua&quot;],&quot;included_en&quot;:[&quot;Latest generation full-suspension E-MTB rental&quot;,&quot;Helmet, repair kit and hydration pack&quot;,&quot;Certified local cycling guide&quot;,&quot;Personal injury insurance&quot;,&quot;Energy snack and fresh water&quot;],&quot;excluded&quot;:[&quot;Pranzo completo (disponibile su richiesta)&quot;,&quot;Transfer da hotel (su richiesta)&quot;],&quot;excluded_en&quot;:[&quot;Full lunch (available upon request)&quot;,&quot;Hotel pickup\/transfer (on request)&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-15&quot;,&quot;2026-04-22&quot;,&quot;2026-05-06&quot;,&quot;2026-05-20&quot;,&quot;2026-06-10&quot;,&quot;2026-07-08&quot;,&quot;2026-08-12&quot;,&quot;2026-09-09&quot;,&quot;2026-10-07&quot;]})" x-transition>
-                    <div class="tour-card" data-category="escursione" data-area="etna">
+                            <div x-show="match({&quot;id&quot;:1,&quot;slug&quot;:&quot;etna-summit-vulcano-avventura&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Vulcano Etna &amp; Crateri&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Etna&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:true,&quot;title&quot;:&quot;Etna Summit: la scalata del vulcano in E-Bike&quot;,&quot;title_en&quot;:&quot;Etna Summit: E-Bike Volcano Climb&quot;,&quot;subtitle&quot;:&quot;Una giornata memorabile tra colate laviche storiche, crateri e paesaggi lunari fino alle quote sommitali.&quot;,&quot;subtitle_en&quot;:&quot;An unforgettable day through historical lava flows, craters and moonscapes up to the high peaks.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/summit.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/summit.jpg&quot;,&quot;assets\/img\/gallery\/Etna-home-page.jpg&quot;,&quot;assets\/img\/gallery\/etna-2.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-113.jpg&quot;],&quot;price&quot;:85,&quot;price_note&quot;:&quot;a persona (guida + e-bike inclusa)&quot;,&quot;price_note_en&quot;:&quot;per person (guide + e-bike included)&quot;,&quot;duration&quot;:&quot;5-6 ore&quot;,&quot;duration_en&quot;:&quot;5-6 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;40 km&quot;,&quot;elevation&quot;:&quot;+1.300 m&quot;,&quot;difficulty&quot;:&quot;Medio \/ Difficile&quot;,&quot;difficulty_en&quot;:&quot;Medium \/ Challenging&quot;,&quot;start_location&quot;:&quot;Randazzo \/ Rifugio Nord Etna&quot;,&quot;season&quot;:&quot;Aprile - Ottobre&quot;,&quot;season_en&quot;:&quot;April - October&quot;,&quot;highlights&quot;:[&quot;Salita panoramica verso i crateri sommitali&quot;,&quot;Attraversamento delle colate laviche storiche e deserto di sabbia vulcanica&quot;,&quot;Sosta panoramica sulla Valle del Bove e vista fino al Mar Ionio&quot;,&quot;Guida esperta di vulcanologia e cicloturismo&quot;],&quot;highlights_en&quot;:[&quot;Panoramic ascent towards the summit craters&quot;,&quot;Riding through historical lava fields and volcanic sand&quot;,&quot;Panoramic stop overlooking the Valle del Bove and Ionian Sea&quot;,&quot;Certified volcanological &amp; cycling local guide&quot;],&quot;included&quot;:[&quot;Noleggio E-MTB biammortizzata di ultima generazione&quot;,&quot;Casco, kit riparazione e sacca idrica&quot;,&quot;Guida cicloturistica certificata&quot;,&quot;Assicurazione infortuni&quot;,&quot;Snack energetico e acqua&quot;],&quot;included_en&quot;:[&quot;Latest generation full-suspension E-MTB rental&quot;,&quot;Helmet, repair kit and hydration pack&quot;,&quot;Certified local cycling guide&quot;,&quot;Personal injury insurance&quot;,&quot;Energy snack and fresh water&quot;],&quot;excluded&quot;:[&quot;Pranzo completo (disponibile su richiesta)&quot;,&quot;Transfer da hotel (su richiesta)&quot;],&quot;excluded_en&quot;:[&quot;Full lunch (available upon request)&quot;,&quot;Hotel pickup\/transfer (on request)&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-15&quot;,&quot;2026-04-22&quot;,&quot;2026-05-06&quot;,&quot;2026-05-20&quot;,&quot;2026-06-10&quot;,&quot;2026-07-08&quot;,&quot;2026-08-12&quot;,&quot;2026-09-09&quot;,&quot;2026-10-07&quot;],&quot;category_slug&quot;:&quot;etna&quot;,&quot;categories&quot;:[&quot;etna&quot;,&quot;esperti&quot;]})" x-transition>
+                    <div class="tour-card" 
+     data-category="escursione" 
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
             <img src="assets/img/gallery/summit.jpg" alt="Etna Summit: la scalata del vulcano in E-Bike" loading="lazy">
@@ -237,7 +362,9 @@
         <div class="tour-card-badges">
             <span class="badge badge-dark">
                 <i class="fa-solid fa-clock"></i> 5-6 ore            </span>
-                            <span class="badge badge-accent">
+                            <span class="badge badge-accent" style="font-weight: 700;">
+                    <i class="fa-solid fa-tag"></i> Vulcano Etna &amp; Crateri                </span>
+                                        <span class="badge badge-volcano" style="background: var(--color-volcano); color: #fff;">
                     <i class="fa-solid fa-star"></i> Top Choice
                 </span>
                     </div>
@@ -277,17 +404,23 @@
             </div>
         </div>
 
-        <div class="tour-card-footer">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli            </a>
-            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:1,&quot;slug&quot;:&quot;etna-summit-vulcano-avventura&quot;,&quot;title&quot;:&quot;Etna Summit: la scalata del vulcano in E-Bike&quot;,&quot;price&quot;:85,&quot;duration&quot;:&quot;5-6 ore&quot;})">
-                Prenota            </button>
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:1,&quot;slug&quot;:&quot;etna-summit-vulcano-avventura&quot;,&quot;title&quot;:&quot;Etna Summit: la scalata del vulcano in E-Bike&quot;,&quot;price&quot;:85,&quot;duration&quot;:&quot;5-6 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
 </div>
                 </div>
-                            <div x-show="match({&quot;id&quot;:2,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Escursioni Giornaliere&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Etna&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:true,&quot;title&quot;:&quot;Escursione in E-Bike &amp; Pranzo Gourmet&quot;,&quot;title_en&quot;:&quot;E-Bike Tour &amp; Gourmet Lunch&quot;,&quot;subtitle&quot;:&quot;Un mix perfetto di natura, panorami tra mare e vulcano e un pranzo indimenticabile in Home Restaurant tipico.&quot;,&quot;subtitle_en&quot;:&quot;A perfect blend of nature, sea-to-volcano views and an unforgettable lunch at a typical Home Restaurant.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-31.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-31.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-32.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-33.jpg&quot;],&quot;price&quot;:95,&quot;price_note&quot;:&quot;a persona (e-bike + pranzo gourmet incluso)&quot;,&quot;price_note_en&quot;:&quot;per person (e-bike + gourmet lunch included)&quot;,&quot;duration&quot;:&quot;3-4 ore + pranzo&quot;,&quot;duration_en&quot;:&quot;3-4 hours + lunch&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;35 km&quot;,&quot;elevation&quot;:&quot;+1.100 m&quot;,&quot;difficulty&quot;:&quot;Medio \/ Facile&quot;,&quot;difficulty_en&quot;:&quot;Easy \/ Moderate&quot;,&quot;start_location&quot;:&quot;Milo (Versante Est Etna)&quot;,&quot;season&quot;:&quot;Aprile - Novembre&quot;,&quot;season_en&quot;:&quot;April - November&quot;,&quot;highlights&quot;:[&quot;Pedalata tra i vigneti pi\u00f9 celebri dell'Etna DOC e boschi di castagni secolari&quot;,&quot;Spettacolari scorci sulla costa ionica di Taormina e Riposto&quot;,&quot;Pranzo gourmet a 4 portate con prodotti biologici a km 0 e vino locale&quot;,&quot;Atmosfera intima e calorosa accoglienza siciliana&quot;],&quot;highlights_en&quot;:[&quot;Ride through famous Etna DOC vineyards and centuries-old chestnut woods&quot;,&quot;Spectacular views over the Ionian coast from Taormina to Riposto&quot;,&quot;4-course gourmet lunch featuring local organic ingredients and wine&quot;,&quot;Intimate atmosphere and warm authentic Sicilian hospitality&quot;],&quot;included&quot;:[&quot;Noleggio E-Bike biammortizzata&quot;,&quot;Guida ciclistica locale per tutto il percorso&quot;,&quot;Pranzo gourmet completo in Home Restaurant selezionato&quot;,&quot;Degustazione vino locale DOC&quot;,&quot;Casco e assicurazione&quot;],&quot;included_en&quot;:[&quot;Full-suspension E-Bike rental&quot;,&quot;Local cycling guide for the whole tour&quot;,&quot;Full gourmet lunch in a selected Home Restaurant&quot;,&quot;Local Etna DOC wine tasting&quot;,&quot;Helmet and insurance&quot;],&quot;excluded&quot;:[&quot;Extra personali e acquisti bottiglie in cantina&quot;],&quot;excluded_en&quot;:[&quot;Personal extras and wine bottle purchases&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-18&quot;,&quot;2026-05-02&quot;,&quot;2026-05-16&quot;,&quot;2026-06-06&quot;,&quot;2026-06-27&quot;,&quot;2026-07-18&quot;,&quot;2026-09-12&quot;,&quot;2026-10-10&quot;]})" x-transition>
-                    <div class="tour-card" data-category="escursione" data-area="etna">
+                            <div x-show="match({&quot;id&quot;:2,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Enogastronomia &amp; Cantine DOC&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Etna&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:true,&quot;title&quot;:&quot;Escursione in E-Bike &amp; Pranzo Gourmet&quot;,&quot;title_en&quot;:&quot;E-Bike Tour &amp; Gourmet Lunch&quot;,&quot;subtitle&quot;:&quot;Un mix perfetto di natura, panorami tra mare e vulcano e un pranzo indimenticabile in Home Restaurant tipico.&quot;,&quot;subtitle_en&quot;:&quot;A perfect blend of nature, sea-to-volcano views and an unforgettable lunch at a typical Home Restaurant.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-31.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-31.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-32.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-33.jpg&quot;],&quot;price&quot;:95,&quot;price_note&quot;:&quot;a persona (e-bike + pranzo gourmet incluso)&quot;,&quot;price_note_en&quot;:&quot;per person (e-bike + gourmet lunch included)&quot;,&quot;duration&quot;:&quot;3-4 ore + pranzo&quot;,&quot;duration_en&quot;:&quot;3-4 hours + lunch&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;35 km&quot;,&quot;elevation&quot;:&quot;+1.100 m&quot;,&quot;difficulty&quot;:&quot;Medio \/ Facile&quot;,&quot;difficulty_en&quot;:&quot;Easy \/ Moderate&quot;,&quot;start_location&quot;:&quot;Milo (Versante Est Etna)&quot;,&quot;season&quot;:&quot;Aprile - Novembre&quot;,&quot;season_en&quot;:&quot;April - November&quot;,&quot;highlights&quot;:[&quot;Pedalata tra i vigneti pi\u00f9 celebri dell&#039;Etna DOC e boschi di castagni secolari&quot;,&quot;Spettacolari scorci sulla costa ionica di Taormina e Riposto&quot;,&quot;Pranzo gourmet a 4 portate con prodotti biologici a km 0 e vino locale&quot;,&quot;Atmosfera intima e calorosa accoglienza siciliana&quot;],&quot;highlights_en&quot;:[&quot;Ride through famous Etna DOC vineyards and centuries-old chestnut woods&quot;,&quot;Spectacular views over the Ionian coast from Taormina to Riposto&quot;,&quot;4-course gourmet lunch featuring local organic ingredients and wine&quot;,&quot;Intimate atmosphere and warm authentic Sicilian hospitality&quot;],&quot;included&quot;:[&quot;Noleggio E-Bike biammortizzata&quot;,&quot;Guida ciclistica locale per tutto il percorso&quot;,&quot;Pranzo gourmet completo in Home Restaurant selezionato&quot;,&quot;Degustazione vino locale DOC&quot;,&quot;Casco e assicurazione&quot;],&quot;included_en&quot;:[&quot;Full-suspension E-Bike rental&quot;,&quot;Local cycling guide for the whole tour&quot;,&quot;Full gourmet lunch in a selected Home Restaurant&quot;,&quot;Local Etna DOC wine tasting&quot;,&quot;Helmet and insurance&quot;],&quot;excluded&quot;:[&quot;Extra personali e acquisti bottiglie in cantina&quot;],&quot;excluded_en&quot;:[&quot;Personal extras and wine bottle purchases&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-18&quot;,&quot;2026-05-02&quot;,&quot;2026-05-16&quot;,&quot;2026-06-06&quot;,&quot;2026-06-27&quot;,&quot;2026-07-18&quot;,&quot;2026-09-12&quot;,&quot;2026-10-10&quot;],&quot;category_slug&quot;:&quot;enogastronomia&quot;,&quot;categories&quot;:[&quot;enogastronomia&quot;,&quot;principianti&quot;]})" x-transition>
+                    <div class="tour-card" 
+     data-category="escursione" 
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
             <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-31.jpg" alt="Escursione in E-Bike &amp; Pranzo Gourmet" loading="lazy">
@@ -296,7 +429,9 @@
         <div class="tour-card-badges">
             <span class="badge badge-dark">
                 <i class="fa-solid fa-clock"></i> 3-4 ore + pranzo            </span>
-                            <span class="badge badge-accent">
+                            <span class="badge badge-accent" style="font-weight: 700;">
+                    <i class="fa-solid fa-tag"></i> Enogastronomia &amp; Cantine DOC                </span>
+                                        <span class="badge badge-volcano" style="background: var(--color-volcano); color: #fff;">
                     <i class="fa-solid fa-star"></i> Top Choice
                 </span>
                     </div>
@@ -336,17 +471,23 @@
             </div>
         </div>
 
-        <div class="tour-card-footer">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli            </a>
-            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:2,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;title&quot;:&quot;Escursione in E-Bike &amp; Pranzo Gourmet&quot;,&quot;price&quot;:95,&quot;duration&quot;:&quot;3-4 ore + pranzo&quot;})">
-                Prenota            </button>
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:2,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;title&quot;:&quot;Escursione in E-Bike &amp; Pranzo Gourmet&quot;,&quot;price&quot;:95,&quot;duration&quot;:&quot;3-4 ore + pranzo&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
 </div>
                 </div>
-                            <div x-show="match({&quot;id&quot;:3,&quot;slug&quot;:&quot;escursione-in-bicicletta-etna-grotta-lamponi&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Escursioni Giornaliere&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Etna&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Escursione in E-Bike: Etna &amp; Grotta dei Lamponi&quot;,&quot;title_en&quot;:&quot;Etna &amp; Raspberry Lava Cave E-Bike Tour&quot;,&quot;subtitle&quot;:&quot;Viaggio tra le pinete della Ragabo, la maestosa colata del 2002 e l'esplorazione speleologica di un tunnel lavico millenario.&quot;,&quot;subtitle_en&quot;:&quot;A journey through Ragabo pine forest, the huge 2002 lava flow and speleological exploration of an ancient lava tube.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/etna-2.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/etna-2.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-106.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-93.jpg&quot;],&quot;price&quot;:75,&quot;price_note&quot;:&quot;a persona (guida + casco + torcia speleo inclusi)&quot;,&quot;price_note_en&quot;:&quot;per person (guide + helmet + cave torch included)&quot;,&quot;duration&quot;:&quot;4-6 ore&quot;,&quot;duration_en&quot;:&quot;4-6 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;45 km&quot;,&quot;elevation&quot;:&quot;+930 m&quot;,&quot;difficulty&quot;:&quot;Medio&quot;,&quot;difficulty_en&quot;:&quot;Moderate&quot;,&quot;start_location&quot;:&quot;Randazzo \/ Pineta Ragabo&quot;,&quot;season&quot;:&quot;Marzo - Novembre&quot;,&quot;season_en&quot;:&quot;March - November&quot;,&quot;highlights&quot;:[&quot;Pedalata tra i pini larici della secolare Pineta Ragabo&quot;,&quot;Visita con caschetto e torcia all'interno della Grotta dei Lamponi&quot;,&quot;Passaggio sulla grande colata lavica del 2002 a Piano Provenzana&quot;,&quot;Discese divertenti su piste forestali battute&quot;],&quot;highlights_en&quot;:[&quot;Cycling among the ancient towering pines of Ragabo forest&quot;,&quot;Caving exploration of the famous Grotta dei Lamponi with helmets and torches&quot;,&quot;Crossing the massive 2002 lava flow near Piano Provenzana&quot;,&quot;Fun flow descents on scenic forest gravel trails&quot;],&quot;included&quot;:[&quot;Noleggio E-Bike MTB&quot;,&quot;Casco, torce frontali per speleologia&quot;,&quot;Guida ciclistica ed escursionistica&quot;,&quot;Assicurazione&quot;],&quot;included_en&quot;:[&quot;E-MTB rental&quot;,&quot;Helmets and headlamps for cave exploration&quot;,&quot;Certified cycling guide&quot;,&quot;Insurance&quot;],&quot;excluded&quot;:[&quot;Pranzo al sacco \/ ristorante&quot;],&quot;excluded_en&quot;:[&quot;Packed lunch \/ restaurant&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-12&quot;,&quot;2026-04-26&quot;,&quot;2026-05-10&quot;,&quot;2026-05-24&quot;,&quot;2026-06-14&quot;,&quot;2026-07-05&quot;,&quot;2026-09-20&quot;]})" x-transition>
-                    <div class="tour-card" data-category="escursione" data-area="etna">
+                            <div x-show="match({&quot;id&quot;:3,&quot;slug&quot;:&quot;escursione-in-bicicletta-etna-grotta-lamponi&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Vulcano Etna &amp; Crateri&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Etna&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Escursione in E-Bike: Etna &amp; Grotta dei Lamponi&quot;,&quot;title_en&quot;:&quot;Etna &amp; Raspberry Lava Cave E-Bike Tour&quot;,&quot;subtitle&quot;:&quot;Viaggio tra le pinete della Ragabo, la maestosa colata del 2002 e l&#039;esplorazione speleologica di un tunnel lavico millenario.&quot;,&quot;subtitle_en&quot;:&quot;A journey through Ragabo pine forest, the huge 2002 lava flow and speleological exploration of an ancient lava tube.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/etna-2.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/etna-2.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-106.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-93.jpg&quot;],&quot;price&quot;:75,&quot;price_note&quot;:&quot;a persona (guida + casco + torcia speleo inclusi)&quot;,&quot;price_note_en&quot;:&quot;per person (guide + helmet + cave torch included)&quot;,&quot;duration&quot;:&quot;4-6 ore&quot;,&quot;duration_en&quot;:&quot;4-6 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;45 km&quot;,&quot;elevation&quot;:&quot;+930 m&quot;,&quot;difficulty&quot;:&quot;Medio&quot;,&quot;difficulty_en&quot;:&quot;Moderate&quot;,&quot;start_location&quot;:&quot;Randazzo \/ Pineta Ragabo&quot;,&quot;season&quot;:&quot;Marzo - Novembre&quot;,&quot;season_en&quot;:&quot;March - November&quot;,&quot;highlights&quot;:[&quot;Pedalata tra i pini larici della secolare Pineta Ragabo&quot;,&quot;Visita con caschetto e torcia all&#039;interno della Grotta dei Lamponi&quot;,&quot;Passaggio sulla grande colata lavica del 2002 a Piano Provenzana&quot;,&quot;Discese divertenti su piste forestali battute&quot;],&quot;highlights_en&quot;:[&quot;Cycling among the ancient towering pines of Ragabo forest&quot;,&quot;Caving exploration of the famous Grotta dei Lamponi with helmets and torches&quot;,&quot;Crossing the massive 2002 lava flow near Piano Provenzana&quot;,&quot;Fun flow descents on scenic forest gravel trails&quot;],&quot;included&quot;:[&quot;Noleggio E-Bike MTB&quot;,&quot;Casco, torce frontali per speleologia&quot;,&quot;Guida ciclistica ed escursionistica&quot;,&quot;Assicurazione&quot;],&quot;included_en&quot;:[&quot;E-MTB rental&quot;,&quot;Helmets and headlamps for cave exploration&quot;,&quot;Certified cycling guide&quot;,&quot;Insurance&quot;],&quot;excluded&quot;:[&quot;Pranzo al sacco \/ ristorante&quot;],&quot;excluded_en&quot;:[&quot;Packed lunch \/ restaurant&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-12&quot;,&quot;2026-04-26&quot;,&quot;2026-05-10&quot;,&quot;2026-05-24&quot;,&quot;2026-06-14&quot;,&quot;2026-07-05&quot;,&quot;2026-09-20&quot;],&quot;category_slug&quot;:&quot;etna&quot;,&quot;categories&quot;:[&quot;etna&quot;,&quot;principianti&quot;]})" x-transition>
+                    <div class="tour-card" 
+     data-category="escursione" 
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
             <img src="assets/img/gallery/etna-2.jpg" alt="Escursione in E-Bike: Etna &amp; Grotta dei Lamponi" loading="lazy">
@@ -355,7 +496,9 @@
         <div class="tour-card-badges">
             <span class="badge badge-dark">
                 <i class="fa-solid fa-clock"></i> 4-6 ore            </span>
-                    </div>
+                            <span class="badge badge-accent" style="font-weight: 700;">
+                    <i class="fa-solid fa-tag"></i> Vulcano Etna &amp; Crateri                </span>
+                                </div>
 
         <div class="tour-card-price-tag">
             A partire da <span>€75</span>
@@ -372,7 +515,7 @@
         </h3>
 
         <p class="tour-card-desc">
-            Viaggio tra le pinete della Ragabo, la maestosa colata del 2002 e l'esplorazione speleologica di un tunnel lavico millenario.        </p>
+            Viaggio tra le pinete della Ragabo, la maestosa colata del 2002 e l&#039;esplorazione speleologica di un tunnel lavico millenario.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -392,17 +535,23 @@
             </div>
         </div>
 
-        <div class="tour-card-footer">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli            </a>
-            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:3,&quot;slug&quot;:&quot;escursione-in-bicicletta-etna-grotta-lamponi&quot;,&quot;title&quot;:&quot;Escursione in E-Bike: Etna &amp; Grotta dei Lamponi&quot;,&quot;price&quot;:75,&quot;duration&quot;:&quot;4-6 ore&quot;})">
-                Prenota            </button>
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:3,&quot;slug&quot;:&quot;escursione-in-bicicletta-etna-grotta-lamponi&quot;,&quot;title&quot;:&quot;Escursione in E-Bike: Etna &amp; Grotta dei Lamponi&quot;,&quot;price&quot;:75,&quot;duration&quot;:&quot;4-6 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
 </div>
                 </div>
-                            <div x-show="match({&quot;id&quot;:4,&quot;slug&quot;:&quot;escursione-etna-degustazione-vino&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Escursioni Giornaliere&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Etna&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Etna in E-Bike: Avventura e Degustazione di Vino&quot;,&quot;title_en&quot;:&quot;Etna E-Bike &amp; Wine Tasting Adventure&quot;,&quot;subtitle&quot;:&quot;Una fuga tra le contrade del vino vulcanico, antichi palmenti e cantine prestigiose sull'Etna Nord.&quot;,&quot;subtitle_en&quot;:&quot;An escape through volcanic wine contradas, historic stone presses and prestigious northern Etna wineries.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-77.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-77.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-82.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-96.jpg&quot;],&quot;price&quot;:90,&quot;price_note&quot;:&quot;a persona (inclusa degustazione 3 calici + tagliere)&quot;,&quot;price_note_en&quot;:&quot;per person (includes 3 wine tastings + local board)&quot;,&quot;duration&quot;:&quot;4-5 ore&quot;,&quot;duration_en&quot;:&quot;4-5 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;38 km&quot;,&quot;elevation&quot;:&quot;+800 m&quot;,&quot;difficulty&quot;:&quot;Facile \/ Medio&quot;,&quot;difficulty_en&quot;:&quot;Easy \/ Moderate&quot;,&quot;start_location&quot;:&quot;Castiglione di Sicilia \/ Solicchiata&quot;,&quot;season&quot;:&quot;Tutto l'anno&quot;,&quot;season_en&quot;:&quot;All year round&quot;,&quot;highlights&quot;:[&quot;Pedalata panoramica lungo la famosa Strada del Vino dell'Etna&quot;,&quot;Visita a uno storico palmento in pietra lavica&quot;,&quot;Degustazione guidata di Nerello Mascalese e Carricante in cantina&quot;,&quot;Tagliere di formaggi dei Nebrodi, salumi nostrani e pane casereccio&quot;],&quot;highlights_en&quot;:[&quot;Panoramic ride along the famous Etna Wine Route&quot;,&quot;Visit to a historic lava-stone wine press&quot;,&quot;Guided tasting of Nerello Mascalese and Carricante at a boutique winery&quot;,&quot;Platter of Nebrodi cheeses, local cured meats and artisan bread&quot;],&quot;included&quot;:[&quot;Noleggio E-Bike&quot;,&quot;Guida ciclistica&quot;,&quot;Degustazione vini e tagliere tipico in cantina&quot;,&quot;Casco e assicurazione&quot;],&quot;included_en&quot;:[&quot;E-Bike rental&quot;,&quot;Cycling guide&quot;,&quot;Wine tasting with local platter at winery&quot;,&quot;Helmet and insurance&quot;],&quot;excluded&quot;:[&quot;Spese personali&quot;],&quot;excluded_en&quot;:[&quot;Personal expenses&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-11&quot;,&quot;2026-04-25&quot;,&quot;2026-05-09&quot;,&quot;2026-05-23&quot;,&quot;2026-06-13&quot;,&quot;2026-07-11&quot;,&quot;2026-08-22&quot;,&quot;2026-09-19&quot;,&quot;2026-10-17&quot;]})" x-transition>
-                    <div class="tour-card" data-category="escursione" data-area="etna">
+                            <div x-show="match({&quot;id&quot;:4,&quot;slug&quot;:&quot;escursione-etna-degustazione-vino&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Enogastronomia &amp; Cantine DOC&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Etna&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Etna in E-Bike: Avventura e Degustazione di Vino&quot;,&quot;title_en&quot;:&quot;Etna E-Bike &amp; Wine Tasting Adventure&quot;,&quot;subtitle&quot;:&quot;Una fuga tra le contrade del vino vulcanico, antichi palmenti e cantine prestigiose sull&#039;Etna Nord.&quot;,&quot;subtitle_en&quot;:&quot;An escape through volcanic wine contradas, historic stone presses and prestigious northern Etna wineries.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-77.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-77.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-82.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-96.jpg&quot;],&quot;price&quot;:90,&quot;price_note&quot;:&quot;a persona (inclusa degustazione 3 calici + tagliere)&quot;,&quot;price_note_en&quot;:&quot;per person (includes 3 wine tastings + local board)&quot;,&quot;duration&quot;:&quot;4-5 ore&quot;,&quot;duration_en&quot;:&quot;4-5 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;38 km&quot;,&quot;elevation&quot;:&quot;+800 m&quot;,&quot;difficulty&quot;:&quot;Facile \/ Medio&quot;,&quot;difficulty_en&quot;:&quot;Easy \/ Moderate&quot;,&quot;start_location&quot;:&quot;Castiglione di Sicilia \/ Solicchiata&quot;,&quot;season&quot;:&quot;Tutto l&#039;anno&quot;,&quot;season_en&quot;:&quot;All year round&quot;,&quot;highlights&quot;:[&quot;Pedalata panoramica lungo la famosa Strada del Vino dell&#039;Etna&quot;,&quot;Visita a uno storico palmento in pietra lavica&quot;,&quot;Degustazione guidata di Nerello Mascalese e Carricante in cantina&quot;,&quot;Tagliere di formaggi dei Nebrodi, salumi nostrani e pane casereccio&quot;],&quot;highlights_en&quot;:[&quot;Panoramic ride along the famous Etna Wine Route&quot;,&quot;Visit to a historic lava-stone wine press&quot;,&quot;Guided tasting of Nerello Mascalese and Carricante at a boutique winery&quot;,&quot;Platter of Nebrodi cheeses, local cured meats and artisan bread&quot;],&quot;included&quot;:[&quot;Noleggio E-Bike&quot;,&quot;Guida ciclistica&quot;,&quot;Degustazione vini e tagliere tipico in cantina&quot;,&quot;Casco e assicurazione&quot;],&quot;included_en&quot;:[&quot;E-Bike rental&quot;,&quot;Cycling guide&quot;,&quot;Wine tasting with local platter at winery&quot;,&quot;Helmet and insurance&quot;],&quot;excluded&quot;:[&quot;Spese personali&quot;],&quot;excluded_en&quot;:[&quot;Personal expenses&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-11&quot;,&quot;2026-04-25&quot;,&quot;2026-05-09&quot;,&quot;2026-05-23&quot;,&quot;2026-06-13&quot;,&quot;2026-07-11&quot;,&quot;2026-08-22&quot;,&quot;2026-09-19&quot;,&quot;2026-10-17&quot;],&quot;category_slug&quot;:&quot;enogastronomia&quot;,&quot;categories&quot;:[&quot;enogastronomia&quot;,&quot;etna&quot;]})" x-transition>
+                    <div class="tour-card" 
+     data-category="escursione" 
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
             <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-77.jpg" alt="Etna in E-Bike: Avventura e Degustazione di Vino" loading="lazy">
@@ -411,7 +560,9 @@
         <div class="tour-card-badges">
             <span class="badge badge-dark">
                 <i class="fa-solid fa-clock"></i> 4-5 ore            </span>
-                    </div>
+                            <span class="badge badge-accent" style="font-weight: 700;">
+                    <i class="fa-solid fa-tag"></i> Enogastronomia &amp; Cantine DOC                </span>
+                                </div>
 
         <div class="tour-card-price-tag">
             A partire da <span>€90</span>
@@ -428,7 +579,7 @@
         </h3>
 
         <p class="tour-card-desc">
-            Una fuga tra le contrade del vino vulcanico, antichi palmenti e cantine prestigiose sull'Etna Nord.        </p>
+            Una fuga tra le contrade del vino vulcanico, antichi palmenti e cantine prestigiose sull&#039;Etna Nord.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -448,26 +599,34 @@
             </div>
         </div>
 
-        <div class="tour-card-footer">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli            </a>
-            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:4,&quot;slug&quot;:&quot;escursione-etna-degustazione-vino&quot;,&quot;title&quot;:&quot;Etna in E-Bike: Avventura e Degustazione di Vino&quot;,&quot;price&quot;:90,&quot;duration&quot;:&quot;4-5 ore&quot;})">
-                Prenota            </button>
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:4,&quot;slug&quot;:&quot;escursione-etna-degustazione-vino&quot;,&quot;title&quot;:&quot;Etna in E-Bike: Avventura e Degustazione di Vino&quot;,&quot;price&quot;:90,&quot;duration&quot;:&quot;4-5 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
 </div>
                 </div>
-                            <div x-show="match({&quot;id&quot;:5,&quot;slug&quot;:&quot;escursione-in-bici-randazzo-bronte&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Escursioni Giornaliere&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Etna&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Da Randazzo a Bronte: Sapori dell'Etna e Castello di Nelson&quot;,&quot;title_en&quot;:&quot;From Randazzo to Bronte: Flavors &amp; Nelson Castle&quot;,&quot;subtitle&quot;:&quot;Tra le colate laviche, le piantagioni dell'oro verde (il pistacchio di Bronte DOP) e il fascino storico dell'antico maniero.&quot;,&quot;subtitle_en&quot;:&quot;Through lava fields, emerald pistachio plantations and the historic charm of the British Nelson Castle.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-119.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-119.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-30.jpg&quot;],&quot;price&quot;:80,&quot;price_note&quot;:&quot;a persona (e-bike + guida + degustazione pistacchio inclusi)&quot;,&quot;price_note_en&quot;:&quot;per person (e-bike + guide + pistachio tasting included)&quot;,&quot;duration&quot;:&quot;4-6 ore&quot;,&quot;duration_en&quot;:&quot;4-6 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;48 km&quot;,&quot;elevation&quot;:&quot;+850 m&quot;,&quot;difficulty&quot;:&quot;Medio \/ Facile&quot;,&quot;difficulty_en&quot;:&quot;Moderate \/ Easy&quot;,&quot;start_location&quot;:&quot;Randazzo&quot;,&quot;season&quot;:&quot;Aprile - Novembre&quot;,&quot;season_en&quot;:&quot;April - November&quot;,&quot;highlights&quot;:[&quot;Partenza dalla cittadina medievale di Randazzo&quot;,&quot;Percorso sterrato panoramico attraverso le lave di Bronte&quot;,&quot;Visita ai pistacchieti vulcanici e degustazione di dolci al pistacchio DOP&quot;,&quot;Sosta culturale al Castello di Nelson e ai suoi giardini inglesi&quot;],&quot;highlights_en&quot;:[&quot;Departing from the medieval stone town of Randazzo&quot;,&quot;Scenic gravel trails across historic Bronte volcanic lava fields&quot;,&quot;Visit to pistachio groves with tasting of genuine Bronte PDO pistachio treats&quot;,&quot;Cultural stop at Nelson Castle and its lush English gardens&quot;],&quot;included&quot;:[&quot;Noleggio E-Bike&quot;,&quot;Guida cicloturistica&quot;,&quot;Degustazione pistacchio&quot;,&quot;Casco e assistenza tecnica&quot;],&quot;included_en&quot;:[&quot;E-Bike rental&quot;,&quot;Tour cycling guide&quot;,&quot;Pistachio tasting experience&quot;,&quot;Helmet and technical assistance&quot;],&quot;excluded&quot;:[&quot;Biglietto ingresso interni Castello di Nelson&quot;,&quot;Pranzo&quot;],&quot;excluded_en&quot;:[&quot;Nelson Castle interior ticket&quot;,&quot;Lunch&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-19&quot;,&quot;2026-05-03&quot;,&quot;2026-05-17&quot;,&quot;2026-06-07&quot;,&quot;2026-07-19&quot;,&quot;2026-09-13&quot;,&quot;2026-10-18&quot;]})" x-transition>
-                    <div class="tour-card" data-category="escursione" data-area="etna">
+                            <div x-show="match({&quot;id&quot;:5,&quot;slug&quot;:&quot;escursione-in-bici-randazzo-bronte&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Borghi Medievali &amp; Castelli&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Etna&quot;,&quot;area_tag&quot;:&quot;etna&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Da Randazzo a Bronte: Sapori dell&#039;Etna e Castello di Nelson&quot;,&quot;title_en&quot;:&quot;From Randazzo to Bronte: Flavors &amp; Nelson Castle&quot;,&quot;subtitle&quot;:&quot;Tra le colate laviche, le piantagioni dell&#039;oro verde (il pistacchio di Bronte DOP) e il fascino storico dell&#039;antico maniero.&quot;,&quot;subtitle_en&quot;:&quot;Through lava fields, emerald pistachio plantations and the historic charm of the British Nelson Castle.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-119.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-119.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-30.jpg&quot;],&quot;price&quot;:80,&quot;price_note&quot;:&quot;a persona (e-bike + guida + degustazione pistacchio inclusi)&quot;,&quot;price_note_en&quot;:&quot;per person (e-bike + guide + pistachio tasting included)&quot;,&quot;duration&quot;:&quot;4-6 ore&quot;,&quot;duration_en&quot;:&quot;4-6 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;48 km&quot;,&quot;elevation&quot;:&quot;+850 m&quot;,&quot;difficulty&quot;:&quot;Medio \/ Facile&quot;,&quot;difficulty_en&quot;:&quot;Moderate \/ Easy&quot;,&quot;start_location&quot;:&quot;Randazzo&quot;,&quot;season&quot;:&quot;Aprile - Novembre&quot;,&quot;season_en&quot;:&quot;April - November&quot;,&quot;highlights&quot;:[&quot;Partenza dalla cittadina medievale di Randazzo&quot;,&quot;Percorso sterrato panoramico attraverso le lave di Bronte&quot;,&quot;Visita ai pistacchieti vulcanici e degustazione di dolci al pistacchio DOP&quot;,&quot;Sosta culturale al Castello di Nelson e ai suoi giardini inglesi&quot;],&quot;highlights_en&quot;:[&quot;Departing from the medieval stone town of Randazzo&quot;,&quot;Scenic gravel trails across historic Bronte volcanic lava fields&quot;,&quot;Visit to pistachio groves with tasting of genuine Bronte PDO pistachio treats&quot;,&quot;Cultural stop at Nelson Castle and its lush English gardens&quot;],&quot;included&quot;:[&quot;Noleggio E-Bike&quot;,&quot;Guida cicloturistica&quot;,&quot;Degustazione pistacchio&quot;,&quot;Casco e assistenza tecnica&quot;],&quot;included_en&quot;:[&quot;E-Bike rental&quot;,&quot;Tour cycling guide&quot;,&quot;Pistachio tasting experience&quot;,&quot;Helmet and technical assistance&quot;],&quot;excluded&quot;:[&quot;Biglietto ingresso interni Castello di Nelson&quot;,&quot;Pranzo&quot;],&quot;excluded_en&quot;:[&quot;Nelson Castle interior ticket&quot;,&quot;Lunch&quot;],&quot;schedule_dates&quot;:[&quot;2026-04-19&quot;,&quot;2026-05-03&quot;,&quot;2026-05-17&quot;,&quot;2026-06-07&quot;,&quot;2026-07-19&quot;,&quot;2026-09-13&quot;,&quot;2026-10-18&quot;],&quot;category_slug&quot;:&quot;borghi&quot;,&quot;categories&quot;:[&quot;borghi&quot;,&quot;enogastronomia&quot;,&quot;famiglie&quot;]})" x-transition>
+                    <div class="tour-card" 
+     data-category="escursione" 
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-119.jpg" alt="Da Randazzo a Bronte: Sapori dell'Etna e Castello di Nelson" loading="lazy">
+            <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-119.jpg" alt="Da Randazzo a Bronte: Sapori dell&#039;Etna e Castello di Nelson" loading="lazy">
         </a>
         
         <div class="tour-card-badges">
             <span class="badge badge-dark">
                 <i class="fa-solid fa-clock"></i> 4-6 ore            </span>
-                    </div>
+                            <span class="badge badge-accent" style="font-weight: 700;">
+                    <i class="fa-solid fa-tag"></i> Borghi Medievali &amp; Castelli                </span>
+                                </div>
 
         <div class="tour-card-price-tag">
             A partire da <span>€80</span>
@@ -480,11 +639,11 @@
 
         <h3 class="tour-card-title">
             <a href="tour-dettaglio.html" style="color: inherit;">
-                Da Randazzo a Bronte: Sapori dell'Etna e Castello di Nelson            </a>
+                Da Randazzo a Bronte: Sapori dell&#039;Etna e Castello di Nelson            </a>
         </h3>
 
         <p class="tour-card-desc">
-            Tra le colate laviche, le piantagioni dell'oro verde (il pistacchio di Bronte DOP) e il fascino storico dell'antico maniero.        </p>
+            Tra le colate laviche, le piantagioni dell&#039;oro verde (il pistacchio di Bronte DOP) e il fascino storico dell&#039;antico maniero.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -504,17 +663,23 @@
             </div>
         </div>
 
-        <div class="tour-card-footer">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli            </a>
-            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:5,&quot;slug&quot;:&quot;escursione-in-bici-randazzo-bronte&quot;,&quot;title&quot;:&quot;Da Randazzo a Bronte: Sapori dell'Etna e Castello di Nelson&quot;,&quot;price&quot;:80,&quot;duration&quot;:&quot;4-6 ore&quot;})">
-                Prenota            </button>
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:5,&quot;slug&quot;:&quot;escursione-in-bici-randazzo-bronte&quot;,&quot;title&quot;:&quot;Da Randazzo a Bronte: Sapori dell&#039;Etna e Castello di Nelson&quot;,&quot;price&quot;:80,&quot;duration&quot;:&quot;4-6 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
 </div>
                 </div>
-                            <div x-show="match({&quot;id&quot;:6,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Escursioni Giornaliere&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Nebrodi&quot;,&quot;area_tag&quot;:&quot;nebrodi&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Da Randazzo a Floresta: Vivi la Sicilia pi\u00f9 Verde&quot;,&quot;title_en&quot;:&quot;From Randazzo to Floresta: The Green Heart of Sicily&quot;,&quot;subtitle&quot;:&quot;Una salita verso il comune pi\u00f9 alto della Sicilia (1.275m) tra pascoli incontaminati, boschi di faggio e tradizioni casearie millenarie.&quot;,&quot;subtitle_en&quot;:&quot;A ride to Sicily's highest village (1,275m) through pristine pastures, beech woods and ancient cheesemaking traditions.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-42.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-42.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-58.jpg&quot;],&quot;price&quot;:75,&quot;price_note&quot;:&quot;a persona (guida + e-bike + sosta provola inclusi)&quot;,&quot;price_note_en&quot;:&quot;per person (guide + e-bike + cheese stop included)&quot;,&quot;duration&quot;:&quot;4-6 ore&quot;,&quot;duration_en&quot;:&quot;4-6 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;46 km&quot;,&quot;elevation&quot;:&quot;+1.100 m&quot;,&quot;difficulty&quot;:&quot;Medio&quot;,&quot;difficulty_en&quot;:&quot;Moderate&quot;,&quot;start_location&quot;:&quot;Randazzo&quot;,&quot;season&quot;:&quot;Maggio - Ottobre&quot;,&quot;season_en&quot;:&quot;May - October&quot;,&quot;highlights&quot;:[&quot;Salita attraverso i boschi e le vallate selvagge dei Monti Nebrodi&quot;,&quot;Arrivo a Floresta, il borgo pi\u00f9 alto di Sicilia con aria purissima&quot;,&quot;Assaggio della rinomata Provola dei Nebrodi DOP direttamente dai casari&quot;,&quot;Viste spettacolari sui due mari e sul cono dell'Etna&quot;],&quot;highlights_en&quot;:[&quot;Climb through wild woods and green valleys of the Nebrodi Mountains&quot;,&quot;Arrival in Floresta, the highest village in Sicily with pure mountain air&quot;,&quot;Tasting of authentic Nebrodi PDO Provola cheese direct from local shepherds&quot;,&quot;Spectacular vantage points over both seas and Mount Etna&quot;],&quot;included&quot;:[&quot;E-Bike MTB performante&quot;,&quot;Guida esperta del Parco dei Nebrodi&quot;,&quot;Casco protettivo&quot;,&quot;Degustazione formaggi tipici&quot;],&quot;included_en&quot;:[&quot;High-performance E-MTB&quot;,&quot;Nebrodi Park expert guide&quot;,&quot;Protective helmet&quot;,&quot;Local artisan cheese tasting&quot;],&quot;excluded&quot;:[&quot;Pranzo completo&quot;],&quot;excluded_en&quot;:[&quot;Full restaurant lunch&quot;],&quot;schedule_dates&quot;:[&quot;2026-05-17&quot;,&quot;2026-05-31&quot;,&quot;2026-06-21&quot;,&quot;2026-07-12&quot;,&quot;2026-08-09&quot;,&quot;2026-09-06&quot;,&quot;2026-10-04&quot;]})" x-transition>
-                    <div class="tour-card" data-category="escursione" data-area="nebrodi">
+                            <div x-show="match({&quot;id&quot;:6,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Boschi &amp; Laghi dei Nebrodi&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Nebrodi&quot;,&quot;area_tag&quot;:&quot;nebrodi&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Da Randazzo a Floresta: Vivi la Sicilia pi\u00f9 Verde&quot;,&quot;title_en&quot;:&quot;From Randazzo to Floresta: The Green Heart of Sicily&quot;,&quot;subtitle&quot;:&quot;Una salita verso il comune pi\u00f9 alto della Sicilia (1.275m) tra pascoli incontaminati, boschi di faggio e tradizioni casearie millenarie.&quot;,&quot;subtitle_en&quot;:&quot;A ride to Sicily&#039;s highest village (1,275m) through pristine pastures, beech woods and ancient cheesemaking traditions.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-42.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-42.jpg&quot;,&quot;assets\/img\/gallery\/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-58.jpg&quot;],&quot;price&quot;:75,&quot;price_note&quot;:&quot;a persona (guida + e-bike + sosta provola inclusi)&quot;,&quot;price_note_en&quot;:&quot;per person (guide + e-bike + cheese stop included)&quot;,&quot;duration&quot;:&quot;4-6 ore&quot;,&quot;duration_en&quot;:&quot;4-6 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;46 km&quot;,&quot;elevation&quot;:&quot;+1.100 m&quot;,&quot;difficulty&quot;:&quot;Medio&quot;,&quot;difficulty_en&quot;:&quot;Moderate&quot;,&quot;start_location&quot;:&quot;Randazzo&quot;,&quot;season&quot;:&quot;Maggio - Ottobre&quot;,&quot;season_en&quot;:&quot;May - October&quot;,&quot;highlights&quot;:[&quot;Salita attraverso i boschi e le vallate selvagge dei Monti Nebrodi&quot;,&quot;Arrivo a Floresta, il borgo pi\u00f9 alto di Sicilia con aria purissima&quot;,&quot;Assaggio della rinomata Provola dei Nebrodi DOP direttamente dai casari&quot;,&quot;Viste spettacolari sui due mari e sul cono dell&#039;Etna&quot;],&quot;highlights_en&quot;:[&quot;Climb through wild woods and green valleys of the Nebrodi Mountains&quot;,&quot;Arrival in Floresta, the highest village in Sicily with pure mountain air&quot;,&quot;Tasting of authentic Nebrodi PDO Provola cheese direct from local shepherds&quot;,&quot;Spectacular vantage points over both seas and Mount Etna&quot;],&quot;included&quot;:[&quot;E-Bike MTB performante&quot;,&quot;Guida esperta del Parco dei Nebrodi&quot;,&quot;Casco protettivo&quot;,&quot;Degustazione formaggi tipici&quot;],&quot;included_en&quot;:[&quot;High-performance E-MTB&quot;,&quot;Nebrodi Park expert guide&quot;,&quot;Protective helmet&quot;,&quot;Local artisan cheese tasting&quot;],&quot;excluded&quot;:[&quot;Pranzo completo&quot;],&quot;excluded_en&quot;:[&quot;Full restaurant lunch&quot;],&quot;schedule_dates&quot;:[&quot;2026-05-17&quot;,&quot;2026-05-31&quot;,&quot;2026-06-21&quot;,&quot;2026-07-12&quot;,&quot;2026-08-09&quot;,&quot;2026-09-06&quot;,&quot;2026-10-04&quot;],&quot;category_slug&quot;:&quot;nebrodi&quot;,&quot;categories&quot;:[&quot;nebrodi&quot;,&quot;principianti&quot;]})" x-transition>
+                    <div class="tour-card" 
+     data-category="escursione" 
+     data-area="nebrodi"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'nebrodi'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
             <img src="assets/img/gallery/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-42.jpg" alt="Da Randazzo a Floresta: Vivi la Sicilia più Verde" loading="lazy">
@@ -523,7 +688,9 @@
         <div class="tour-card-badges">
             <span class="badge badge-dark">
                 <i class="fa-solid fa-clock"></i> 4-6 ore            </span>
-                    </div>
+                            <span class="badge badge-accent" style="font-weight: 700;">
+                    <i class="fa-solid fa-tag"></i> Boschi &amp; Laghi dei Nebrodi                </span>
+                                </div>
 
         <div class="tour-card-price-tag">
             A partire da <span>€75</span>
@@ -560,17 +727,23 @@
             </div>
         </div>
 
-        <div class="tour-card-footer">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli            </a>
-            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:6,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta&quot;,&quot;title&quot;:&quot;Da Randazzo a Floresta: Vivi la Sicilia pi\u00f9 Verde&quot;,&quot;price&quot;:75,&quot;duration&quot;:&quot;4-6 ore&quot;})">
-                Prenota            </button>
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:6,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta&quot;,&quot;title&quot;:&quot;Da Randazzo a Floresta: Vivi la Sicilia pi\u00f9 Verde&quot;,&quot;price&quot;:75,&quot;duration&quot;:&quot;4-6 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
 </div>
                 </div>
-                            <div x-show="match({&quot;id&quot;:7,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-dorsale&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Escursioni Giornaliere&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Nebrodi&quot;,&quot;area_tag&quot;:&quot;nebrodi&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Escursione in E-Bike: Dorsale dei Nebrodi &amp; Laghi&quot;,&quot;title_en&quot;:&quot;Nebrodi Ridge &amp; Alpine Lakes E-Bike Excursion&quot;,&quot;subtitle&quot;:&quot;Una magnifica traversata lungo la dorsale dei Nebrodi, toccando i laghi d'alta quota Maulazzo e Biviere.&quot;,&quot;subtitle_en&quot;:&quot;A magnificent ridge traverse touching the high altitude mountain lakes Maulazzo and Biviere.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-68.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-68.jpg&quot;,&quot;assets\/img\/gallery\/IMG-20251008-WA0037.jpg&quot;,&quot;assets\/img\/gallery\/IMG-20251008-WA0029-scaled.jpg&quot;],&quot;price&quot;:80,&quot;price_note&quot;:&quot;a persona (guida + e-bike biammortizzata)&quot;,&quot;price_note_en&quot;:&quot;per person (guide + full suspension e-bike)&quot;,&quot;duration&quot;:&quot;5 ore&quot;,&quot;duration_en&quot;:&quot;5 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;42 km&quot;,&quot;elevation&quot;:&quot;+950 m&quot;,&quot;difficulty&quot;:&quot;Medio&quot;,&quot;difficulty_en&quot;:&quot;Moderate&quot;,&quot;start_location&quot;:&quot;Portella Femmina Morta (Cesar\u00f2)&quot;,&quot;season&quot;:&quot;Maggio - Ottobre&quot;,&quot;season_en&quot;:&quot;May - October&quot;,&quot;highlights&quot;:[&quot;La grande dorsale montuosa della Sicilia verde&quot;,&quot;Sosta ai laghi montani Maulazzo e Biviere, rifugio di aironi e uccelli migratori&quot;,&quot;Faggete secolari e cavalli Sanfratellani al pascolo brado&quot;,&quot;Aria freschissima e contatto totale con la natura&quot;],&quot;highlights_en&quot;:[&quot;The legendary high mountain ridge of green Sicily&quot;,&quot;Scenic stops at alpine lakes Maulazzo and Biviere&quot;,&quot;Centuries-old beech trees and wild Sanfratellano horses grazing freely&quot;,&quot;Pure refreshing mountain breeze and immersion in nature&quot;],&quot;included&quot;:[&quot;Noleggio E-MTB biammortizzata&quot;,&quot;Guida ciclistica del Parco&quot;,&quot;Casco, kit forature, assistenza&quot;,&quot;Assicurazione&quot;],&quot;included_en&quot;:[&quot;Full-suspension E-MTB&quot;,&quot;Park cycling guide&quot;,&quot;Helmet, toolkit, assistance&quot;,&quot;Insurance&quot;],&quot;excluded&quot;:[&quot;Pranzo al sacco&quot;],&quot;excluded_en&quot;:[&quot;Packed lunch&quot;],&quot;schedule_dates&quot;:[&quot;2026-05-24&quot;,&quot;2026-06-14&quot;,&quot;2026-07-05&quot;,&quot;2026-07-26&quot;,&quot;2026-08-30&quot;,&quot;2026-09-27&quot;]})" x-transition>
-                    <div class="tour-card" data-category="escursione" data-area="nebrodi">
+                            <div x-show="match({&quot;id&quot;:7,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-dorsale&quot;,&quot;type&quot;:&quot;escursione&quot;,&quot;category&quot;:&quot;Boschi &amp; Laghi dei Nebrodi&quot;,&quot;category_en&quot;:&quot;Day Excursions&quot;,&quot;area&quot;:&quot;Nebrodi&quot;,&quot;area_tag&quot;:&quot;nebrodi&quot;,&quot;featured&quot;:false,&quot;title&quot;:&quot;Escursione in E-Bike: Dorsale dei Nebrodi &amp; Laghi&quot;,&quot;title_en&quot;:&quot;Nebrodi Ridge &amp; Alpine Lakes E-Bike Excursion&quot;,&quot;subtitle&quot;:&quot;Una magnifica traversata lungo la dorsale dei Nebrodi, toccando i laghi d&#039;alta quota Maulazzo e Biviere.&quot;,&quot;subtitle_en&quot;:&quot;A magnificent ridge traverse touching the high altitude mountain lakes Maulazzo and Biviere.&quot;,&quot;image&quot;:&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-68.jpg&quot;,&quot;gallery&quot;:[&quot;assets\/img\/gallery\/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-68.jpg&quot;,&quot;assets\/img\/gallery\/IMG-20251008-WA0037.jpg&quot;,&quot;assets\/img\/gallery\/IMG-20251008-WA0029-scaled.jpg&quot;],&quot;price&quot;:80,&quot;price_note&quot;:&quot;a persona (guida + e-bike biammortizzata)&quot;,&quot;price_note_en&quot;:&quot;per person (guide + full suspension e-bike)&quot;,&quot;duration&quot;:&quot;5 ore&quot;,&quot;duration_en&quot;:&quot;5 hours&quot;,&quot;days&quot;:1,&quot;distance&quot;:&quot;42 km&quot;,&quot;elevation&quot;:&quot;+950 m&quot;,&quot;difficulty&quot;:&quot;Medio&quot;,&quot;difficulty_en&quot;:&quot;Moderate&quot;,&quot;start_location&quot;:&quot;Portella Femmina Morta (Cesar\u00f2)&quot;,&quot;season&quot;:&quot;Maggio - Ottobre&quot;,&quot;season_en&quot;:&quot;May - October&quot;,&quot;highlights&quot;:[&quot;La grande dorsale montuosa della Sicilia verde&quot;,&quot;Sosta ai laghi montani Maulazzo e Biviere, rifugio di aironi e uccelli migratori&quot;,&quot;Faggete secolari e cavalli Sanfratellani al pascolo brado&quot;,&quot;Aria freschissima e contatto totale con la natura&quot;],&quot;highlights_en&quot;:[&quot;The legendary high mountain ridge of green Sicily&quot;,&quot;Scenic stops at alpine lakes Maulazzo and Biviere&quot;,&quot;Centuries-old beech trees and wild Sanfratellano horses grazing freely&quot;,&quot;Pure refreshing mountain breeze and immersion in nature&quot;],&quot;included&quot;:[&quot;Noleggio E-MTB biammortizzata&quot;,&quot;Guida ciclistica del Parco&quot;,&quot;Casco, kit forature, assistenza&quot;,&quot;Assicurazione&quot;],&quot;included_en&quot;:[&quot;Full-suspension E-MTB&quot;,&quot;Park cycling guide&quot;,&quot;Helmet, toolkit, assistance&quot;,&quot;Insurance&quot;],&quot;excluded&quot;:[&quot;Pranzo al sacco&quot;],&quot;excluded_en&quot;:[&quot;Packed lunch&quot;],&quot;schedule_dates&quot;:[&quot;2026-05-24&quot;,&quot;2026-06-14&quot;,&quot;2026-07-05&quot;,&quot;2026-07-26&quot;,&quot;2026-08-30&quot;,&quot;2026-09-27&quot;],&quot;category_slug&quot;:&quot;nebrodi&quot;,&quot;categories&quot;:[&quot;nebrodi&quot;,&quot;esperti&quot;]})" x-transition>
+                    <div class="tour-card" 
+     data-category="escursione" 
+     data-area="nebrodi"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'nebrodi'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
             <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-68.jpg" alt="Escursione in E-Bike: Dorsale dei Nebrodi &amp; Laghi" loading="lazy">
@@ -579,7 +752,9 @@
         <div class="tour-card-badges">
             <span class="badge badge-dark">
                 <i class="fa-solid fa-clock"></i> 5 ore            </span>
-                    </div>
+                            <span class="badge badge-accent" style="font-weight: 700;">
+                    <i class="fa-solid fa-tag"></i> Boschi &amp; Laghi dei Nebrodi                </span>
+                                </div>
 
         <div class="tour-card-price-tag">
             A partire da <span>€80</span>
@@ -596,7 +771,7 @@
         </h3>
 
         <p class="tour-card-desc">
-            Una magnifica traversata lungo la dorsale dei Nebrodi, toccando i laghi d'alta quota Maulazzo e Biviere.        </p>
+            Una magnifica traversata lungo la dorsale dei Nebrodi, toccando i laghi d&#039;alta quota Maulazzo e Biviere.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -616,11 +791,11 @@
             </div>
         </div>
 
-        <div class="tour-card-footer">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary btn-sm" style="flex: 1;">
-                Dettagli            </a>
-            <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:7,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-dorsale&quot;,&quot;title&quot;:&quot;Escursione in E-Bike: Dorsale dei Nebrodi &amp; Laghi&quot;,&quot;price&quot;:80,&quot;duration&quot;:&quot;5 ore&quot;})">
-                Prenota            </button>
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:7,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-dorsale&quot;,&quot;title&quot;:&quot;Escursione in E-Bike: Dorsale dei Nebrodi &amp; Laghi&quot;,&quot;price&quot;:80,&quot;duration&quot;:&quot;5 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
 </div>
@@ -655,26 +830,26 @@
             <div class="footer-col">
                 <h5>Navigazione Rapida</h5>
                 <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="chi-siamo.html">Chi Siamo</a></li>
-                    <li><a href="escursioni.html">Escursioni Giornaliere</a></li>
-                    <li><a href="tour.html">Tour Itineranti</a></li>
-                    <li><a href="personalizza-tour.html">Tour su Misura</a></li>
-                    <li><a href="contatti.html">Contatti</a></li>
-                </ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                                            <li><a href="escursioni.html">Escursioni Giornaliere</a></li>
+                                            <li><a href="tour.html">Tour Itineranti</a></li>
+                                            <li><a href="personalizza-tour.html">Tour su Misura</a></li>
+                                            <li><a href="contatti.html">Contatti &amp; Info</a></li>
+                                    </ul>
             </div>
 
             <!-- Destinations -->
             <div class="footer-col">
                 <h5>Destinazioni Principali</h5>
                 <ul class="footer-links">
-                    <li><a href="/escursioni.php?area=etna">Vulcano Etna & Crateri</a></li>
-                    <li><a href="/escursioni.php?area=nebrodi">Parco dei Monti Nebrodi</a></li>
-                    <li><a href="/tour.php?area=nebrodi">Megaliti dell'Argimusco</a></li>
-                    <li><a href="/tour.php?area=isole">Isole Eolie Bici & Barca</a></li>
-                    <li><a href="/tour.php?area=barocco">Val di Noto & Città Barocche</a></li>
-                    <li><a href="/escursioni.php?area=etna">Strada del Vino Etna DOC</a></li>
-                </ul>
+                                            <li><a href="/escursioni.php?area=etna">Vulcano Etna &amp; Crateri</a></li>
+                                            <li><a href="/escursioni.php?area=nebrodi">Parco dei Monti Nebrodi</a></li>
+                                            <li><a href="/tour.php?area=nebrodi">Megaliti dell&#039;Argimusco</a></li>
+                                            <li><a href="/tour.php?area=isole">Isole Eolie Bici &amp; Barca</a></li>
+                                            <li><a href="/tour.php?area=barocco">Val di Noto &amp; Città Barocche</a></li>
+                                            <li><a href="/escursioni.php?area=etna">Strada del Vino Etna DOC</a></li>
+                                    </ul>
             </div>
 
             <!-- Contact & Office -->
@@ -708,7 +883,7 @@
             <div style="display: flex; gap: 1.5rem;">
                 <a href="https://www.iubenda.com/privacy-policy/22750170" target="_blank">Privacy Policy</a>
                 <a href="https://www.iubenda.com/privacy-policy/22750170/cookie-policy.pdf" target="_blank">Cookie Policy</a>
-                <a href="/admin/">Area Gestione</a>
+                <a href="admin/index.html">Area Gestione</a>
             </div>
         </div>
     </div>
@@ -722,7 +897,7 @@
 <!-- Booking & Quick Quote Modal -->
 <!-- Booking & Quick Quote Modal (Alpine.js) -->
 <div class="modal-overlay" x-show="bookingModalOpen" style="display: none;" x-transition.opacity @click.self="bookingModalOpen = false" x-data="{
-    date: '2026-10-10',
+    date: '2026-10-16',
     participants: 2,
     hasRiddenEbike: 'yes',
     needTransfer: false,
@@ -750,10 +925,32 @@
     
     submitBooking() {
         this.isSubmitting = true;
-        setTimeout(() => {
+        fetch('/api/submit-lead.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: this.clientName,
+                email: this.clientEmail,
+                phone: this.clientPhone,
+                type: 'prenotazione_tour',
+                tour_title: this.selectedTour ? this.selectedTour.title : 'Tour Standard',
+                date: this.date,
+                participants: this.participants,
+                notes: this.specialNotes,
+                details: {
+                    has_ridden_ebike: this.hasRiddenEbike,
+                    need_transfer: this.needTransfer,
+                    need_lunch: this.needGourmetLunch,
+                    calculated_estimate: this.calcTotal()
+                }
+            })
+        }).then(r => r.json()).then(res => {
             this.isSubmitting = false;
             this.formSubmitted = true;
-        }, 800);
+        }).catch(e => {
+            this.isSubmitting = false;
+            this.formSubmitted = true;
+        });
     }
 }">
     <div class="modal-dialog" x-show="bookingModalOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
@@ -775,7 +972,7 @@
                     <div class="form-row-2">
                         <div class="form-group">
                             <label class="form-label">Data Desiderata</label>
-                            <input type="date" class="form-control" x-model="date" min="2026-10-07" required>
+                            <input type="date" class="form-control" x-model="date" min="2026-10-13" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Numero Partecipanti</label>

@@ -4,6 +4,12 @@
  * Database configurabile e aggiornabile per tutti i tour (giornalieri e plurigiornalieri).
  */
 
+$jsonFile = __DIR__ . '/tours.json';
+if (file_exists($jsonFile)) {
+    $tours = json_decode(file_get_contents($jsonFile), true) ?: [];
+    return;
+}
+
 $tours = [
     [
         'id' => 1,

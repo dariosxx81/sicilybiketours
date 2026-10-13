@@ -1,0 +1,41 @@
+{
+    "header_menu": [
+        { "id": "home", "title_it": "Home", "title_en": "Home", "url": "", "type": "link" },
+        { "id": "about", "title_it": "Chi Siamo", "title_en": "About Us", "url": "chi-siamo.php", "type": "link" },
+        {
+            "id": "experiences",
+            "title_it": "Esperienze",
+            "title_en": "Experiences",
+            "type": "dropdown",
+            "children": [
+                { "title_it": "Escursioni Giornaliere", "title_en": "Day Trips", "url": "escursioni.php", "icon": "sun" },
+                { "title_it": "Tour Itineranti", "title_en": "Multi-day Tours", "url": "tour.php", "icon": "calendar-days" },
+                { "title_it": "Tour su Misura", "title_en": "Custom Tour", "url": "personalizza-tour.php", "icon": "sliders" }
+            ]
+        },
+        { "id": "custom", "title_it": "Su Misura", "title_en": "Custom Tour", "url": "personalizza-tour.php", "type": "link" },
+        { "id": "magazine", "title_it": "Magazine", "title_en": "Magazine", "url": "magazine.php", "type": "link" },
+        { "id": "contact", "title_it": "Contatti", "title_en": "Contact", "url": "contatti.php", "type": "link" }
+    ],
+    "cta_button": {
+        "text_it": "Prenota Ora",
+        "text_en": "Book Now",
+        "url": "personalizza-tour.php"
+    },
+    "footer_quick_links": [
+        { "title_it": "Home", "url": "" },
+        { "title_it": "Chi Siamo", "url": "chi-siamo.php" },
+        { "title_it": "Escursioni Giornaliere", "url": "escursioni.php" },
+        { "title_it": "Tour Itineranti", "url": "tour.php" },
+        { "title_it": "Tour su Misura", "url": "personalizza-tour.php" },
+        { "title_it": "Contatti & Info", "url": "contatti.php" }
+    ],
+    "footer_destinations": [
+        { "title_it": "Vulcano Etna & Crateri", "url": "escursioni.php?area=etna" },
+        { "title_it": "Parco dei Monti Nebrodi", "url": "escursioni.php?area=nebrodi" },
+        { "title_it": "Megaliti dell'Argimusco", "url": "tour.php?area=nebrodi" },
+        { "title_it": "Isole Eolie Bici & Barca", "url": "tour.php?area=isole" },
+        { "title_it": "Val di Noto & Città Barocche", "url": "tour.php?area=barocco" },
+        { "title_it": "Strada del Vino Etna DOC", "url": "escursioni.php?area=etna" }
+    ]
+}

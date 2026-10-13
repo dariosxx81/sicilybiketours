@@ -1,0 +1,28 @@
+{
+    "_cached_at": 1791875522,
+    "checked_at": "07:12:02 13\/10\/2026",
+    "success": true,
+    "message": "Connessione stabilita con successo!",
+    "site_name": "Sicily Bike Tours - Escursioni in e-bike",
+    "site_description": "Escursioni in bici in Sicilia orientale",
+    "site_url": "https:\/\/www.sicilybiketours.it",
+    "namespaces": [
+        "oembed\/1.0",
+        "contact-form-7\/v1",
+        "cky\/v1",
+        "yoast\/v1",
+        "elementor-mcp-composer\/v1.0.19",
+        "elementor-one\/v1",
+        "google-site-kit\/v1",
+        "elementor\/v1\/documents",
+        "elementor\/v1",
+        "elementor-ai\/v1",
+        "elementor\/v1\/feedback",
+        "mcp",
+        "wp\/v2",
+        "wp-site-health\/v1",
+        "wp-block-editor\/v1",
+        "wp-abilities\/v1"
+    ],
+    "routes_count": 362
+}

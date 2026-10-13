@@ -21,16 +21,37 @@
                 </div>
             </div>
 
+<?php
+$footerMenusFile = BASE_PATH . '/data/menus.json';
+$footerMenuData = file_exists($footerMenusFile) ? json_decode(file_get_contents($footerMenusFile), true) ?: [] : [];
+$footerQuickLinks = $footerMenuData['footer_quick_links'] ?? [
+    ['title_it' => 'Home', 'url' => ''],
+    ['title_it' => 'Chi Siamo', 'url' => 'chi-siamo.php'],
+    ['title_it' => 'Escursioni Giornaliere', 'url' => 'escursioni.php'],
+    ['title_it' => 'Tour Itineranti', 'url' => 'tour.php'],
+    ['title_it' => 'Tour su Misura', 'url' => 'personalizza-tour.php'],
+    ['title_it' => 'Contatti & Info', 'url' => 'contatti.php']
+];
+$footerDestinations = $footerMenuData['footer_destinations'] ?? [
+    ['title_it' => 'Vulcano Etna & Crateri', 'url' => 'escursioni.php?area=etna'],
+    ['title_it' => 'Parco dei Monti Nebrodi', 'url' => 'escursioni.php?area=nebrodi'],
+    ['title_it' => 'Megaliti dell\'Argimusco', 'url' => 'tour.php?area=nebrodi'],
+    ['title_it' => 'Isole Eolie Bici & Barca', 'url' => 'tour.php?area=isole'],
+    ['title_it' => 'Val di Noto & Città Barocche', 'url' => 'tour.php?area=barocco'],
+    ['title_it' => 'Strada del Vino Etna DOC', 'url' => 'escursioni.php?area=etna']
+];
+?>
             <!-- Quick Links -->
             <div class="footer-col">
                 <h5><?= t('footer_quick_links') ?></h5>
                 <ul class="footer-links">
-                    <li><a href="<?= BASE_URL ?>/"><?= t('nav_home') ?></a></li>
-                    <li><a href="<?= BASE_URL ?>/chi-siamo.php"><?= t('nav_about') ?></a></li>
-                    <li><a href="<?= BASE_URL ?>/escursioni.php"><?= t('nav_excursions') ?></a></li>
-                    <li><a href="<?= BASE_URL ?>/tour.php"><?= t('nav_tours') ?></a></li>
-                    <li><a href="<?= BASE_URL ?>/personalizza-tour.php"><?= t('nav_custom') ?></a></li>
-                    <li><a href="<?= BASE_URL ?>/contatti.php"><?= t('nav_contact') ?></a></li>
+                    <?php foreach ($footerQuickLinks as $fLink): 
+                        $fUrl = $fLink['url'] ?? '';
+                        $fHref = str_starts_with($fUrl, 'http') ? $fUrl : (empty($fUrl) ? BASE_URL . '/' : BASE_URL . '/' . ltrim($fUrl, '/'));
+                        $fTitle = $fLink['title_it'] ?? '';
+                    ?>
+                        <li><a href="<?= htmlspecialchars($fHref) ?>"><?= htmlspecialchars($fTitle) ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
 
@@ -38,12 +59,13 @@
             <div class="footer-col">
                 <h5><?= t('footer_destinations') ?></h5>
                 <ul class="footer-links">
-                    <li><a href="<?= BASE_URL ?>/escursioni.php?area=etna">Vulcano Etna & Crateri</a></li>
-                    <li><a href="<?= BASE_URL ?>/escursioni.php?area=nebrodi">Parco dei Monti Nebrodi</a></li>
-                    <li><a href="<?= BASE_URL ?>/tour.php?area=nebrodi">Megaliti dell'Argimusco</a></li>
-                    <li><a href="<?= BASE_URL ?>/tour.php?area=isole">Isole Eolie Bici & Barca</a></li>
-                    <li><a href="<?= BASE_URL ?>/tour.php?area=barocco">Val di Noto & Città Barocche</a></li>
-                    <li><a href="<?= BASE_URL ?>/escursioni.php?area=etna">Strada del Vino Etna DOC</a></li>
+                    <?php foreach ($footerDestinations as $fDest): 
+                        $dUrl = $fDest['url'] ?? '';
+                        $dHref = str_starts_with($dUrl, 'http') ? $dUrl : (empty($dUrl) ? BASE_URL . '/' : BASE_URL . '/' . ltrim($dUrl, '/'));
+                        $dTitle = $fDest['title_it'] ?? '';
+                    ?>
+                        <li><a href="<?= htmlspecialchars($dHref) ?>"><?= htmlspecialchars($dTitle) ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
 

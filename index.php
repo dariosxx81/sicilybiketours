@@ -2,7 +2,22 @@
 require_once __DIR__ . '/config/config.php';
 require_once __DIR__ . '/data/faqs.php';
 
-$pageTitle = t('hero_title') . ' | ' . SITE_NAME;
+// Caricamento Dati Dinamici Homepage, Categorie e Recensioni
+$hpFile = BASE_PATH . '/data/homepage.json';
+$hp = file_exists($hpFile) ? json_decode(file_get_contents($hpFile), true) : [];
+
+$categoriesFile = BASE_PATH . '/data/categories.json';
+$categories = file_exists($categoriesFile) ? json_decode(file_get_contents($categoriesFile), true) : [];
+usort($categories, fn($a, $b) => ($a['order'] ?? 10) <=> ($b['order'] ?? 10));
+
+$reviewsFile = BASE_PATH . '/data/reviews.json';
+$reviews = file_exists($reviewsFile) ? json_decode(file_get_contents($reviewsFile), true) : ($reviews ?? []);
+
+$heroBg = !empty($hp['hero']['bg_image']) ? $hp['hero']['bg_image'] : 'assets/img/gallery/summit.jpg';
+$heroBadgeIcon = !empty($hp['hero']['badge_icon']) ? $hp['hero']['badge_icon'] : 'bolt';
+$qf = $hp['hero']['quick_finder'] ?? ['enabled' => true];
+
+$pageTitle = ($hp['hero']['title_it'] ?? t('hero_title')) . ' | ' . SITE_NAME;
 $pageDescription = SITE_DESCRIPTION;
 
 require_once BASE_PATH . '/includes/header.php';
@@ -12,524 +27,271 @@ require_once BASE_PATH . '/includes/navbar.php';
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-media-bg">
-        <img src="<?= BASE_URL ?>/assets/img/gallery/summit.jpg" alt="Sicily Bike Tours Etna">
+        <img src="<?= BASE_URL ?>/<?= htmlspecialchars($heroBg) ?>" alt="<?= htmlspecialchars(SITE_NAME) ?>">
     </div>
     <div class="hero-overlay"></div>
 
     <div class="container">
         <div class="hero-content">
             <span class="badge badge-accent" style="margin-bottom: 0.75rem;">
-                <i class="fa-solid fa-bolt"></i> <?= t('hero_badge') ?>
+                <i class="fa-solid fa-<?= htmlspecialchars($heroBadgeIcon) ?>"></i> <?= htmlspecialchars($hp['hero']['badge'] ?? t('hero_badge')) ?>
             </span>
             <h1 class="hero-title">
-                <?= CURRENT_LANG === 'en' ? 'Experience Authentic <span class="text-gradient">Sicily by E-Bike</span>' : 'Vivi la vera Sicilia in <span class="text-gradient">E-Bike</span>' ?>
+                <?= $hp['hero']['title_it'] ?? 'Vivi la vera Sicilia in <span class="text-gradient">E-Bike</span>' ?>
             </h1>
             <p class="hero-subtitle">
-                <?= t('hero_subtitle') ?>
+                <?= htmlspecialchars($hp['hero']['subtitle_it'] ?? t('hero_subtitle')) ?>
             </p>
 
             <div class="hero-buttons">
-                <a href="#esperienze" class="btn btn-accent btn-lg">
-                    <i class="fa-solid fa-compass"></i> <?= t('hero_cta_explore') ?>
+                <a href="<?= htmlspecialchars($hp['hero']['cta_explore_link'] ?? '#esperienze') ?>" class="btn btn-accent btn-lg">
+                    <i class="fa-solid fa-compass"></i> <?= htmlspecialchars($hp['hero']['cta_explore_text'] ?? t('hero_cta_explore')) ?>
                 </a>
-                <a href="<?= BASE_URL ?>/personalizza-tour.php" class="btn btn-outline-white btn-lg">
-                    <i class="fa-solid fa-sliders"></i> <?= t('hero_cta_custom') ?>
+                <a href="<?= BASE_URL ?>/<?= htmlspecialchars($hp['hero']['cta_custom_link'] ?? 'personalizza-tour.php') ?>" class="btn btn-outline-white btn-lg">
+                    <i class="fa-solid fa-sliders"></i> <?= htmlspecialchars($hp['hero']['cta_custom_text'] ?? t('hero_cta_custom')) ?>
                 </a>
-            </div>
-
-            <!-- Quick Finder Bar -->
-            <div class="hero-filter-bar" x-data="{
-                selectedType: 'all',
-                selectedArea: 'all',
-                applyFilter() {
-                    if (this.selectedType === 'escursione') {
-                        window.location.href = '<?= BASE_URL ?>/escursioni.php?area=' + this.selectedArea;
-                    } else if (this.selectedType === 'tour') {
-                        window.location.href = '<?= BASE_URL ?>/tour.php?area=' + this.selectedArea;
-                    } else {
-                        window.location.href = '<?= BASE_URL ?>/#esperienze';
-                    }
-                }
-            }">
-                <div class="hero-filter-item">
-                    <span class="hero-filter-label">Tipologia Tour</span>
-                    <select class="hero-filter-select" x-model="selectedType">
-                        <option value="all">Tutte le esperienze</option>
-                        <option value="escursione">Escursioni Giornaliere (1 giorno)</option>
-                        <option value="tour">Tour Itineranti (Weekend & Settimane)</option>
-                    </select>
-                </div>
-                <div class="hero-filter-item">
-                    <span class="hero-filter-label">Destinazione</span>
-                    <select class="hero-filter-select" x-model="selectedArea">
-                        <option value="all">Tutta la Sicilia</option>
-                        <option value="etna">Vulcano Etna & Cantine</option>
-                        <option value="nebrodi">Parco dei Nebrodi & Borghi</option>
-                        <option value="isole">Isole Eolie Bici & Barca</option>
-                        <option value="barocco">Val di Noto & Costa</option>
-                    </select>
-                </div>
-                <button type="button" class="btn btn-primary" @click="applyFilter()">
-                    <i class="fa-solid fa-magnifying-glass"></i> Cerca
-                </button>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Features Value Props Strip -->
-<div class="container features-strip">
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="feature-icon-box">
-                <i class="fa-solid fa-mountain-sun" style="font-size: 1.4rem;"></i>
+<!-- Box di Ricerca Rapida a cavallo tra Hero e Sezione Successiva -->
+<?php if (($qf['enabled'] ?? true) !== false): ?>
+<div class="hero-search-overlap-wrapper">
+    <div class="container">
+        <div class="hero-filter-bar" x-data="{
+            selectedType: 'all',
+            selectedCat: 'all',
+            applyFilter() {
+                let targetUrl = '<?= BASE_URL ?>/escursioni.php';
+                if (this.selectedType === 'tour') {
+                    targetUrl = '<?= BASE_URL ?>/tour.php';
+                }
+                if (this.selectedCat !== 'all') {
+                    targetUrl += '?cat=' + encodeURIComponent(this.selectedCat);
+                }
+                window.location.href = targetUrl;
+            }
+        }">
+            <div class="hero-filter-item">
+                <span class="hero-filter-label"><i class="fa-solid fa-layer-group" style="color: var(--color-primary); margin-right: 4px;"></i> <?= htmlspecialchars(CURRENT_LANG === 'en' ? ($qf['type_label_en'] ?? 'Tour Type') : ($qf['type_label_it'] ?? 'Tipologia Tour')) ?></span>
+                <select class="hero-filter-select" x-model="selectedType">
+                    <option value="all"><?= CURRENT_LANG === 'en' ? 'All Experiences' : 'Tutte le esperienze' ?></option>
+                    <option value="escursione"><?= CURRENT_LANG === 'en' ? 'Day Excursions (1 day)' : 'Escursioni Giornaliere (1 giorno)' ?></option>
+                    <option value="tour"><?= CURRENT_LANG === 'en' ? 'Multi-Day Tours' : 'Tour Itineranti (Weekend & Settimane)' ?></option>
+                </select>
             </div>
-            <h4><?= CURRENT_LANG === 'en' ? 'Authentic Trails' : 'Percorsi Autentici' ?></h4>
-            <p><?= CURRENT_LANG === 'en' ? 'Trails away from mass tourism: from Etna craters to wild Nebrodi woods.' : 'Sentieri esclusivi lontani dal turismo di massa: dai crateri dell\'Etna ai boschi incontaminati.' ?></p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon-box">
-                <i class="fa-solid fa-shield-halved" style="font-size: 1.4rem;"></i>
+            <div class="hero-filter-item">
+                <span class="hero-filter-label"><i class="fa-solid fa-shapes" style="color: var(--color-primary); margin-right: 4px;"></i> <?= htmlspecialchars(CURRENT_LANG === 'en' ? ($qf['cat_label_en'] ?? 'Experience / Category') : ($qf['cat_label_it'] ?? 'Categoria Esperienza')) ?></span>
+                <select class="hero-filter-select" x-model="selectedCat">
+                    <option value="all"><?= CURRENT_LANG === 'en' ? 'All Categories' : 'Tutte le categorie' ?></option>
+                    <?php foreach ($categories as $catItem): ?>
+                        <option value="<?= htmlspecialchars($catItem['slug'] ?? $catItem['id']) ?>">
+                            <?= htmlspecialchars($catItem['name_it']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
             </div>
-            <h4><?= CURRENT_LANG === 'en' ? 'Certified Local Guides' : 'Guide Esperte & Assistenza' ?></h4>
-            <p><?= CURRENT_LANG === 'en' ? 'Accompanied by Mariella and local guides with dedicated support vehicle.' : 'Guidati da Mariella e guide locali del territorio con furgone d\'appoggio al seguito.' ?></p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon-box">
-                <i class="fa-solid fa-bolt-lightning" style="font-size: 1.4rem;"></i>
-            </div>
-            <h4><?= CURRENT_LANG === 'en' ? 'Top-End E-Bikes' : 'E-Bike di Ultima Generazione' ?></h4>
-            <p><?= CURRENT_LANG === 'en' ? 'Full suspension & front e-mtb for maximum safety and comfort for all riders.' : 'E-MTB biammortizzate performanti con grande autonomia per pedalare senza fatica.' ?></p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon-box">
-                <i class="fa-solid fa-wine-glass-empty" style="font-size: 1.4rem;"></i>
-            </div>
-            <h4><?= CURRENT_LANG === 'en' ? 'Sicilian Food & Wine' : 'Gusto & Tradizione' ?></h4>
-            <p><?= CURRENT_LANG === 'en' ? 'Tasting of Etna DOC wines, gourmet home restaurants and authentic zero-km specialties.' : 'Degustazioni di vini Etna DOC, pranzi in home restaurant e prodotti tipici genuini a km 0.' ?></p>
+            <button type="button" class="btn btn-primary" @click="applyFilter()" style="padding: 0.85rem 1.6rem; font-weight: 700; white-space: nowrap; display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fa-solid fa-magnifying-glass"></i> <?= htmlspecialchars(CURRENT_LANG === 'en' ? ($qf['btn_text_en'] ?? 'Search Tours') : ($qf['btn_text_it'] ?? 'Cerca Tour')) ?>
+            </button>
         </div>
     </div>
 </div>
+<?php endif; ?>
 
-<!-- Welcome & 3 Actions Section (dal sito originale) -->
-<section class="welcome-section">
+<!-- Sezione Categorie Dinamiche & Badge Esperienze -->
+<?php if (($hp['categories_section']['enabled'] ?? true) !== false): ?>
+<section class="category-badges-section" style="padding: 3.5rem 0 4rem 0; background: var(--color-white);">
     <div class="container">
-        <div class="section-header" style="max-width: 860px; margin: 0 auto 1.5rem auto;">
-            <span class="section-tag"><i class="fa-solid fa-map-location-dot"></i> Sicily Bike Tours</span>
-            <h2 class="section-title"><?= t('welcome_title') ?></h2>
+        <div class="section-header" style="max-width: 860px; margin: 0 auto 2.5rem auto;">
+            <span class="section-tag">
+                <i class="fa-solid fa-shapes"></i> <?= htmlspecialchars($hp['categories_section']['tag'] ?? 'Esperienze Su Misura per Tutti') ?>
+            </span>
+            <h2 class="section-title">
+                <?= htmlspecialchars($hp['categories_section']['title'] ?? 'Tour in E-Bike per Ogni Livello, Ritmo e Passione') ?>
+            </h2>
             <p class="section-subtitle" style="font-size: 1.12rem; color: var(--color-gray-700); line-height: 1.7;">
-                <?= t('welcome_lead') ?>
+                <?= htmlspecialchars($hp['categories_section']['subtitle'] ?? 'Pedalare in Sicilia con le nostre E-MTB di ultima generazione è un\'emozione accessibile a tutti.') ?>
             </p>
         </div>
 
-        <div class="action-cards-grid">
-            <a href="#esperienze" class="action-box-card">
-                <div class="action-box-icon">
-                    <i class="fa-solid fa-bicycle"></i>
-                </div>
-                <h3 class="action-box-title"><?= t('action_find_title') ?></h3>
-                <p class="action-box-sub"><?= t('action_find_sub') ?></p>
-                <span class="action-box-arrow">
-                    <?= CURRENT_LANG === 'en' ? 'Explore Tours' : 'Vedi tutte le escursioni' ?> <i class="fa-solid fa-arrow-right"></i>
-                </span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/contatti.php" class="action-box-card">
-                <div class="action-box-icon">
-                    <i class="fa-solid fa-comments"></i>
-                </div>
-                <h3 class="action-box-title"><?= t('action_contact_title') ?></h3>
-                <p class="action-box-sub"><?= t('action_contact_sub') ?></p>
-                <span class="action-box-arrow">
-                    <?= CURRENT_LANG === 'en' ? 'Get in Touch' : 'Scrivici o Chiamaci' ?> <i class="fa-solid fa-arrow-right"></i>
-                </span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/chi-siamo.php" class="action-box-card">
-                <div class="action-box-icon">
-                    <i class="fa-solid fa-mountain-sun"></i>
-                </div>
-                <h3 class="action-box-title"><?= t('action_nature_title') ?></h3>
-                <p class="action-box-sub"><?= t('action_nature_sub') ?></p>
-                <span class="action-box-arrow">
-                    <?= CURRENT_LANG === 'en' ? 'Our Territory' : 'Scopri la Sicilia' ?> <i class="fa-solid fa-arrow-right"></i>
-                </span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Tour Catalog Showcase (Alpine.js Interactive Filters) -->
-<section id="esperienze" class="section-spacing" style="background: var(--color-gray-50);" x-data="{
-    activeCategory: 'all',
-    activeArea: 'all',
-    toursList: <?= htmlspecialchars(json_encode($tours)) ?>,
-    
-    get filteredTours() {
-        return this.toursList.filter(t => {
-            const matchCat = (this.activeCategory === 'all' || t.type === this.activeCategory);
-            const matchArea = (this.activeArea === 'all' || t.area_tag === this.activeArea);
-            return matchCat && matchArea;
-        });
-    }
-}">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag"><i class="fa-solid fa-bicycle"></i> Le Nostre Proposte</span>
-            <h2 class="section-title">Esperienze in E-Bike & Tour Itineranti</h2>
-            <p class="section-subtitle">Dalle escursioni giornaliere fino ai viaggi di più giorni: scegli l'avventura ideale per il tuo livello.</p>
-        </div>
-
-        <!-- Filter Nav Pills -->
-        <div class="tours-filter-nav">
-            <button class="filter-pill" :class="{ 'active': activeCategory === 'all' && activeArea === 'all' }" @click="activeCategory = 'all'; activeArea = 'all'">
-                <?= t('filter_all') ?>
-            </button>
-            <button class="filter-pill" :class="{ 'active': activeCategory === 'escursione' }" @click="activeCategory = 'escursione'; activeArea = 'all'">
-                <i class="fa-solid fa-sun"></i> <?= t('filter_day') ?>
-            </button>
-            <button class="filter-pill" :class="{ 'active': activeCategory === 'tour' }" @click="activeCategory = 'tour'; activeArea = 'all'">
-                <i class="fa-solid fa-calendar-days"></i> <?= t('filter_multi') ?>
-            </button>
-            <button class="filter-pill" :class="{ 'active': activeArea === 'etna' }" @click="activeArea = 'etna'">
-                <i class="fa-solid fa-volcano"></i> <?= t('filter_etna') ?>
-            </button>
-            <button class="filter-pill" :class="{ 'active': activeArea === 'nebrodi' }" @click="activeArea = 'nebrodi'">
-                <i class="fa-solid fa-tree"></i> <?= t('filter_nebrodi') ?>
-            </button>
-            <button class="filter-pill" :class="{ 'active': activeArea === 'isole' }" @click="activeArea = 'isole'">
-                <i class="fa-solid fa-ship"></i> <?= t('filter_islands') ?>
-            </button>
-        </div>
-
-        <!-- Dynamic Tours Grid -->
-        <div class="tours-grid">
-            <?php foreach ($tours as $tour): ?>
-                <?php require BASE_PATH . '/includes/tour-card.php'; ?>
+        <!-- Griglia Categorie Dinamiche (Collegate ai filtri) -->
+        <div class="category-badges-grid">
+            <?php foreach ($categories as $cat): 
+                if (isset($cat['show_in_home']) && $cat['show_in_home'] === false) continue;
+                $catSlug = $cat['slug'] ?? $cat['id'];
+                $catIcon = $cat['icon'] ?? 'bicycle';
+                $catName = CURRENT_LANG === 'en' ? ($cat['name_en'] ?? $cat['name_it']) : $cat['name_it'];
+                $filterType = $cat['filter_type'] ?? 'all';
+                
+                // Determinazione link intelligente
+                if ($filterType === 'tour') {
+                    $catUrl = BASE_URL . '/tour.php?cat=' . urlencode($catSlug);
+                } elseif ($filterType === 'su_misura') {
+                    $catUrl = BASE_URL . '/personalizza-tour.php';
+                } else {
+                    $catUrl = BASE_URL . '/escursioni.php?cat=' . urlencode($catSlug);
+                }
+            ?>
+                <a href="<?= $catUrl ?>" class="category-badge-card" title="<?= htmlspecialchars($cat['badge_desc'] ?? $catName) ?>">
+                    <div class="category-badge-icon">
+                        <i class="fa-solid fa-<?= htmlspecialchars($catIcon) ?>"></i>
+                    </div>
+                    <span class="category-badge-title"><?= htmlspecialchars($catName) ?></span>
+                </a>
             <?php endforeach; ?>
         </div>
-
-        <div style="text-align: center; margin-top: 3.5rem;">
-            <a href="<?= BASE_URL ?>/personalizza-tour.php" class="btn btn-primary btn-lg">
-                <i class="fa-solid fa-sliders"></i> <?= CURRENT_LANG === 'en' ? 'Want a custom itinerary? Build your Tour' : 'Vuoi un itinerario personalizzato? Crea il tuo Tour su Misura' ?>
-            </a>
-        </div>
     </div>
 </section>
+<?php endif; ?>
 
-<!-- E-Bike Educational Section (Che cosa è l'ebike / A chi è rivolto) -->
-<section class="ebike-info-section">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag"><i class="fa-solid fa-bolt"></i> Il Piacere di Pedalare</span>
-            <h2 class="section-title"><?= CURRENT_LANG === 'en' ? 'Why Choose an E-Bike in Sicily?' : 'Perché Scegliere l\'E-Bike in Sicilia?' ?></h2>
-            <p class="section-subtitle"><?= CURRENT_LANG === 'en' ? 'Comfort, freedom and pure fun for riders of every age and fitness level.' : 'Comfort, libertà e divertimento assicurato per ciclisti di ogni età e livello di allenamento.' ?></p>
-        </div>
-
-        <div class="ebike-info-grid">
-            <!-- Box 1: Che cosa è l'ebike -->
-            <div class="ebike-info-card">
-                <div class="ebike-info-media">
-                    <img src="<?= BASE_URL ?>/assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-31.jpg" alt="Che cosa è l'ebike">
-                </div>
-                <div class="ebike-info-body">
-                    <h3><i class="fa-solid fa-circle-question" style="color: var(--color-primary);"></i> <?= t('ebike_what_title') ?></h3>
-                    <p><?= t('ebike_what_desc') ?></p>
-                    <ul class="ebike-highlights-list">
-                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? 'Smooth pedal assist for effortless climbs' : 'Assistenza elettrica fluida per superare qualsiasi dislivello' ?></li>
-                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? 'Up to 120km battery range on all routes' : 'Autonomia fino a 120 km per esplorare senza pensieri' ?></li>
-                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? '100% eco-friendly and silent exploration' : '100% sostenibile, silenzioso e a contatto con la natura' ?></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Box 2: A chi è rivolto -->
-            <div class="ebike-info-card">
-                <div class="ebike-info-media">
-                    <img src="<?= BASE_URL ?>/assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-32.jpg" alt="A chi è rivolto l'ebike">
-                </div>
-                <div class="ebike-info-body">
-                    <h3><i class="fa-solid fa-users" style="color: var(--color-primary);"></i> <?= t('ebike_who_title') ?></h3>
-                    <p><strong><?= t('ebike_who_lead') ?></strong> <?= t('ebike_who_desc') ?></p>
-                    <ul class="ebike-highlights-list">
-                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? 'Perfect for beginners, families and passionate cyclists' : 'Perfetto per principianti, famiglie con ragazzi e cicloamatori' ?></li>
-                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? 'No extreme fitness needed, everyone rides together' : 'Non serve allenamento: azzera le differenze di ritmo nel gruppo' ?></li>
-                        <li><i class="fa-solid fa-circle-check"></i> <?= CURRENT_LANG === 'en' ? 'Always accompanied by certified guides & support van' : 'Guide esperte al seguito e furgone d\'appoggio sempre presente' ?></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 10 Category Badges Section (Organizziamo tour per tutti) -->
-<section class="category-badges-section">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag"><i class="fa-solid fa-shapes"></i> Esperienze Su Misura</span>
-            <h2 class="section-title"><?= t('tours_for_all_title') ?></h2>
-            <p class="section-subtitle"><?= t('tours_for_all_desc') ?></p>
-        </div>
-
-        <div class="category-badges-grid">
-            <a href="<?= BASE_URL ?>/escursioni.php" class="category-badge-card">
-                <div class="category-badge-icon">
-                    <i class="fa-solid fa-seedling"></i>
-                </div>
-                <span class="category-badge-title"><?= t('badge_beginners') ?></span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/escursioni.php" class="category-badge-card">
-                <div class="category-badge-icon">
-                    <i class="fa-solid fa-mountain"></i>
-                </div>
-                <span class="category-badge-title"><?= t('badge_experts') ?></span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/escursioni.php" class="category-badge-card">
-                <div class="category-badge-icon">
-                    <i class="fa-solid fa-people-roof"></i>
-                </div>
-                <span class="category-badge-title"><?= t('badge_families') ?></span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/personalizza-tour.php" class="category-badge-card">
-                <div class="category-badge-icon">
-                    <i class="fa-solid fa-users"></i>
-                </div>
-                <span class="category-badge-title"><?= t('badge_groups') ?></span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/tour.php" class="category-badge-card">
-                <div class="category-badge-icon">
-                    <i class="fa-solid fa-calendar-week"></i>
-                </div>
-                <span class="category-badge-title"><?= t('badge_multiday') ?></span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/escursioni.php?area=etna" class="category-badge-card">
-                <div class="category-badge-icon">
-                    <i class="fa-solid fa-volcano"></i>
-                </div>
-                <span class="category-badge-title"><?= t('badge_mountain') ?></span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/escursioni.php?area=nebrodi" class="category-badge-card">
-                <div class="category-badge-icon">
-                    <i class="fa-solid fa-mountain-sun"></i>
-                </div>
-                <span class="category-badge-title"><?= t('badge_hills') ?></span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/escursioni.php?area=nebrodi" class="category-badge-card">
-                <div class="category-badge-icon">
-                    <i class="fa-solid fa-landmark"></i>
-                </div>
-                <span class="category-badge-title"><?= t('badge_villages') ?></span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/escursioni.php?area=etna" class="category-badge-card">
-                <div class="category-badge-icon">
-                    <i class="fa-solid fa-wine-glass"></i>
-                </div>
-                <span class="category-badge-title"><?= t('badge_foodwine') ?></span>
-            </a>
-
-            <a href="<?= BASE_URL ?>/escursioni.php" class="category-badge-card">
-                <div class="category-badge-icon">
-                    <i class="fa-solid fa-sun"></i>
-                </div>
-                <span class="category-badge-title"><?= t('badge_daytrips') ?></span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Interactive Availability Calendar Section -->
-<section id="calendario" class="section-spacing calendar-section-wrapper" x-data="{
-    currentMonth: 3, // 0-indexed, 3 = April 2026
-    currentYear: 2026,
-    selectedDate: '2026-04-18',
-    monthNames: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-    
-    // Sample scheduled departures from tours database
-    departures: [
-        { date: '2026-04-11', tourId: 4, tourTitle: 'Etna in E-Bike: Avventura e Degustazione Vino', time: '09:00', spots: 6, price: 90 },
-        { date: '2026-04-15', tourId: 1, tourTitle: 'Etna Summit: la scalata del vulcano in E-Bike', time: '08:30', spots: 4, price: 85 },
-        { date: '2026-04-18', tourId: 2, tourTitle: 'Escursione in E-Bike & Pranzo Gourmet', time: '09:30', spots: 8, price: 95 },
-        { date: '2026-04-18', tourId: 8, tourTitle: 'Weekend: Randazzo, Megaliti Argimusco & Alcantara', time: '09:00', spots: 5, price: 240 },
-        { date: '2026-04-22', tourId: 1, tourTitle: 'Etna Summit: la scalata del vulcano in E-Bike', time: '08:30', spots: 6, price: 85 },
-        { date: '2026-04-24', tourId: 9, tourTitle: 'Tour 3 Giorni: Bike & Taste Etna, Randazzo & Bronte', time: '09:00', spots: 4, price: 390 },
-        { date: '2026-04-29', tourId: 11, tourTitle: 'Cicloturismo alle Isole Eolie: Bici & Barca', time: '08:00', spots: 3, price: 790 },
-        { date: '2026-05-02', tourId: 2, tourTitle: 'Escursione in E-Bike & Pranzo Gourmet', time: '09:30', spots: 6, price: 95 },
-        { date: '2026-05-06', tourId: 1, tourTitle: 'Etna Summit: la scalata del vulcano in E-Bike', time: '08:30', spots: 8, price: 85 },
-        { date: '2026-05-09', tourId: 8, tourTitle: 'Weekend: Randazzo, Megaliti Argimusco & Alcantara', time: '09:00', spots: 4, price: 240 },
-        { date: '2026-05-15', tourId: 9, tourTitle: 'Tour 3 Giorni: Bike & Taste Etna, Randazzo & Bronte', time: '09:00', spots: 6, price: 390 },
-        { date: '2026-05-20', tourId: 11, tourTitle: 'Cicloturismo alle Isole Eolie: Bici & Barca', time: '08:00', spots: 2, price: 790 }
-    ],
-
-    get daysInMonth() {
-        return new Date(this.currentYear, this.currentMonth + 1, 0).getDate();
+<!-- Vetrina Esperienze & Tour Carousel -->
+<?php if (($hp['showcase_section']['enabled'] ?? true) !== false): ?>
+<?php 
+    $cFilter = $hp['showcase_section']['carousel_filter'] ?? 'all';
+    $cTours = $cFilter === 'featured' ? array_values(array_filter($tours, fn($t) => !empty($t['featured']))) : $tours;
+    if (empty($cTours)) $cTours = $tours;
+?>
+<section id="esperienze" class="section-spacing" style="background: var(--color-gray-50);" x-data="{
+    scrollContainer: null,
+    canScrollLeft: false,
+    canScrollRight: true,
+    init() {
+        this.scrollContainer = this.$refs.slider;
+        this.$nextTick(() => { this.updateScrollButtons(); });
     },
-    get firstDayIndex() {
-        let d = new Date(this.currentYear, this.currentMonth, 1).getDay();
-        return (d === 0) ? 6 : d - 1; // Mon = 0
+    scroll(direction) {
+        const container = this.$refs.slider;
+        if (!container) return;
+        const item = container.querySelector('.tours-carousel-item');
+        const cardWidth = item ? (item.offsetWidth + 28) : 380;
+        const scrollAmount = direction === 'next' ? cardWidth : -cardWidth;
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        setTimeout(() => this.updateScrollButtons(), 350);
     },
-    
-    prevMonth() {
-        if (this.currentMonth > 0) this.currentMonth--;
-        else { this.currentMonth = 11; this.currentYear--; }
-    },
-    nextMonth() {
-        if (this.currentMonth < 11) this.currentMonth++;
-        else { this.currentMonth = 0; this.currentYear++; }
-    },
-    
-    getDateStr(day) {
-        let m = String(this.currentMonth + 1).padStart(2, '0');
-        let d = String(day).padStart(2, '0');
-        return `${this.currentYear}-${m}-${d}`;
-    },
-    
-    hasDepartures(day) {
-        let dStr = this.getDateStr(day);
-        return this.departures.some(d => d.date === dStr);
-    },
-    
-    getDeparturesForSelectedDate() {
-        return this.departures.filter(d => d.date === this.selectedDate);
+    updateScrollButtons() {
+        const el = this.$refs.slider;
+        if (!el) return;
+        this.canScrollLeft = el.scrollLeft > 15;
+        this.canScrollRight = el.scrollLeft < (el.scrollWidth - el.clientWidth - 15);
     }
 }">
     <div class="container">
-        <div class="section-header">
-            <span class="section-tag"><i class="fa-solid fa-calendar-check"></i> Partenze & Calendario</span>
-            <h2 class="section-title"><?= t('calendar_title') ?></h2>
-            <p class="section-subtitle"><?= t('calendar_subtitle') ?></p>
-        </div>
-
-        <div class="calendar-container">
-            <!-- Calendar Grid -->
-            <div>
-                <div class="calendar-header-nav">
-                    <button class="calendar-nav-btn" @click="prevMonth()"><i class="fa-solid fa-chevron-left"></i></button>
-                    <span class="calendar-month-title" x-text="monthNames[currentMonth] + ' ' + currentYear"></span>
-                    <button class="calendar-nav-btn" @click="nextMonth()"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-
-                <div class="calendar-weekdays">
-                    <span>Lun</span><span>Mar</span><span>Mer</span><span>Gio</span><span>Ven</span><span>Sab</span><span>Dom</span>
-                </div>
-
-                <div class="calendar-days-grid">
-                    <!-- Blank days padding -->
-                    <template x-for="i in firstDayIndex" :key="'blank-' + i">
-                        <div class="cal-day-cell disabled"></div>
-                    </template>
-
-                    <!-- Month Days -->
-                    <template x-for="day in daysInMonth" :key="'day-' + day">
-                        <div class="cal-day-cell" 
-                             :class="{ 
-                                'selected': selectedDate === getDateStr(day),
-                                'has-departure': hasDepartures(day)
-                             }"
-                             @click="selectedDate = getDateStr(day)">
-                            <span x-text="day"></span>
-                        </div>
-                    </template>
-                </div>
-
-                <div style="display: flex; align-items: center; gap: 1.5rem; margin-top: 1.5rem; font-size: 0.85rem; color: var(--color-gray-600);">
-                    <div style="display: flex; align-items: center; gap: 0.4rem;">
-                        <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); display: inline-block;"></span>
-                        <span>Partenza Programmata</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 0.4rem;">
-                        <span style="width: 12px; height: 12px; border-radius: 4px; background: var(--color-primary); display: inline-block;"></span>
-                        <span>Data Selezionata</span>
-                    </div>
-                </div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.2rem; flex-wrap: wrap; gap: 1.25rem;">
+            <div style="max-width: 720px;">
+                <span class="section-tag">
+                    <i class="fa-solid fa-bicycle"></i> <?= htmlspecialchars($hp['showcase_section']['tag'] ?? 'Le Nostre Proposte') ?>
+                </span>
+                <h2 class="section-title" style="margin-bottom: 0.5rem;">
+                    <?= htmlspecialchars($hp['showcase_section']['title'] ?? 'Esperienze in E-Bike & Tour Itineranti') ?>
+                </h2>
+                <p class="section-subtitle" style="margin-bottom: 0;">
+                    <?= htmlspecialchars($hp['showcase_section']['subtitle'] ?? 'Scorri tra le nostre migliori avventure su due ruote.') ?>
+                </p>
             </div>
 
-            <!-- Departures Slot List on Selected Date -->
-            <div class="calendar-slot-box">
-                <div>
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem;">
-                        <h4 style="font-size: 1.2rem; color: var(--color-primary-dark);">
-                            <i class="fa-solid fa-clock"></i> Partenze del <span x-text="selectedDate"></span>
-                        </h4>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <button type="button" class="carousel-btn prev" @click="scroll('prev')" :disabled="!canScrollLeft" aria-label="Precedente">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button type="button" class="carousel-btn next" @click="scroll('next')" :disabled="!canScrollRight" aria-label="Successivo">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tours Carousel Track -->
+        <div class="tours-carousel-wrapper">
+            <div class="tours-carousel-track" x-ref="slider" @scroll.debounce.50ms="updateScrollButtons()">
+                <?php foreach ($cTours as $tour): ?>
+                    <div class="tours-carousel-item">
+                        <?php require BASE_PATH . '/includes/tour-card.php'; ?>
                     </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
 
-                    <template x-if="getDeparturesForSelectedDate().length > 0">
+        <!-- Due Riferimenti Cataloghi: Escursioni 1 Giorno & Tour Itineranti -->
+        <?php 
+            $dayCard = $hp['showcase_section']['day_card'] ?? [];
+            $multiCard = $hp['showcase_section']['multi_card'] ?? [];
+            $dayIcon = $dayCard['icon'] ?? 'sun';
+            $multiIcon = $multiCard['icon'] ?? 'calendar-days';
+        ?>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; margin-top: 3.5rem;" class="experience-catalog-cta-grid">
+            <div style="background: var(--color-white); border: 1.5px solid var(--color-gray-200); border-radius: var(--radius-xl); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-md);" class="exp-cta-card">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.85rem;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                            <i class="fa-solid fa-<?= htmlspecialchars($dayIcon) ?>"></i>
+                        </div>
                         <div>
-                            <template x-for="dep in getDeparturesForSelectedDate()" :key="dep.tourId">
-                                <div class="slot-tour-item">
-                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.4rem;">
-                                        <h5 style="font-size: 1rem; color: var(--color-primary-dark);" x-text="dep.tourTitle"></h5>
-                                        <span style="font-weight: 800; color: var(--color-primary);" x-text="'€' + dep.price"></span>
-                                    </div>
-                                    <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; color: var(--color-gray-600); margin-bottom: 0.75rem;">
-                                        <span><i class="fa-regular fa-clock"></i> Ore <span x-text="dep.time"></span></span>
-                                        <span class="badge badge-accent" style="font-size: 0.75rem;" x-text="dep.spots + ' posti liberi'"></span>
-                                    </div>
-                                    <button class="btn btn-primary btn-sm" style="width: 100%;" @click="openBooking({ id: dep.tourId, title: dep.tourTitle, price: dep.price })">
-                                        <i class="fa-solid fa-check"></i> Prenota questa Partenza
-                                    </button>
-                                </div>
-                            </template>
+                            <span style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--color-volcano); letter-spacing: 0.05em;"><?= htmlspecialchars($dayCard['badge'] ?? 'Avventure di 1 Giorno') ?></span>
+                            <h3 style="font-size: 1.35rem; color: var(--color-primary-dark); margin: 0;"><?= htmlspecialchars($dayCard['title'] ?? 'Escursioni Giornaliere') ?></h3>
                         </div>
-                    </template>
+                    </div>
+                    <p style="font-size: 0.95rem; color: var(--color-gray-600); line-height: 1.6; margin-bottom: 1.5rem;">
+                        <?= htmlspecialchars($dayCard['desc'] ?? 'Uscite da mezza giornata o giornata intera tra colate laviche, crateri, boschi e degustazioni in cantina.') ?>
+                    </p>
+                </div>
+                <a href="<?= BASE_URL ?>/<?= htmlspecialchars($dayCard['link'] ?? 'escursioni.php') ?>" class="btn btn-outline-primary" style="width: 100%; font-weight: 700;">
+                    <i class="fa-solid fa-compass"></i> <?= htmlspecialchars($dayCard['btn_text'] ?? 'Scopri tutte le Escursioni') ?> <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i>
+                </a>
+            </div>
 
-                    <template x-if="getDeparturesForSelectedDate().length === 0">
-                        <div style="text-align: center; padding: 2rem 1rem; color: var(--color-gray-500);">
-                            <i class="fa-regular fa-calendar-xmark" style="font-size: 2.2rem; margin-bottom: 0.75rem; color: var(--color-gray-400);"></i>
-                            <p style="font-size: 0.95rem; margin-bottom: 1rem;">Nessuna partenza di gruppo fissa in questa data.</p>
-                            <p style="font-size: 0.88rem; margin-bottom: 1.5rem;">Puoi comunque richiedere un <strong>Tour Privato</strong> o un'escursione su misura per te e i tuoi amici!</p>
-                            <a :href="'<?= BASE_URL ?>/personalizza-tour.php?date=' + selectedDate" class="btn btn-accent btn-sm">
-                                <i class="fa-solid fa-plus"></i> Richiedi Tour in questa Data
-                            </a>
+            <div style="background: var(--color-white); border: 1.5px solid var(--color-gray-200); border-radius: var(--radius-xl); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-md);" class="exp-cta-card">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.85rem;">
+                        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+                            <i class="fa-solid fa-<?= htmlspecialchars($multiIcon) ?>"></i>
                         </div>
-                    </template>
+                        <div>
+                            <span style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary); letter-spacing: 0.05em;"><?= htmlspecialchars($multiCard['badge'] ?? 'Vacanze in Bici da 2 a 7 Giorni') ?></span>
+                            <h3 style="font-size: 1.35rem; color: var(--color-primary-dark); margin: 0;"><?= htmlspecialchars($multiCard['title'] ?? 'Tour Itineranti & Weekend') ?></h3>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem; color: var(--color-gray-600); line-height: 1.6; margin-bottom: 1.5rem;">
+                        <?= htmlspecialchars($multiCard['desc'] ?? 'Vacanze complete in e-bike con pernottamento in dimore di charme, trasporto valigie e furgone d\'appoggio.') ?>
+                    </p>
                 </div>
-
-                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-gray-200); font-size: 0.85rem; color: var(--color-gray-600); display: flex; align-items: center; justify-content: space-between;">
-                    <span>Hai date diverse o un gruppo numeroso?</span>
-                    <a href="https://wa.me/<?= WA_NUMBER ?>" target="_blank" style="color: var(--color-primary); font-weight: 700;">
-                        <i class="fa-brands fa-whatsapp"></i> Chiedi su WA
-                    </a>
-                </div>
+                <a href="<?= BASE_URL ?>/<?= htmlspecialchars($multiCard['link'] ?? 'tour.php') ?>" class="btn btn-primary" style="width: 100%; font-weight: 700;">
+                    <i class="fa-solid fa-route"></i> <?= htmlspecialchars($multiCard['btn_text'] ?? 'Scopri tutti i Tour Itineranti') ?> <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i>
+                </a>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <!-- Custom Tour Builder Section Preview -->
-<section class="section-spacing" style="background: var(--color-gray-50);">
+<?php if (($hp['custom_builder_section']['enabled'] ?? true) !== false): ?>
+<section class="section-spacing" style="background: var(--color-white); border-top: 1px solid var(--color-gray-200);">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag"><i class="fa-solid fa-sliders"></i> Esperienze Su Misura</span>
-            <h2 class="section-title"><?= t('custom_builder_title') ?></h2>
-            <p class="section-subtitle"><?= t('custom_builder_subtitle') ?></p>
+            <span class="section-tag"><i class="fa-solid fa-sliders"></i> <?= htmlspecialchars($hp['custom_builder_section']['tag'] ?? 'Esperienze Su Misura') ?></span>
+            <h2 class="section-title"><?= htmlspecialchars($hp['custom_builder_section']['title'] ?? 'Configura il tuo Viaggio in E-Bike su Misura') ?></h2>
+            <p class="section-subtitle"><?= htmlspecialchars($hp['custom_builder_section']['subtitle'] ?? 'Personalizza tappe, ritmo, pernottamenti ed esperienze gastronomiche esclusive.') ?></p>
         </div>
 
         <?php require_once BASE_PATH . '/includes/custom-tour-builder.php'; ?>
     </div>
 </section>
+<?php endif; ?>
 
-<!-- Magazine & Stories Section (3 Articoli) -->
+<!-- Magazine & Stories Section -->
+<?php if (($hp['magazine_section']['enabled'] ?? true) !== false): ?>
+<?php $magLimit = intval($hp['magazine_section']['show_count'] ?? 3); ?>
 <section class="section-spacing" style="background: var(--color-white);">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag"><i class="fa-solid fa-newspaper"></i> <?= t('nav_magazine') ?></span>
-            <h2 class="section-title"><?= t('magazine_title') ?></h2>
-            <p class="section-subtitle"><?= t('magazine_subtitle') ?></p>
+            <span class="section-tag"><i class="fa-solid fa-newspaper"></i> <?= htmlspecialchars($hp['magazine_section']['tag'] ?? 'Il Nostro Magazine') ?></span>
+            <h2 class="section-title"><?= htmlspecialchars($hp['magazine_section']['title'] ?? 'Storie, Percorsi & Consigli di Cicloturismo') ?></h2>
+            <p class="section-subtitle"><?= htmlspecialchars($hp['magazine_section']['subtitle'] ?? 'Guide ai sentieri, altimetrie e racconti per scoprire la Sicilia autentica.') ?></p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2.5rem;">
-            <?php foreach (array_slice($articles, 0, 3) as $art): ?>
+        <div class="magazine-grid" style="margin-bottom: 2.5rem;">
+            <?php foreach (array_slice($articles, 0, $magLimit) as $art): ?>
                 <?php
                 $artTitle = CURRENT_LANG === 'en' ? ($art['title_en'] ?? $art['title']) : $art['title'];
                 $artExcerpt = CURRENT_LANG === 'en' ? ($art['excerpt_en'] ?? $art['excerpt']) : $art['excerpt'];
@@ -570,7 +332,7 @@ require_once BASE_PATH . '/includes/navbar.php';
                                 <i class="fa-solid fa-pen-nib" style="color: var(--color-primary);"></i> <?= htmlspecialchars($art['author']) ?>
                             </span>
                             <a href="<?= $artLink ?>" class="btn btn-outline-primary btn-sm">
-                                <?= t('magazine_read_more') ?> <i class="fa-solid fa-arrow-right"></i>
+                                Leggi Articolo <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -579,76 +341,44 @@ require_once BASE_PATH . '/includes/navbar.php';
         </div>
 
         <div style="text-align: center;">
-            <a href="<?= BASE_URL ?>/magazine.php" class="btn btn-primary">
-                <i class="fa-solid fa-book-open"></i> <?= t('magazine_all') ?>
+            <a href="<?= BASE_URL ?>/<?= htmlspecialchars($hp['magazine_section']['btn_link'] ?? 'magazine.php') ?>" class="btn btn-primary">
+                <i class="fa-solid fa-book-open"></i> <?= htmlspecialchars($hp['magazine_section']['btn_text'] ?? 'Visita Magazine Completo') ?>
             </a>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
-<!-- Testimonials & Reviews -->
+<!-- Testimonials & Reviews Dinamiche -->
+<?php if (($hp['reviews_section']['enabled'] ?? true) !== false): ?>
 <section class="section-spacing" style="background: var(--color-gray-50);">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag"><i class="fa-solid fa-heart"></i> Dicono di Noi</span>
-            <h2 class="section-title">Le Esperienze dei Nostri Viaggiatori</h2>
-            <p class="section-subtitle">Ospiti provenienti da tutto il mondo che hanno pedalato con noi tra vulcano e mare.</p>
+            <span class="section-tag"><i class="fa-solid fa-heart"></i> <?= htmlspecialchars($hp['reviews_section']['tag'] ?? 'Dicono di Noi') ?></span>
+            <h2 class="section-title"><?= htmlspecialchars($hp['reviews_section']['title'] ?? 'Le Esperienze dei Nostri Viaggiatori') ?></h2>
+            <p class="section-subtitle"><?= htmlspecialchars($hp['reviews_section']['subtitle'] ?? 'Ospiti provenienti da tutto il mondo che hanno pedalato con noi tra vulcano e mare.') ?></p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+        <div class="reviews-grid">
             <?php foreach ($reviews as $rev): ?>
                 <div class="feature-card" style="display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div style="color: var(--color-volcano); margin-bottom: 0.8rem; font-size: 1.1rem;">
-                            <?php for ($i = 0; $i < $rev['rating']; $i++): ?>
+                            <?php for ($i = 0; $i < ($rev['rating'] ?? 5); $i++): ?>
                                 <i class="fa-solid fa-star"></i>
                             <?php endfor; ?>
                         </div>
                         <p style="font-size: 0.95rem; color: var(--color-gray-700); font-style: italic; margin-bottom: 1.5rem; line-height: 1.6;">
-                            "<?= CURRENT_LANG === 'en' ? $rev['text_en'] : $rev['text_it'] ?>"
+                            "<?= htmlspecialchars(CURRENT_LANG === 'en' ? ($rev['text_en'] ?? $rev['text_it']) : $rev['text_it']) ?>"
                         </p>
                     </div>
                     <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--color-gray-100); padding-top: 1rem;">
                         <div>
                             <strong style="display: block; font-size: 0.95rem; color: var(--color-primary-dark);"><?= htmlspecialchars($rev['author']) ?></strong>
-                            <span style="font-size: 0.8rem; color: var(--color-gray-500);"><?= htmlspecialchars($rev['country']) ?></span>
+                            <span style="font-size: 0.8rem; color: var(--color-gray-500);"><?= htmlspecialchars($rev['country'] ?? '') ?></span>
                         </div>
-                        <span class="badge badge-accent" style="font-size: 0.72rem;"><?= htmlspecialchars($rev['tour']) ?></span>
+                        <span class="badge badge-accent" style="font-size: 0.72rem;"><?= htmlspecialchars($rev['tour'] ?? '') ?></span>
                     </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-<!-- Partners Section (Configurabile da settings.json) -->
-<?php $partnersList = $settings['partners'] ?? []; ?>
-<?php if (!empty($partnersList)): ?>
-<section class="section-spacing" style="background: var(--color-white); border-top: 1px solid var(--color-gray-200);">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag"><i class="fa-solid fa-handshake"></i> Network di Qualità</span>
-            <h2 class="section-title"><?= t('partners_title') ?></h2>
-            <p class="section-subtitle"><?= t('partners_subtitle') ?></p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(<?= count($partnersList) ?>, 1fr); gap: 1.5rem;" class="partners-responsive-grid">
-            <?php foreach ($partnersList as $p): ?>
-                <div class="partner-card" style="background: var(--color-white); border: 1px solid var(--color-gray-200); padding: 1.75rem 1.25rem; text-align: center; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: all var(--transition-normal); height: 100%; box-shadow: var(--shadow-sm);">
-                    <div class="partner-logo-container" style="height: 60px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
-                        <?php if (!empty($p['logo'])): ?>
-                            <img src="<?= BASE_URL ?>/<?= htmlspecialchars($p['logo']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" style="max-height: 52px; max-width: 150px; width: auto; height: auto; object-fit: contain;">
-                        <?php else: ?>
-                            <div class="feature-icon-box" style="margin: 0 auto; width: 52px; height: 52px;">
-                                <i class="<?= htmlspecialchars($p['icon'] ?? 'fa-solid fa-check') ?>" style="font-size: 1.5rem;"></i>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem; color: var(--color-primary-dark); font-weight: 700;"><?= htmlspecialchars($p['name']) ?></h4>
-                        <span style="font-size: 0.82rem; color: var(--color-gray-500); display: block; margin-bottom: 0.75rem;"><?= CURRENT_LANG === 'en' ? ($p['role_en'] ?? $p['role_it']) : $p['role_it'] ?></span>
-                    </div>
-                    <span class="badge badge-accent" style="font-size: 0.72rem; margin-top: auto;"><?= htmlspecialchars($p['badge']) ?></span>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -656,13 +386,49 @@ require_once BASE_PATH . '/includes/navbar.php';
 </section>
 <?php endif; ?>
 
-<!-- FAQs Section -->
+<!-- Partners Section Dinamica -->
+<?php $partnersList = $settings['partners'] ?? []; ?>
+<?php if ((($hp['partners_section']['enabled'] ?? true) !== false) && !empty($partnersList)): ?>
+<section class="section-spacing" style="background: var(--color-white); border-top: 1px solid var(--color-gray-200);">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag"><i class="fa-solid fa-handshake"></i> <?= htmlspecialchars($hp['partners_section']['tag'] ?? 'Network di Qualità') ?></span>
+            <h2 class="section-title"><?= htmlspecialchars($hp['partners_section']['title'] ?? 'Partner Ufficiali & Istituzionali') ?></h2>
+            <p class="section-subtitle"><?= htmlspecialchars($hp['partners_section']['subtitle'] ?? 'Collaboriamo con i migliori enti parco e produttori per garantire la massima qualità.') ?></p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;" class="partners-responsive-grid">
+            <?php foreach ($partnersList as $p): ?>
+                <div class="partner-card" style="background: var(--color-white); border: 1px solid var(--color-gray-200); padding: 1.6rem 1rem; text-align: center; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: all var(--transition-normal); height: 100%; box-shadow: var(--shadow-sm);">
+                    <div class="partner-logo-container" style="height: 52px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; padding: 0 0.5rem;">
+                        <?php if (!empty($p['logo'])): ?>
+                            <img src="<?= BASE_URL ?>/<?= htmlspecialchars($p['logo']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" style="max-height: 48px; max-width: 100%; width: auto; height: auto; object-fit: contain;">
+                        <?php else: ?>
+                            <div class="feature-icon-box" style="margin: 0 auto; width: 48px; height: 48px;">
+                                <i class="<?= htmlspecialchars($p['icon'] ?? 'fa-solid fa-check') ?>" style="font-size: 1.4rem;"></i>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div style="margin-bottom: 0.5rem;">
+                        <h4 style="font-size: 1rem; margin-bottom: 0.25rem; color: var(--color-primary-dark); font-weight: 700;"><?= htmlspecialchars($p['name']) ?></h4>
+                        <span style="font-size: 0.8rem; color: var(--color-gray-500); display: block;"><?= CURRENT_LANG === 'en' ? ($p['role_en'] ?? $p['role_it']) : $p['role_it'] ?></span>
+                    </div>
+                    <span class="badge badge-accent" style="font-size: 0.72rem; margin-top: auto;"><?= htmlspecialchars($p['badge'] ?? '') ?></span>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
+<!-- FAQs Section Dinamica -->
+<?php if (($hp['faqs_section']['enabled'] ?? true) !== false): ?>
 <section class="section-spacing" style="background: var(--color-gray-50);">
     <div class="container container-narrow">
         <div class="section-header">
-            <span class="section-tag"><i class="fa-solid fa-circle-question"></i> Domande Frequenti</span>
-            <h2 class="section-title">Tutto quello che c'è da sapere</h2>
-            <p class="section-subtitle">Hai dubbi sulle nostre escursioni o sui tour in e-bike? Ecco le risposte più comuni.</p>
+            <span class="section-tag"><i class="fa-solid fa-circle-question"></i> <?= htmlspecialchars($hp['faqs_section']['tag'] ?? 'Domande Frequenti') ?></span>
+            <h2 class="section-title"><?= htmlspecialchars($hp['faqs_section']['title'] ?? 'Tutto quello che c\'è da sapere') ?></h2>
+            <p class="section-subtitle"><?= htmlspecialchars($hp['faqs_section']['subtitle'] ?? 'Hai dubbi sulle nostre escursioni o sui tour in e-bike? Ecco le risposte più comuni.') ?></p>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 1rem;" x-data="{ openFaq: 0 }">
@@ -670,18 +436,18 @@ require_once BASE_PATH . '/includes/navbar.php';
                 <div class="feature-card" style="padding: 1.25rem 1.6rem; cursor: pointer;" @click="openFaq = (openFaq === <?= $idx ?> ? null : <?= $idx ?>)">
                     <div style="display: flex; align-items: center; justify-content: space-between;">
                         <h4 style="font-size: 1.08rem; color: var(--color-primary-dark);">
-                            <?= CURRENT_LANG === 'en' ? $faq['q_en'] : $faq['q_it'] ?>
+                            <?= CURRENT_LANG === 'en' ? ($faq['q_en'] ?? $faq['q_it']) : $faq['q_it'] ?>
                         </h4>
                         <i class="fa-solid" :class="openFaq === <?= $idx ?> ? 'fa-minus' : 'fa-plus'" style="color: var(--color-primary); font-size: 0.9rem;"></i>
                     </div>
                     <div x-show="openFaq === <?= $idx ?>" x-transition style="display: none; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid var(--color-gray-100); color: var(--color-gray-600); font-size: 0.95rem; line-height: 1.6;">
-                        <?= CURRENT_LANG === 'en' ? $faq['a_en'] : $faq['a_it'] ?>
+                        <?= CURRENT_LANG === 'en' ? ($faq['a_en'] ?? $faq['a_it']) : $faq['a_it'] ?>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <?php require_once BASE_PATH . '/includes/footer.php'; ?>
-

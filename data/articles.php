@@ -4,6 +4,12 @@
  * Archivio configurabile di articoli ed approfondimenti SEO sul cicloturismo in Sicilia.
  */
 
+$jsonFile = __DIR__ . '/articles.json';
+if (file_exists($jsonFile)) {
+    $articles = json_decode(file_get_contents($jsonFile), true) ?: [];
+    return;
+}
+
 $articles = [
     [
         'id' => 1,

@@ -1,0 +1,157 @@
+{
+  "pricing": {
+    "base_per_day_person": 90,
+    "min_participants": 1,
+    "max_participants": 20,
+    "min_days": 1,
+    "max_days": 14
+  },
+  "destinations": [
+    {
+      "id": "etna",
+      "name": "Vulcano Etna",
+      "name_en": "Mount Etna",
+      "desc_it": "Crateri, colate laviche, grotte e pinete d'alta quota.",
+      "desc_en": "Craters, lava flows, caves and high-altitude pine forests.",
+      "image": "assets/img/gallery/Etna-home-page.jpg",
+      "default_selected": true
+    },
+    {
+      "id": "nebrodi",
+      "name": "Parco dei Nebrodi",
+      "name_en": "Nebrodi Mountains",
+      "desc_it": "Laghi montani, boschi secolari, cavalli selvaggi e maialini neri.",
+      "desc_en": "Mountain lakes, ancient beech woods, wild horses and scenic peaks.",
+      "image": "assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-113.jpg",
+      "default_selected": true
+    },
+    {
+      "id": "alcantara",
+      "name": "Valle dell'Alcantara & Castiglione",
+      "name_en": "Alcantara Valley & Gorges",
+      "desc_it": "Canyon di basalto colonnare, fiumi cristallini e borghi medievali.",
+      "desc_en": "Prismatic basalt gorges, crystal waters and medieval wine hamlets.",
+      "image": "assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-77.jpg",
+      "default_selected": false
+    },
+    {
+      "id": "eolie",
+      "name": "Isole Eolie in Barca & E-Bike",
+      "name_en": "Aeolian Islands Bike & Sail",
+      "desc_it": "Lipari, Vulcano e Salina tra coste vulcaniche e mare turchese.",
+      "desc_en": "Lipari, Vulcano and Salina with coastal trails and cobalt sea.",
+      "image": "assets/img/gallery/summit.jpg",
+      "default_selected": false
+    },
+    {
+      "id": "barocco",
+      "name": "Val di Noto & Costa Barocca",
+      "name_en": "Baroque Valley of Noto",
+      "desc_it": "Scicli, Modica, Noto e le oasi marine protette tra muri a secco.",
+      "desc_en": "UNESCO Baroque towns, stone walls and protected marine reserves.",
+      "image": "assets/img/gallery/etna-2.jpg",
+      "default_selected": false
+    }
+  ],
+  "bike_types": [
+    {
+      "id": "emtb_full",
+      "name_it": "E-MTB Biammortizzata (Full Suspension)",
+      "name_en": "Full Suspension E-MTB",
+      "desc_it": "Comfort e tenuta massima su sentieri sconnessi, discese e sterrati lavici.",
+      "desc_en": "Maximum comfort and traction on rough singletracks and lava gravel.",
+      "icon": "bicycle"
+    },
+    {
+      "id": "emtb_front",
+      "name_it": "E-MTB Front (Ammortizzata solo anteriore)",
+      "name_en": "Hardtail Front Suspension E-MTB",
+      "desc_it": "Leggera e scattante, perfetta per strade forestali e piste battute.",
+      "desc_en": "Lightweight and agile, ideal for smooth forest paths and gravel tracks.",
+      "icon": "bicycle"
+    },
+    {
+      "id": "gravel",
+      "name_it": "E-Gravel / All-Road Elettrica",
+      "name_en": "Electric E-Gravel / All-Road",
+      "desc_it": "Per chi ama il ritmo del cicloturismo veloce su asfalto e strade bianche.",
+      "desc_en": "For lovers of fast cycle-touring on paved country roads and packed gravel.",
+      "icon": "bicycle"
+    }
+  ],
+  "difficulty_levels": [
+    {
+      "id": "facile",
+      "name_it": "Facile / Relax (25-35 km/giorno)",
+      "name_en": "Easy / Relaxed (25-35 km/day)",
+      "desc_it": "Piste ciclabili e strade panoramiche con soste frequenti e zero stress.",
+      "desc_en": "Panoramic quiet lanes with frequent stops, photo ops and zero stress."
+    },
+    {
+      "id": "medio",
+      "name_it": "Medio / Panoramico (40-55 km/giorno)",
+      "name_en": "Medium / Panoramic (40-55 km/day)",
+      "desc_it": "Sterrati facili, dislivelli collinari gestiti in scioltezza con il motore.",
+      "desc_en": "Easy off-road, rolling hills easily conquered with motor assistance."
+    },
+    {
+      "id": "esperto",
+      "name_it": "Sportivo / Trail (55-75+ km/giorno)",
+      "name_en": "Challenging / Trail (55-75+ km/day)",
+      "desc_it": "Singletrack vulcanici tecnici, discese guidate e pendenze audaci.",
+      "desc_en": "Technical volcanic singletracks, rocky trails and daring mountain climbs."
+    }
+  ],
+  "extra_experiences": [
+    {
+      "id": "pranzo_tipico",
+      "name_it": "Pranzo Tipico / Home Restaurant",
+      "name_en": "Typical Country Lunch / Home Cooking",
+      "desc_it": "Sosta gourmet con sapori tradizionali autentici nei borghi.",
+      "desc_en": "Gourmet stop with authentic Sicilian flavors in historic villages.",
+      "price": 28,
+      "price_type": "per_day_person",
+      "icon": "utensils"
+    },
+    {
+      "id": "degustazione_vini",
+      "name_it": "Degustazione Vini DOC Etna in Cantina Storica",
+      "name_en": "Etna DOC Wine Tasting at Historic Cellar",
+      "desc_it": "Visita ai vigneti d'alta quota e degustazione 3-4 calici con tagliere.",
+      "desc_en": "High-altitude vineyard tour and tasting of 3-4 wines with pairings.",
+      "price": 30,
+      "price_type": "one_off_person",
+      "icon": "wine-glass"
+    },
+    {
+      "id": "alloggio_agriturismo",
+      "name_it": "Notte in Dimora Tipica / Agriturismo con Colazione",
+      "name_en": "Overnight in Historic Country Estate / Agriturismo",
+      "desc_it": "Pernottamenti curati immersi nella natura siciliana.",
+      "desc_en": "Boutique stays nestled in Sicilian vineyards and nature reserves.",
+      "price": 70,
+      "price_type": "per_night_person",
+      "icon": "bed"
+    },
+    {
+      "id": "barca_eolie",
+      "name_it": "Barca Privata per Traversate Isole Eolie",
+      "name_en": "Private Boat for Aeolian Island Crossings",
+      "desc_it": "Trasferimento e navigazione privata con trasporto bici a bordo.",
+      "desc_en": "Private skipper and transfers with bikes onboard.",
+      "price": 120,
+      "price_type": "one_off_person",
+      "icon": "ship"
+    },
+    {
+      "id": "furgone_supporto",
+      "name_it": "Furgone di Supporto al Seguito & Trasporto Bagagli",
+      "name_en": "Support Van with Luggage Transfers",
+      "desc_it": "Zero pensieri: valigie trasferite da tappa a tappa e van sempre reperibile.",
+      "desc_en": "Stress-free: bags moved hotel-to-hotel and support vehicle always nearby.",
+      "price": 35,
+      "price_type": "per_day_person",
+      "icon": "van-shuttle"
+    }
+  ]
+}

@@ -3,6 +3,12 @@
  * SICILY BIKE TOURS - FAQs and Customer Reviews
  */
 
+$jsonFile = __DIR__ . '/faqs.json';
+if (file_exists($jsonFile)) {
+    $faqs = json_decode(file_get_contents($jsonFile), true) ?: [];
+    return;
+}
+
 $faqs = [
     [
         'q_it' => 'A chi sono adatte le vostre escursioni in e-bike?',

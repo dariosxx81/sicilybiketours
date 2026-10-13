@@ -1,0 +1,46 @@
+{
+  "site_title_suffix": "Sicily Bike Tours",
+  "meta_description": "Scopri la Sicilia autentica in E-Bike: tour guidati ed escursioni sull'Etna, Parco dei Nebrodi, Gole dell'Alcantara e Isole Eolie per principianti ed esperti.",
+  "meta_keywords": "e-bike tour sicily, bike tours sicily, etna bike tour, nebrodi cicloturismo, escursioni ebike sicilia, noleggio e-bike randazzo, cicloturismo sicilia",
+  "og_image": "assets/img/gallery/summit.jpg",
+  "google_analytics_id": "",
+  "google_tag_manager_id": "",
+  "custom_head_scripts": "",
+  "pages": {
+    "home": {
+      "title": "Escursioni & Tour in E-Bike in Sicilia | Etna, Nebrodi & Eolie",
+      "description": "Vivi la vera Sicilia in E-Bike: tour guidati ed escursioni sull'Etna, Parco dei Nebrodi, Alcantara e Isole Eolie con guide certificate.",
+      "keywords": "ebike tour sicilia, etna bike tour, escursioni ebike etna, tour guidati sicilia"
+    },
+    "escursioni": {
+      "title": "Escursioni Giornaliere in E-Bike in Sicilia | Etna & Dintorni",
+      "description": "Catalogo delle escursioni giornaliere in bicicletta elettrica sull'Etna e Alcantara con guida e noleggio top di gamma incluso.",
+      "keywords": "escursioni giornaliere ebike sicilia, tour 1 giorno etna, noleggio ebike con guida"
+    },
+    "tour": {
+      "title": "Tour Plurigiornalieri & Viaggi in E-Bike in Sicilia",
+      "description": "Viaggi organizzati di più giorni in e-bike: Traversata dei Nebrodi, Grand Tour dell'Etna, Isole Eolie e Costa Barocca.",
+      "keywords": "tour plurigiornalieri ebike sicilia, viaggi cicloturismo sicilia, bike holiday sicily"
+    },
+    "personalizza-tour": {
+      "title": "Configura il tuo Tour in E-Bike su Misura in Sicilia",
+      "description": "Crea il tuo itinerario personalizzato: scegli tappe, giorni, tipo di e-bike ed esperienze esclusive. Preventivo rapido.",
+      "keywords": "tour personalizzato ebike sicilia, tailor made bike tour sicily"
+    },
+    "chi-siamo": {
+      "title": "Chi Siamo | La Nostra Passione per la Sicilia in Bici",
+      "description": "Conosci Mariella Cutispoto e il team di guide certificate di Sicily Bike Tours. Esperienza, sicurezza e amore per il territorio.",
+      "keywords": "mariella cutispoto, guide cicloturistiche sicilia, chi siamo sicily bike tours"
+    },
+    "contatti": {
+      "title": "Contatti, Prenotazioni & WhatsApp | Sicily Bike Tours",
+      "description": "Contattaci per informazioni, disponibilità escursioni o preventivi su misura. WhatsApp +39 329 756 8883 ed email diretta.",
+      "keywords": "contatti sicily bike tours, whatsapp bike tour sicilia, prenotazione escursioni etna"
+    },
+    "magazine": {
+      "title": "Magazine & Guide al Cicloturismo in Sicilia",
+      "description": "Consigli, itinerari, percorsi gps e approfondimenti per scoprire la Sicilia in bicicletta da veri esperti del territorio.",
+      "keywords": "magazine cicloturismo sicilia, percorsi etna gps, guide ebike"
+    }
+  }
+}

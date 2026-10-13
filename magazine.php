@@ -26,7 +26,7 @@ require_once BASE_PATH . '/includes/navbar.php';
 <!-- Magazine Articles Grid -->
 <section class="section-spacing" style="background: var(--color-gray-50);">
     <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem;">
+        <div class="magazine-grid">
             <?php foreach ($articles as $art): ?>
                 <?php
                 $artTitle = CURRENT_LANG === 'en' ? ($art['title_en'] ?? $art['title']) : $art['title'];
