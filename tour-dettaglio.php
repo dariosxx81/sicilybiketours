@@ -101,7 +101,7 @@ require_once BASE_PATH . '/includes/navbar.php';
                             $trimmed = trim($para);
                             if (empty($trimmed)) continue;
                         ?>
-                            <p style="margin: 0; text-align: justify;"><?= nl2br(htmlspecialchars($trimmed)) ?></p>
+                            <p style="margin: 0; text-align: left;"><?= nl2br(htmlspecialchars($trimmed)) ?></p>
                         <?php endforeach; ?>
                     </div>
                 </div>

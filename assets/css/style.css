@@ -2202,18 +2202,6 @@ h1, h2, h3, h4, h5, h6 {
     white-space: nowrap;
   }
 
-  /* Offset body padding when sticky cta is visible */
-  body.has-sticky-cta {
-    padding-bottom: 75px;
-  }
-
-  /* Ensure floating whatsapp doesn't overlap sticky cta */
-  body.has-sticky-cta .floating-whatsapp {
-    bottom: 5.5rem;
-    right: 1.25rem;
-  }
-}
-
 /* Floating WhatsApp button responsive tweaks */
 @media (max-width: 768px) {
   .floating-whatsapp {
@@ -2221,9 +2209,21 @@ h1, h2, h3, h4, h5, h6 {
     height: 52px;
     bottom: 1.25rem;
     right: 1.25rem;
+    z-index: 1040;
   }
   .floating-whatsapp i {
     font-size: 1.7rem !important;
+  }
+
+  /* Offset body padding and elevate WhatsApp when sticky bottom cta is active */
+  body.has-sticky-cta {
+    padding-bottom: 85px !important;
+  }
+
+  body.has-sticky-cta .floating-whatsapp {
+    bottom: 5.8rem !important;
+    right: 1.25rem !important;
+    z-index: 1060 !important;
   }
 }
 
