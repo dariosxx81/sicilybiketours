@@ -10,6 +10,8 @@ if (!$tour) {
 
 $title = CURRENT_LANG === 'en' ? ($tour['title_en'] ?? $tour['title']) : $tour['title'];
 $subtitle = CURRENT_LANG === 'en' ? ($tour['subtitle_en'] ?? $tour['subtitle']) : $tour['subtitle'];
+$description = CURRENT_LANG === 'en' ? ($tour['description_en'] ?? $tour['description'] ?? '') : ($tour['description'] ?? '');
+$itinerary = CURRENT_LANG === 'en' ? ($tour['itinerary_en'] ?? $tour['itinerary'] ?? '') : ($tour['itinerary'] ?? '');
 $duration = CURRENT_LANG === 'en' ? ($tour['duration_en'] ?? $tour['duration']) : $tour['duration'];
 $difficulty = CURRENT_LANG === 'en' ? ($tour['difficulty_en'] ?? $tour['difficulty']) : $tour['difficulty'];
 $category = CURRENT_LANG === 'en' ? ($tour['category_en'] ?? $tour['category']) : $tour['category'];
@@ -19,7 +21,7 @@ $excluded = CURRENT_LANG === 'en' ? ($tour['excluded_en'] ?? $tour['excluded']) 
 $season = CURRENT_LANG === 'en' ? ($tour['season_en'] ?? $tour['season']) : $tour['season'];
 
 $pageTitle = $title . ' | Sicily Bike Tours';
-$pageDescription = $subtitle;
+$pageDescription = !empty($description) ? substr(strip_tags($description), 0, 160) : $subtitle;
 $pageImage = BASE_URL . '/' . $tour['image'];
 
 require_once BASE_PATH . '/includes/header.php';
@@ -83,6 +85,27 @@ require_once BASE_PATH . '/includes/navbar.php';
                         <span style="font-size: 0.78rem; color: var(--color-gray-500); text-transform: uppercase;">Periodo</span>
                     </div>
                 </div>
+
+                <?php if (!empty($itinerary) || !empty($description)): ?>
+                <!-- Full Description & Detailed Itinerary (Official Content from WordPress) -->
+                <div style="background: var(--color-white); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.45rem; color: var(--color-primary-dark); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem;">
+                        <i class="fa-solid fa-map-location-dot" style="color: var(--color-primary);"></i> Itinerario & Descrizione Completa
+                    </h3>
+                    
+                    <div style="font-size: 1.02rem; line-height: 1.8; color: var(--color-gray-700); display: flex; flex-direction: column; gap: 1.1rem;">
+                        <?php 
+                        $fullStory = !empty($itinerary) ? $itinerary : $description;
+                        $paragraphs = explode("\n\n", $fullStory);
+                        foreach ($paragraphs as $para): 
+                            $trimmed = trim($para);
+                            if (empty($trimmed)) continue;
+                        ?>
+                            <p style="margin: 0; text-align: justify;"><?= nl2br(htmlspecialchars($trimmed)) ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                <?php endif; ?>
 
                 <!-- Highlights Section -->
                 <div style="background: var(--color-white); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem;">
