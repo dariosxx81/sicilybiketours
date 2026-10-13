@@ -927,42 +927,98 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.08);
 }
 
+/* Minimal, sleek photo badges to keep images 90%+ visible */
+.tour-badge-duration {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(15, 23, 42, 0.75);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.tour-badge-featured {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #d97706;
+  color: #ffffff;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.4);
+}
+
+/* Fallback for legacy badges container (horizontal, compact) */
 .tour-card-badges {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: 0.75rem;
+  left: 0.75rem;
   display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.35rem;
   z-index: 2;
+  max-width: calc(100% - 1.5rem);
+}
+.tour-card-badges .badge {
+  font-size: 0.72rem;
+  padding: 0.22rem 0.55rem;
 }
 
 .tour-card-price-tag {
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  background: var(--color-white);
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background: #ffffff;
   color: var(--color-primary-dark);
-  padding: 0.35rem 0.85rem;
+  padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full);
-  font-size: 0.88rem;
-  font-weight: 700;
-  box-shadow: var(--shadow-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 2;
 }
 
 .tour-card-price-tag span {
   color: var(--color-primary);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 800;
 }
 
 .tour-card-body {
-  padding: 1.6rem;
+  padding: 1.4rem;
   display: flex;
   flex-direction: column;
   flex: 1;
   justify-content: space-between;
+}
+
+.tour-card-meta-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
 }
 
 .tour-card-area {
@@ -971,7 +1027,21 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   color: var(--color-volcano);
   letter-spacing: 0.05em;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0;
+}
+
+.tour-card-category-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  background: #eaf7de;
+  padding: 0.18rem 0.55rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(144, 201, 92, 0.5);
+  display: inline-flex;
+  align-items: center;
 }
 
 .tour-card-title {

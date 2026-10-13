@@ -24,21 +24,17 @@ $detailUrl = BASE_URL . '/tour-dettaglio.php?slug=' . urlencode($tour['slug']);
             <img src="<?= BASE_URL ?>/<?= htmlspecialchars($tour['image']) ?>" alt="<?= htmlspecialchars($title) ?>" loading="lazy">
         </a>
         
-        <div class="tour-card-badges">
-            <span class="badge badge-dark">
-                <i class="fa-solid fa-clock"></i> <?= htmlspecialchars($duration) ?>
+        <!-- Badge Durata (compatto in alto a sinistra) -->
+        <span class="tour-badge-duration">
+            <i class="fa-regular fa-clock"></i> <?= htmlspecialchars($duration) ?>
+        </span>
+
+        <!-- Badge Top Choice (compatto in alto a destra) -->
+        <?php if (!empty($tour['featured'])): ?>
+            <span class="tour-badge-featured">
+                <i class="fa-solid fa-star"></i> Top Choice
             </span>
-            <?php if (!empty($tour['category'])): ?>
-                <span class="badge badge-accent" style="font-weight: 700;">
-                    <i class="fa-solid fa-tag"></i> <?= htmlspecialchars($tour['category']) ?>
-                </span>
-            <?php endif; ?>
-            <?php if (!empty($tour['featured'])): ?>
-                <span class="badge badge-volcano" style="background: var(--color-volcano); color: #fff;">
-                    <i class="fa-solid fa-star"></i> Top Choice
-                </span>
-            <?php endif; ?>
-        </div>
+        <?php endif; ?>
 
         <div class="tour-card-price-tag">
             <?= t('tour_price_from') ?> <span>€<?= htmlspecialchars($tour['price']) ?></span>
@@ -46,8 +42,15 @@ $detailUrl = BASE_URL . '/tour-dettaglio.php?slug=' . urlencode($tour['slug']);
     </div>
 
     <div class="tour-card-body">
-        <div class="tour-card-area">
-            <i class="fa-solid fa-location-dot"></i> <?= htmlspecialchars($tour['area']) ?>
+        <div class="tour-card-meta-top">
+            <div class="tour-card-area">
+                <i class="fa-solid fa-location-dot"></i> <?= htmlspecialchars($tour['area']) ?>
+            </div>
+            <?php if (!empty($tour['category'])): ?>
+                <span class="tour-card-category-pill">
+                    <?= htmlspecialchars($tour['category']) ?>
+                </span>
+            <?php endif; ?>
         </div>
 
         <h3 class="tour-card-title">
