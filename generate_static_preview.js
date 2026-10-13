@@ -45,10 +45,13 @@ async function generateStaticSite() {
       html = html.replace(/window\.location\.href\s*=\s*['"][^'"]*tour\.php\?area=['"]\s*\+\s*this\.selectedArea/g, "window.location.href = 'tour.html'");
       html = html.replace(/window\.location\.href\s*=\s*['"][^'"]*#esperienze['"]/g, "window.location.href = '#esperienze'");
 
-      // Percorsi relativi per assets
+      // Percorsi relativi per assets (supporta hosting in sottocartelle come GitHub Pages /sicilybiketours/)
       html = html.replace(/src=["']\/assets\//g, 'src="assets/');
       html = html.replace(/href=["']\/assets\//g, 'href="assets/');
       html = html.replace(/"image": "\/assets\//g, '"image": "assets/');
+      html = html.replace(/url\(['"]?\/assets\//g, 'url(\'assets/');
+      html = html.replace(/'\/assets\//g, '\'assets/');
+      html = html.replace(/"\/assets\//g, '"assets/');
 
       // Form interattivi senza server
       html = html.replace(/<form\s+([^>]*?)method=["']POST["']([^>]*?)>/gi, (match) => {

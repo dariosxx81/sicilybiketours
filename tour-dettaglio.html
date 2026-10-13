@@ -12,13 +12,13 @@
     <meta property="og:site_name" content="Sicily Bike Tours">
     <meta property="og:title" content="Escursione in e-bike e pranzo gourmet | Sicily Bike Tours">
     <meta property="og:description" content="Scopri l&#039;incredibile bellezza dell&#039;Etna con un&#039;escursione in e-bike! Esplora sentieri panoramici, antiche colate laviche e boschi suggestivi con una guida esper">
-    <meta property="og:image" content="/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg">
+    <meta property="og:image" content="assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg">
     <meta property="og:url" content="https://www.sicilybiketours.it/tour-dettaglio.php?slug=etna-summit-vulcano-avventura">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Escursione in e-bike e pranzo gourmet | Sicily Bike Tours">
     <meta name="twitter:description" content="Scopri l&#039;incredibile bellezza dell&#039;Etna con un&#039;escursione in e-bike! Esplora sentieri panoramici, antiche colate laviche e boschi suggestivi con una guida esper">
-    <meta name="twitter:image" content="/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg">
+    <meta name="twitter:image" content="assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/logo/logo.png">
@@ -233,7 +233,7 @@
 
 
 <!-- Tour Hero Banner -->
-<section style="background: linear-gradient(rgba(15, 44, 48, 0.82), rgba(15, 44, 48, 0.94)), url('/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg') center/cover no-repeat; padding: 8.5rem 0 3.5rem 0; color: var(--color-white);">
+<section style="background: linear-gradient(rgba(15, 44, 48, 0.82), rgba(15, 44, 48, 0.94)), url('assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg') center/cover no-repeat; padding: 8.5rem 0 3.5rem 0; color: var(--color-white);">
     <div class="container">
         <!-- Breadcrumb -->
         <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 1rem; display: flex; gap: 0.5rem; align-items: center;">
@@ -329,46 +329,48 @@
 
                 <!-- Image Gallery Lightbox (Alpine.js) -->
                 <div style="background: var(--color-white); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem;" x-data="{
-                    activeImg: '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg',
+                    activeImg: 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg',
                     modalOpen: false
                 }">
                     <h3 style="font-size: 1.45rem; color: var(--color-primary-dark); margin-bottom: 1.2rem;">
                         <i class="fa-solid fa-camera" style="color: var(--color-primary);"></i> Galleria Fotografica
                     </h3>
                     
-                    <div style="border-radius: var(--radius-md); overflow: hidden; height: 380px; margin-bottom: 1rem; cursor: pointer;" @click="modalOpen = true">
+                    <!-- Main Active Photo -->
+                    <div style="border-radius: var(--radius-md); overflow: hidden; max-height: 420px; height: clamp(260px, 50vw, 420px); margin-bottom: 1rem; cursor: pointer; background: var(--color-gray-100); border: 1px solid var(--color-gray-200);" @click="modalOpen = true">
                         <img :src="activeImg" alt="Escursione in e-bike e pranzo gourmet" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" class="hover:scale-105">
                     </div>
 
-                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;">
-                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
-                                 :style="activeImg === '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg' ? 'border-color: var(--color-primary)' : ''"
-                                 @click="activeImg = '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg'">
+                    <!-- Thumbnails Carousel / Grid -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap: 0.65rem;">
+                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 75px; cursor: pointer; border: 2.5px solid transparent; transition: all 0.2s ease; background: var(--color-gray-100);" 
+                                 :style="activeImg === 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg' ? 'border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary);' : 'opacity: 0.85;'"
+                                 @click="activeImg = 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg'">
                                 <img src="assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
-                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
-                                 :style="activeImg === '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-2.jpg' ? 'border-color: var(--color-primary)' : ''"
-                                 @click="activeImg = '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-2.jpg'">
+                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 75px; cursor: pointer; border: 2.5px solid transparent; transition: all 0.2s ease; background: var(--color-gray-100);" 
+                                 :style="activeImg === 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-2.jpg' ? 'border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary);' : 'opacity: 0.85;'"
+                                 @click="activeImg = 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-2.jpg'">
                                 <img src="assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-2.jpg" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
-                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
-                                 :style="activeImg === '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-3.jpg' ? 'border-color: var(--color-primary)' : ''"
-                                 @click="activeImg = '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-3.jpg'">
+                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 75px; cursor: pointer; border: 2.5px solid transparent; transition: all 0.2s ease; background: var(--color-gray-100);" 
+                                 :style="activeImg === 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-3.jpg' ? 'border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary);' : 'opacity: 0.85;'"
+                                 @click="activeImg = 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-3.jpg'">
                                 <img src="assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-3.jpg" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
-                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
-                                 :style="activeImg === '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-4.jpg' ? 'border-color: var(--color-primary)' : ''"
-                                 @click="activeImg = '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-4.jpg'">
+                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 75px; cursor: pointer; border: 2.5px solid transparent; transition: all 0.2s ease; background: var(--color-gray-100);" 
+                                 :style="activeImg === 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-4.jpg' ? 'border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary);' : 'opacity: 0.85;'"
+                                 @click="activeImg = 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-4.jpg'">
                                 <img src="assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-4.jpg" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
-                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
-                                 :style="activeImg === '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-5.jpg' ? 'border-color: var(--color-primary)' : ''"
-                                 @click="activeImg = '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-5.jpg'">
+                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 75px; cursor: pointer; border: 2.5px solid transparent; transition: all 0.2s ease; background: var(--color-gray-100);" 
+                                 :style="activeImg === 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-5.jpg' ? 'border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary);' : 'opacity: 0.85;'"
+                                 @click="activeImg = 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-5.jpg'">
                                 <img src="assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-5.jpg" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
-                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
-                                 :style="activeImg === '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-6.jpg' ? 'border-color: var(--color-primary)' : ''"
-                                 @click="activeImg = '/assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-6.jpg'">
+                                                    <div style="border-radius: var(--radius-sm); overflow: hidden; height: 75px; cursor: pointer; border: 2.5px solid transparent; transition: all 0.2s ease; background: var(--color-gray-100);" 
+                                 :style="activeImg === 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-6.jpg' ? 'border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary);' : 'opacity: 0.85;'"
+                                 @click="activeImg = 'assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-6.jpg'">
                                 <img src="assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-6.jpg" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                                             </div>

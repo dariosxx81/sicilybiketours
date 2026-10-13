@@ -131,14 +131,16 @@ require_once BASE_PATH . '/includes/navbar.php';
                         <i class="fa-solid fa-camera" style="color: var(--color-primary);"></i> Galleria Fotografica
                     </h3>
                     
-                    <div style="border-radius: var(--radius-md); overflow: hidden; height: 380px; margin-bottom: 1rem; cursor: pointer;" @click="modalOpen = true">
+                    <!-- Main Active Photo -->
+                    <div style="border-radius: var(--radius-md); overflow: hidden; max-height: 420px; height: clamp(260px, 50vw, 420px); margin-bottom: 1rem; cursor: pointer; background: var(--color-gray-100); border: 1px solid var(--color-gray-200);" @click="modalOpen = true">
                         <img :src="activeImg" alt="<?= htmlspecialchars($title) ?>" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" class="hover:scale-105">
                     </div>
 
-                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;">
+                    <!-- Thumbnails Carousel / Grid -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap: 0.65rem;">
                         <?php foreach ($tour['gallery'] as $img): ?>
-                            <div style="border-radius: var(--radius-sm); overflow: hidden; height: 80px; cursor: pointer; border: 2px solid transparent;" 
-                                 :style="activeImg === '<?= BASE_URL ?>/<?= htmlspecialchars($img) ?>' ? 'border-color: var(--color-primary)' : ''"
+                            <div style="border-radius: var(--radius-sm); overflow: hidden; height: 75px; cursor: pointer; border: 2.5px solid transparent; transition: all 0.2s ease; background: var(--color-gray-100);" 
+                                 :style="activeImg === '<?= BASE_URL ?>/<?= htmlspecialchars($img) ?>' ? 'border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary);' : 'opacity: 0.85;'"
                                  @click="activeImg = '<?= BASE_URL ?>/<?= htmlspecialchars($img) ?>'">
                                 <img src="<?= BASE_URL ?>/<?= htmlspecialchars($img) ?>" alt="thumb" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
