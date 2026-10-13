@@ -131,20 +131,22 @@ $ctaLink = str_starts_with($ctaUrl, 'http') ? $ctaUrl : (empty($ctaUrl) ? BASE_U
                 $children = $item['children'] ?? [];
             ?>
                 <li>
-                    <div style="display: flex; justify-content: space-between; align-items: center;" class="drawer-link" @click="mobileExpOpen = !mobileExpOpen">
+                    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none;" class="drawer-link" :class="{ 'text-primary': mobileExpOpen }" @click="mobileExpOpen = !mobileExpOpen">
                         <span><?= htmlspecialchars($itemTitle) ?></span>
-                        <i class="fa-solid" :class="mobileExpOpen ? 'fa-chevron-up' : 'fa-chevron-down'" style="font-size: 0.8rem;"></i>
+                        <i class="fa-solid" :class="mobileExpOpen ? 'fa-chevron-up' : 'fa-chevron-down'" style="font-size: 0.85rem; color: var(--color-primary); transition: transform 0.2s ease;"></i>
                     </div>
-                    <div x-show="mobileExpOpen" style="padding-left: 1rem; display: none;">
+                    <div x-show="mobileExpOpen" x-collapse x-transition:enter="transition ease-out duration-200" x-transition:leave="transition ease-in duration-150" class="drawer-submenu-list" style="display: none;">
                         <?php foreach ($children as $c): 
                             $cTitle = CURRENT_LANG === 'en' ? ($c['title_en'] ?? $c['title_it']) : $c['title_it'];
                             $cUrl = $c['url'] ?? '';
                             $cLink = str_starts_with($cUrl, 'http') ? $cUrl : (empty($cUrl) ? BASE_URL . '/' : BASE_URL . '/' . ltrim($cUrl, '/'));
                             $cIcon = $c['icon'] ?? 'circle';
                         ?>
-                            <a href="<?= htmlspecialchars($cLink) ?>" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false">
-                                <i class="fa-solid fa-<?= htmlspecialchars($cIcon) ?>" style="color: var(--color-accent); width: 20px;"></i>
-                                <?= htmlspecialchars($cTitle) ?>
+                            <a href="<?= htmlspecialchars($cLink) ?>" class="drawer-submenu-item" @click="mobileMenuOpen = false">
+                                <span class="drawer-submenu-icon">
+                                    <i class="fa-solid fa-<?= htmlspecialchars($cIcon) ?>"></i>
+                                </span>
+                                <span><?= htmlspecialchars($cTitle) ?></span>
                             </a>
                         <?php endforeach; ?>
                     </div>
