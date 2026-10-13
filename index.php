@@ -17,7 +17,8 @@ $heroBg = !empty($hp['hero']['bg_image']) ? $hp['hero']['bg_image'] : 'assets/im
 $heroBadgeIcon = !empty($hp['hero']['badge_icon']) ? $hp['hero']['badge_icon'] : 'bolt';
 $qf = $hp['hero']['quick_finder'] ?? ['enabled' => true];
 
-$pageTitle = ($hp['hero']['title_it'] ?? t('hero_title')) . ' | ' . SITE_NAME;
+$rawHeroTitle = $hp['hero']['title_it'] ?? t('hero_title');
+$pageTitle = strip_tags($rawHeroTitle) . ' | ' . SITE_NAME;
 $pageDescription = SITE_DESCRIPTION;
 
 require_once BASE_PATH . '/includes/header.php';

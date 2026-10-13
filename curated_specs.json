@@ -1,0 +1,98 @@
+{
+  "505": {
+    "distance": "30-40 km",
+    "elevation": "+750 m",
+    "difficulty": "Medio / Facile",
+    "duration": "3h tour + 2h tasting",
+    "start": "Randazzo",
+    "season": "Marzo - Novembre"
+  },
+  "798": {
+    "distance": "35-40 km",
+    "elevation": "+1.100 m",
+    "difficulty": "Medio / Impegnativo",
+    "duration": "4-6 ore",
+    "start": "Cesarò",
+    "season": "Aprile - Ottobre"
+  },
+  "810": {
+    "distance": "35-45 km",
+    "elevation": "+900 m",
+    "difficulty": "Medio",
+    "duration": "4-6 ore",
+    "start": "Randazzo",
+    "season": "Marzo - Novembre"
+  },
+  "841": {
+    "distance": "46 km",
+    "elevation": "+950 m",
+    "difficulty": "Medio",
+    "duration": "4-6 ore",
+    "start": "Randazzo",
+    "season": "Aprile - Ottobre"
+  },
+  "866": {
+    "distance": "40-50 km",
+    "elevation": "+850 m",
+    "difficulty": "Medio",
+    "duration": "4-6 ore",
+    "start": "Randazzo",
+    "season": "Aprile - Novembre"
+  },
+  "888": {
+    "distance": "250-300 km",
+    "elevation": "+2.500 m",
+    "difficulty": "Medio / Facile",
+    "duration": "7 Giorni / 6 Notti",
+    "start": "Siracusa",
+    "season": "Marzo - Giugno / Sett. - Nov."
+  },
+  "1017": {
+    "distance": "350 km (totale)",
+    "elevation": "+1.200 m",
+    "difficulty": "Medio / Facile",
+    "duration": "5 Giorni / 4 Notti",
+    "start": "Catania / Milazzo",
+    "season": "Aprile - Maggio / Sett. - Ott."
+  },
+  "1059": {
+    "distance": "150-200 km",
+    "elevation": "+2.100 m",
+    "difficulty": "Medio",
+    "duration": "3 Giorni / 2 Notti",
+    "start": "Randazzo",
+    "season": "Marzo - Novembre"
+  },
+  "1580": {
+    "distance": "150-200 km",
+    "elevation": "+2.400 m",
+    "difficulty": "Medio",
+    "duration": "4 Giorni / 3 Notti",
+    "start": "Cesarò",
+    "season": "Marzo - Ottobre"
+  },
+  "1598": {
+    "distance": "100-150 km",
+    "elevation": "+1.800 m",
+    "difficulty": "Medio",
+    "duration": "2 Giorni / 1 Notte",
+    "start": "Randazzo",
+    "season": "Marzo - Novembre"
+  },
+  "1621": {
+    "distance": "40 km",
+    "elevation": "+1.300 m",
+    "difficulty": "Medio / Difficile",
+    "duration": "5-6 ore",
+    "start": "Randazzo",
+    "season": "Aprile - Ottobre"
+  },
+  "1651": {
+    "distance": "30-35 km",
+    "elevation": "+1.100 m",
+    "difficulty": "Medio / Facile",
+    "duration": "3-4 ore",
+    "start": "Milo",
+    "season": "Aprile - Novembre"
+  }
+}
