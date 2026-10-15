@@ -2325,14 +2325,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tours-carousel-track {
-  display: flex;
+  display: flex !important;
+  flex-flow: row nowrap !important;
   gap: 1.75rem;
-  overflow-x: auto;
+  overflow-x: auto !important;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   padding: 0.5rem 0.25rem 1.5rem 0.25rem;
   scrollbar-width: none;
+  width: 100%;
 }
 
 .tours-carousel-track::-webkit-scrollbar {
@@ -2340,29 +2343,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tours-carousel-item {
-  flex: 0 0 calc((100% - (1.75rem * 2)) / 3);
+  flex: 0 0 calc((100% - (1.75rem * 2)) / 3) !important;
+  width: calc((100% - (1.75rem * 2)) / 3);
+  max-width: calc((100% - (1.75rem * 2)) / 3);
   scroll-snap-align: start;
-  min-width: 0;
-  display: flex;
+  min-width: 300px;
+  display: flex !important;
+  box-sizing: border-box;
 }
 
 .tours-carousel-item .tour-card {
-  width: 100%;
-  display: flex;
+  width: 100% !important;
+  display: flex !important;
   flex-direction: column;
 }
 
 @media (max-width: 1024px) {
   .tours-carousel-item {
-    flex: 0 0 calc((100% - 1.5rem) / 2);
+    flex: 0 0 calc((100% - 1.5rem) / 2) !important;
+    width: calc((100% - 1.5rem) / 2);
+    max-width: calc((100% - 1.5rem) / 2);
+    min-width: 280px;
   }
 }
 
 @media (max-width: 640px) {
   .tours-carousel-item {
-    flex: 0 0 88%;
+    flex: 0 0 88% !important;
+    width: 88%;
+    max-width: 88%;
+    min-width: 85%;
   }
   .tours-carousel-track {
     gap: 1rem;
   }
 }
+

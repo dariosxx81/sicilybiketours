@@ -34,7 +34,7 @@ $canonicalUrl = $canonicalUrl ?? ('https://www.sicilybiketours.it' . $_SERVER['R
     <link rel="icon" type="image/png" href="<?= BASE_URL ?>/assets/img/logo/logo.png">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css?v=2.1">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css?v=2.2">
     
     <!-- FontAwesome 6 Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
