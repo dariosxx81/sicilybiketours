@@ -2201,6 +2201,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.88rem;
     white-space: nowrap;
   }
+}
 
 /* Floating WhatsApp button responsive tweaks */
 @media (max-width: 768px) {
