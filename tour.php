@@ -11,8 +11,12 @@ $multiTours = array_filter($tours, function($t) { return ($t['type'] ?? '') === 
 
 $categoriesFile = BASE_PATH . '/data/categories.json';
 $allCategories = file_exists($categoriesFile) ? json_decode(file_get_contents($categoriesFile), true) : [];
-$multiCategories = array_filter($allCategories, fn($c) => in_array($c['filter_type'] ?? 'all', ['all', 'tour', 'plurigiornalieri']));
-usort($multiCategories, fn($a, $b) => ($a['order'] ?? 10) <=> ($b['order'] ?? 10));
+$multiCategories = array_filter($allCategories, function($c) {
+    return in_array($c['filter_type'] ?? 'all', ['all', 'tour', 'plurigiornalieri']);
+});
+usort($multiCategories, function($a, $b) {
+    return ($a['order'] ?? 10) <=> ($b['order'] ?? 10);
+});
 
 $initialCat = isset($_GET['cat']) ? $_GET['cat'] : 'all';
 $initialArea = isset($_GET['area']) ? $_GET['area'] : 'all';

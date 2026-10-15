@@ -382,7 +382,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cms_action'])) {
             $categories[] = $catData;
         }
 
-        usort($categories, fn($a, $b) => ($a['order'] ?? 10) <=> ($b['order'] ?? 10));
+        usort($categories, function($a, $b) { return ($a['order'] ?? 10) <=> ($b['order'] ?? 10); });
         save_json($categoriesFile, $categories);
         $savedNotice = 'Categoria dinamica salvata! Aggiornati filtri e sezioni in tempo reale su tutto il sito.';
     }
@@ -390,7 +390,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cms_action'])) {
     // 3. ELIMINA CATEGORIA
     elseif ($action === 'delete_category') {
         $delSlug = trim($_POST['del_cat_slug'] ?? '');
-        $categories = array_values(array_filter($categories, fn($c) => ($c['slug'] ?? $c['id']) !== $delSlug));
+        $categories = array_values(array_filter($categories, function($c) use ($delSlug) { return ($c['slug'] ?? $c['id']) !== $delSlug; }));
         save_json($categoriesFile, $categories);
         $savedNotice = 'Categoria rimossa con successo.';
     }
@@ -425,7 +425,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cms_action'])) {
     // 5. ELIMINA RECENSIONE
     elseif ($action === 'delete_review') {
         $delId = intval($_POST['del_review_id'] ?? 0);
-        $reviews = array_values(array_filter($reviews, fn($r) => $r['id'] !== $delId));
+        $reviews = array_values(array_filter($reviews, function($r) use ($delId) { return $r['id'] !== $delId; }));
         save_json($reviewsFile, $reviews);
         $savedNotice = 'Recensione eliminata.';
     }
@@ -507,7 +507,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cms_action'])) {
     // 7. ELIMINA TOUR
     elseif ($action === 'delete_tour') {
         $delId = intval($_POST['delete_tour_id'] ?? 0);
-        $tours = array_values(array_filter($tours, fn($t) => $t['id'] !== $delId));
+        $tours = array_values(array_filter($tours, function($t) use ($delId) { return $t['id'] !== $delId; }));
         save_json($toursFile, $tours);
         $savedNotice = 'Tour eliminato con successo.';
     }
@@ -548,7 +548,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cms_action'])) {
     // 9. ELIMINA ARTICOLO
     elseif ($action === 'delete_article') {
         $delId = intval($_POST['delete_article_id'] ?? 0);
-        $articles = array_values(array_filter($articles, fn($a) => $a['id'] !== $delId));
+        $articles = array_values(array_filter($articles, function($a) use ($delId) { return $a['id'] !== $delId; }));
         save_json($articlesFile, $articles);
         $savedNotice = 'Articolo rimosso.';
     }
@@ -570,7 +570,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cms_action'])) {
     // 11. ELIMINA RICHIESTA
     elseif ($action === 'delete_lead') {
         $delId = trim($_POST['lead_id'] ?? '');
-        $leads = array_values(array_filter($leads, fn($l) => $l['id'] !== $delId));
+        $leads = array_values(array_filter($leads, function($l) use ($delId) { return $l['id'] !== $delId; }));
         save_json($leadsFile, $leads);
         $savedNotice = 'Richiesta rimossa.';
     }
@@ -622,7 +622,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cms_action'])) {
     }
 }
 
-$newLeadsCount = count(array_filter($leads, fn($l) => ($l['status'] ?? 'nuovo') === 'nuovo'));
+$newLeadsCount = count(array_filter($leads, function($l) { return ($l['status'] ?? 'nuovo') === 'nuovo'; }));
 
 // Uploads media list
 $uploadsPath = BASE_PATH . '/assets/img/uploads';
@@ -638,7 +638,7 @@ if (is_dir($uploadsPath)) {
             ];
         }
     }
-    usort($uploadedMedia, fn($a, $b) => $b['time'] <=> $a['time']);
+    usort($uploadedMedia, function($a, $b) { return $b['time'] <=> $a['time']; });
 }
 ?>
 <!DOCTYPE html>
