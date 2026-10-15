@@ -58,3 +58,21 @@ function get_tour_by_slug($slug) {
     }
     return null;
 }
+
+// Polyfills per PHP 7.x
+if (!function_exists('str_starts_with')) {
+    function str_starts_with($haystack, $needle) {
+        return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0;
+    }
+}
+if (!function_exists('str_ends_with')) {
+    function str_ends_with($haystack, $needle) {
+        return $needle === '' || $needle === substr($haystack, -strlen($needle));
+    }
+}
+if (!function_exists('str_contains')) {
+    function str_contains($haystack, $needle) {
+        return $needle !== '' && mb_strpos($haystack, $needle) !== false;
+    }
+}
+

@@ -54,7 +54,7 @@ $ctaLink = str_starts_with($ctaUrl, 'http') ? $ctaUrl : (empty($ctaUrl) ? BASE_U
                     ?>
                         <?php if (($item['type'] ?? 'link') === 'dropdown'): 
                             $children = $item['children'] ?? [];
-                            $childScripts = array_map(fn($c) => basename($c['url'] ?? ''), $children);
+                            $childScripts = array_map(function($c) { return basename($c['url'] ?? ''); }, $children);
                             $isDropdownActive = in_array($currentScript, $childScripts) || in_array($currentScript, ['tour-dettaglio.php']);
                         ?>
                             <li class="nav-item-dropdown" x-data="{ open: false, timer: null }" @mouseenter="clearTimeout(timer); open = true" @mouseleave="timer = setTimeout(() => { open = false }, 200)">

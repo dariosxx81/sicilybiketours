@@ -8,7 +8,9 @@ $hp = file_exists($hpFile) ? json_decode(file_get_contents($hpFile), true) : [];
 
 $categoriesFile = BASE_PATH . '/data/categories.json';
 $categories = file_exists($categoriesFile) ? json_decode(file_get_contents($categoriesFile), true) : [];
-usort($categories, fn($a, $b) => ($a['order'] ?? 10) <=> ($b['order'] ?? 10));
+usort($categories, function($a, $b) {
+    return ($a['order'] ?? 10) <=> ($b['order'] ?? 10);
+});
 
 $reviewsFile = BASE_PATH . '/data/reviews.json';
 $reviews = file_exists($reviewsFile) ? json_decode(file_get_contents($reviewsFile), true) : ($reviews ?? []);
@@ -151,7 +153,7 @@ require_once BASE_PATH . '/includes/navbar.php';
 <?php if (($hp['showcase_section']['enabled'] ?? true) !== false): ?>
 <?php 
     $cFilter = $hp['showcase_section']['carousel_filter'] ?? 'all';
-    $cTours = $cFilter === 'featured' ? array_values(array_filter($tours, fn($t) => !empty($t['featured']))) : $tours;
+    $cTours = $cFilter === 'featured' ? array_values(array_filter($tours, function($t) { return !empty($t['featured']); })) : $tours;
     if (empty($cTours)) $cTours = $tours;
 ?>
 <section id="esperienze" class="section-spacing" style="background: var(--color-gray-50);" x-data="{
