@@ -2343,11 +2343,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tours-carousel-item {
-  flex: 0 0 calc((100% - (1.75rem * 2)) / 3) !important;
-  width: calc((100% - (1.75rem * 2)) / 3);
-  max-width: calc((100% - (1.75rem * 2)) / 3);
+  flex: 0 0 calc((100% - 3.5rem) / 3) !important;
+  width: calc((100% - 3.5rem) / 3) !important;
+  max-width: calc((100% - 3.5rem) / 3) !important;
   scroll-snap-align: start;
-  min-width: 300px;
+  min-width: 0 !important;
   display: flex !important;
   box-sizing: border-box;
 }
@@ -2360,19 +2360,17 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1024px) {
   .tours-carousel-item {
-    flex: 0 0 calc((100% - 1.5rem) / 2) !important;
-    width: calc((100% - 1.5rem) / 2);
-    max-width: calc((100% - 1.5rem) / 2);
-    min-width: 280px;
+    flex: 0 0 calc((100% - 1.75rem) / 2) !important;
+    width: calc((100% - 1.75rem) / 2) !important;
+    max-width: calc((100% - 1.75rem) / 2) !important;
   }
 }
 
 @media (max-width: 640px) {
   .tours-carousel-item {
-    flex: 0 0 88% !important;
-    width: 88%;
-    max-width: 88%;
-    min-width: 85%;
+    flex: 0 0 85% !important;
+    width: 85% !important;
+    max-width: 85% !important;
   }
   .tours-carousel-track {
     gap: 1rem;
