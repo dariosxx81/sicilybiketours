@@ -27,7 +27,7 @@
     <link rel="icon" type="image/png" href="assets/img/logo/logo.png">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/style.css?v=3.3">
+    <link rel="stylesheet" href="assets/css/style.css?v=3.4">
     <style>
     html {
         background-color: #0f2c30 !important;
@@ -263,14 +263,15 @@
 <!-- Tour Hero Banner -->
 <section style="background: linear-gradient(rgba(15, 44, 48, 0.82), rgba(15, 44, 48, 0.94)), url('assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg') center/cover no-repeat; padding: 8.5rem 0 3.5rem 0; color: var(--color-white);">
     <div class="container">
-        <!-- Breadcrumb -->
-        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 1rem; display: flex; gap: 0.5rem; align-items: center;">
-            <a href="index.html">Home</a>
-            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
-            <a href="escursioni.html">Vulcano Etna &amp; Crateri</a>
-            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
-            <span style="color: var(--color-accent);">Escursione in e-bike e pranzo gourmet</span>
-        </div>
+        <!-- Breadcrumb (1 Riga Fluida Anti-Wrap) -->
+        <nav class="site-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html"><i class="fa-solid fa-house" style="font-size: 0.72rem;"></i> Home</a>
+            <i class="fa-solid fa-chevron-right sep"></i>
+            <a href="escursioni.html">
+                Escursioni            </a>
+            <i class="fa-solid fa-chevron-right sep"></i>
+            <span class="current" title="Escursione in e-bike e pranzo gourmet">Escursione in e-bike e pranzo gourmet</span>
+        </nav>
 
         <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem;">
             <span class="badge badge-accent"><i class="fa-solid fa-location-dot"></i> Etna</span>

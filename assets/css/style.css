@@ -184,6 +184,64 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-md);
 }
 
+/* ==========================================================================
+   BREADCRUMBS (SINGLE LINE RESPONSIVE WITH ELLIPSIS)
+   ========================================================================== */
+.site-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.site-breadcrumb a {
+  color: rgba(255, 255, 255, 0.82);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.site-breadcrumb a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.site-breadcrumb .sep {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+}
+
+.site-breadcrumb .current {
+  color: var(--color-accent);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .site-breadcrumb {
+    font-size: 0.8rem;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .site-breadcrumb .sep {
+    font-size: 0.6rem;
+  }
+}
+
 .section-tag {
   display: inline-flex;
   align-items: center;

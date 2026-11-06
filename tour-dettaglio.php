@@ -31,14 +31,16 @@ require_once BASE_PATH . '/includes/navbar.php';
 <!-- Tour Hero Banner -->
 <section style="background: linear-gradient(rgba(15, 44, 48, 0.82), rgba(15, 44, 48, 0.94)), url('<?= BASE_URL ?>/<?= htmlspecialchars($tour['image']) ?>') center/cover no-repeat; padding: 8.5rem 0 3.5rem 0; color: var(--color-white);">
     <div class="container">
-        <!-- Breadcrumb -->
-        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 1rem; display: flex; gap: 0.5rem; align-items: center;">
-            <a href="<?= BASE_URL ?>/">Home</a>
-            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
-            <a href="<?= BASE_URL ?>/<?= $tour['type'] === 'escursione' ? 'escursioni.php' : 'tour.php' ?>"><?= htmlspecialchars($category) ?></a>
-            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
-            <span style="color: var(--color-accent);"><?= htmlspecialchars($title) ?></span>
-        </div>
+        <!-- Breadcrumb (1 Riga Fluida Anti-Wrap) -->
+        <nav class="site-breadcrumb" aria-label="Breadcrumb">
+            <a href="<?= BASE_URL ?>/"><i class="fa-solid fa-house" style="font-size: 0.72rem;"></i> Home</a>
+            <i class="fa-solid fa-chevron-right sep"></i>
+            <a href="<?= BASE_URL ?>/<?= $tour['type'] === 'escursione' ? 'escursioni.php' : 'tour.php' ?>">
+                <?= $tour['type'] === 'escursione' ? (CURRENT_LANG === 'en' ? 'Excursions' : 'Escursioni') : (CURRENT_LANG === 'en' ? 'Tours' : 'Tour') ?>
+            </a>
+            <i class="fa-solid fa-chevron-right sep"></i>
+            <span class="current" title="<?= htmlspecialchars($title) ?>"><?= htmlspecialchars($title) ?></span>
+        </nav>
 
         <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem;">
             <span class="badge badge-accent"><i class="fa-solid fa-location-dot"></i> <?= htmlspecialchars($tour['area']) ?></span>

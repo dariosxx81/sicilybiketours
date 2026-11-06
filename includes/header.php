@@ -37,7 +37,7 @@ $canonicalUrl = $canonicalUrl ?? ('https://www.sicilybiketours.it' . $_SERVER['R
     <link rel="icon" type="image/png" href="<?= BASE_URL ?>/assets/img/logo/logo.png">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css?v=3.3">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css?v=3.4">
     <style>
     html {
         background-color: #0f2c30 !important;

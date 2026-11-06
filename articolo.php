@@ -25,13 +25,14 @@ require_once BASE_PATH . '/includes/navbar.php';
 <!-- Article Header -->
 <section style="background: linear-gradient(rgba(15, 44, 48, 0.88), rgba(15, 44, 48, 0.96)), url('<?= BASE_URL ?>/<?= htmlspecialchars($article['image']) ?>') center/cover no-repeat; padding: 8.5rem 0 4rem 0; color: var(--color-white);">
     <div class="container container-narrow">
-        <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 1.2rem; display: flex; gap: 0.5rem; align-items: center;">
-            <a href="<?= BASE_URL ?>/">Home</a>
-            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <!-- Breadcrumb (1 Riga Fluida Anti-Wrap) -->
+        <nav class="site-breadcrumb" aria-label="Breadcrumb">
+            <a href="<?= BASE_URL ?>/"><i class="fa-solid fa-house" style="font-size: 0.72rem;"></i> Home</a>
+            <i class="fa-solid fa-chevron-right sep"></i>
             <a href="<?= BASE_URL ?>/magazine.php">Magazine</a>
-            <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
-            <span style="color: var(--color-accent);"><?= htmlspecialchars($category) ?></span>
-        </div>
+            <i class="fa-solid fa-chevron-right sep"></i>
+            <span class="current" title="<?= htmlspecialchars($title) ?>"><?= htmlspecialchars($title) ?></span>
+        </nav>
 
         <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap;">
             <span class="badge badge-accent"><?= htmlspecialchars($category) ?></span>
