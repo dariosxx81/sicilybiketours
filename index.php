@@ -60,6 +60,69 @@ require_once BASE_PATH . '/includes/navbar.php';
 
 <!-- Box di Ricerca Rapida a cavallo tra Hero e Sezione Successiva -->
 <?php if (($qf['enabled'] ?? true) !== false): ?>
+<style>
+@media (max-width: 768px) {
+    .hero-filter-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.75rem !important;
+        padding: 1.1rem 0.95rem !important;
+        border-radius: var(--radius-xl) !important;
+        background: #ffffff !important;
+        box-shadow: 0 10px 25px -5px rgba(15, 44, 48, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+        box-sizing: border-box !important;
+    }
+    .hero-filter-item {
+        width: 100% !important;
+        flex: 1 1 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        background: var(--color-gray-50) !important;
+        border: 1.5px solid var(--color-gray-200) !important;
+        border-radius: var(--radius-md) !important;
+        padding: 0.65rem 0.85rem !important;
+        box-sizing: border-box !important;
+    }
+    .hero-filter-item:focus-within {
+        border-color: var(--color-primary) !important;
+        background: #ffffff !important;
+        box-shadow: 0 0 0 3px rgba(144, 201, 92, 0.2) !important;
+    }
+    .hero-filter-label {
+        font-size: 0.72rem !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        color: var(--color-gray-500) !important;
+        margin-bottom: 0.25rem !important;
+        letter-spacing: 0.03em !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .hero-filter-select {
+        font-size: 0.98rem !important;
+        font-weight: 600 !important;
+        color: var(--color-primary-dark) !important;
+        width: 100% !important;
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        cursor: pointer !important;
+    }
+    .hero-filter-bar button {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0.9rem 1.4rem !important;
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+        border-radius: var(--radius-md) !important;
+        margin-top: 0.25rem !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+}
+</style>
 <div class="hero-search-overlap-wrapper">
     <div class="container">
         <div class="hero-filter-bar" x-data="{
