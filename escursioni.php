@@ -130,9 +130,28 @@ $initialArea = isset($_GET['area']) ? $_GET['area'] : 'all';
             </div>
 
             <!-- Versione Mobile: Compatta, Veloce e Non Dispersiva -->
+            <style>
+            @media (max-width: 768px) {
+                .mobile-filter-selects-grid {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    gap: 0.65rem !important;
+                    width: 100% !important;
+                }
+                .mobile-select-wrap {
+                    width: 100% !important;
+                    height: 46px !important;
+                    padding: 0 0.85rem 0 2.25rem !important;
+                    box-sizing: border-box !important;
+                }
+                .mobile-filter-select {
+                    font-size: 0.95rem !important;
+                }
+            }
+            </style>
             <div class="catalog-filters-mobile hide-on-desktop">
                 <div class="mobile-filters-deck">
-                    <!-- Riga 1: Due Dropdown Affiancati (Categoria + Area) -->
+                    <!-- Riga 1: Due Dropdown Verticali (Categoria + Area) -->
                     <div class="mobile-filter-selects-grid">
                         <div class="mobile-select-wrap">
                             <i class="fa-solid fa-shapes mobile-select-icon"></i>
