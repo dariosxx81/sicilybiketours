@@ -2,7 +2,10 @@
 <html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f2c30">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Vivi la vera Sicilia in E-Bike | Sicily Bike Tours</title>
     <meta name="description" content="Organizziamo tour giornalieri e plurigiornalieri in e-bike sull'Etna, Parco dei Nebrodi, Gole dell'Alcantara, Val di Noto e Isole Eolie.">
     <link rel="canonical" href="https://www.sicilybiketours.it/">
@@ -24,7 +27,23 @@
     <link rel="icon" type="image/png" href="assets/img/logo/logo.png">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/style.css?v=3.2">
+    <link rel="stylesheet" href="assets/css/style.css?v=3.3">
+    <style>
+    html {
+        background-color: #0f2c30 !important;
+        overscroll-behavior-y: none;
+    }
+    body {
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        background-color: #f8fafc;
+    }
+    .site-footer {
+        margin-top: auto;
+    }
+    </style>
     
     <!-- FontAwesome 6 Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
