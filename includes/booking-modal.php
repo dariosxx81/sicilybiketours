@@ -9,6 +9,9 @@
     clientName: '',
     clientEmail: '',
     clientPhone: '',
+    referralCode: '<?= ACTIVE_REFERRAL_CODE ?>',
+    partnerName: '<?= addslashes(get_active_partner()['name'] ?? '') ?>',
+    showPromoField: <?= !empty(ACTIVE_REFERRAL_CODE) ? 'true' : 'false' ?>,
     formSubmitted: false,
     isSubmitting: false,
     
@@ -22,7 +25,8 @@
     
     getWaLink() {
         if (!this.selectedTour) return 'https://wa.me/<?= WA_NUMBER ?>';
-        let msg = `Ciao Sicily Bike Tours! Vorrei richiedere informazioni e disponibilità per: *${this.selectedTour.title}*\n📅 Data: ${this.date}\n👥 Partecipanti: ${this.participants}\nNome: ${this.clientName || 'Un viaggiatore'}\nNote: ${this.specialNotes || 'Nessuna'}`;
+        let partnerText = this.referralCode ? `\n🤝 Partner / Struttura: ${this.referralCode}` : '';
+        let msg = `Ciao Sicily Bike Tours! Vorrei richiedere informazioni e disponibilità per: *${this.selectedTour.title}*\n📅 Data: ${this.date}\n👥 Partecipanti: ${this.participants}\nNome: ${this.clientName || 'Un viaggiatore'}${partnerText}\nNote: ${this.specialNotes || 'Nessuna'}`;
         return `https://wa.me/<?= WA_NUMBER ?>?text=` + encodeURIComponent(msg);
     },
     
@@ -39,6 +43,7 @@
                 tour_title: this.selectedTour ? this.selectedTour.title : 'Tour Standard',
                 date: this.date,
                 participants: this.participants,
+                referral_code: this.referralCode,
                 notes: this.specialNotes,
                 details: {
                     has_ridden_ebike: this.hasRiddenEbike,
@@ -69,6 +74,14 @@
                     </span>
                     <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);" x-text="selectedTour ? selectedTour.title : 'Prenota il tuo Tour in E-Bike'"></h3>
                     <p style="font-size: 0.92rem; color: var(--color-gray-600);" x-text="selectedTour ? ('Prezzo base: €' + selectedTour.price + ' a persona') : 'Seleziona data e partecipanti per verificare la disponibilità.'"></p>
+
+                    <!-- Banner Struttura Partner Convenzionata -->
+                    <template x-if="partnerName">
+                        <div style="margin-top: 0.75rem; display: flex; align-items: center; gap: 0.5rem; background: #f0fdf4; border: 1.5px solid #86efac; padding: 0.5rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #166534;">
+                            <i class="fa-solid fa-handshake" style="color: #16a34a; font-size: 0.95rem;"></i>
+                            <span>Consigliato da: <strong x-text="partnerName"></strong> <span style="color: #15803d; font-size: 0.76rem;">(Partner Ufficiale Convenzionato)</span></span>
+                        </div>
+                    </template>
                 </div>
 
                 <form @submit.prevent="submitBooking">
@@ -112,7 +125,7 @@
                     </div>
 
                     <!-- Extra Services -->
-                    <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                    <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: 0; padding: 1rem; margin-bottom: 1.5rem;">
                         <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-gray-600); display: block; margin-bottom: 0.6rem;">Servizi Aggiuntivi & Extra</span>
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
@@ -131,8 +144,21 @@
                         <textarea class="form-control" rows="2" placeholder="Altezza partecipanti per le taglie e-bike, intolleranze alimentari, orari preferiti..." x-model="specialNotes"></textarea>
                     </div>
 
+                    <!-- Codice Partner / Referral / Brochure -->
+                    <div style="margin-bottom: 1.25rem;">
+                        <button type="button" @click="showPromoField = !showPromoField" style="background: none; border: none; padding: 0; color: var(--color-gray-600); font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 0.35rem; font-weight: 600;">
+                            <i class="fa-solid fa-qrcode" style="color: var(--color-primary);"></i>
+                            <span x-text="referralCode ? ('Codice Partner/Struttura: ' + referralCode) : 'Alloggi in un B&B / Hotel partner o hai una brochure?'"></span>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; transition: transform 0.2s;" :style="showPromoField ? 'transform: rotate(180deg)' : ''"></i>
+                        </button>
+                        <div x-show="showPromoField" style="margin-top: 0.5rem;" x-transition>
+                            <input type="text" class="form-control" style="text-transform: uppercase; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;" placeholder="es. HOTEL-DIODORO" x-model="referralCode">
+                            <span style="font-size: 0.74rem; color: var(--color-gray-500); margin-top: 0.2rem; display: block;">Inserisci il codice riportato sul volantino o comunicato dalla struttura ricettiva.</span>
+                        </div>
+                    </div>
+
                     <!-- Live Total Calculation Bar -->
-                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: 0; padding: 1rem; margin-bottom: 1.5rem;">
                         <div>
                             <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary);">Preventivo Stimato:</span>
                             <div style="font-size: 1.45rem; font-weight: 800; color: var(--color-primary-dark);">

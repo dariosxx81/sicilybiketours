@@ -29,10 +29,12 @@ $cfgExtras = $cfg['extra_experiences'] ?? [
     ['name_it' => 'Furgone di Supporto al Seguito & Trasporto Bagagli', 'desc_it' => 'Valigie trasferite da tappa a tappa e van di supporto.', 'icon' => 'van-shuttle', 'price' => 35]
 ];
 $basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
+$showPrices = !empty($cfg['pricing']['show_prices']);
 ?>
 <!-- Tailor Made Custom Tour Builder Component (Alpine.js) -->
 <div class="builder-box" x-data="{
     step: 1,
+    showPrices: <?= $showPrices ? 'true' : 'false' ?>,
     selectedRegions: ['Etna', 'Nebrodi'],
     durationDays: 3,
     participants: 2,
@@ -43,6 +45,7 @@ $basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
     customerEmail: '',
     customerPhone: '',
     customerNotes: '',
+    referralCode: '<?= ACTIVE_REFERRAL_CODE ?>',
     builderSubmitted: false,
     isSubmitting: false,
     
@@ -87,6 +90,7 @@ $basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
                 type: 'configuratore',
                 tour_title: 'Tour su Misura (' + this.selectedRegions.join(', ') + ')',
                 participants: this.participants,
+                referral_code: this.referralCode,
                 notes: this.customerNotes,
                 details: {
                     destinations: this.selectedRegions,
@@ -108,6 +112,9 @@ $basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
     },
     
     getCustomWaLink() {
+        let priceLine = this.showPrices 
+            ? `💰 Stima orientativa: circa €${this.calculateEstimate()}`
+            : `📋 Preventivo: Richiesta preventivo su misura per il gruppo`;
         let text = `*RICHIESTA TOUR SU MISURA - SICILY BIKE TOURS*\n` +
                    `📍 Aree scelte: ${this.selectedRegions.join(', ')}\n` +
                    `⏱ Durata: ${this.durationDays} Giorni\n` +
@@ -118,7 +125,7 @@ $basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
                    `👤 Nome: ${this.customerName || 'Cliente'}\n` +
                    `📞 Tel: ${this.customerPhone || 'Non specificato'}\n` +
                    `📝 Note: ${this.customerNotes || 'Nessuna'}\n` +
-                   `💰 Stima orientativa: circa €${this.calculateEstimate()}`;
+                   priceLine;
         return `https://wa.me/<?= WA_NUMBER ?>?text=` + encodeURIComponent(text);
     }
 }">
@@ -289,8 +296,12 @@ $basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <?php if ($extraPrice > 0): ?>
+                    <?php if ($showPrices && $extraPrice > 0): ?>
                         <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€<?= $extraPrice ?></span>
+                    <?php elseif (!$showPrices): ?>
+                        <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> <?= t('custom_extra_included') ?>
+                        </span>
                     <?php endif; ?>
                     <input type="checkbox" :checked="selectedExtras.includes('<?= addslashes($extraName) ?>')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
@@ -328,10 +339,24 @@ $basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
                     <li><strong>⭐ Extra selezionati:</strong> <span x-text="selectedExtras.join(', ') || 'Nessuno'"></span></li>
                 </ul>
 
+                <?php if ($showPrices): ?>
                 <div style="margin-top: 1.4rem; padding-top: 1rem; border-top: 1px dashed rgba(24, 68, 73, 0.2); display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-size: 0.88rem; font-weight: 700; color: var(--color-primary);">Stima Orientativa Gruppo:</span>
+                    <span style="font-size: 0.88rem; font-weight: 700; color: var(--color-primary);"><?= t('custom_estimate_label') ?></span>
                     <span style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-dark);" x-text="'€' + calculateEstimate()"></span>
                 </div>
+                <?php else: ?>
+                <div style="margin-top: 1.25rem; padding: 1rem 1.1rem; border-radius: var(--radius-md); background: #ffffff; border: 1.5px solid rgba(144, 201, 92, 0.6); display: flex; align-items: center; gap: 0.85rem; box-shadow: var(--shadow-sm);">
+                    <div style="width: 42px; height: 42px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-primary-dark); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <div>
+                        <strong style="display: block; font-size: 0.92rem; color: var(--color-primary-dark);"><?= t('custom_quote_badge') ?></strong>
+                        <span style="font-size: 0.8rem; color: var(--color-gray-600); line-height: 1.35; display: block;">
+                            <?= t('custom_quote_desc') ?>
+                        </span>
+                    </div>
+                </div>
+                <?php endif; ?>
             </div>
 
             <!-- Form Invio -->
@@ -360,7 +385,9 @@ $basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
 
                     <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
                         <button type="submit" class="btn btn-primary" style="flex: 1;" :disabled="isSubmitting">
-                            <span x-show="!isSubmitting"><i class="fa-solid fa-paper-plane"></i> Invia Richiesta Tour</span>
+                            <span x-show="!isSubmitting">
+                                <i class="fa-solid fa-paper-plane"></i> <?= $showPrices ? 'Invia Richiesta Tour' : t('custom_request_quote') ?>
+                            </span>
                             <span x-show="isSubmitting"><i class="fa-solid fa-spinner fa-spin"></i> Invio in corso...</span>
                         </button>
                         <a :href="getCustomWaLink()" target="_blank" class="btn btn-accent">
@@ -374,8 +401,8 @@ $basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
         <!-- Success Message -->
         <div x-show="builderSubmitted" style="display: none; text-align: center; margin-top: 2rem; padding: 2rem; background: var(--color-white); border-radius: var(--radius-lg); border: 2px solid var(--color-accent);">
             <i class="fa-solid fa-circle-check" style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 0.75rem;"></i>
-            <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);">Configurazione Inviata con Successo!</h3>
-            <p style="color: var(--color-gray-600); margin-top: 0.5rem;">Grazie! Mariella e il team di Sicily Bike Tours prepareranno il tuo preventivo personalizzato su misura entro 24 ore.</p>
+            <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);">Richiesta Preventivo Inviata con Successo!</h3>
+            <p style="color: var(--color-gray-600); margin-top: 0.5rem;">Grazie! Mariella e il team di Sicily Bike Tours hanno ricevuto tutti i dettagli del tuo tour personalizzato e ti ricontatteranno via email o WhatsApp entro 24 ore.</p>
         </div>
     </div>
 </div>

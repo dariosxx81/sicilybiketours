@@ -24,7 +24,7 @@
     <link rel="icon" type="image/png" href="assets/img/logo/logo.png">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/style.css?v=2.4">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.7">
     
     <!-- FontAwesome 6 Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -274,9 +274,21 @@
             selectedType: 'all',
             selectedCat: 'all',
             applyFilter() {
+                if (this.selectedType === 'all' && this.selectedCat === 'all') {
+                    const el = document.getElementById('esperienze');
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                        return;
+                    }
+                    window.location.href = '/escursioni.php';
+                    return;
+                }
                 let targetUrl = '/escursioni.php';
-                if (this.selectedType === 'tour') {
+                if (this.selectedType === 'tour' || ['plurigiornalieri', 'eolie'].includes(this.selectedCat)) {
                     targetUrl = '/tour.php';
+                } else if (this.selectedCat === 'gruppi') {
+                    window.location.href = '/personalizza-tour.php';
+                    return;
                 }
                 if (this.selectedCat !== 'all') {
                     targetUrl += '?cat=' + encodeURIComponent(this.selectedCat);
@@ -334,6 +346,9 @@
                 Tour in E-Bike per Ogni livello, ritmo e passione            </h2>
             <p class="section-subtitle" style="font-size: 1.12rem; color: var(--color-gray-700); line-height: 1.7;">
                 Pedalare in Sicilia con le nostre E-MTB di ultima generazione è un'emozione accessibile a tutti: dai principianti e famiglie con ragazzi fino ai ciclisti esperti. Grazie alla pedalata assistita intelligente e alla presenza costante delle nostre guide certificate locali e del furgone d'appoggio al seguito, superi ogni salita senza fatica e in totale sicurezza. Scegli lo stile della tua avventura:            </p>
+            <div class="hide-on-desktop" style="font-size: 0.78rem; font-weight: 600; color: var(--color-gray-500); margin-top: 0.65rem;">
+                <i class="fa-solid fa-arrows-left-right" style="color: var(--color-primary); margin-right: 4px;"></i> Scorri orizzontalmente per vedere tutte le categorie
+            </div>
         </div>
 
         <!-- Griglia Categorie Dinamiche (Collegate ai filtri) -->
@@ -469,9 +484,6 @@
             <i class="fa-regular fa-clock"></i> 3-4 ore        </span>
 
         <!-- Badge Top Choice (compatto in alto a destra) -->
-                    <span class="tour-badge-featured">
-                <i class="fa-solid fa-star"></i> Top Choice
-            </span>
         
         <div class="tour-card-price-tag">
             A partire da <span>€150</span>
@@ -492,7 +504,7 @@
         </h3>
 
         <p class="tour-card-desc">
-            Vivi un'indimenticabile avventura sull'Etna in e-bike, seguita da un pranzo gourmet in un luogo incantevole, tutto pensato solo per te. Un'esperienza unica che ...        </p>
+            Un'indimenticabile avventura sull'Etna in e-bike tra antiche colate laviche e boschi secolari, coronata da un pranzo gourmet in location esclusiva.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -539,9 +551,6 @@
             <i class="fa-regular fa-clock"></i> 5-6 ore        </span>
 
         <!-- Badge Top Choice (compatto in alto a destra) -->
-                    <span class="tour-badge-featured">
-                <i class="fa-solid fa-star"></i> Top Choice
-            </span>
         
         <div class="tour-card-price-tag">
             A partire da <span>€130</span>
@@ -562,7 +571,7 @@
         </h3>
 
         <p class="tour-card-desc">
-            Una giornata emozionante tra lava, panorami spettacolari e la maestosità dell'Etna!        </p>
+            La scalata dell'Etna in e-bike fino alle quote sommitali e ai grandi crateri storici, con discesa mozzafiato lungo sentieri vulcanici.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -594,8 +603,8 @@
                                     <div class="tours-carousel-item">
                         <div class="tour-card" 
      data-category="tour" 
-     data-area="nebrodi"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'nebrodi'))"
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'etna'))"
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0 transform scale-95"
      x-transition:enter-end="opacity-100 transform scale-100">
@@ -609,9 +618,6 @@
             <i class="fa-regular fa-clock"></i> 2 Giorni / 1 Notte        </span>
 
         <!-- Badge Top Choice (compatto in alto a destra) -->
-                    <span class="tour-badge-featured">
-                <i class="fa-solid fa-star"></i> Top Choice
-            </span>
         
         <div class="tour-card-price-tag">
             A partire da <span>€240</span>
@@ -632,13 +638,7 @@
         </h3>
 
         <p class="tour-card-desc">
-            Tour in bici Nebrodi				
-				
-				
-				
-									 Da Randazzo alla Storia di Montalbano Elicona
-
-La nostra avventura inizia nel borgo medievale di Randazzo, imm...        </p>
+            Esplora castelli medievali, formazioni rocciose millenarie e il fascino della Valle dell'Alcantara in un weekend indimenticabile in e-bike da Randazzo a Montalbano Elicona.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -685,9 +685,6 @@ La nostra avventura inizia nel borgo medievale di Randazzo, imm...        </p>
             <i class="fa-regular fa-clock"></i> 4 Giorni / 3 Notti        </span>
 
         <!-- Badge Top Choice (compatto in alto a destra) -->
-                    <span class="tour-badge-featured">
-                <i class="fa-solid fa-star"></i> Top Choice
-            </span>
         
         <div class="tour-card-price-tag">
             A partire da <span>€520</span>
@@ -708,13 +705,7 @@ La nostra avventura inizia nel borgo medievale di Randazzo, imm...        </p>
         </h3>
 
         <p class="tour-card-desc">
-            Tour in bici etna				
-				
-				
-				
-									Giorno 1 – Benvenuti nel cuore verde della Sicilia
-
-Il viaggio inizia con un transfer privato da Catania a Cesarò,...        </p>
+            Un viaggio di 4 giorni tra i faggi secolari dei Nebrodi, la magia del Lago Maulazzo e le spettacolari colate laviche dell'Etna.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -781,13 +772,7 @@ Il viaggio inizia con un transfer privato da Catania a Cesarò,...        </p>
         </h3>
 
         <p class="tour-card-desc">
-            Tour in bici etna				
-				
-				
-				
-									 Etna &amp; Nebrodi in E-Bike: Sapori, Natura e Storia 
-
-Preparati per un'avventura indimenticabile di due giorni in e...        </p>
+            Un'avventura di 3 giorni tra i vigneti dell'Etna, la capitale del pistacchio di Bronte e i boschi secolari di Floresta.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -854,13 +839,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
         </h3>
 
         <p class="tour-card-desc">
-            DEL TOUR
-
-				
-				
-				
-				
-									Un esperienza unica per scoprire le Isole Eolie da una doppia prospettiva: Il ritmo lento delle bici e la libertà della b...        </p>
+            Un'avventura di 5 giorni tra mare e vulcani: pedalate panoramiche in e-bike e navigazioni private tra Lipari, Vulcano e Salina.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -927,17 +906,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
         </h3>
 
         <p class="tour-card-desc">
-            Cicloturismo Val di Noto				
-				
-				
-				
-					Cicloturismo Val di Noto
-
-				
-				
-				
-				
-					Un        </p>
+            Un suggestivo viaggio cicloturistico di 7 giorni tra le capitali del Barocco UNESCO, agrumeti secolari e spiagge dorate.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -1004,11 +973,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
         </h3>
 
         <p class="tour-card-desc">
-            Escursione in bici paesi Etnei				
-				
-				
-				
-									Scopri uno degli angoli più autentici della Sicilia con questo affascinante tour in e-bike da Randazz...        </p>
+            Un'affascinante escursione in e-bike alle pendici dell'Etna tra borghi medievali, la Pista Altomontana, Bronte e il Castello di Nelson.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -1040,8 +1005,8 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                                     <div class="tours-carousel-item">
                         <div class="tour-card" 
      data-category="escursione" 
-     data-area="nebrodi"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'nebrodi'))"
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0 transform scale-95"
      x-transition:enter-end="opacity-100 transform scale-100">
@@ -1075,11 +1040,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
         </h3>
 
         <p class="tour-card-desc">
-            Escursione in bici sui nebrodi				
-				
-				
-				
-									Regalati un’esperienza indimenticabile tra natura, cultura e gastronomia con questo affascinante tour...        </p>
+            Un'emozionante pedalata nel cuore del Parco dei Nebrodi da Randazzo fino a Floresta, il comune più alto della Sicilia.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -1146,17 +1107,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
         </h3>
 
         <p class="tour-card-desc">
-            DEL TOUR
-
-				
-				
-				
-				
-					escursione in bicicletta etna				
-				
-				
-				
-									Vivi un’esperienza unica tra i paesaggi vulcanici dell’Etna con un’...        </p>
+            Un'avvincente escursione in e-bike sui campi lavici dell'Etna nord con esplorazione sotterranea della spettacolare Grotta dei Lamponi.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -1223,17 +1174,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
         </h3>
 
         <p class="tour-card-desc">
-            Escursione in bici sui nebrodi				
-				
-				
-				
-					Escursione in bici sui nebrodi
-
-				
-				
-				
-				
-					E-bike tra laghi e boschi: la dorsale dei Nebrodi        </p>
+            Un'indimenticabile traversata in e-bike lungo i crinali montuosi della celebre Dorsale dei Nebrodi tra laghi e faggi secolari.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -1300,11 +1241,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
         </h3>
 
         <p class="tour-card-desc">
-            Tour in e-bike con degustazione in cantina				
-				
-				
-				
-									La giornata inizia con l’accoglienza presso la nostra sede a Randazzo, pittoresco borgo a...        </p>
+            Un'esperienza sensoriale che unisce una pedalata in e-bike sui sentieri vulcanici dell'Etna a una degustazione di vini pregiati in cantina.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -1391,6 +1328,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
         <!-- Tailor Made Custom Tour Builder Component (Alpine.js) -->
 <div class="builder-box" x-data="{
     step: 1,
+    showPrices: false,
     selectedRegions: ['Etna', 'Nebrodi'],
     durationDays: 3,
     participants: 2,
@@ -1401,6 +1339,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
     customerEmail: '',
     customerPhone: '',
     customerNotes: '',
+    referralCode: '',
     builderSubmitted: false,
     isSubmitting: false,
     
@@ -1445,6 +1384,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                 type: 'configuratore',
                 tour_title: 'Tour su Misura (' + this.selectedRegions.join(', ') + ')',
                 participants: this.participants,
+                referral_code: this.referralCode,
                 notes: this.customerNotes,
                 details: {
                     destinations: this.selectedRegions,
@@ -1466,6 +1406,9 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
     },
     
     getCustomWaLink() {
+        let priceLine = this.showPrices 
+            ? `💰 Stima orientativa: circa €${this.calculateEstimate()}`
+            : `📋 Preventivo: Richiesta preventivo su misura per il gruppo`;
         let text = `*RICHIESTA TOUR SU MISURA - SICILY BIKE TOURS*\n` +
                    `📍 Aree scelte: ${this.selectedRegions.join(', ')}\n` +
                    `⏱ Durata: ${this.durationDays} Giorni\n` +
@@ -1476,7 +1419,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                    `👤 Nome: ${this.customerName || 'Cliente'}\n` +
                    `📞 Tel: ${this.customerPhone || 'Non specificato'}\n` +
                    `📝 Note: ${this.customerNotes || 'Nessuna'}\n` +
-                   `💰 Stima orientativa: circa €${this.calculateEstimate()}`;
+                   priceLine;
         return `https://wa.me/393297568883?text=` + encodeURIComponent(text);
     }
 }">
@@ -1559,6 +1502,16 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                         <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Val di Noto & Costa Barocca') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
                     </div>
                     <p style="font-size: 0.85rem; color: var(--color-gray-600);">Scicli, Modica, Noto e le oasi marine protette tra muri a secco.</p>
+                </div>
+            </div>
+                        <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Altro') }" @click="toggleRegion('Altro')">
+                <img src="assets/img/uploads/escursione-etna-e-degustazione-vino-4_1792140991_9eca7.jpg" alt="Altro" class="region-card-img">
+                <div class="region-card-content">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem;">
+                        <h4 style="font-size: 1.15rem;">Altro</h4>
+                        <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Altro') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">Indicami un posto che ti piacerebbe visitare-</p>
                 </div>
             </div>
                     </div>
@@ -1675,7 +1628,8 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€28</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Pranzo Tipico / Home Restaurant')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -1688,7 +1642,8 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€30</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Degustazione Vini DOC Etna in Cantina Storica')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -1701,7 +1656,8 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€70</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Notte in Dimora Tipica / Agriturismo con Colazione')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -1714,7 +1670,8 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€120</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Barca Privata per Traversate Isole Eolie')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -1727,8 +1684,23 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€35</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Furgone di Supporto al Seguito & Trasporto Bagagli')" style="accent-color: var(--color-primary); transform: scale(1.3);">
+                </div>
+            </div>
+                        <div class="region-checkbox-card" style="padding: 1.25rem; display: flex; align-items: center; justify-content: space-between;" :class="{ 'selected': selectedExtras.includes('Per Famiglia') }" @click="toggleExtra('Per Famiglia')">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fa-solid fa-children" style="color: var(--color-primary); font-size: 1.3rem;"></i>
+                    <div>
+                        <strong style="display: block; font-size: 0.98rem;">Per Famiglia</strong>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500);">Esperienza per bambini.</span>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
+                                        <input type="checkbox" :checked="selectedExtras.includes('Per Famiglia')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
                     </div>
@@ -1763,11 +1735,17 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                     <li><strong>⭐ Extra selezionati:</strong> <span x-text="selectedExtras.join(', ') || 'Nessuno'"></span></li>
                 </ul>
 
-                <div style="margin-top: 1.4rem; padding-top: 1rem; border-top: 1px dashed rgba(24, 68, 73, 0.2); display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-size: 0.88rem; font-weight: 700; color: var(--color-primary);">Stima Orientativa Gruppo:</span>
-                    <span style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-dark);" x-text="'€' + calculateEstimate()"></span>
+                                <div style="margin-top: 1.25rem; padding: 1rem 1.1rem; border-radius: var(--radius-md); background: #ffffff; border: 1.5px solid rgba(144, 201, 92, 0.6); display: flex; align-items: center; gap: 0.85rem; box-shadow: var(--shadow-sm);">
+                    <div style="width: 42px; height: 42px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-primary-dark); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <div>
+                        <strong style="display: block; font-size: 0.92rem; color: var(--color-primary-dark);">Preventivo su Misura Gratuito</strong>
+                        <span style="font-size: 0.8rem; color: var(--color-gray-600); line-height: 1.35; display: block;">
+                            Ricevi un itinerario personalizzato e la migliore quotazione riservata per il tuo gruppo entro 24 ore, senza impegno.                        </span>
+                    </div>
                 </div>
-            </div>
+                            </div>
 
             <!-- Form Invio -->
             <div>
@@ -1795,7 +1773,8 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
 
                     <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
                         <button type="submit" class="btn btn-primary" style="flex: 1;" :disabled="isSubmitting">
-                            <span x-show="!isSubmitting"><i class="fa-solid fa-paper-plane"></i> Invia Richiesta Tour</span>
+                            <span x-show="!isSubmitting">
+                                <i class="fa-solid fa-paper-plane"></i> Richiedi Preventivo Gratuito                            </span>
                             <span x-show="isSubmitting"><i class="fa-solid fa-spinner fa-spin"></i> Invio in corso...</span>
                         </button>
                         <a :href="getCustomWaLink()" target="_blank" class="btn btn-accent">
@@ -1809,8 +1788,8 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
         <!-- Success Message -->
         <div x-show="builderSubmitted" style="display: none; text-align: center; margin-top: 2rem; padding: 2rem; background: var(--color-white); border-radius: var(--radius-lg); border: 2px solid var(--color-accent);">
             <i class="fa-solid fa-circle-check" style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 0.75rem;"></i>
-            <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);">Configurazione Inviata con Successo!</h3>
-            <p style="color: var(--color-gray-600); margin-top: 0.5rem;">Grazie! Mariella e il team di Sicily Bike Tours prepareranno il tuo preventivo personalizzato su misura entro 24 ore.</p>
+            <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);">Richiesta Preventivo Inviata con Successo!</h3>
+            <p style="color: var(--color-gray-600); margin-top: 0.5rem;">Grazie! Mariella e il team di Sicily Bike Tours hanno ricevuto tutti i dettagli del tuo tour personalizzato e ti ricontatteranno via email o WhatsApp entro 24 ore.</p>
         </div>
     </div>
 </div>
@@ -2231,7 +2210,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
 <!-- Booking & Quick Quote Modal -->
 <!-- Booking & Quick Quote Modal (Alpine.js) -->
 <div class="modal-overlay" x-show="bookingModalOpen" style="display: none;" x-transition.opacity @click.self="bookingModalOpen = false" x-data="{
-    date: '2026-10-18',
+    date: '2026-11-09',
     participants: 2,
     hasRiddenEbike: 'yes',
     needTransfer: false,
@@ -2240,6 +2219,9 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
     clientName: '',
     clientEmail: '',
     clientPhone: '',
+    referralCode: '',
+    partnerName: '',
+    showPromoField: false,
     formSubmitted: false,
     isSubmitting: false,
     
@@ -2253,7 +2235,8 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
     
     getWaLink() {
         if (!this.selectedTour) return 'https://wa.me/393297568883';
-        let msg = `Ciao Sicily Bike Tours! Vorrei richiedere informazioni e disponibilità per: *${this.selectedTour.title}*\n📅 Data: ${this.date}\n👥 Partecipanti: ${this.participants}\nNome: ${this.clientName || 'Un viaggiatore'}\nNote: ${this.specialNotes || 'Nessuna'}`;
+        let partnerText = this.referralCode ? `\n🤝 Partner / Struttura: ${this.referralCode}` : '';
+        let msg = `Ciao Sicily Bike Tours! Vorrei richiedere informazioni e disponibilità per: *${this.selectedTour.title}*\n📅 Data: ${this.date}\n👥 Partecipanti: ${this.participants}\nNome: ${this.clientName || 'Un viaggiatore'}${partnerText}\nNote: ${this.specialNotes || 'Nessuna'}`;
         return `https://wa.me/393297568883?text=` + encodeURIComponent(msg);
     },
     
@@ -2270,6 +2253,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                 tour_title: this.selectedTour ? this.selectedTour.title : 'Tour Standard',
                 date: this.date,
                 participants: this.participants,
+                referral_code: this.referralCode,
                 notes: this.specialNotes,
                 details: {
                     has_ridden_ebike: this.hasRiddenEbike,
@@ -2300,13 +2284,21 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                     </span>
                     <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);" x-text="selectedTour ? selectedTour.title : 'Prenota il tuo Tour in E-Bike'"></h3>
                     <p style="font-size: 0.92rem; color: var(--color-gray-600);" x-text="selectedTour ? ('Prezzo base: €' + selectedTour.price + ' a persona') : 'Seleziona data e partecipanti per verificare la disponibilità.'"></p>
+
+                    <!-- Banner Struttura Partner Convenzionata -->
+                    <template x-if="partnerName">
+                        <div style="margin-top: 0.75rem; display: flex; align-items: center; gap: 0.5rem; background: #f0fdf4; border: 1.5px solid #86efac; padding: 0.5rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #166534;">
+                            <i class="fa-solid fa-handshake" style="color: #16a34a; font-size: 0.95rem;"></i>
+                            <span>Consigliato da: <strong x-text="partnerName"></strong> <span style="color: #15803d; font-size: 0.76rem;">(Partner Ufficiale Convenzionato)</span></span>
+                        </div>
+                    </template>
                 </div>
 
                 <form @submit.prevent="submitBooking">
                     <div class="form-row-2">
                         <div class="form-group">
                             <label class="form-label">Data Desiderata</label>
-                            <input type="date" class="form-control" x-model="date" min="2026-10-15" required>
+                            <input type="date" class="form-control" x-model="date" min="2026-11-06" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Numero Partecipanti</label>
@@ -2341,7 +2333,7 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                     </div>
 
                     <!-- Extra Services -->
-                    <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                    <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: 0; padding: 1rem; margin-bottom: 1.5rem;">
                         <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-gray-600); display: block; margin-bottom: 0.6rem;">Servizi Aggiuntivi & Extra</span>
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
@@ -2360,8 +2352,21 @@ Preparati per un'avventura indimenticabile di due giorni in e...        </p>
                         <textarea class="form-control" rows="2" placeholder="Altezza partecipanti per le taglie e-bike, intolleranze alimentari, orari preferiti..." x-model="specialNotes"></textarea>
                     </div>
 
+                    <!-- Codice Partner / Referral / Brochure -->
+                    <div style="margin-bottom: 1.25rem;">
+                        <button type="button" @click="showPromoField = !showPromoField" style="background: none; border: none; padding: 0; color: var(--color-gray-600); font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 0.35rem; font-weight: 600;">
+                            <i class="fa-solid fa-qrcode" style="color: var(--color-primary);"></i>
+                            <span x-text="referralCode ? ('Codice Partner/Struttura: ' + referralCode) : 'Alloggi in un B&B / Hotel partner o hai una brochure?'"></span>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; transition: transform 0.2s;" :style="showPromoField ? 'transform: rotate(180deg)' : ''"></i>
+                        </button>
+                        <div x-show="showPromoField" style="margin-top: 0.5rem;" x-transition>
+                            <input type="text" class="form-control" style="text-transform: uppercase; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;" placeholder="es. HOTEL-DIODORO" x-model="referralCode">
+                            <span style="font-size: 0.74rem; color: var(--color-gray-500); margin-top: 0.2rem; display: block;">Inserisci il codice riportato sul volantino o comunicato dalla struttura ricettiva.</span>
+                        </div>
+                    </div>
+
                     <!-- Live Total Calculation Bar -->
-                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: 0; padding: 1rem; margin-bottom: 1.5rem;">
                         <div>
                             <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary);">Preventivo Stimato:</span>
                             <div style="font-size: 1.45rem; font-weight: 800; color: var(--color-primary-dark);">

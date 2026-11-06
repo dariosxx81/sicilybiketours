@@ -1,45 +1,102 @@
 [
-  {
-    "id": "LEAD-1002",
-    "created_at": "2026-10-12 16:45:20",
-    "type": "configuratore",
-    "source_label": "Tour su Misura",
-    "status": "nuovo",
-    "customer_name": "Thomas Weber",
-    "customer_email": "thomas.weber@munich-travel.de",
-    "customer_phone": "+49 171 8923411",
-    "tour_title": "Tour Personalizzato (Etna, Nebrodi)",
-    "date": "2026-10-24",
-    "participants": 4,
-    "details": {
-      "destinations": ["Vulcano Etna", "Parco dei Nebrodi"],
-      "duration_days": 4,
-      "participants": 4,
-      "difficulty": "Medio / Panoramico (40-55 km/giorno)",
-      "ebike": "E-MTB Biammortizzata (Full Suspension)",
-      "extras": ["Pranzo Tipico / Home Restaurant", "Degustazione Vini DOC Etna", "Furgone di Supporto al Seguito & Trasporto Bagagli"],
-      "estimate": 1780
+    {
+        "id": "LEAD-1004",
+        "created_at": "2026-10-16 09:18:00",
+        "type": "prenotazione_tour",
+        "source_label": "Richiesta Prenotazione Tour",
+        "status": "confermato",
+        "customer_name": "dario molino",
+        "customer_email": "darios1981@gmail.com",
+        "customer_phone": "+393475598022",
+        "tour_title": "Cicloturismo tra il Parco dei  Nebrodi e il Vulcano Etna",
+        "date": "2026-10-22",
+        "participants": 2,
+        "details": {
+            "has_ridden_ebike": "no",
+            "need_transfer": false,
+            "need_lunch": true,
+            "calculated_estimate": 1100
+        },
+        "notes": "Siamo io e mia moglie celiaca"
     },
-    "notes": "Siamo un gruppo di 4 amici dalla Germania. Vorremmo alloggiare in agriturismo e avere la guida in inglese. Possiamo noleggiare anche 4 caschi?"
-  },
-  {
-    "id": "LEAD-1001",
-    "created_at": "2026-10-11 11:20:10",
-    "type": "prenotazione_tour",
-    "source_label": "Escursione Diretta",
-    "status": "in_lavorazione",
-    "customer_name": "Laura Bianchi",
-    "customer_email": "laura.bianchi@gmail.com",
-    "customer_phone": "+39 347 1122334",
-    "tour_title": "Etna Summit: la scalata del vulcano in E-Bike",
-    "date": "2026-10-18",
-    "participants": 2,
-    "details": {
-      "has_ridden_ebike": "yes",
-      "need_transfer": true,
-      "need_lunch": true,
-      "total_estimate": 300
+    {
+        "id": "LEAD-1003",
+        "created_at": "2026-10-16 08:57:34",
+        "type": "configuratore",
+        "source_label": "Tour su Misura (Configuratore)",
+        "status": "archiviato",
+        "customer_name": "dario molino",
+        "customer_email": "darios1981@gmail.com",
+        "customer_phone": "+393475598022",
+        "tour_title": "Tour su Misura (Etna, Nebrodi)",
+        "date": "",
+        "participants": 3,
+        "details": {
+            "destinations": [
+                "Etna",
+                "Nebrodi"
+            ],
+            "duration_days": 3,
+            "participants": 3,
+            "difficulty": "Medio (Sterrati forestali e ritmo piacevole)",
+            "ebike": "E-MTB Biammortizzata (Comfort e tenuta massima)",
+            "extras": [
+                "Pranzo Tipico \/ Home Restaurant",
+                "Degustazione Vini DOC Etna",
+                "Per Famiglia"
+            ],
+            "estimate": 984
+        },
+        "notes": "Siamo in 3 con 1 bambino"
     },
-    "notes": "Arriviamo da Taormina, avremmo bisogno del transfer andata e ritorno se possibile. Grazie!"
-  }
+    {
+        "id": "LEAD-1002",
+        "created_at": "2026-10-12 16:45:20",
+        "type": "configuratore",
+        "source_label": "Tour su Misura",
+        "status": "archiviato",
+        "customer_name": "Thomas Weber",
+        "customer_email": "thomas.weber@munich-travel.de",
+        "customer_phone": "+49 171 8923411",
+        "tour_title": "Tour Personalizzato (Etna, Nebrodi)",
+        "date": "2026-10-24",
+        "participants": 4,
+        "details": {
+            "destinations": [
+                "Vulcano Etna",
+                "Parco dei Nebrodi"
+            ],
+            "duration_days": 4,
+            "participants": 4,
+            "difficulty": "Medio \/ Panoramico (40-55 km\/giorno)",
+            "ebike": "E-MTB Biammortizzata (Full Suspension)",
+            "extras": [
+                "Pranzo Tipico \/ Home Restaurant",
+                "Degustazione Vini DOC Etna",
+                "Furgone di Supporto al Seguito & Trasporto Bagagli"
+            ],
+            "estimate": 1780
+        },
+        "notes": "Siamo un gruppo di 4 amici dalla Germania. Vorremmo alloggiare in agriturismo e avere la guida in inglese. Possiamo noleggiare anche 4 caschi?"
+    },
+    {
+        "id": "LEAD-1001",
+        "created_at": "2026-10-11 11:20:10",
+        "type": "prenotazione_tour",
+        "source_label": "Escursione Diretta",
+        "status": "in_lavorazione",
+        "customer_name": "Laura Bianchi",
+        "customer_email": "laura.bianchi@gmail.com",
+        "customer_phone": "+39 347 1122334",
+        "tour_title": "Etna Summit: la scalata del vulcano in E-Bike",
+        "date": "2026-10-18",
+        "participants": 2,
+        "details": {
+            "has_ridden_ebike": "yes",
+            "need_transfer": true,
+            "need_lunch": true,
+            "total_estimate": 300
+        },
+        "notes": "Arriviamo da Taormina, avremmo bisogno del transfer andata e ritorno se possibile. Grazie!"
+    }
 ]

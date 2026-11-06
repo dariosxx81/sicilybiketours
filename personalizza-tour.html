@@ -24,7 +24,7 @@
     <link rel="icon" type="image/png" href="assets/img/logo/logo.png">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/style.css?v=2.4">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.7">
     
     <!-- FontAwesome 6 Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -259,6 +259,7 @@
         <!-- Tailor Made Custom Tour Builder Component (Alpine.js) -->
 <div class="builder-box" x-data="{
     step: 1,
+    showPrices: false,
     selectedRegions: ['Etna', 'Nebrodi'],
     durationDays: 3,
     participants: 2,
@@ -269,6 +270,7 @@
     customerEmail: '',
     customerPhone: '',
     customerNotes: '',
+    referralCode: '',
     builderSubmitted: false,
     isSubmitting: false,
     
@@ -313,6 +315,7 @@
                 type: 'configuratore',
                 tour_title: 'Tour su Misura (' + this.selectedRegions.join(', ') + ')',
                 participants: this.participants,
+                referral_code: this.referralCode,
                 notes: this.customerNotes,
                 details: {
                     destinations: this.selectedRegions,
@@ -334,6 +337,9 @@
     },
     
     getCustomWaLink() {
+        let priceLine = this.showPrices 
+            ? `💰 Stima orientativa: circa €${this.calculateEstimate()}`
+            : `📋 Preventivo: Richiesta preventivo su misura per il gruppo`;
         let text = `*RICHIESTA TOUR SU MISURA - SICILY BIKE TOURS*\n` +
                    `📍 Aree scelte: ${this.selectedRegions.join(', ')}\n` +
                    `⏱ Durata: ${this.durationDays} Giorni\n` +
@@ -344,7 +350,7 @@
                    `👤 Nome: ${this.customerName || 'Cliente'}\n` +
                    `📞 Tel: ${this.customerPhone || 'Non specificato'}\n` +
                    `📝 Note: ${this.customerNotes || 'Nessuna'}\n` +
-                   `💰 Stima orientativa: circa €${this.calculateEstimate()}`;
+                   priceLine;
         return `https://wa.me/393297568883?text=` + encodeURIComponent(text);
     }
 }">
@@ -427,6 +433,16 @@
                         <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Val di Noto & Costa Barocca') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
                     </div>
                     <p style="font-size: 0.85rem; color: var(--color-gray-600);">Scicli, Modica, Noto e le oasi marine protette tra muri a secco.</p>
+                </div>
+            </div>
+                        <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Altro') }" @click="toggleRegion('Altro')">
+                <img src="assets/img/uploads/escursione-etna-e-degustazione-vino-4_1792140991_9eca7.jpg" alt="Altro" class="region-card-img">
+                <div class="region-card-content">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem;">
+                        <h4 style="font-size: 1.15rem;">Altro</h4>
+                        <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Altro') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">Indicami un posto che ti piacerebbe visitare-</p>
                 </div>
             </div>
                     </div>
@@ -543,7 +559,8 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€28</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Pranzo Tipico / Home Restaurant')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -556,7 +573,8 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€30</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Degustazione Vini DOC Etna in Cantina Storica')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -569,7 +587,8 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€70</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Notte in Dimora Tipica / Agriturismo con Colazione')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -582,7 +601,8 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€120</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Barca Privata per Traversate Isole Eolie')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -595,8 +615,23 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€35</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Furgone di Supporto al Seguito & Trasporto Bagagli')" style="accent-color: var(--color-primary); transform: scale(1.3);">
+                </div>
+            </div>
+                        <div class="region-checkbox-card" style="padding: 1.25rem; display: flex; align-items: center; justify-content: space-between;" :class="{ 'selected': selectedExtras.includes('Per Famiglia') }" @click="toggleExtra('Per Famiglia')">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fa-solid fa-children" style="color: var(--color-primary); font-size: 1.3rem;"></i>
+                    <div>
+                        <strong style="display: block; font-size: 0.98rem;">Per Famiglia</strong>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500);">Esperienza per bambini.</span>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
+                                        <input type="checkbox" :checked="selectedExtras.includes('Per Famiglia')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
                     </div>
@@ -631,11 +666,17 @@
                     <li><strong>⭐ Extra selezionati:</strong> <span x-text="selectedExtras.join(', ') || 'Nessuno'"></span></li>
                 </ul>
 
-                <div style="margin-top: 1.4rem; padding-top: 1rem; border-top: 1px dashed rgba(24, 68, 73, 0.2); display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-size: 0.88rem; font-weight: 700; color: var(--color-primary);">Stima Orientativa Gruppo:</span>
-                    <span style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-dark);" x-text="'€' + calculateEstimate()"></span>
+                                <div style="margin-top: 1.25rem; padding: 1rem 1.1rem; border-radius: var(--radius-md); background: #ffffff; border: 1.5px solid rgba(144, 201, 92, 0.6); display: flex; align-items: center; gap: 0.85rem; box-shadow: var(--shadow-sm);">
+                    <div style="width: 42px; height: 42px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-primary-dark); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <div>
+                        <strong style="display: block; font-size: 0.92rem; color: var(--color-primary-dark);">Preventivo su Misura Gratuito</strong>
+                        <span style="font-size: 0.8rem; color: var(--color-gray-600); line-height: 1.35; display: block;">
+                            Ricevi un itinerario personalizzato e la migliore quotazione riservata per il tuo gruppo entro 24 ore, senza impegno.                        </span>
+                    </div>
                 </div>
-            </div>
+                            </div>
 
             <!-- Form Invio -->
             <div>
@@ -663,7 +704,8 @@
 
                     <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
                         <button type="submit" class="btn btn-primary" style="flex: 1;" :disabled="isSubmitting">
-                            <span x-show="!isSubmitting"><i class="fa-solid fa-paper-plane"></i> Invia Richiesta Tour</span>
+                            <span x-show="!isSubmitting">
+                                <i class="fa-solid fa-paper-plane"></i> Richiedi Preventivo Gratuito                            </span>
                             <span x-show="isSubmitting"><i class="fa-solid fa-spinner fa-spin"></i> Invio in corso...</span>
                         </button>
                         <a :href="getCustomWaLink()" target="_blank" class="btn btn-accent">
@@ -677,8 +719,8 @@
         <!-- Success Message -->
         <div x-show="builderSubmitted" style="display: none; text-align: center; margin-top: 2rem; padding: 2rem; background: var(--color-white); border-radius: var(--radius-lg); border: 2px solid var(--color-accent);">
             <i class="fa-solid fa-circle-check" style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 0.75rem;"></i>
-            <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);">Configurazione Inviata con Successo!</h3>
-            <p style="color: var(--color-gray-600); margin-top: 0.5rem;">Grazie! Mariella e il team di Sicily Bike Tours prepareranno il tuo preventivo personalizzato su misura entro 24 ore.</p>
+            <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);">Richiesta Preventivo Inviata con Successo!</h3>
+            <p style="color: var(--color-gray-600); margin-top: 0.5rem;">Grazie! Mariella e il team di Sicily Bike Tours hanno ricevuto tutti i dettagli del tuo tour personalizzato e ti ricontatteranno via email o WhatsApp entro 24 ore.</p>
         </div>
     </div>
 </div>
@@ -778,7 +820,7 @@
 <!-- Booking & Quick Quote Modal -->
 <!-- Booking & Quick Quote Modal (Alpine.js) -->
 <div class="modal-overlay" x-show="bookingModalOpen" style="display: none;" x-transition.opacity @click.self="bookingModalOpen = false" x-data="{
-    date: '2026-10-18',
+    date: '2026-11-09',
     participants: 2,
     hasRiddenEbike: 'yes',
     needTransfer: false,
@@ -787,6 +829,9 @@
     clientName: '',
     clientEmail: '',
     clientPhone: '',
+    referralCode: '',
+    partnerName: '',
+    showPromoField: false,
     formSubmitted: false,
     isSubmitting: false,
     
@@ -800,7 +845,8 @@
     
     getWaLink() {
         if (!this.selectedTour) return 'https://wa.me/393297568883';
-        let msg = `Ciao Sicily Bike Tours! Vorrei richiedere informazioni e disponibilità per: *${this.selectedTour.title}*\n📅 Data: ${this.date}\n👥 Partecipanti: ${this.participants}\nNome: ${this.clientName || 'Un viaggiatore'}\nNote: ${this.specialNotes || 'Nessuna'}`;
+        let partnerText = this.referralCode ? `\n🤝 Partner / Struttura: ${this.referralCode}` : '';
+        let msg = `Ciao Sicily Bike Tours! Vorrei richiedere informazioni e disponibilità per: *${this.selectedTour.title}*\n📅 Data: ${this.date}\n👥 Partecipanti: ${this.participants}\nNome: ${this.clientName || 'Un viaggiatore'}${partnerText}\nNote: ${this.specialNotes || 'Nessuna'}`;
         return `https://wa.me/393297568883?text=` + encodeURIComponent(msg);
     },
     
@@ -817,6 +863,7 @@
                 tour_title: this.selectedTour ? this.selectedTour.title : 'Tour Standard',
                 date: this.date,
                 participants: this.participants,
+                referral_code: this.referralCode,
                 notes: this.specialNotes,
                 details: {
                     has_ridden_ebike: this.hasRiddenEbike,
@@ -847,13 +894,21 @@
                     </span>
                     <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);" x-text="selectedTour ? selectedTour.title : 'Prenota il tuo Tour in E-Bike'"></h3>
                     <p style="font-size: 0.92rem; color: var(--color-gray-600);" x-text="selectedTour ? ('Prezzo base: €' + selectedTour.price + ' a persona') : 'Seleziona data e partecipanti per verificare la disponibilità.'"></p>
+
+                    <!-- Banner Struttura Partner Convenzionata -->
+                    <template x-if="partnerName">
+                        <div style="margin-top: 0.75rem; display: flex; align-items: center; gap: 0.5rem; background: #f0fdf4; border: 1.5px solid #86efac; padding: 0.5rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #166534;">
+                            <i class="fa-solid fa-handshake" style="color: #16a34a; font-size: 0.95rem;"></i>
+                            <span>Consigliato da: <strong x-text="partnerName"></strong> <span style="color: #15803d; font-size: 0.76rem;">(Partner Ufficiale Convenzionato)</span></span>
+                        </div>
+                    </template>
                 </div>
 
                 <form @submit.prevent="submitBooking">
                     <div class="form-row-2">
                         <div class="form-group">
                             <label class="form-label">Data Desiderata</label>
-                            <input type="date" class="form-control" x-model="date" min="2026-10-15" required>
+                            <input type="date" class="form-control" x-model="date" min="2026-11-06" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Numero Partecipanti</label>
@@ -888,7 +943,7 @@
                     </div>
 
                     <!-- Extra Services -->
-                    <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                    <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: 0; padding: 1rem; margin-bottom: 1.5rem;">
                         <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-gray-600); display: block; margin-bottom: 0.6rem;">Servizi Aggiuntivi & Extra</span>
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
@@ -907,8 +962,21 @@
                         <textarea class="form-control" rows="2" placeholder="Altezza partecipanti per le taglie e-bike, intolleranze alimentari, orari preferiti..." x-model="specialNotes"></textarea>
                     </div>
 
+                    <!-- Codice Partner / Referral / Brochure -->
+                    <div style="margin-bottom: 1.25rem;">
+                        <button type="button" @click="showPromoField = !showPromoField" style="background: none; border: none; padding: 0; color: var(--color-gray-600); font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 0.35rem; font-weight: 600;">
+                            <i class="fa-solid fa-qrcode" style="color: var(--color-primary);"></i>
+                            <span x-text="referralCode ? ('Codice Partner/Struttura: ' + referralCode) : 'Alloggi in un B&B / Hotel partner o hai una brochure?'"></span>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; transition: transform 0.2s;" :style="showPromoField ? 'transform: rotate(180deg)' : ''"></i>
+                        </button>
+                        <div x-show="showPromoField" style="margin-top: 0.5rem;" x-transition>
+                            <input type="text" class="form-control" style="text-transform: uppercase; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;" placeholder="es. HOTEL-DIODORO" x-model="referralCode">
+                            <span style="font-size: 0.74rem; color: var(--color-gray-500); margin-top: 0.2rem; display: block;">Inserisci il codice riportato sul volantino o comunicato dalla struttura ricettiva.</span>
+                        </div>
+                    </div>
+
                     <!-- Live Total Calculation Bar -->
-                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: 0; padding: 1rem; margin-bottom: 1.5rem;">
                         <div>
                             <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary);">Preventivo Stimato:</span>
                             <div style="font-size: 1.45rem; font-weight: 800; color: var(--color-primary-dark);">

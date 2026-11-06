@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivi la vera Sicilia in &lt;span class=&quot;text-gradient&quot;&gt;E-Bike&lt;/span&gt; | Sicily Bike Tours</title>
-    <meta name="description" content="Organizziamo tour giornalieri e plurigiornalieri in e-bike sull&#039;Etna, Parco dei Nebrodi, Gole dell&#039;Alcantara, Val di Noto e Isole Eolie.">
+    <title>Vivi la vera Sicilia in E-Bike | Sicily Bike Tours</title>
+    <meta name="description" content="Organizziamo tour giornalieri e plurigiornalieri in e-bike sull'Etna, Parco dei Nebrodi, Gole dell'Alcantara, Val di Noto e Isole Eolie.">
     <link rel="canonical" href="https://www.sicilybiketours.it/">
     
     <!-- Open Graph / Social Meta -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Sicily Bike Tours">
-    <meta property="og:title" content="Vivi la vera Sicilia in &lt;span class=&quot;text-gradient&quot;&gt;E-Bike&lt;/span&gt; | Sicily Bike Tours">
-    <meta property="og:description" content="Organizziamo tour giornalieri e plurigiornalieri in e-bike sull&#039;Etna, Parco dei Nebrodi, Gole dell&#039;Alcantara, Val di Noto e Isole Eolie.">
-    <meta property="og:image" content="/assets/img/gallery/summit.jpg">
+    <meta property="og:title" content="Vivi la vera Sicilia in E-Bike | Sicily Bike Tours">
+    <meta property="og:description" content="Organizziamo tour giornalieri e plurigiornalieri in e-bike sull'Etna, Parco dei Nebrodi, Gole dell'Alcantara, Val di Noto e Isole Eolie.">
+    <meta property="og:image" content="assets/img/gallery/summit.jpg">
     <meta property="og:url" content="https://www.sicilybiketours.it/">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vivi la vera Sicilia in &lt;span class=&quot;text-gradient&quot;&gt;E-Bike&lt;/span&gt; | Sicily Bike Tours">
-    <meta name="twitter:description" content="Organizziamo tour giornalieri e plurigiornalieri in e-bike sull&#039;Etna, Parco dei Nebrodi, Gole dell&#039;Alcantara, Val di Noto e Isole Eolie.">
-    <meta name="twitter:image" content="/assets/img/gallery/summit.jpg">
+    <meta name="twitter:title" content="Vivi la vera Sicilia in E-Bike | Sicily Bike Tours">
+    <meta name="twitter:description" content="Organizziamo tour giornalieri e plurigiornalieri in e-bike sull'Etna, Parco dei Nebrodi, Gole dell'Alcantara, Val di Noto e Isole Eolie.">
+    <meta name="twitter:image" content="assets/img/gallery/summit.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/logo/logo.png">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/style.css?v=2.1">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.7">
     
     <!-- FontAwesome 6 Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -188,20 +188,29 @@
                         Chi Siamo                    </a>
                 </li>
                                                 <li>
-                    <div style="display: flex; justify-content: space-between; align-items: center;" class="drawer-link" @click="mobileExpOpen = !mobileExpOpen">
+                    <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none;" class="drawer-link" :class="{ 'text-primary': mobileExpOpen }" @click="mobileExpOpen = !mobileExpOpen">
                         <span>Esperienze</span>
-                        <i class="fa-solid" :class="mobileExpOpen ? 'fa-chevron-up' : 'fa-chevron-down'" style="font-size: 0.8rem;"></i>
+                        <i class="fa-solid" :class="mobileExpOpen ? 'fa-chevron-up' : 'fa-chevron-down'" style="font-size: 0.85rem; color: var(--color-primary); transition: transform 0.2s ease;"></i>
                     </div>
-                    <div x-show="mobileExpOpen" style="padding-left: 1rem; display: none;">
-                                                    <a href="escursioni.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false">
-                                <i class="fa-solid fa-sun" style="color: var(--color-accent); width: 20px;"></i>
-                                Escursioni Giornaliere                            </a>
-                                                    <a href="tour.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false">
-                                <i class="fa-solid fa-calendar-days" style="color: var(--color-accent); width: 20px;"></i>
-                                Tour Itineranti                            </a>
-                                                    <a href="personalizza-tour.html" class="drawer-link" style="font-size: 0.95rem; opacity: 0.9;" @click="mobileMenuOpen = false">
-                                <i class="fa-solid fa-sliders" style="color: var(--color-accent); width: 20px;"></i>
-                                Tour su Misura                            </a>
+                    <div x-show="mobileExpOpen" x-collapse x-transition:enter="transition ease-out duration-200" x-transition:leave="transition ease-in duration-150" class="drawer-submenu-list" style="display: none;">
+                                                    <a href="escursioni.html" class="drawer-submenu-item" @click="mobileMenuOpen = false">
+                                <span class="drawer-submenu-icon">
+                                    <i class="fa-solid fa-sun"></i>
+                                </span>
+                                <span>Escursioni Giornaliere</span>
+                            </a>
+                                                    <a href="tour.html" class="drawer-submenu-item" @click="mobileMenuOpen = false">
+                                <span class="drawer-submenu-icon">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                </span>
+                                <span>Tour Itineranti</span>
+                            </a>
+                                                    <a href="personalizza-tour.html" class="drawer-submenu-item" @click="mobileMenuOpen = false">
+                                <span class="drawer-submenu-icon">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </span>
+                                <span>Tour su Misura</span>
+                            </a>
                                             </div>
                 </li>
                                                 <li>
@@ -246,7 +255,7 @@
             <h1 class="hero-title">
                 Vivi la vera Sicilia in <span class="text-gradient">E-Bike</span>            </h1>
             <p class="hero-subtitle">
-                Dalle vette dell&#039;Etna ai boschi secolari dei Nebrodi, dai borghi medievali al fascino delle Isole Eolie. Tour esclusivi a ritmo lento e sostenibile con guide locali e furgone di supporto.            </p>
+                Dalle vette dell'Etna ai boschi secolari dei Nebrodi, dai borghi medievali al fascino delle Isole Eolie. Tour esclusivi a ritmo lento e sostenibile con guide locali e furgone di supporto.            </p>
 
             <div class="hero-buttons">
                 <a href="#esperienze" class="btn btn-accent btn-lg">
@@ -265,9 +274,21 @@
             selectedType: 'all',
             selectedCat: 'all',
             applyFilter() {
+                if (this.selectedType === 'all' && this.selectedCat === 'all') {
+                    const el = document.getElementById('esperienze');
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                        return;
+                    }
+                    window.location.href = '/escursioni.php';
+                    return;
+                }
                 let targetUrl = '/escursioni.php';
-                if (this.selectedType === 'tour') {
+                if (this.selectedType === 'tour' || ['plurigiornalieri', 'eolie'].includes(this.selectedCat)) {
                     targetUrl = '/tour.php';
+                } else if (this.selectedCat === 'gruppi') {
+                    window.location.href = '/personalizza-tour.php';
+                    return;
                 }
                 if (this.selectedCat !== 'all') {
                     targetUrl += '?cat=' + encodeURIComponent(this.selectedCat);
@@ -324,7 +345,10 @@
             <h2 class="section-title">
                 Tour in E-Bike per Ogni livello, ritmo e passione            </h2>
             <p class="section-subtitle" style="font-size: 1.12rem; color: var(--color-gray-700); line-height: 1.7;">
-                Pedalare in Sicilia con le nostre E-MTB di ultima generazione è un&#039;emozione accessibile a tutti: dai principianti e famiglie con ragazzi fino ai ciclisti esperti. Grazie alla pedalata assistita intelligente e alla presenza costante delle nostre guide certificate locali e del furgone d&#039;appoggio al seguito, superi ogni salita senza fatica e in totale sicurezza. Scegli lo stile della tua avventura:            </p>
+                Pedalare in Sicilia con le nostre E-MTB di ultima generazione è un'emozione accessibile a tutti: dai principianti e famiglie con ragazzi fino ai ciclisti esperti. Grazie alla pedalata assistita intelligente e alla presenza costante delle nostre guide certificate locali e del furgone d'appoggio al seguito, superi ogni salita senza fatica e in totale sicurezza. Scegli lo stile della tua avventura:            </p>
+            <div class="hide-on-desktop" style="font-size: 0.78rem; font-weight: 600; color: var(--color-gray-500); margin-top: 0.65rem;">
+                <i class="fa-solid fa-arrows-left-right" style="color: var(--color-primary); margin-right: 4px;"></i> Scorri orizzontalmente per vedere tutte le categorie
+            </div>
         </div>
 
         <!-- Griglia Categorie Dinamiche (Collegate ai filtri) -->
@@ -452,20 +476,17 @@
      x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/summit.jpg" alt="Etna Summit: la scalata del vulcano in E-Bike" loading="lazy">
+            <img src="assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg" alt="Escursione in e-bike e pranzo gourmet" loading="lazy">
         </a>
         
         <!-- Badge Durata (compatto in alto a sinistra) -->
         <span class="tour-badge-duration">
-            <i class="fa-regular fa-clock"></i> 5-6 ore        </span>
+            <i class="fa-regular fa-clock"></i> 3-4 ore        </span>
 
         <!-- Badge Top Choice (compatto in alto a destra) -->
-                    <span class="tour-badge-featured">
-                <i class="fa-solid fa-star"></i> Top Choice
-            </span>
         
         <div class="tour-card-price-tag">
-            A partire da <span>€85</span>
+            A partire da <span>€150</span>
         </div>
     </div>
 
@@ -479,11 +500,78 @@
 
         <h3 class="tour-card-title">
             <a href="tour-dettaglio.html" style="color: inherit;">
-                Etna Summit: la scalata del vulcano in E-Bike            </a>
+                Escursione in e-bike e pranzo gourmet            </a>
         </h3>
 
         <p class="tour-card-desc">
-            Una giornata memorabile tra colate laviche storiche, crateri e paesaggi lunari fino alle quote sommitali.        </p>
+            Un'indimenticabile avventura sull'Etna in e-bike tra antiche colate laviche e boschi secolari, coronata da un pranzo gourmet in location esclusiva.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">30-35 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+1.100 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio / Facile</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:1,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;title&quot;:&quot;Escursione in e-bike e pranzo gourmet&quot;,&quot;price&quot;:150,&quot;duration&quot;:&quot;3-4 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
+        </div>
+    </div>
+</div>
+                    </div>
+                                    <div class="tours-carousel-item">
+                        <div class="tour-card" 
+     data-category="escursione" 
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-1.jpg" alt="Etna Summit: la scalata del vulcano in E-bike" loading="lazy">
+        </a>
+        
+        <!-- Badge Durata (compatto in alto a sinistra) -->
+        <span class="tour-badge-duration">
+            <i class="fa-regular fa-clock"></i> 5-6 ore        </span>
+
+        <!-- Badge Top Choice (compatto in alto a destra) -->
+        
+        <div class="tour-card-price-tag">
+            A partire da <span>€130</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-meta-top">
+            <div class="tour-card-area">
+                <i class="fa-solid fa-location-dot"></i> Etna            </div>
+                            <span class="tour-card-category-pill">
+                    Vulcano Etna &amp; Crateri                </span>
+                    </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Etna Summit: la scalata del vulcano in E-bike            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            La scalata dell'Etna in e-bike fino alle quote sommitali e ai grandi crateri storici, con discesa mozzafiato lungo sentieri vulcanici.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
@@ -506,7 +594,7 @@
         <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
                 <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:1,&quot;slug&quot;:&quot;etna-summit-vulcano-avventura&quot;,&quot;title&quot;:&quot;Etna Summit: la scalata del vulcano in E-Bike&quot;,&quot;price&quot;:85,&quot;duration&quot;:&quot;5-6 ore&quot;})">
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:2,&quot;slug&quot;:&quot;etna-e-bike-vulcano-avventura-sicilia&quot;,&quot;title&quot;:&quot;Etna Summit: la scalata del vulcano in E-bike&quot;,&quot;price&quot;:130,&quot;duration&quot;:&quot;5-6 ore&quot;})">
                 <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
@@ -514,61 +602,58 @@
                     </div>
                                     <div class="tours-carousel-item">
                         <div class="tour-card" 
-     data-category="escursione" 
+     data-category="tour" 
      data-area="etna"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'etna'))"
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0 transform scale-95"
      x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-31.jpg" alt="Escursione in E-Bike &amp; Pranzo Gourmet" loading="lazy">
+            <img src="assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-1.jpeg" alt="Weekend in Sicilia:  Randazzo e valle dell'Alcantara" loading="lazy">
         </a>
         
         <!-- Badge Durata (compatto in alto a sinistra) -->
         <span class="tour-badge-duration">
-            <i class="fa-regular fa-clock"></i> 3-4 ore + pranzo        </span>
+            <i class="fa-regular fa-clock"></i> 2 Giorni / 1 Notte        </span>
 
         <!-- Badge Top Choice (compatto in alto a destra) -->
-                    <span class="tour-badge-featured">
-                <i class="fa-solid fa-star"></i> Top Choice
-            </span>
         
         <div class="tour-card-price-tag">
-            A partire da <span>€95</span>
+            A partire da <span>€240</span>
         </div>
     </div>
 
     <div class="tour-card-body">
         <div class="tour-card-meta-top">
             <div class="tour-card-area">
-                <i class="fa-solid fa-location-dot"></i> Etna            </div>
+                <i class="fa-solid fa-location-dot"></i> Nebrodi            </div>
                             <span class="tour-card-category-pill">
-                    Enogastronomia &amp; Cantine DOC                </span>
+                    Boschi &amp; Laghi dei Nebrodi                </span>
                     </div>
 
         <h3 class="tour-card-title">
             <a href="tour-dettaglio.html" style="color: inherit;">
-                Escursione in E-Bike &amp; Pranzo Gourmet            </a>
+                Weekend in Sicilia:  Randazzo e valle dell'Alcantara            </a>
         </h3>
 
         <p class="tour-card-desc">
-            Un mix perfetto di natura, panorami tra mare e vulcano e un pranzo indimenticabile in Home Restaurant tipico.        </p>
+            Esplora castelli medievali, formazioni rocciose millenarie e il fascino della Valle dell'Alcantara in un weekend indimenticabile in e-bike da Randazzo a Montalbano Elicona.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
                 <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">35 km</span>
+                <span class="tour-spec-val">100-150 km</span>
                 <span class="tour-spec-lbl">Lunghezza</span>
             </div>
             <div class="tour-spec-item">
                 <i class="fa-solid fa-mountain tour-spec-icon"></i>
-                <span class="tour-spec-val">+1.100 m</span>
+                <span class="tour-spec-val">+1.800 m</span>
                 <span class="tour-spec-lbl">Dislivello</span>
             </div>
             <div class="tour-spec-item">
                 <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
-                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio / Facile</span>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
                 <span class="tour-spec-lbl">Livello</span>
             </div>
         </div>
@@ -576,7 +661,7 @@
         <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
                 <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:2,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;title&quot;:&quot;Escursione in E-Bike &amp; Pranzo Gourmet&quot;,&quot;price&quot;:95,&quot;duration&quot;:&quot;3-4 ore + pranzo&quot;})">
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:3,&quot;slug&quot;:&quot;tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara&quot;,&quot;title&quot;:&quot;Weekend in Sicilia:  Randazzo e valle dell'Alcantara&quot;,&quot;price&quot;:240,&quot;duration&quot;:&quot;2 Giorni \/ 1 Notte&quot;})">
                 <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
@@ -584,25 +669,25 @@
                     </div>
                                     <div class="tours-carousel-item">
                         <div class="tour-card" 
-     data-category="escursione" 
+     data-category="tour" 
      data-area="etna"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'etna'))"
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0 transform scale-95"
      x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/etna-2.jpg" alt="Escursione in E-Bike: Etna &amp; Grotta dei Lamponi" loading="lazy">
+            <img src="assets/img/tours/tour-ebike-etna-nebrodi-sicilia-1.jpg" alt="Cicloturismo tra il Parco dei  Nebrodi e il Vulcano Etna" loading="lazy">
         </a>
         
         <!-- Badge Durata (compatto in alto a sinistra) -->
         <span class="tour-badge-duration">
-            <i class="fa-regular fa-clock"></i> 4-6 ore        </span>
+            <i class="fa-regular fa-clock"></i> 4 Giorni / 3 Notti        </span>
 
         <!-- Badge Top Choice (compatto in alto a destra) -->
         
         <div class="tour-card-price-tag">
-            A partire da <span>€75</span>
+            A partire da <span>€520</span>
         </div>
     </div>
 
@@ -616,21 +701,21 @@
 
         <h3 class="tour-card-title">
             <a href="tour-dettaglio.html" style="color: inherit;">
-                Escursione in E-Bike: Etna &amp; Grotta dei Lamponi            </a>
+                Cicloturismo tra il Parco dei  Nebrodi e il Vulcano Etna            </a>
         </h3>
 
         <p class="tour-card-desc">
-            Viaggio tra le pinete della Ragabo, la maestosa colata del 2002 e l&#039;esplorazione speleologica di un tunnel lavico millenario.        </p>
+            Un viaggio di 4 giorni tra i faggi secolari dei Nebrodi, la magia del Lago Maulazzo e le spettacolari colate laviche dell'Etna.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
                 <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">45 km</span>
+                <span class="tour-spec-val">150-200 km</span>
                 <span class="tour-spec-lbl">Lunghezza</span>
             </div>
             <div class="tour-spec-item">
                 <i class="fa-solid fa-mountain tour-spec-icon"></i>
-                <span class="tour-spec-val">+930 m</span>
+                <span class="tour-spec-val">+2.400 m</span>
                 <span class="tour-spec-lbl">Dislivello</span>
             </div>
             <div class="tour-spec-item">
@@ -643,275 +728,7 @@
         <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
                 <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:3,&quot;slug&quot;:&quot;escursione-in-bicicletta-etna-grotta-lamponi&quot;,&quot;title&quot;:&quot;Escursione in E-Bike: Etna &amp; Grotta dei Lamponi&quot;,&quot;price&quot;:75,&quot;duration&quot;:&quot;4-6 ore&quot;})">
-                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
-        </div>
-    </div>
-</div>
-                    </div>
-                                    <div class="tours-carousel-item">
-                        <div class="tour-card" 
-     data-category="escursione" 
-     data-area="etna"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
-     x-transition:enter="transition ease-out duration-200"
-     x-transition:enter-start="opacity-0 transform scale-95"
-     x-transition:enter-end="opacity-100 transform scale-100">
-    <div class="tour-card-media">
-        <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-77.jpg" alt="Etna in E-Bike: Avventura e Degustazione di Vino" loading="lazy">
-        </a>
-        
-        <!-- Badge Durata (compatto in alto a sinistra) -->
-        <span class="tour-badge-duration">
-            <i class="fa-regular fa-clock"></i> 4-5 ore        </span>
-
-        <!-- Badge Top Choice (compatto in alto a destra) -->
-        
-        <div class="tour-card-price-tag">
-            A partire da <span>€90</span>
-        </div>
-    </div>
-
-    <div class="tour-card-body">
-        <div class="tour-card-meta-top">
-            <div class="tour-card-area">
-                <i class="fa-solid fa-location-dot"></i> Etna            </div>
-                            <span class="tour-card-category-pill">
-                    Enogastronomia &amp; Cantine DOC                </span>
-                    </div>
-
-        <h3 class="tour-card-title">
-            <a href="tour-dettaglio.html" style="color: inherit;">
-                Etna in E-Bike: Avventura e Degustazione di Vino            </a>
-        </h3>
-
-        <p class="tour-card-desc">
-            Una fuga tra le contrade del vino vulcanico, antichi palmenti e cantine prestigiose sull&#039;Etna Nord.        </p>
-
-        <div class="tour-specs-strip">
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">38 km</span>
-                <span class="tour-spec-lbl">Lunghezza</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-mountain tour-spec-icon"></i>
-                <span class="tour-spec-val">+800 m</span>
-                <span class="tour-spec-lbl">Dislivello</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
-                <span class="tour-spec-val" style="font-size: 0.78rem;">Facile / Medio</span>
-                <span class="tour-spec-lbl">Livello</span>
-            </div>
-        </div>
-
-        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
-                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:4,&quot;slug&quot;:&quot;escursione-etna-degustazione-vino&quot;,&quot;title&quot;:&quot;Etna in E-Bike: Avventura e Degustazione di Vino&quot;,&quot;price&quot;:90,&quot;duration&quot;:&quot;4-5 ore&quot;})">
-                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
-        </div>
-    </div>
-</div>
-                    </div>
-                                    <div class="tours-carousel-item">
-                        <div class="tour-card" 
-     data-category="escursione" 
-     data-area="etna"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
-     x-transition:enter="transition ease-out duration-200"
-     x-transition:enter-start="opacity-0 transform scale-95"
-     x-transition:enter-end="opacity-100 transform scale-100">
-    <div class="tour-card-media">
-        <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-119.jpg" alt="Da Randazzo a Bronte: Sapori dell&#039;Etna e Castello di Nelson" loading="lazy">
-        </a>
-        
-        <!-- Badge Durata (compatto in alto a sinistra) -->
-        <span class="tour-badge-duration">
-            <i class="fa-regular fa-clock"></i> 4-6 ore        </span>
-
-        <!-- Badge Top Choice (compatto in alto a destra) -->
-        
-        <div class="tour-card-price-tag">
-            A partire da <span>€80</span>
-        </div>
-    </div>
-
-    <div class="tour-card-body">
-        <div class="tour-card-meta-top">
-            <div class="tour-card-area">
-                <i class="fa-solid fa-location-dot"></i> Etna            </div>
-                            <span class="tour-card-category-pill">
-                    Borghi Medievali &amp; Castelli                </span>
-                    </div>
-
-        <h3 class="tour-card-title">
-            <a href="tour-dettaglio.html" style="color: inherit;">
-                Da Randazzo a Bronte: Sapori dell&#039;Etna e Castello di Nelson            </a>
-        </h3>
-
-        <p class="tour-card-desc">
-            Tra le colate laviche, le piantagioni dell&#039;oro verde (il pistacchio di Bronte DOP) e il fascino storico dell&#039;antico maniero.        </p>
-
-        <div class="tour-specs-strip">
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">48 km</span>
-                <span class="tour-spec-lbl">Lunghezza</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-mountain tour-spec-icon"></i>
-                <span class="tour-spec-val">+850 m</span>
-                <span class="tour-spec-lbl">Dislivello</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
-                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio / Facile</span>
-                <span class="tour-spec-lbl">Livello</span>
-            </div>
-        </div>
-
-        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
-                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:5,&quot;slug&quot;:&quot;escursione-in-bici-randazzo-bronte&quot;,&quot;title&quot;:&quot;Da Randazzo a Bronte: Sapori dell&#039;Etna e Castello di Nelson&quot;,&quot;price&quot;:80,&quot;duration&quot;:&quot;4-6 ore&quot;})">
-                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
-        </div>
-    </div>
-</div>
-                    </div>
-                                    <div class="tours-carousel-item">
-                        <div class="tour-card" 
-     data-category="escursione" 
-     data-area="nebrodi"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'nebrodi'))"
-     x-transition:enter="transition ease-out duration-200"
-     x-transition:enter-start="opacity-0 transform scale-95"
-     x-transition:enter-end="opacity-100 transform scale-100">
-    <div class="tour-card-media">
-        <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/escursioni-in-bicicletta-sicilia-tour-in-bici-sicilia-escursioni-sulletna-escursioni-sui-nebrodi-escursioni-alcantara-42.jpg" alt="Da Randazzo a Floresta: Vivi la Sicilia più Verde" loading="lazy">
-        </a>
-        
-        <!-- Badge Durata (compatto in alto a sinistra) -->
-        <span class="tour-badge-duration">
-            <i class="fa-regular fa-clock"></i> 4-6 ore        </span>
-
-        <!-- Badge Top Choice (compatto in alto a destra) -->
-        
-        <div class="tour-card-price-tag">
-            A partire da <span>€75</span>
-        </div>
-    </div>
-
-    <div class="tour-card-body">
-        <div class="tour-card-meta-top">
-            <div class="tour-card-area">
-                <i class="fa-solid fa-location-dot"></i> Nebrodi            </div>
-                            <span class="tour-card-category-pill">
-                    Boschi &amp; Laghi dei Nebrodi                </span>
-                    </div>
-
-        <h3 class="tour-card-title">
-            <a href="tour-dettaglio.html" style="color: inherit;">
-                Da Randazzo a Floresta: Vivi la Sicilia più Verde            </a>
-        </h3>
-
-        <p class="tour-card-desc">
-            Una salita verso il comune più alto della Sicilia (1.275m) tra pascoli incontaminati, boschi di faggio e tradizioni casearie millenarie.        </p>
-
-        <div class="tour-specs-strip">
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">46 km</span>
-                <span class="tour-spec-lbl">Lunghezza</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-mountain tour-spec-icon"></i>
-                <span class="tour-spec-val">+1.100 m</span>
-                <span class="tour-spec-lbl">Dislivello</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
-                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
-                <span class="tour-spec-lbl">Livello</span>
-            </div>
-        </div>
-
-        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
-                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:6,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta&quot;,&quot;title&quot;:&quot;Da Randazzo a Floresta: Vivi la Sicilia pi\u00f9 Verde&quot;,&quot;price&quot;:75,&quot;duration&quot;:&quot;4-6 ore&quot;})">
-                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
-        </div>
-    </div>
-</div>
-                    </div>
-                                    <div class="tours-carousel-item">
-                        <div class="tour-card" 
-     data-category="escursione" 
-     data-area="nebrodi"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'nebrodi'))"
-     x-transition:enter="transition ease-out duration-200"
-     x-transition:enter-start="opacity-0 transform scale-95"
-     x-transition:enter-end="opacity-100 transform scale-100">
-    <div class="tour-card-media">
-        <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-68.jpg" alt="Escursione in E-Bike: Dorsale dei Nebrodi &amp; Laghi" loading="lazy">
-        </a>
-        
-        <!-- Badge Durata (compatto in alto a sinistra) -->
-        <span class="tour-badge-duration">
-            <i class="fa-regular fa-clock"></i> 5 ore        </span>
-
-        <!-- Badge Top Choice (compatto in alto a destra) -->
-        
-        <div class="tour-card-price-tag">
-            A partire da <span>€80</span>
-        </div>
-    </div>
-
-    <div class="tour-card-body">
-        <div class="tour-card-meta-top">
-            <div class="tour-card-area">
-                <i class="fa-solid fa-location-dot"></i> Nebrodi            </div>
-                            <span class="tour-card-category-pill">
-                    Boschi &amp; Laghi dei Nebrodi                </span>
-                    </div>
-
-        <h3 class="tour-card-title">
-            <a href="tour-dettaglio.html" style="color: inherit;">
-                Escursione in E-Bike: Dorsale dei Nebrodi &amp; Laghi            </a>
-        </h3>
-
-        <p class="tour-card-desc">
-            Una magnifica traversata lungo la dorsale dei Nebrodi, toccando i laghi d&#039;alta quota Maulazzo e Biviere.        </p>
-
-        <div class="tour-specs-strip">
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">42 km</span>
-                <span class="tour-spec-lbl">Lunghezza</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-mountain tour-spec-icon"></i>
-                <span class="tour-spec-val">+950 m</span>
-                <span class="tour-spec-lbl">Dislivello</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
-                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
-                <span class="tour-spec-lbl">Livello</span>
-            </div>
-        </div>
-
-        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
-                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:7,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-dorsale&quot;,&quot;title&quot;:&quot;Escursione in E-Bike: Dorsale dei Nebrodi &amp; Laghi&quot;,&quot;price&quot;:80,&quot;duration&quot;:&quot;5 ore&quot;})">
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:4,&quot;slug&quot;:&quot;tour-ebike-etna-nebrodi-sicilia&quot;,&quot;title&quot;:&quot;Cicloturismo tra il Parco dei  Nebrodi e il Vulcano Etna&quot;,&quot;price&quot;:520,&quot;duration&quot;:&quot;4 Giorni \/ 3 Notti&quot;})">
                 <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
@@ -920,50 +737,47 @@
                                     <div class="tours-carousel-item">
                         <div class="tour-card" 
      data-category="tour" 
-     data-area="nebrodi"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'nebrodi'))"
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'etna'))"
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0 transform scale-95"
      x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/IMG-20251008-WA0031-scaled.jpg" alt="Weekend in Sicilia: Randazzo, Megaliti dell&#039;Argimusco &amp; Alcantara" loading="lazy">
+            <img src="assets/img/tours/tour-ebike-etna-sicilia-3-giorni-1.jpg" alt="Meraviglioso Tour in e-bike tra  Etna, Randazzo e Bronte" loading="lazy">
         </a>
         
         <!-- Badge Durata (compatto in alto a sinistra) -->
         <span class="tour-badge-duration">
-            <i class="fa-regular fa-clock"></i> 2 Giorni / 1 Notte        </span>
+            <i class="fa-regular fa-clock"></i> 3 Giorni / 2 Notti        </span>
 
         <!-- Badge Top Choice (compatto in alto a destra) -->
-                    <span class="tour-badge-featured">
-                <i class="fa-solid fa-star"></i> Top Choice
-            </span>
         
         <div class="tour-card-price-tag">
-            A partire da <span>€240</span>
+            A partire da <span>€390</span>
         </div>
     </div>
 
     <div class="tour-card-body">
         <div class="tour-card-meta-top">
             <div class="tour-card-area">
-                <i class="fa-solid fa-location-dot"></i> Nebrodi &amp; Alcantara            </div>
+                <i class="fa-solid fa-location-dot"></i> Etna            </div>
                             <span class="tour-card-category-pill">
-                    Borghi Medievali &amp; Castelli                </span>
+                    Vulcano Etna &amp; Crateri                </span>
                     </div>
 
         <h3 class="tour-card-title">
             <a href="tour-dettaglio.html" style="color: inherit;">
-                Weekend in Sicilia: Randazzo, Megaliti dell&#039;Argimusco &amp; Alcantara            </a>
+                Meraviglioso Tour in e-bike tra  Etna, Randazzo e Bronte            </a>
         </h3>
 
         <p class="tour-card-desc">
-            Un weekend tra storia, natura e mistero: pedalando tra i borghi più belli d&#039;Italia, la Stonehenge siciliana e le gole fluviali.        </p>
+            Un'avventura di 3 giorni tra i vigneti dell'Etna, la capitale del pistacchio di Bronte e i boschi secolari di Floresta.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
                 <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">120 km</span>
+                <span class="tour-spec-val">150-200 km</span>
                 <span class="tour-spec-lbl">Lunghezza</span>
             </div>
             <div class="tour-spec-item">
@@ -981,7 +795,7 @@
         <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
                 <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:8,&quot;slug&quot;:&quot;tour-2-giorni-nebrodi-montalbano-elicona-alcantara&quot;,&quot;title&quot;:&quot;Weekend in Sicilia: Randazzo, Megaliti dell&#039;Argimusco &amp; Alcantara&quot;,&quot;price&quot;:240,&quot;duration&quot;:&quot;2 Giorni \/ 1 Notte&quot;})">
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:5,&quot;slug&quot;:&quot;tour-ebike-etna-sicilia-3-giorni&quot;,&quot;title&quot;:&quot;Meraviglioso Tour in e-bike tra  Etna, Randazzo e Bronte&quot;,&quot;price&quot;:390,&quot;duration&quot;:&quot;3 Giorni \/ 2 Notti&quot;})">
                 <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
@@ -990,151 +804,14 @@
                                     <div class="tours-carousel-item">
                         <div class="tour-card" 
      data-category="tour" 
-     data-area="etna"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'etna'))"
+     data-area="eolie"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'eolie'))"
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0 transform scale-95"
      x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/Etna-home-page.jpg" alt="Tour 3 Giorni: Bike &amp; Taste tra Etna, Randazzo &amp; Bronte" loading="lazy">
-        </a>
-        
-        <!-- Badge Durata (compatto in alto a sinistra) -->
-        <span class="tour-badge-duration">
-            <i class="fa-regular fa-clock"></i> 3 Giorni / 2 Notti        </span>
-
-        <!-- Badge Top Choice (compatto in alto a destra) -->
-                    <span class="tour-badge-featured">
-                <i class="fa-solid fa-star"></i> Top Choice
-            </span>
-        
-        <div class="tour-card-price-tag">
-            A partire da <span>€390</span>
-        </div>
-    </div>
-
-    <div class="tour-card-body">
-        <div class="tour-card-meta-top">
-            <div class="tour-card-area">
-                <i class="fa-solid fa-location-dot"></i> Etna &amp; Borghi            </div>
-                            <span class="tour-card-category-pill">
-                    Enogastronomia &amp; Cantine DOC                </span>
-                    </div>
-
-        <h3 class="tour-card-title">
-            <a href="tour-dettaglio.html" style="color: inherit;">
-                Tour 3 Giorni: Bike &amp; Taste tra Etna, Randazzo &amp; Bronte            </a>
-        </h3>
-
-        <p class="tour-card-desc">
-            La circumnavigazione dell&#039;Etna in 3 tappe indimenticabili: sapori di cantina, boschi vulcanici e le colate più scenografiche.        </p>
-
-        <div class="tour-specs-strip">
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">160 km</span>
-                <span class="tour-spec-lbl">Lunghezza</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-mountain tour-spec-icon"></i>
-                <span class="tour-spec-val">+3.200 m</span>
-                <span class="tour-spec-lbl">Dislivello</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
-                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
-                <span class="tour-spec-lbl">Livello</span>
-            </div>
-        </div>
-
-        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
-                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:9,&quot;slug&quot;:&quot;tour-ebike-etna-sicilia-3-giorni&quot;,&quot;title&quot;:&quot;Tour 3 Giorni: Bike &amp; Taste tra Etna, Randazzo &amp; Bronte&quot;,&quot;price&quot;:390,&quot;duration&quot;:&quot;3 Giorni \/ 2 Notti&quot;})">
-                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
-        </div>
-    </div>
-</div>
-                    </div>
-                                    <div class="tours-carousel-item">
-                        <div class="tour-card" 
-     data-category="tour" 
-     data-area="nebrodi"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'nebrodi'))"
-     x-transition:enter="transition ease-out duration-200"
-     x-transition:enter-start="opacity-0 transform scale-95"
-     x-transition:enter-end="opacity-100 transform scale-100">
-    <div class="tour-card-media">
-        <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/IMG-20251008-WA0024.jpg" alt="Grand Tour 4 Giorni: Cicloturismo tra Parco dei Nebrodi ed Etna" loading="lazy">
-        </a>
-        
-        <!-- Badge Durata (compatto in alto a sinistra) -->
-        <span class="tour-badge-duration">
-            <i class="fa-regular fa-clock"></i> 4 Giorni / 3 Notti        </span>
-
-        <!-- Badge Top Choice (compatto in alto a destra) -->
-        
-        <div class="tour-card-price-tag">
-            A partire da <span>€520</span>
-        </div>
-    </div>
-
-    <div class="tour-card-body">
-        <div class="tour-card-meta-top">
-            <div class="tour-card-area">
-                <i class="fa-solid fa-location-dot"></i> Nebrodi &amp; Etna            </div>
-                            <span class="tour-card-category-pill">
-                    Boschi &amp; Laghi dei Nebrodi                </span>
-                    </div>
-
-        <h3 class="tour-card-title">
-            <a href="tour-dettaglio.html" style="color: inherit;">
-                Grand Tour 4 Giorni: Cicloturismo tra Parco dei Nebrodi ed Etna            </a>
-        </h3>
-
-        <p class="tour-card-desc">
-            Una grande traversata tra la Sicilia più verde e selvaggia e le imponenti quote vulcaniche dell&#039;Etna.        </p>
-
-        <div class="tour-specs-strip">
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">210 km</span>
-                <span class="tour-spec-lbl">Lunghezza</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-mountain tour-spec-icon"></i>
-                <span class="tour-spec-val">+4.100 m</span>
-                <span class="tour-spec-lbl">Dislivello</span>
-            </div>
-            <div class="tour-spec-item">
-                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
-                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio / Impegnativo</span>
-                <span class="tour-spec-lbl">Livello</span>
-            </div>
-        </div>
-
-        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
-            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
-                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:10,&quot;slug&quot;:&quot;tour-ebike-etna-nebrodi-sicilia-4giorni&quot;,&quot;title&quot;:&quot;Grand Tour 4 Giorni: Cicloturismo tra Parco dei Nebrodi ed Etna&quot;,&quot;price&quot;:520,&quot;duration&quot;:&quot;4 Giorni \/ 3 Notti&quot;})">
-                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
-        </div>
-    </div>
-</div>
-                    </div>
-                                    <div class="tours-carousel-item">
-                        <div class="tour-card" 
-     data-category="tour" 
-     data-area="isole"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'isole'))"
-     x-transition:enter="transition ease-out duration-200"
-     x-transition:enter-start="opacity-0 transform scale-95"
-     x-transition:enter-end="opacity-100 transform scale-100">
-    <div class="tour-card-media">
-        <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/Immagine-WhatsApp-2025-04-06-ore-09.21.16_3d0a628f.jpg" alt="Cicloturismo alle Isole Eolie: Bici &amp; Barca tra Mare e Vulcani" loading="lazy">
+            <img src="assets/img/tours/tour-isole-eolie-bici-barca-5giorni-1.png" alt="Cicloturismo alle Isole Eolie" loading="lazy">
         </a>
         
         <!-- Badge Durata (compatto in alto a sinistra) -->
@@ -1142,9 +819,6 @@
             <i class="fa-regular fa-clock"></i> 5 Giorni / 4 Notti        </span>
 
         <!-- Badge Top Choice (compatto in alto a destra) -->
-                    <span class="tour-badge-featured">
-                <i class="fa-solid fa-star"></i> Top Choice
-            </span>
         
         <div class="tour-card-price-tag">
             A partire da <span>€790</span>
@@ -1161,26 +835,26 @@
 
         <h3 class="tour-card-title">
             <a href="tour-dettaglio.html" style="color: inherit;">
-                Cicloturismo alle Isole Eolie: Bici &amp; Barca tra Mare e Vulcani            </a>
+                Cicloturismo alle Isole Eolie            </a>
         </h3>
 
         <p class="tour-card-desc">
-            Una vacanza da sogno a pedali navigando tra Lipari, Vulcano, Salina e Stromboli con e-bike e barca privata.        </p>
+            Un'avventura di 5 giorni tra mare e vulcani: pedalate panoramiche in e-bike e navigazioni private tra Lipari, Vulcano e Salina.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
                 <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">220 km</span>
+                <span class="tour-spec-val">350 km (totale)</span>
                 <span class="tour-spec-lbl">Lunghezza</span>
             </div>
             <div class="tour-spec-item">
                 <i class="fa-solid fa-mountain tour-spec-icon"></i>
-                <span class="tour-spec-val">+3.500 m</span>
+                <span class="tour-spec-val">+1.200 m</span>
                 <span class="tour-spec-lbl">Dislivello</span>
             </div>
             <div class="tour-spec-item">
                 <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
-                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio / Facile</span>
                 <span class="tour-spec-lbl">Livello</span>
             </div>
         </div>
@@ -1188,7 +862,7 @@
         <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
                 <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:11,&quot;slug&quot;:&quot;tour-isole-eolie-bici-barca-5giorni&quot;,&quot;title&quot;:&quot;Cicloturismo alle Isole Eolie: Bici &amp; Barca tra Mare e Vulcani&quot;,&quot;price&quot;:790,&quot;duration&quot;:&quot;5 Giorni \/ 4 Notti&quot;})">
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:6,&quot;slug&quot;:&quot;tour-isole-eolie-bici-barca-5giorni&quot;,&quot;title&quot;:&quot;Cicloturismo alle Isole Eolie&quot;,&quot;price&quot;:790,&quot;duration&quot;:&quot;5 Giorni \/ 4 Notti&quot;})">
                 <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
@@ -1197,14 +871,14 @@
                                     <div class="tours-carousel-item">
                         <div class="tour-card" 
      data-category="tour" 
-     data-area="barocco"
-     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'barocco'))"
+     data-area="val-di-noto"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'tour') && (activeArea === 'all' || activeArea === 'val-di-noto'))"
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0 transform scale-95"
      x-transition:enter-end="opacity-100 transform scale-100">
     <div class="tour-card-media">
         <a href="tour-dettaglio.html">
-            <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-106.jpg" alt="Barocco Siciliano &amp; Costa: 7 Giorni di Bellezza nella Val di Noto" loading="lazy">
+            <img src="assets/img/tours/sicilia-ebike-citta-barocche-spiagge-1.png" alt="Barocco Siciliano: Cinque Tappe di assoluta bellezza nella Val di Noto" loading="lazy">
         </a>
         
         <!-- Badge Durata (compatto in alto a sinistra) -->
@@ -1212,9 +886,6 @@
             <i class="fa-regular fa-clock"></i> 7 Giorni / 6 Notti        </span>
 
         <!-- Badge Top Choice (compatto in alto a destra) -->
-                    <span class="tour-badge-featured">
-                <i class="fa-solid fa-star"></i> Top Choice
-            </span>
         
         <div class="tour-card-price-tag">
             A partire da <span>€890</span>
@@ -1224,23 +895,23 @@
     <div class="tour-card-body">
         <div class="tour-card-meta-top">
             <div class="tour-card-area">
-                <i class="fa-solid fa-location-dot"></i> Val di Noto &amp; Sud Est            </div>
+                <i class="fa-solid fa-location-dot"></i> Val di Noto            </div>
                             <span class="tour-card-category-pill">
-                    Borghi Medievali &amp; Castelli                </span>
+                    Barocco Siciliano &amp; Val di Noto                </span>
                     </div>
 
         <h3 class="tour-card-title">
             <a href="tour-dettaglio.html" style="color: inherit;">
-                Barocco Siciliano &amp; Costa: 7 Giorni di Bellezza nella Val di Noto            </a>
+                Barocco Siciliano: Cinque Tappe di assoluta bellezza nella Val di Noto            </a>
         </h3>
 
         <p class="tour-card-desc">
-            Un viaggio da favola tra le meraviglie UNESCO di Noto, Modica, Scicli, Ragusa Ibla e la riserva marina di Vendicari.        </p>
+            Un suggestivo viaggio cicloturistico di 7 giorni tra le capitali del Barocco UNESCO, agrumeti secolari e spiagge dorate.        </p>
 
         <div class="tour-specs-strip">
             <div class="tour-spec-item">
                 <i class="fa-solid fa-route tour-spec-icon"></i>
-                <span class="tour-spec-val">280 km</span>
+                <span class="tour-spec-val">250-300 km</span>
                 <span class="tour-spec-lbl">Lunghezza</span>
             </div>
             <div class="tour-spec-item">
@@ -1258,7 +929,342 @@
         <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
             <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
                 <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
-            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:12,&quot;slug&quot;:&quot;sicilia-ebike-citta-barocche-spiagge-val-di-noto&quot;,&quot;title&quot;:&quot;Barocco Siciliano &amp; Costa: 7 Giorni di Bellezza nella Val di Noto&quot;,&quot;price&quot;:890,&quot;duration&quot;:&quot;7 Giorni \/ 6 Notti&quot;})">
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:7,&quot;slug&quot;:&quot;sicilia-ebike-citta-barocche-spiagge&quot;,&quot;title&quot;:&quot;Barocco Siciliano: Cinque Tappe di assoluta bellezza nella Val di Noto&quot;,&quot;price&quot;:890,&quot;duration&quot;:&quot;7 Giorni \/ 6 Notti&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
+        </div>
+    </div>
+</div>
+                    </div>
+                                    <div class="tours-carousel-item">
+                        <div class="tour-card" 
+     data-category="escursione" 
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/tours/escursione-in-bici-randazzo-bronte-1.png" alt="Escursione in E-Bike alla scoperta dei sapori dell'Etna: da Randazzo a Bronte" loading="lazy">
+        </a>
+        
+        <!-- Badge Durata (compatto in alto a sinistra) -->
+        <span class="tour-badge-duration">
+            <i class="fa-regular fa-clock"></i> 4-6 ore        </span>
+
+        <!-- Badge Top Choice (compatto in alto a destra) -->
+        
+        <div class="tour-card-price-tag">
+            A partire da <span>€95</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-meta-top">
+            <div class="tour-card-area">
+                <i class="fa-solid fa-location-dot"></i> Etna            </div>
+                            <span class="tour-card-category-pill">
+                    Vulcano Etna &amp; Crateri                </span>
+                    </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Escursione in E-Bike alla scoperta dei sapori dell'Etna: da Randazzo a Bronte            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            Un'affascinante escursione in e-bike alle pendici dell'Etna tra borghi medievali, la Pista Altomontana, Bronte e il Castello di Nelson.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">40-50 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+850 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:8,&quot;slug&quot;:&quot;escursione-in-bici-randazzo-bronte&quot;,&quot;title&quot;:&quot;Escursione in E-Bike alla scoperta dei sapori dell'Etna: da Randazzo a Bronte&quot;,&quot;price&quot;:95,&quot;duration&quot;:&quot;4-6 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
+        </div>
+    </div>
+</div>
+                    </div>
+                                    <div class="tours-carousel-item">
+                        <div class="tour-card" 
+     data-category="escursione" 
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-1.jpg" alt="Escursione in e-bike  da Randazzo a Floresta: vivi la Sicilia più verde" loading="lazy">
+        </a>
+        
+        <!-- Badge Durata (compatto in alto a sinistra) -->
+        <span class="tour-badge-duration">
+            <i class="fa-regular fa-clock"></i> 4-6 ore        </span>
+
+        <!-- Badge Top Choice (compatto in alto a destra) -->
+        
+        <div class="tour-card-price-tag">
+            A partire da <span>€90</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-meta-top">
+            <div class="tour-card-area">
+                <i class="fa-solid fa-location-dot"></i> Nebrodi            </div>
+                            <span class="tour-card-category-pill">
+                    Boschi &amp; Laghi dei Nebrodi                </span>
+                    </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Escursione in e-bike  da Randazzo a Floresta: vivi la Sicilia più verde            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            Un'emozionante pedalata nel cuore del Parco dei Nebrodi da Randazzo fino a Floresta, il comune più alto della Sicilia.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">46 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+950 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:9,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta&quot;,&quot;title&quot;:&quot;Escursione in e-bike  da Randazzo a Floresta: vivi la Sicilia pi\u00f9 verde&quot;,&quot;price&quot;:90,&quot;duration&quot;:&quot;4-6 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
+        </div>
+    </div>
+</div>
+                    </div>
+                                    <div class="tours-carousel-item">
+                        <div class="tour-card" 
+     data-category="escursione" 
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/tours/escursione-in-bicicletta-etna-1.jpg" alt="Escursione in E-Bike sull’Etna con Visita alla Grotta dei Lamponi" loading="lazy">
+        </a>
+        
+        <!-- Badge Durata (compatto in alto a sinistra) -->
+        <span class="tour-badge-duration">
+            <i class="fa-regular fa-clock"></i> 4-6 ore        </span>
+
+        <!-- Badge Top Choice (compatto in alto a destra) -->
+        
+        <div class="tour-card-price-tag">
+            A partire da <span>€90</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-meta-top">
+            <div class="tour-card-area">
+                <i class="fa-solid fa-location-dot"></i> Etna            </div>
+                            <span class="tour-card-category-pill">
+                    Vulcano Etna &amp; Crateri                </span>
+                    </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Escursione in E-Bike sull’Etna con Visita alla Grotta dei Lamponi            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            Un'avvincente escursione in e-bike sui campi lavici dell'Etna nord con esplorazione sotterranea della spettacolare Grotta dei Lamponi.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">35-45 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+900 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:10,&quot;slug&quot;:&quot;escursione-in-bicicletta-etna&quot;,&quot;title&quot;:&quot;Escursione in E-Bike sull\u2019Etna con Visita alla Grotta dei Lamponi&quot;,&quot;price&quot;:90,&quot;duration&quot;:&quot;4-6 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
+        </div>
+    </div>
+</div>
+                    </div>
+                                    <div class="tours-carousel-item">
+                        <div class="tour-card" 
+     data-category="escursione" 
+     data-area="nebrodi"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'nebrodi'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/tours/escursione-in-bici-sui-nebrodi-1.jpg" alt="Escursione in e-bike: Dorsale dei Nebrodi" loading="lazy">
+        </a>
+        
+        <!-- Badge Durata (compatto in alto a sinistra) -->
+        <span class="tour-badge-duration">
+            <i class="fa-regular fa-clock"></i> 4-6 ore        </span>
+
+        <!-- Badge Top Choice (compatto in alto a destra) -->
+        
+        <div class="tour-card-price-tag">
+            A partire da <span>€140</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-meta-top">
+            <div class="tour-card-area">
+                <i class="fa-solid fa-location-dot"></i> Nebrodi            </div>
+                            <span class="tour-card-category-pill">
+                    Boschi &amp; Laghi dei Nebrodi                </span>
+                    </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Escursione in e-bike: Dorsale dei Nebrodi            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            Un'indimenticabile traversata in e-bike lungo i crinali montuosi della celebre Dorsale dei Nebrodi tra laghi e faggi secolari.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">35-40 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+1.100 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio / Impegnativo</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:11,&quot;slug&quot;:&quot;escursione-in-bici-sui-nebrodi&quot;,&quot;title&quot;:&quot;Escursione in e-bike: Dorsale dei Nebrodi&quot;,&quot;price&quot;:140,&quot;duration&quot;:&quot;4-6 ore&quot;})">
+                <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
+        </div>
+    </div>
+</div>
+                    </div>
+                                    <div class="tours-carousel-item">
+                        <div class="tour-card" 
+     data-category="escursione" 
+     data-area="etna"
+     x-show="typeof activeCategory === 'undefined' || ((activeCategory === 'all' || activeCategory === 'escursione') && (activeArea === 'all' || activeArea === 'etna'))"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform scale-95"
+     x-transition:enter-end="opacity-100 transform scale-100">
+    <div class="tour-card-media">
+        <a href="tour-dettaglio.html">
+            <img src="assets/img/tours/escursione-etna-e-degustazione-vino-1.png" alt="Escursione in e-bike sull’Etna con degustazione di Vini" loading="lazy">
+        </a>
+        
+        <!-- Badge Durata (compatto in alto a sinistra) -->
+        <span class="tour-badge-duration">
+            <i class="fa-regular fa-clock"></i> 3h tour + 2h tasting        </span>
+
+        <!-- Badge Top Choice (compatto in alto a destra) -->
+        
+        <div class="tour-card-price-tag">
+            A partire da <span>€90</span>
+        </div>
+    </div>
+
+    <div class="tour-card-body">
+        <div class="tour-card-meta-top">
+            <div class="tour-card-area">
+                <i class="fa-solid fa-location-dot"></i> Etna            </div>
+                            <span class="tour-card-category-pill">
+                    Vulcano Etna &amp; Crateri                </span>
+                    </div>
+
+        <h3 class="tour-card-title">
+            <a href="tour-dettaglio.html" style="color: inherit;">
+                Escursione in e-bike sull’Etna con degustazione di Vini            </a>
+        </h3>
+
+        <p class="tour-card-desc">
+            Un'esperienza sensoriale che unisce una pedalata in e-bike sui sentieri vulcanici dell'Etna a una degustazione di vini pregiati in cantina.        </p>
+
+        <div class="tour-specs-strip">
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-route tour-spec-icon"></i>
+                <span class="tour-spec-val">30-40 km</span>
+                <span class="tour-spec-lbl">Lunghezza</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-mountain tour-spec-icon"></i>
+                <span class="tour-spec-val">+750 m</span>
+                <span class="tour-spec-lbl">Dislivello</span>
+            </div>
+            <div class="tour-spec-item">
+                <i class="fa-solid fa-gauge-high tour-spec-icon"></i>
+                <span class="tour-spec-val" style="font-size: 0.78rem;">Medio / Facile</span>
+                <span class="tour-spec-lbl">Livello</span>
+            </div>
+        </div>
+
+        <div class="tour-card-footer" style="display: flex; gap: 0.6rem; align-items: stretch;">
+            <a href="tour-dettaglio.html" class="btn btn-outline-primary" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;">
+                <i class="fa-solid fa-circle-info"></i> Dettagli            </a>
+            <button class="btn btn-accent" style="flex: 1; height: 42px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 0.6rem; font-size: 0.88rem; white-space: nowrap;" @click="openBooking({&quot;id&quot;:12,&quot;slug&quot;:&quot;escursione-etna-e-degustazione-vino&quot;,&quot;title&quot;:&quot;Escursione in e-bike sull\u2019Etna con degustazione di Vini&quot;,&quot;price&quot;:90,&quot;duration&quot;:&quot;3h tour + 2h tasting&quot;})">
                 <i class="fa-solid fa-calendar-check"></i> Prenota            </button>
         </div>
     </div>
@@ -1281,7 +1287,7 @@
                         </div>
                     </div>
                     <p style="font-size: 0.95rem; color: var(--color-gray-600); line-height: 1.6; margin-bottom: 1.5rem;">
-                        Uscite da mezza giornata o giornata intera tra colate laviche, crateri, boschi e degustazioni in cantina. Ideali per chi vuole vivere un&#039;esperienza indimenticabile.                    </p>
+                        Uscite da mezza giornata o giornata intera tra colate laviche, crateri, boschi e degustazioni in cantina. Ideali per chi vuole vivere un'esperienza indimenticabile.                    </p>
                 </div>
                 <a href="escursioni.html" class="btn btn-outline-primary" style="width: 100%; font-weight: 700;">
                     <i class="fa-solid fa-compass"></i> Scopri tutte le Escursioni <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i>
@@ -1300,7 +1306,7 @@
                         </div>
                     </div>
                     <p style="font-size: 0.95rem; color: var(--color-gray-600); line-height: 1.6; margin-bottom: 1.5rem;">
-                        Vacanze complete in e-bike con pernottamento in dimore di charme, trasporto valigie da tappa a tappa, cene tipiche e furgone d&#039;appoggio sempre al seguito.                    </p>
+                        Vacanze complete in e-bike con pernottamento in dimore di charme, trasporto valigie da tappa a tappa, cene tipiche e furgone d'appoggio sempre al seguito.                    </p>
                 </div>
                 <a href="tour.html" class="btn btn-primary" style="width: 100%; font-weight: 700;">
                     <i class="fa-solid fa-route"></i> Scopri tutti i Tour Itineranti <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i>
@@ -1322,6 +1328,7 @@
         <!-- Tailor Made Custom Tour Builder Component (Alpine.js) -->
 <div class="builder-box" x-data="{
     step: 1,
+    showPrices: false,
     selectedRegions: ['Etna', 'Nebrodi'],
     durationDays: 3,
     participants: 2,
@@ -1332,6 +1339,7 @@
     customerEmail: '',
     customerPhone: '',
     customerNotes: '',
+    referralCode: '',
     builderSubmitted: false,
     isSubmitting: false,
     
@@ -1376,6 +1384,7 @@
                 type: 'configuratore',
                 tour_title: 'Tour su Misura (' + this.selectedRegions.join(', ') + ')',
                 participants: this.participants,
+                referral_code: this.referralCode,
                 notes: this.customerNotes,
                 details: {
                     destinations: this.selectedRegions,
@@ -1397,6 +1406,9 @@
     },
     
     getCustomWaLink() {
+        let priceLine = this.showPrices 
+            ? `💰 Stima orientativa: circa €${this.calculateEstimate()}`
+            : `📋 Preventivo: Richiesta preventivo su misura per il gruppo`;
         let text = `*RICHIESTA TOUR SU MISURA - SICILY BIKE TOURS*\n` +
                    `📍 Aree scelte: ${this.selectedRegions.join(', ')}\n` +
                    `⏱ Durata: ${this.durationDays} Giorni\n` +
@@ -1407,7 +1419,7 @@
                    `👤 Nome: ${this.customerName || 'Cliente'}\n` +
                    `📞 Tel: ${this.customerPhone || 'Non specificato'}\n` +
                    `📝 Note: ${this.customerNotes || 'Nessuna'}\n` +
-                   `💰 Stima orientativa: circa €${this.calculateEstimate()}`;
+                   priceLine;
         return `https://wa.me/393297568883?text=` + encodeURIComponent(text);
     }
 }">
@@ -1449,7 +1461,7 @@
                         <h4 style="font-size: 1.15rem;">Vulcano Etna</h4>
                         <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Vulcano Etna') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
                     </div>
-                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">Crateri, colate laviche, grotte e pinete d&#039;alta quota.</p>
+                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">Crateri, colate laviche, grotte e pinete d'alta quota.</p>
                 </div>
             </div>
                         <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Parco dei Nebrodi') }" @click="toggleRegion('Parco dei Nebrodi')">
@@ -1463,10 +1475,10 @@
                 </div>
             </div>
                         <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Valle dell\'Alcantara & Castiglione') }" @click="toggleRegion('Valle dell\'Alcantara & Castiglione')">
-                <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-77.jpg" alt="Valle dell&#039;Alcantara &amp; Castiglione" class="region-card-img">
+                <img src="assets/img/gallery/escursioni-in-bicicletta-Sicilia-escursioni-in-bicicletta-elettrica-Sicilia-Escursioni-in-bici-Sicilia-Orientale-Escursioni-sullEtna-Escursione-sui-Nebrodi-Escursioni-Madonie-77.jpg" alt="Valle dell'Alcantara &amp; Castiglione" class="region-card-img">
                 <div class="region-card-content">
                     <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem;">
-                        <h4 style="font-size: 1.15rem;">Valle dell&#039;Alcantara &amp; Castiglione</h4>
+                        <h4 style="font-size: 1.15rem;">Valle dell'Alcantara &amp; Castiglione</h4>
                         <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Valle dell\'Alcantara & Castiglione') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
                     </div>
                     <p style="font-size: 0.85rem; color: var(--color-gray-600);">Canyon di basalto colonnare, fiumi cristallini e borghi medievali.</p>
@@ -1490,6 +1502,16 @@
                         <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Val di Noto & Costa Barocca') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
                     </div>
                     <p style="font-size: 0.85rem; color: var(--color-gray-600);">Scicli, Modica, Noto e le oasi marine protette tra muri a secco.</p>
+                </div>
+            </div>
+                        <div class="region-checkbox-card" :class="{ 'selected': selectedRegions.includes('Altro') }" @click="toggleRegion('Altro')">
+                <img src="assets/img/uploads/escursione-etna-e-degustazione-vino-4_1792140991_9eca7.jpg" alt="Altro" class="region-card-img">
+                <div class="region-card-content">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.3rem;">
+                        <h4 style="font-size: 1.15rem;">Altro</h4>
+                        <i class="fa-solid fa-circle-check" style="font-size: 1.25rem;" :style="selectedRegions.includes('Altro') ? 'color: var(--color-primary)' : 'color: var(--color-gray-300)'"></i>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--color-gray-600);">Indicami un posto che ti piacerebbe visitare-</p>
                 </div>
             </div>
                     </div>
@@ -1606,7 +1628,8 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€28</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Pranzo Tipico / Home Restaurant')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -1615,11 +1638,12 @@
                     <i class="fa-solid fa-wine-glass" style="color: var(--color-primary); font-size: 1.3rem;"></i>
                     <div>
                         <strong style="display: block; font-size: 0.98rem;">Degustazione Vini DOC Etna in Cantina Storica</strong>
-                        <span style="font-size: 0.82rem; color: var(--color-gray-500);">Visita ai vigneti d&#039;alta quota e degustazione 3-4 calici con tagliere.</span>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500);">Visita ai vigneti d'alta quota e degustazione 3-4 calici con tagliere.</span>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€30</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Degustazione Vini DOC Etna in Cantina Storica')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -1632,7 +1656,8 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€70</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Notte in Dimora Tipica / Agriturismo con Colazione')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -1645,7 +1670,8 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€120</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Barca Privata per Traversate Isole Eolie')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
@@ -1658,8 +1684,23 @@
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€35</span>
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
                                         <input type="checkbox" :checked="selectedExtras.includes('Furgone di Supporto al Seguito & Trasporto Bagagli')" style="accent-color: var(--color-primary); transform: scale(1.3);">
+                </div>
+            </div>
+                        <div class="region-checkbox-card" style="padding: 1.25rem; display: flex; align-items: center; justify-content: space-between;" :class="{ 'selected': selectedExtras.includes('Per Famiglia') }" @click="toggleExtra('Per Famiglia')">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fa-solid fa-children" style="color: var(--color-primary); font-size: 1.3rem;"></i>
+                    <div>
+                        <strong style="display: block; font-size: 0.98rem;">Per Famiglia</strong>
+                        <span style="font-size: 0.82rem; color: var(--color-gray-500);">Esperienza per bambini.</span>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                            <span style="font-size: 0.76rem; font-weight: 600; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Incluso nel preventivo                        </span>
+                                        <input type="checkbox" :checked="selectedExtras.includes('Per Famiglia')" style="accent-color: var(--color-primary); transform: scale(1.3);">
                 </div>
             </div>
                     </div>
@@ -1694,11 +1735,17 @@
                     <li><strong>⭐ Extra selezionati:</strong> <span x-text="selectedExtras.join(', ') || 'Nessuno'"></span></li>
                 </ul>
 
-                <div style="margin-top: 1.4rem; padding-top: 1rem; border-top: 1px dashed rgba(24, 68, 73, 0.2); display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-size: 0.88rem; font-weight: 700; color: var(--color-primary);">Stima Orientativa Gruppo:</span>
-                    <span style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-dark);" x-text="'€' + calculateEstimate()"></span>
+                                <div style="margin-top: 1.25rem; padding: 1rem 1.1rem; border-radius: var(--radius-md); background: #ffffff; border: 1.5px solid rgba(144, 201, 92, 0.6); display: flex; align-items: center; gap: 0.85rem; box-shadow: var(--shadow-sm);">
+                    <div style="width: 42px; height: 42px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-primary-dark); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <div>
+                        <strong style="display: block; font-size: 0.92rem; color: var(--color-primary-dark);">Preventivo su Misura Gratuito</strong>
+                        <span style="font-size: 0.8rem; color: var(--color-gray-600); line-height: 1.35; display: block;">
+                            Ricevi un itinerario personalizzato e la migliore quotazione riservata per il tuo gruppo entro 24 ore, senza impegno.                        </span>
+                    </div>
                 </div>
-            </div>
+                            </div>
 
             <!-- Form Invio -->
             <div>
@@ -1726,7 +1773,8 @@
 
                     <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
                         <button type="submit" class="btn btn-primary" style="flex: 1;" :disabled="isSubmitting">
-                            <span x-show="!isSubmitting"><i class="fa-solid fa-paper-plane"></i> Invia Richiesta Tour</span>
+                            <span x-show="!isSubmitting">
+                                <i class="fa-solid fa-paper-plane"></i> Richiedi Preventivo Gratuito                            </span>
                             <span x-show="isSubmitting"><i class="fa-solid fa-spinner fa-spin"></i> Invio in corso...</span>
                         </button>
                         <a :href="getCustomWaLink()" target="_blank" class="btn btn-accent">
@@ -1740,8 +1788,8 @@
         <!-- Success Message -->
         <div x-show="builderSubmitted" style="display: none; text-align: center; margin-top: 2rem; padding: 2rem; background: var(--color-white); border-radius: var(--radius-lg); border: 2px solid var(--color-accent);">
             <i class="fa-solid fa-circle-check" style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 0.75rem;"></i>
-            <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);">Configurazione Inviata con Successo!</h3>
-            <p style="color: var(--color-gray-600); margin-top: 0.5rem;">Grazie! Mariella e il team di Sicily Bike Tours prepareranno il tuo preventivo personalizzato su misura entro 24 ore.</p>
+            <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);">Richiesta Preventivo Inviata con Successo!</h3>
+            <p style="color: var(--color-gray-600); margin-top: 0.5rem;">Grazie! Mariella e il team di Sicily Bike Tours hanno ricevuto tutti i dettagli del tuo tour personalizzato e ti ricontatteranno via email o WhatsApp entro 24 ore.</p>
         </div>
     </div>
 </div>
@@ -1761,7 +1809,7 @@
                                             <div class="tour-card" style="display: flex; flex-direction: column;">
                     <div class="tour-card-media" style="height: 220px;">
                         <a href="articolo.html">
-                            <img src="assets/img/gallery/summit.jpg" alt="Guida Completa all&#039;E-Bike sull&#039;Etna: Percorsi, Quote e Consigli Utili" loading="lazy">
+                            <img src="assets/img/gallery/summit.jpg" alt="Guida Completa all'E-Bike sull'Etna: Percorsi, Quote e Consigli Utili" loading="lazy">
                         </a>
                         <div class="tour-card-badges">
                             <span class="badge badge-dark">
@@ -1777,11 +1825,11 @@
 
                         <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; line-height: 1.35;">
                             <a href="articolo.html" style="color: inherit;">
-                                Guida Completa all&#039;E-Bike sull&#039;Etna: Percorsi, Quote e Consigli Utili                            </a>
+                                Guida Completa all'E-Bike sull'Etna: Percorsi, Quote e Consigli Utili                            </a>
                         </h3>
 
                         <p style="font-size: 0.92rem; color: var(--color-gray-600); margin-bottom: 1.5rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6;">
-                            Tutto quello che devi sapere prima di salire sull&#039;Etna in bicicletta elettrica: dai sentieri sterrati tra le pinete della Ragabo alle quote sommitali e ai tunnel di scorrimento lavico.                        </p>
+                            Tutto quello che devi sapere prima di salire sull'Etna in bicicletta elettrica: dai sentieri sterrati tra le pinete della Ragabo alle quote sommitali e ai tunnel di scorrimento lavico.                        </p>
 
                         <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--color-gray-100); padding-top: 1rem;">
                             <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-dark);">
@@ -1795,7 +1843,7 @@
                                             <div class="tour-card" style="display: flex; flex-direction: column;">
                     <div class="tour-card-media" style="height: 220px;">
                         <a href="articolo.html">
-                            <img src="assets/img/gallery/IMG-20251008-WA0031-scaled.jpg" alt="Cicloturismo tra i Nebrodi e l&#039;Argimusco: La Stonehenge Siciliana su Due Ruote" loading="lazy">
+                            <img src="assets/img/gallery/IMG-20251008-WA0031-scaled.jpg" alt="Cicloturismo tra i Nebrodi e l'Argimusco: La Stonehenge Siciliana su Due Ruote" loading="lazy">
                         </a>
                         <div class="tour-card-badges">
                             <span class="badge badge-dark">
@@ -1811,11 +1859,11 @@
 
                         <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; line-height: 1.35;">
                             <a href="articolo.html" style="color: inherit;">
-                                Cicloturismo tra i Nebrodi e l&#039;Argimusco: La Stonehenge Siciliana su Due Ruote                            </a>
+                                Cicloturismo tra i Nebrodi e l'Argimusco: La Stonehenge Siciliana su Due Ruote                            </a>
                         </h3>
 
                         <p style="font-size: 0.92rem; color: var(--color-gray-600); margin-bottom: 1.5rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6;">
-                            Un itinerario affascinante tra boschi secolari, borghi medievali come Montalbano Elicona e le misteriose formazioni rocciose dell&#039;altopiano dell&#039;Argimusco.                        </p>
+                            Un itinerario affascinante tra boschi secolari, borghi medievali come Montalbano Elicona e le misteriose formazioni rocciose dell'altopiano dell'Argimusco.                        </p>
 
                         <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--color-gray-100); padding-top: 1rem;">
                             <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-dark);">
@@ -1829,7 +1877,7 @@
                                             <div class="tour-card" style="display: flex; flex-direction: column;">
                     <div class="tour-card-media" style="height: 220px;">
                         <a href="articolo.html">
-                            <img src="assets/img/gallery/Immagine-WhatsApp-2025-04-06-ore-09.21.16_3d0a628f.jpg" alt="Isole Eolie in Bici e Barca: L&#039;Avventura Cicloturistica tra Mare e Vulcani" loading="lazy">
+                            <img src="assets/img/gallery/Immagine-WhatsApp-2025-04-06-ore-09.21.16_3d0a628f.jpg" alt="Isole Eolie in Bici e Barca: L'Avventura Cicloturistica tra Mare e Vulcani" loading="lazy">
                         </a>
                         <div class="tour-card-badges">
                             <span class="badge badge-dark">
@@ -1845,11 +1893,11 @@
 
                         <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; line-height: 1.35;">
                             <a href="articolo.html" style="color: inherit;">
-                                Isole Eolie in Bici e Barca: L&#039;Avventura Cicloturistica tra Mare e Vulcani                            </a>
+                                Isole Eolie in Bici e Barca: L'Avventura Cicloturistica tra Mare e Vulcani                            </a>
                         </h3>
 
                         <p style="font-size: 0.92rem; color: var(--color-gray-600); margin-bottom: 1.5rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.6;">
-                            Come organizzare una vacanza indimenticabile combinando la barca privata e l&#039;e-bike tra Lipari, Salina e Vulcano: tappe panoramiche, calette segrete e degustazioni di Malvasia.                        </p>
+                            Come organizzare una vacanza indimenticabile combinando la barca privata e l'e-bike tra Lipari, Salina e Vulcano: tappe panoramiche, calette segrete e degustazioni di Malvasia.                        </p>
 
                         <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--color-gray-100); padding-top: 1rem;">
                             <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary-dark);">
@@ -1931,7 +1979,7 @@
                                                             <i class="fa-solid fa-star"></i>
                                                     </div>
                         <p style="font-size: 0.95rem; color: var(--color-gray-700); font-style: italic; margin-bottom: 1.5rem; line-height: 1.6;">
-                            "Siamo partiti con due ragazzi di 12 e 15 anni: si sono divertiti tantissimo e non hanno sentito la minima stanchezza! Natura rigogliosa, cavalli selvaggi e un&#039;assistenza premurosa in ogni momento. Torneremo sicuramente!"
+                            "Siamo partiti con due ragazzi di 12 e 15 anni: si sono divertiti tantissimo e non hanno sentito la minima stanchezza! Natura rigogliosa, cavalli selvaggi e un'assistenza premurosa in ogni momento. Torneremo sicuramente!"
                         </p>
                     </div>
                     <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--color-gray-100); padding-top: 1rem;">
@@ -1958,10 +2006,10 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;" class="partners-responsive-grid">
                             <div class="partner-card" style="background: var(--color-white); border: 1px solid var(--color-gray-200); padding: 1.6rem 1rem; text-align: center; border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: all var(--transition-normal); height: 100%; box-shadow: var(--shadow-sm);">
                     <div class="partner-logo-container" style="height: 52px; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; padding: 0 0.5rem;">
-                                                    <img src="assets/img/partners/parco-etna.svg" alt="Parco dell&#039;Etna" style="max-height: 48px; max-width: 100%; width: auto; height: auto; object-fit: contain;">
+                                                    <img src="assets/img/partners/parco-etna.svg" alt="Parco dell'Etna" style="max-height: 48px; max-width: 100%; width: auto; height: auto; object-fit: contain;">
                                             </div>
                     <div style="margin-bottom: 0.5rem;">
-                        <h4 style="font-size: 1rem; margin-bottom: 0.25rem; color: var(--color-primary-dark); font-weight: 700;">Parco dell&#039;Etna</h4>
+                        <h4 style="font-size: 1rem; margin-bottom: 0.25rem; color: var(--color-primary-dark); font-weight: 700;">Parco dell'Etna</h4>
                         <span style="font-size: 0.8rem; color: var(--color-gray-500); display: block;">Ente Parco Naturale</span>
                     </div>
                     <span class="badge badge-accent" style="font-size: 0.72rem; margin-top: auto;">Patrimonio UNESCO</span>
@@ -2015,7 +2063,7 @@
     <div class="container container-narrow">
         <div class="section-header">
             <span class="section-tag"><i class="fa-solid fa-circle-question"></i> Domande Frequenti</span>
-            <h2 class="section-title">Tutto quello che c&#039;è da sapere</h2>
+            <h2 class="section-title">Tutto quello che c'è da sapere</h2>
             <p class="section-subtitle">Hai dubbi sulle nostre escursioni o sui tour in e-bike? Ecco le risposte più comuni per pedalare senza pensieri.</p>
         </div>
 
@@ -2110,7 +2158,7 @@
                 <ul class="footer-links">
                                             <li><a href="/escursioni.php?area=etna">Vulcano Etna &amp; Crateri</a></li>
                                             <li><a href="/escursioni.php?area=nebrodi">Parco dei Monti Nebrodi</a></li>
-                                            <li><a href="/tour.php?area=nebrodi">Megaliti dell&#039;Argimusco</a></li>
+                                            <li><a href="/tour.php?area=nebrodi">Megaliti dell'Argimusco</a></li>
                                             <li><a href="/tour.php?area=isole">Isole Eolie Bici &amp; Barca</a></li>
                                             <li><a href="/tour.php?area=barocco">Val di Noto &amp; Città Barocche</a></li>
                                             <li><a href="/escursioni.php?area=etna">Strada del Vino Etna DOC</a></li>
@@ -2162,7 +2210,7 @@
 <!-- Booking & Quick Quote Modal -->
 <!-- Booking & Quick Quote Modal (Alpine.js) -->
 <div class="modal-overlay" x-show="bookingModalOpen" style="display: none;" x-transition.opacity @click.self="bookingModalOpen = false" x-data="{
-    date: '2026-10-16',
+    date: '2026-11-09',
     participants: 2,
     hasRiddenEbike: 'yes',
     needTransfer: false,
@@ -2171,6 +2219,9 @@
     clientName: '',
     clientEmail: '',
     clientPhone: '',
+    referralCode: '',
+    partnerName: '',
+    showPromoField: false,
     formSubmitted: false,
     isSubmitting: false,
     
@@ -2184,7 +2235,8 @@
     
     getWaLink() {
         if (!this.selectedTour) return 'https://wa.me/393297568883';
-        let msg = `Ciao Sicily Bike Tours! Vorrei richiedere informazioni e disponibilità per: *${this.selectedTour.title}*\n📅 Data: ${this.date}\n👥 Partecipanti: ${this.participants}\nNome: ${this.clientName || 'Un viaggiatore'}\nNote: ${this.specialNotes || 'Nessuna'}`;
+        let partnerText = this.referralCode ? `\n🤝 Partner / Struttura: ${this.referralCode}` : '';
+        let msg = `Ciao Sicily Bike Tours! Vorrei richiedere informazioni e disponibilità per: *${this.selectedTour.title}*\n📅 Data: ${this.date}\n👥 Partecipanti: ${this.participants}\nNome: ${this.clientName || 'Un viaggiatore'}${partnerText}\nNote: ${this.specialNotes || 'Nessuna'}`;
         return `https://wa.me/393297568883?text=` + encodeURIComponent(msg);
     },
     
@@ -2201,6 +2253,7 @@
                 tour_title: this.selectedTour ? this.selectedTour.title : 'Tour Standard',
                 date: this.date,
                 participants: this.participants,
+                referral_code: this.referralCode,
                 notes: this.specialNotes,
                 details: {
                     has_ridden_ebike: this.hasRiddenEbike,
@@ -2231,13 +2284,21 @@
                     </span>
                     <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);" x-text="selectedTour ? selectedTour.title : 'Prenota il tuo Tour in E-Bike'"></h3>
                     <p style="font-size: 0.92rem; color: var(--color-gray-600);" x-text="selectedTour ? ('Prezzo base: €' + selectedTour.price + ' a persona') : 'Seleziona data e partecipanti per verificare la disponibilità.'"></p>
+
+                    <!-- Banner Struttura Partner Convenzionata -->
+                    <template x-if="partnerName">
+                        <div style="margin-top: 0.75rem; display: flex; align-items: center; gap: 0.5rem; background: #f0fdf4; border: 1.5px solid #86efac; padding: 0.5rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #166534;">
+                            <i class="fa-solid fa-handshake" style="color: #16a34a; font-size: 0.95rem;"></i>
+                            <span>Consigliato da: <strong x-text="partnerName"></strong> <span style="color: #15803d; font-size: 0.76rem;">(Partner Ufficiale Convenzionato)</span></span>
+                        </div>
+                    </template>
                 </div>
 
                 <form @submit.prevent="submitBooking">
                     <div class="form-row-2">
                         <div class="form-group">
                             <label class="form-label">Data Desiderata</label>
-                            <input type="date" class="form-control" x-model="date" min="2026-10-13" required>
+                            <input type="date" class="form-control" x-model="date" min="2026-11-06" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Numero Partecipanti</label>
@@ -2272,7 +2333,7 @@
                     </div>
 
                     <!-- Extra Services -->
-                    <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                    <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: 0; padding: 1rem; margin-bottom: 1.5rem;">
                         <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-gray-600); display: block; margin-bottom: 0.6rem;">Servizi Aggiuntivi & Extra</span>
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
@@ -2291,8 +2352,21 @@
                         <textarea class="form-control" rows="2" placeholder="Altezza partecipanti per le taglie e-bike, intolleranze alimentari, orari preferiti..." x-model="specialNotes"></textarea>
                     </div>
 
+                    <!-- Codice Partner / Referral / Brochure -->
+                    <div style="margin-bottom: 1.25rem;">
+                        <button type="button" @click="showPromoField = !showPromoField" style="background: none; border: none; padding: 0; color: var(--color-gray-600); font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 0.35rem; font-weight: 600;">
+                            <i class="fa-solid fa-qrcode" style="color: var(--color-primary);"></i>
+                            <span x-text="referralCode ? ('Codice Partner/Struttura: ' + referralCode) : 'Alloggi in un B&B / Hotel partner o hai una brochure?'"></span>
+                            <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; transition: transform 0.2s;" :style="showPromoField ? 'transform: rotate(180deg)' : ''"></i>
+                        </button>
+                        <div x-show="showPromoField" style="margin-top: 0.5rem;" x-transition>
+                            <input type="text" class="form-control" style="text-transform: uppercase; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;" placeholder="es. HOTEL-DIODORO" x-model="referralCode">
+                            <span style="font-size: 0.74rem; color: var(--color-gray-500); margin-top: 0.2rem; display: block;">Inserisci il codice riportato sul volantino o comunicato dalla struttura ricettiva.</span>
+                        </div>
+                    </div>
+
                     <!-- Live Total Calculation Bar -->
-                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: 0; padding: 1rem; margin-bottom: 1.5rem;">
                         <div>
                             <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary);">Preventivo Stimato:</span>
                             <div style="font-size: 1.45rem; font-weight: 800; color: var(--color-primary-dark);">

@@ -90,40 +90,109 @@ $initialArea = isset($_GET['area']) ? $_GET['area'] : 'all';
     }
 }">
     <div class="container">
-        <!-- Dynamic Filter Toolbar -->
-        <div style="background: var(--color-white); padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--color-gray-200); margin-bottom: 2.5rem;">
-            
-            <!-- Categorie Dinamiche -->
-            <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-gray-100);">
-                <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary-dark); margin-right: 0.5rem;">
-                    <i class="fa-solid fa-shapes" style="color: var(--color-primary);"></i> Categorie:
-                </span>
-                <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === 'all' }" @click="setCat('all')">
-                    Tutti i Viaggi
-                </button>
-                <?php foreach ($multiCategories as $c): ?>
-                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === '<?= $c['slug'] ?>' }" @click="setCat('<?= $c['slug'] ?>')">
-                        <i class="fa-solid fa-<?= htmlspecialchars($c['icon'] ?? 'check') ?>"></i> <?= htmlspecialchars($c['name_it']) ?>
+        <!-- Responsive Catalog Filter Card -->
+        <div class="catalog-filter-card">
+            <!-- Versione Desktop: Barra di filtri a pillola estesa -->
+            <div class="catalog-filters-desktop hide-on-mobile">
+                <!-- Categorie Dinamiche -->
+                <div class="filter-row-categories">
+                    <span class="filter-label-title">
+                        <i class="fa-solid fa-shapes" style="color: var(--color-primary);"></i> Categorie:
+                    </span>
+                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === 'all' }" @click="setCat('all')">
+                        Tutti i Viaggi
                     </button>
-                <?php endforeach; ?>
+                    <?php foreach ($multiCategories as $c): ?>
+                        <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterCat === '<?= $c['slug'] ?>' }" @click="setCat('<?= $c['slug'] ?>')">
+                            <i class="fa-solid fa-<?= htmlspecialchars($c['icon'] ?? 'check') ?>"></i> <?= htmlspecialchars($c['name_it']) ?>
+                        </button>
+                    <?php endforeach; ?>
+                </div>
+
+                <!-- Destinazioni Aree -->
+                <div class="filter-row-destinations">
+                    <div class="filter-group-destinations">
+                        <span class="filter-label-title" style="color: var(--color-gray-600);">
+                            <i class="fa-solid fa-map-location-dot" style="color: var(--color-primary);"></i> Destinazione:
+                        </span>
+                        <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'all' }" @click="setArea('all')">Tutta la Sicilia</button>
+                        <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'etna' }" @click="setArea('etna')">Etna & Dintorni</button>
+                        <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'nebrodi' }" @click="setArea('nebrodi')">Nebrodi & Megaliti</button>
+                        <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'isole' }" @click="setArea('isole')">Isole Eolie</button>
+                        <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'barocco' }" @click="setArea('barocco')">Val di Noto</button>
+                    </div>
+                    
+                    <a href="<?= BASE_URL ?>/personalizza-tour.php" class="btn btn-accent btn-sm">
+                        <i class="fa-solid fa-sliders"></i> Richiedi Tour su Misura
+                    </a>
+                </div>
             </div>
 
-            <!-- Destinazioni Aree -->
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
-                    <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-gray-600); margin-right: 0.5rem;">
-                        <i class="fa-solid fa-map-location-dot" style="color: var(--color-primary);"></i> Destinazione:
-                    </span>
-                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'all' }" @click="setArea('all')">Tutta la Sicilia</button>
-                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'etna' }" @click="setArea('etna')">Etna & Dintorni</button>
-                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'nebrodi' }" @click="setArea('nebrodi')">Nebrodi & Megaliti</button>
-                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'isole' }" @click="setArea('isole')">Isole Eolie</button>
-                    <button type="button" class="filter-pill btn-sm" :class="{ 'active': filterArea === 'barocco' }" @click="setArea('barocco')">Val di Noto</button>
+            <!-- Versione Mobile: Compatta, Veloce e Non Dispersiva -->
+            <div class="catalog-filters-mobile hide-on-desktop">
+                <div class="mobile-filters-deck">
+                    <!-- Riga 1: Due Dropdown Affiancati (Categoria + Destinazione) -->
+                    <div class="mobile-filter-selects-grid">
+                        <div class="mobile-select-wrap">
+                            <i class="fa-solid fa-shapes mobile-select-icon"></i>
+                            <select class="mobile-filter-select" x-model="filterCat" @change="updateUrl()">
+                                <option value="all">Tutte le Categorie (<?= count($multiTours) ?>)</option>
+                                <?php foreach ($multiCategories as $c): ?>
+                                    <option value="<?= htmlspecialchars($c['slug']) ?>">
+                                        <?= htmlspecialchars($c['name_it']) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                            <i class="fa-solid fa-chevron-down mobile-select-arrow"></i>
+                        </div>
+
+                        <div class="mobile-select-wrap">
+                            <i class="fa-solid fa-map-location-dot mobile-select-icon"></i>
+                            <select class="mobile-filter-select" x-model="filterArea" @change="updateUrl()">
+                                <option value="all">Tutte le Destinazioni</option>
+                                <option value="etna">Etna & Dintorni</option>
+                                <option value="nebrodi">Nebrodi & Megaliti</option>
+                                <option value="isole">Isole Eolie</option>
+                                <option value="barocco">Val di Noto</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down mobile-select-arrow"></i>
+                        </div>
+                    </div>
+
+                    <!-- Riga 2: Micro-Chip a Scorrimento Orizzontale a 1 Tocco -->
+                    <div class="mobile-chips-track">
+                        <button type="button" class="mobile-chip-btn" :class="{ 'active': filterCat === 'all' && filterArea === 'all' }" @click="setCat('all'); setArea('all');">
+                            Tutti
+                        </button>
+                        <button type="button" class="mobile-chip-btn" :class="{ 'active': filterArea === 'etna' }" @click="setArea(filterArea === 'etna' ? 'all' : 'etna')">
+                            🌋 Etna
+                        </button>
+                        <button type="button" class="mobile-chip-btn" :class="{ 'active': filterArea === 'nebrodi' }" @click="setArea(filterArea === 'nebrodi' ? 'all' : 'nebrodi')">
+                            🌲 Nebrodi
+                        </button>
+                        <button type="button" class="mobile-chip-btn" :class="{ 'active': filterArea === 'isole' }" @click="setArea(filterArea === 'isole' ? 'all' : 'isole')">
+                            ⛵ Eolie
+                        </button>
+                        <button type="button" class="mobile-chip-btn" :class="{ 'active': filterArea === 'barocco' }" @click="setArea(filterArea === 'barocco' ? 'all' : 'barocco')">
+                            🏛️ Val di Noto
+                        </button>
+                        <?php foreach ($multiCategories as $c): ?>
+                            <button type="button" class="mobile-chip-btn" :class="{ 'active': filterCat === '<?= $c['slug'] ?>' }" @click="setCat(filterCat === '<?= $c['slug'] ?>' ? 'all' : '<?= $c['slug'] ?>')">
+                                <i class="fa-solid fa-<?= htmlspecialchars($c['icon'] ?? 'tag') ?>"></i> <?= htmlspecialchars($c['name_it']) ?>
+                            </button>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <!-- Riga 3: Barra di Stato Filtri Attivi & Reset Rapido -->
+                    <div class="mobile-filters-status-bar" x-show="filterCat !== 'all' || filterArea !== 'all'" x-cloak>
+                        <span class="active-badge">
+                            <i class="fa-solid fa-filter"></i> Filtri attivi
+                        </span>
+                        <button type="button" class="btn-reset-filters" @click="setCat('all'); setArea('all');">
+                            <i class="fa-solid fa-xmark"></i> Azzera filtri
+                        </button>
+                    </div>
                 </div>
-                
-                <a href="<?= BASE_URL ?>/personalizza-tour.php" class="btn btn-accent btn-sm">
-                    <i class="fa-solid fa-sliders"></i> Richiedi Tour su Misura
-                </a>
             </div>
         </div>
 

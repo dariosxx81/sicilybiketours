@@ -99,6 +99,11 @@ $translations = [
         'custom_step_3' => '3. Livello e Tipo di E-Bike',
         'custom_step_4' => '4. Esperienze Extra',
         'custom_step_5' => '5. Invia Richiesta',
+        'custom_request_quote' => 'Richiedi Preventivo Gratuito',
+        'custom_quote_badge' => 'Preventivo su Misura Gratuito',
+        'custom_quote_desc' => 'Ricevi un itinerario personalizzato e la migliore quotazione riservata per il tuo gruppo entro 24 ore, senza impegno.',
+        'custom_estimate_label' => 'Stima Orientativa Gruppo:',
+        'custom_extra_included' => 'Incluso nel preventivo',
         
         'form_name' => 'Nome e Cognome',
         'form_email' => 'Email',
@@ -220,6 +225,11 @@ $translations = [
         'custom_step_3' => '3. Riding Level & E-Bike Type',
         'custom_step_4' => '4. Extra Experiences',
         'custom_step_5' => '5. Send Inquiry',
+        'custom_request_quote' => 'Request Free Custom Quote',
+        'custom_quote_badge' => 'Free Tailor-Made Quote',
+        'custom_quote_desc' => 'Get a personalized itinerary and the best reserved rate for your group within 24 hours, with no obligation.',
+        'custom_estimate_label' => 'Group Estimate:',
+        'custom_extra_included' => 'Included in custom quote',
         
         'form_name' => 'Full Name',
         'form_email' => 'Email Address',

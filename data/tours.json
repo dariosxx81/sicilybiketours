@@ -1,1086 +1,1180 @@
 [
-  {
-    "id": 1,
-    "wp_id": 1651,
-    "slug": "tour-in-e-bike-e-pranzo-gourmet",
-    "type": "escursione",
-    "category": "Vulcano Etna & Crateri",
-    "category_en": "Mount Etna & Craters",
-    "area": "Etna",
-    "area_tag": "etna",
-    "featured": true,
-    "title": "Escursione in e-bike e pranzo gourmet",
-    "title_en": "Escursione in e-bike e pranzo gourmet",
-    "subtitle": "Vivi un'indimenticabile avventura sull'Etna in e-bike, seguita da un pranzo gourmet in un luogo incantevole, tutto pensato solo per te. Un'esperienza unica che ...",
-    "subtitle_en": "Vivi un'indimenticabile avventura sull'Etna in e-bike, seguita da un pranzo gourmet in un luogo incantevole, tutto pensato solo per te. Un'esperienza unica che ...",
-    "description": "Scopri l'incredibile bellezza dell'Etna con un'escursione in e-bike! Esplora sentieri panoramici, antiche colate laviche e boschi suggestivi con una guida esperta. Visita una home restaurant per assaporare prodotti tipici locali km 0. (Da 150€ a persona )",
-    "description_en": "Scopri l'incredibile bellezza dell'Etna con un'escursione in e-bike! Esplora sentieri panoramici, antiche colate laviche e boschi suggestivi con una guida esperta. Visita una home restaurant per assaporare prodotti tipici locali km 0. (Da 150€ a persona )",
-    "itinerary": "Vivi un'indimenticabile avventura sull'Etna in e-bike, seguita da un pranzo gourmet in un luogo incantevole, tutto pensato solo per te. Un'esperienza unica che ti lascerà senza parole!\"\n\nPartiremo con grande entusiasmo da Milo, un suggestivo paesino ai piedi dell'Etna, per immergerci nella bellezza naturale del bosco della Cerrita. Qui, tra alberi secolari e flora rigogliosa, godremo del fresco e della tranquillità del luogo. Esploreremo una grotta formata dalla lava dell'Etna, ammirando le forme rocciose uniche e lasciandoci affascinare dalla storia millenaria del vulcano.\n\nDurante il percorso, faremo soste panoramiche per ammirare i panorami mozzafiato, percorrere antichi sentieri e godere della maestosità dei paesaggi vulcanici che circondano l'Etna.\n\nAl termine della nostra emozionante escursione in e-bike, faremo ritorno al punto di partenza per gustare un meritato pranzo gourmet preparato dalla nostra amica Barbara, in un luogo incantevole. Qui, avremo l'opportunità di deliziare il palato con autentiche prelibatezze locali e rilassarci dopo l'indimenticabile avventura.\n\nLasciati sorprendere da questa straordinaria esperienza, che combina la bellezza della natura con la gastronomia siciliana, regalandoti un viaggio che resterà impresso nella tua memoria per sempre.",
-    "itinerary_en": "Vivi un'indimenticabile avventura sull'Etna in e-bike, seguita da un pranzo gourmet in un luogo incantevole, tutto pensato solo per te. Un'esperienza unica che ti lascerà senza parole!\"\n\nPartiremo con grande entusiasmo da Milo, un suggestivo paesino ai piedi dell'Etna, per immergerci nella bellezza naturale del bosco della Cerrita. Qui, tra alberi secolari e flora rigogliosa, godremo del fresco e della tranquillità del luogo. Esploreremo una grotta formata dalla lava dell'Etna, ammirando le forme rocciose uniche e lasciandoci affascinare dalla storia millenaria del vulcano.\n\nDurante il percorso, faremo soste panoramiche per ammirare i panorami mozzafiato, percorrere antichi sentieri e godere della maestosità dei paesaggi vulcanici che circondano l'Etna.\n\nAl termine della nostra emozionante escursione in e-bike, faremo ritorno al punto di partenza per gustare un meritato pranzo gourmet preparato dalla nostra amica Barbara, in un luogo incantevole. Qui, avremo l'opportunità di deliziare il palato con autentiche prelibatezze locali e rilassarci dopo l'indimenticabile avventura.\n\nLasciati sorprendere da questa straordinaria esperienza, che combina la bellezza della natura con la gastronomia siciliana, regalandoti un viaggio che resterà impresso nella tua memoria per sempre.",
-    "image": "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg",
-    "gallery": [
-      "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg",
-      "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-2.jpg",
-      "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-3.jpg",
-      "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-4.jpg",
-      "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-5.jpg",
-      "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-6.jpg"
-    ],
-    "price": 150,
-    "price_note": "a persona (minimo 2 persone)",
-    "price_note_en": "per person (min 2 persons)",
-    "duration": "3-4 ore",
-    "duration_en": "3-4 ore",
-    "days": 1,
-    "distance": "30-35 km",
-    "elevation": "+1.100 m",
-    "difficulty": "Medio / Facile",
-    "difficulty_en": "Medio / Facile",
-    "start_location": "Milo",
-    "season": "Aprile - Novembre",
-    "season_en": "Aprile - Novembre",
-    "highlights": [
-      "Vivi un'indimenticabile avventura sull'Etna in e-bike, seguita da un pranzo gourmet in un luogo inca",
-      "Partiremo con grande entusiasmo da Milo, un suggestivo paesino ai piedi dell'Etna, per immergerci ne",
-      "Durante il percorso, faremo soste panoramiche per ammirare i panorami mozzafiato, percorrere antichi",
-      "Al termine della nostra emozionante escursione in e-bike, faremo ritorno al punto di partenza per gu"
-    ],
-    "highlights_en": [
-      "Vivi un'indimenticabile avventura sull'Etna in e-bike, seguita da un pranzo gourmet in un luogo inca",
-      "Partiremo con grande entusiasmo da Milo, un suggestivo paesino ai piedi dell'Etna, per immergerci ne",
-      "Durante il percorso, faremo soste panoramiche per ammirare i panorami mozzafiato, percorrere antichi",
-      "Al termine della nostra emozionante escursione in e-bike, faremo ritorno al punto di partenza per gu"
-    ],
-    "included": [
-      "Noleggio e-bike",
-      "Casco",
-      "Guida Mtb certificata",
-      "Kit riparazione",
-      "Pranzo"
-    ],
-    "included_en": [
-      "Noleggio e-bike",
-      "Casco",
-      "Guida Mtb certificata",
-      "Kit riparazione",
-      "Pranzo"
-    ],
-    "excluded": [
-      "Tutto quello non espressamente indicato alla “quota comprende”"
-    ],
-    "excluded_en": [
-      "Tutto quello non espressamente indicato alla “quota comprende”"
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "etna",
-    "categories": [
-      "gusto",
-      "giornaliere",
-      "etna"
-    ]
-  },
-  {
-    "id": 2,
-    "wp_id": 1621,
-    "slug": "etna-e-bike-vulcano-avventura-sicilia",
-    "type": "escursione",
-    "category": "Vulcano Etna & Crateri",
-    "category_en": "Mount Etna & Craters",
-    "area": "Etna",
-    "area_tag": "etna",
-    "featured": true,
-    "title": "Etna Summit: la scalata del vulcano in E-bike",
-    "title_en": "Etna Summit: la scalata del vulcano in E-bike",
-    "subtitle": "Una giornata emozionante tra lava, panorami spettacolari e la maestosità dell'Etna!",
-    "subtitle_en": "Una giornata emozionante tra lava, panorami spettacolari e la maestosità dell'Etna!",
-    "description": "Una giornata emozionante tra lava, panorami spettacolari e la maestosità dell'Etna!",
-    "description_en": "Una giornata emozionante tra lava, panorami spettacolari e la maestosità dell'Etna!",
-    "itinerary": "Trasforma la tua vacanza in Sicilia in un'avventura indimenticabile! Il nostro tour guidato in e-bike sull'Etna offre un modo dinamico e sostenibile per esplorare il vulcano attivo più alto d'Europa. Un'esperienza che combina l'adrenalina dello sport con la maestosità della natura.\n\nLa tua avventura inizia con un confortevole transfer privato verso il versante nord, fino a Piano Provenzana (1800 m). Qui, saliremo sulle nostre e-bike di ultima generazione. Grazie all'assistenza elettrica, la salita è piacevole e accessibile a tutti, permettendoti di concentrarti solo sulla bellezza circostante.\n\nPedalerai su sentieri unici al mondo, attraversando colate laviche storiche e avvicinandoti a crateri inattivi. Ti sembrerà di pedalare sulla luna, circondato da un paesaggio vulcanico surreale e potente. Una volta raggiunta l'altitudine massima, sarai premiato con una vista spettacolare sulla costa orientale della Sicilia e sull'immensità della caldera. Preparati a catturare un panorama che ti toglierà il fiato.\n\nL'emozione prosegue con una discesa sicura e divertente lungo i sentieri del vulcano. A metà giornata, ti aspetta una pausa rigenerante: ci fermeremo in un autentico rifugio di montagna per gustare un pranzo tipico siciliano. Un momento per assaporare i prodotti locali in un'atmosfera accogliente.\n\nDopo pranzo, attraverseremo un suggestivo bosco di pini antichissimi, una vera oasi verde che testimonia la resilienza della natura.\n\nNon limitarti a guardare l'Etna: vivila!",
-    "itinerary_en": "Trasforma la tua vacanza in Sicilia in un'avventura indimenticabile! Il nostro tour guidato in e-bike sull'Etna offre un modo dinamico e sostenibile per esplorare il vulcano attivo più alto d'Europa. Un'esperienza che combina l'adrenalina dello sport con la maestosità della natura.\n\nLa tua avventura inizia con un confortevole transfer privato verso il versante nord, fino a Piano Provenzana (1800 m). Qui, saliremo sulle nostre e-bike di ultima generazione. Grazie all'assistenza elettrica, la salita è piacevole e accessibile a tutti, permettendoti di concentrarti solo sulla bellezza circostante.\n\nPedalerai su sentieri unici al mondo, attraversando colate laviche storiche e avvicinandoti a crateri inattivi. Ti sembrerà di pedalare sulla luna, circondato da un paesaggio vulcanico surreale e potente. Una volta raggiunta l'altitudine massima, sarai premiato con una vista spettacolare sulla costa orientale della Sicilia e sull'immensità della caldera. Preparati a catturare un panorama che ti toglierà il fiato.\n\nL'emozione prosegue con una discesa sicura e divertente lungo i sentieri del vulcano. A metà giornata, ti aspetta una pausa rigenerante: ci fermeremo in un autentico rifugio di montagna per gustare un pranzo tipico siciliano. Un momento per assaporare i prodotti locali in un'atmosfera accogliente.\n\nDopo pranzo, attraverseremo un suggestivo bosco di pini antichissimi, una vera oasi verde che testimonia la resilienza della natura.\n\nNon limitarti a guardare l'Etna: vivila!",
-    "image": "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-1.jpg",
-    "gallery": [
-      "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-1.jpg",
-      "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-2.jpg",
-      "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-3.jpg",
-      "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-4.jpg",
-      "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-5.jpg",
-      "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-6.jpg"
-    ],
-    "price": 130,
-    "price_note": "a persona (minimo 2 persone)",
-    "price_note_en": "per person (min 2 persons)",
-    "duration": "5-6 ore",
-    "duration_en": "5-6 ore",
-    "days": 1,
-    "distance": "40 km",
-    "elevation": "+1.300 m",
-    "difficulty": "Medio / Difficile",
-    "difficulty_en": "Medio / Difficile",
-    "start_location": "Randazzo",
-    "season": "Aprile - Ottobre",
-    "season_en": "Aprile - Ottobre",
-    "highlights": [
-      "Trasforma la tua vacanza in Sicilia in un'avventura indimenticabile! Il nostro tour guidato in e-bik",
-      "La tua avventura inizia con un confortevole transfer privato verso il versante nord, fino a Piano Pr",
-      "Pedalerai su sentieri unici al mondo, attraversando colate laviche storiche e avvicinandoti a crater",
-      "L'emozione prosegue con una discesa sicura e divertente lungo i sentieri del vulcano. A metà giornat"
-    ],
-    "highlights_en": [
-      "Trasforma la tua vacanza in Sicilia in un'avventura indimenticabile! Il nostro tour guidato in e-bik",
-      "La tua avventura inizia con un confortevole transfer privato verso il versante nord, fino a Piano Pr",
-      "Pedalerai su sentieri unici al mondo, attraversando colate laviche storiche e avvicinandoti a crater",
-      "L'emozione prosegue con una discesa sicura e divertente lungo i sentieri del vulcano. A metà giornat"
-    ],
-    "included": [
-      "Noleggio  e-bike",
-      "Casco",
-      "Guida Mtb certificata",
-      "Kit riparazione",
-      "Transfer dalla nostra sede al punto di partenza"
-    ],
-    "included_en": [
-      "Noleggio  e-bike",
-      "Casco",
-      "Guida Mtb certificata",
-      "Kit riparazione",
-      "Transfer dalla nostra sede al punto di partenza"
-    ],
-    "excluded": [
-      "Tutto quello non espressamente indicato alla “quota comprende"
-    ],
-    "excluded_en": [
-      "Tutto quello non espressamente indicato alla “quota comprende"
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "etna",
-    "categories": [
-      "giornaliere",
-      "etna",
-      "grotte"
-    ]
-  },
-  {
-    "id": 3,
-    "wp_id": 1598,
-    "slug": "tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara",
-    "type": "tour",
-    "category": "Boschi & Laghi dei Nebrodi",
-    "category_en": "Nebrodi Woods & Lakes",
-    "area": "Nebrodi",
-    "area_tag": "nebrodi",
-    "featured": true,
-    "title": "Weekend in Sicilia:  Randazzo e valle dell'Alcantara",
-    "title_en": "Weekend in Sicilia:  Randazzo e valle dell'Alcantara",
-    "subtitle": "Tour in bici Nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t Da Randazzo alla Storia di Montalbano Elicona\n\nLa nostra avventura inizia nel borgo medievale di Randazzo, imm...",
-    "subtitle_en": "Tour in bici Nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t Da Randazzo alla Storia di Montalbano Elicona\n\nLa nostra avventura inizia nel borgo medievale di Randazzo, imm...",
-    "description": "Tour in bici Nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tcicloturismo sui  Nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tL'Anima Segreta della Sicilia: Tour in  E-Bike da Randazzo a Montalbano Elicona. \t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tEsplora castelli medievali, formazioni rocciose millenarie e il fascino della Valle dell'Alcantara.",
-    "description_en": "Tour in bici Nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tcicloturismo sui  Nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tL'Anima Segreta della Sicilia: Tour in  E-Bike da Randazzo a Montalbano Elicona. \t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tEsplora castelli medievali, formazioni rocciose millenarie e il fascino della Valle dell'Alcantara.",
-    "itinerary": "Tour in bici Nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t Da Randazzo alla Storia di Montalbano Elicona\n\nLa nostra avventura inizia nel borgo medievale di Randazzo, immerso alle pendici dell'Etna. Da qui, saliamo in sella per pedalare verso il cuore del Parco dei Nebrodi, uno dei polmoni verdi più affascinanti dell'isola. Attraverseremo panorami incontaminati e boschi secolari, respirando l'aria fresca di montagna.\n\nLa prima tappa gastronomica è Floresta, il comune più alto della Sicilia, dove un pranzo tipico a base di prodotti locali genuini ricaricherà le nostre energie. Nel pomeriggio, proseguiamo verso Montalbano Elicona, giustamente eletto tra i Borghi più Belli d’Italia. Qui, tra stradine in pietra e l'imponente castello, ci immergeremo in un'atmosfera fuori dal tempo, concludendo la giornata con una visita al  Castello di Montalbano Elicona\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tTour in bici Alcantara\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 2:Dalla Stonehenge Siciliana alla Valle dell'Alcantara\n\nDopo una notte incantevole a Montalbano Elicona, il secondo giorno prosegue all'insegna del mistero e della natura. Iniziamo con l'esplorazione del Bosco di Malabotta e la visita ai celebri Megaliti dell'Argimusco, formazioni rocciose millenarie note come la \"Stonehenge siciliana\".\n\nTra natura, storia e leggenda, pedaleremo verso Malvagna per goderci un altro gustoso pranzo tipico locale. Nel pomeriggio, la nostra avventura ci porta al suggestivo Vulcanetto di Mojo, un affascinante cono vulcanico nascosto nella fertile Valle dell’Alcantara.\n\nIl nostro tour e-bike di 2 giorni si conclude con il rientro a Randazzo, lasciandoti con gli occhi e il cuore pieni di emozioni, paesaggi mozzafiato e storie indimenticabili",
-    "itinerary_en": "Tour in bici Nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t Da Randazzo alla Storia di Montalbano Elicona\n\nLa nostra avventura inizia nel borgo medievale di Randazzo, immerso alle pendici dell'Etna. Da qui, saliamo in sella per pedalare verso il cuore del Parco dei Nebrodi, uno dei polmoni verdi più affascinanti dell'isola. Attraverseremo panorami incontaminati e boschi secolari, respirando l'aria fresca di montagna.\n\nLa prima tappa gastronomica è Floresta, il comune più alto della Sicilia, dove un pranzo tipico a base di prodotti locali genuini ricaricherà le nostre energie. Nel pomeriggio, proseguiamo verso Montalbano Elicona, giustamente eletto tra i Borghi più Belli d’Italia. Qui, tra stradine in pietra e l'imponente castello, ci immergeremo in un'atmosfera fuori dal tempo, concludendo la giornata con una visita al  Castello di Montalbano Elicona\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tTour in bici Alcantara\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 2:Dalla Stonehenge Siciliana alla Valle dell'Alcantara\n\nDopo una notte incantevole a Montalbano Elicona, il secondo giorno prosegue all'insegna del mistero e della natura. Iniziamo con l'esplorazione del Bosco di Malabotta e la visita ai celebri Megaliti dell'Argimusco, formazioni rocciose millenarie note come la \"Stonehenge siciliana\".\n\nTra natura, storia e leggenda, pedaleremo verso Malvagna per goderci un altro gustoso pranzo tipico locale. Nel pomeriggio, la nostra avventura ci porta al suggestivo Vulcanetto di Mojo, un affascinante cono vulcanico nascosto nella fertile Valle dell’Alcantara.\n\nIl nostro tour e-bike di 2 giorni si conclude con il rientro a Randazzo, lasciandoti con gli occhi e il cuore pieni di emozioni, paesaggi mozzafiato e storie indimenticabili",
-    "image": "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-1.jpeg",
-    "gallery": [
-      "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-1.jpeg",
-      "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-2.jpeg",
-      "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-3.jpeg",
-      "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-4.jpeg",
-      "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-5.jpg",
-      "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-6.jpg"
-    ],
-    "price": 240,
-    "price_note": "a persona (preventivo su misura)",
-    "price_note_en": "per person (customized quote)",
-    "duration": "2 Giorni / 1 Notte",
-    "duration_en": "2 Giorni / 1 Notte",
-    "days": 2,
-    "distance": "100-150 km",
-    "elevation": "+1.800 m",
-    "difficulty": "Medio",
-    "difficulty_en": "Medio",
-    "start_location": "Randazzo",
-    "season": "Marzo - Novembre",
-    "season_en": "Marzo - Novembre",
-    "highlights": [
-      "Tour in bici Nebrodi\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\t Da Randazzo alla Storia di Montalbano Elicona",
-      "La nostra avventura inizia nel borgo medievale di Randazzo, immerso alle pendici dell'Etna. Da qui, ",
-      "La prima tappa gastronomica è Floresta, il comune più alto della Sicilia, dove un pranzo tipico a ba"
-    ],
-    "highlights_en": [
-      "Tour in bici Nebrodi\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\t Da Randazzo alla Storia di Montalbano Elicona",
-      "La nostra avventura inizia nel borgo medievale di Randazzo, immerso alle pendici dell'Etna. Da qui, ",
-      "La prima tappa gastronomica è Floresta, il comune più alto della Sicilia, dove un pranzo tipico a ba"
-    ],
-    "included": [
-      "2 escursioni in e-bike con guida bilingue (ITA/ENG)",
-      "1 notte in hotel o agriturismo (camera doppia,+ colazione)",
-      "Cena a Montalbano Elicona",
-      "Noleggio e-bike +casco",
-      "Van di supporto durante il tour",
-      "Transfer bagagli",
-      "Assicurazione viaggio"
-    ],
-    "included_en": [
-      "2 escursioni in e-bike con guida bilingue (ITA/ENG)",
-      "1 notte in hotel o agriturismo (camera doppia,+ colazione)",
-      "Cena a Montalbano Elicona",
-      "Noleggio e-bike +casco",
-      "Van di supporto durante il tour",
-      "Transfer bagagli",
-      "Assicurazione viaggio"
-    ],
-    "excluded": [
-      "Tutto quello non espressamente indicato alla \"quota comprende\""
-    ],
-    "excluded_en": [
-      "Tutto quello non espressamente indicato alla \"quota comprende\""
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "nebrodi",
-    "categories": [
-      "borghi",
-      "castelli",
-      "gusto",
-      "piu-giorni",
-      "nebrodi"
-    ]
-  },
-  {
-    "id": 4,
-    "wp_id": 1580,
-    "slug": "tour-ebike-etna-nebrodi-sicilia",
-    "type": "tour",
-    "category": "Vulcano Etna & Crateri",
-    "category_en": "Mount Etna & Craters",
-    "area": "Etna",
-    "area_tag": "etna",
-    "featured": true,
-    "title": "Cicloturismo tra il Parco dei  Nebrodi e il Vulcano Etna",
-    "title_en": "Cicloturismo tra il Parco dei  Nebrodi e il Vulcano Etna",
-    "subtitle": "Tour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 1 – Benvenuti nel cuore verde della Sicilia\n\nIl viaggio inizia con un transfer privato da Catania a Cesarò,...",
-    "subtitle_en": "Tour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 1 – Benvenuti nel cuore verde della Sicilia\n\nIl viaggio inizia con un transfer privato da Catania a Cesarò,...",
-    "description": "Tour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tcicloturismo in bici etna\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tE-Bike Experience: Dall’Etna ai Nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri la Sicilia più autentica con un tour in e-bike tra i paesaggi mozzafiato del Parco dei Nebrodi e le suggestive colate laviche dell’Etna. Un’esperienza spettacolare tra natura incontaminata, borghi storici e sapori locali, pensata per chi ama viaggiare lentamente e con consapevolezza.\n\nScrivi per maggiori informazioni",
-    "description_en": "Tour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tcicloturismo in bici etna\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tE-Bike Experience: Dall’Etna ai Nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri la Sicilia più autentica con un tour in e-bike tra i paesaggi mozzafiato del Parco dei Nebrodi e le suggestive colate laviche dell’Etna. Un’esperienza spettacolare tra natura incontaminata, borghi storici e sapori locali, pensata per chi ama viaggiare lentamente e con consapevolezza.\n\nScrivi per maggiori informazioni",
-    "itinerary": "Tour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 1 – Benvenuti nel cuore verde della Sicilia\n\nIl viaggio inizia con un transfer privato da Catania a Cesarò, cuore dei Nebrodi.Dopo il check-in in struttura, il pomeriggio si accende con un tour in e-bike per esplorare il territorio, tra faggi secolari e il silenzio del Lago Maulazzo  incastonato tra le montagne. La giornata si conclude  con una cena tipica siciliana preparata con ingredienti locali e di stagione.\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tTour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 2 – Dorsale dei Nebrodi Una delle tappe più scenografiche del tour: la traversata della dorsale dei Nebrodi in e-bike. Pedalerai tra pascoli d’alta quota, borghi autentici e panorami che si spingono fino al mare. Dopo una pausa gastronomica a Floresta il paesino montano più alto della Sicilia, la discesa ti condurrà a Randazzo, borgo medievale alle pendici dell’Etna, dove ti aspetta una granita artigianale in una storica gelateria.\n\nPernottamento a Randazzo\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tTour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 3 – Scalata dell’Etna: tra lave, grotte e saporiUn’esperienza unica: la risalita dell’Etna lungo la colata lavica del 1981. Pedalerai tra paesaggi lunari, grotte vulcaniche e boschi silenziosi. Dopo una pausa in rifugio e un pranzo tipico, visiterai una spettacolare grotta di scorrimento lavico, vivendo una giornata all’insegna dell’avventura e della scoperta.\n\nGiorno 4 – Transfer in aeroportoDopo colazione, transfer verso l’aeroporto di Catania. Un arrivederci alla Sicilia, con il cuore pieno di emozioni e ricordi indelebili.",
-    "itinerary_en": "Tour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 1 – Benvenuti nel cuore verde della Sicilia\n\nIl viaggio inizia con un transfer privato da Catania a Cesarò, cuore dei Nebrodi.Dopo il check-in in struttura, il pomeriggio si accende con un tour in e-bike per esplorare il territorio, tra faggi secolari e il silenzio del Lago Maulazzo  incastonato tra le montagne. La giornata si conclude  con una cena tipica siciliana preparata con ingredienti locali e di stagione.\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tTour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 2 – Dorsale dei Nebrodi Una delle tappe più scenografiche del tour: la traversata della dorsale dei Nebrodi in e-bike. Pedalerai tra pascoli d’alta quota, borghi autentici e panorami che si spingono fino al mare. Dopo una pausa gastronomica a Floresta il paesino montano più alto della Sicilia, la discesa ti condurrà a Randazzo, borgo medievale alle pendici dell’Etna, dove ti aspetta una granita artigianale in una storica gelateria.\n\nPernottamento a Randazzo\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tTour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 3 – Scalata dell’Etna: tra lave, grotte e saporiUn’esperienza unica: la risalita dell’Etna lungo la colata lavica del 1981. Pedalerai tra paesaggi lunari, grotte vulcaniche e boschi silenziosi. Dopo una pausa in rifugio e un pranzo tipico, visiterai una spettacolare grotta di scorrimento lavico, vivendo una giornata all’insegna dell’avventura e della scoperta.\n\nGiorno 4 – Transfer in aeroportoDopo colazione, transfer verso l’aeroporto di Catania. Un arrivederci alla Sicilia, con il cuore pieno di emozioni e ricordi indelebili.",
-    "image": "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-1.jpg",
-    "gallery": [
-      "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-1.jpg",
-      "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-2.jpg",
-      "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-3.jpg",
-      "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-4.jpg",
-      "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-5.jpeg",
-      "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-6.jpeg"
-    ],
-    "price": 520,
-    "price_note": "a persona (preventivo su misura)",
-    "price_note_en": "per person (customized quote)",
-    "duration": "4 Giorni / 3 Notti",
-    "duration_en": "4 Giorni / 3 Notti",
-    "days": 4,
-    "distance": "150-200 km",
-    "elevation": "+2.400 m",
-    "difficulty": "Medio",
-    "difficulty_en": "Medio",
-    "start_location": "Cesarò",
-    "season": "Marzo - Ottobre",
-    "season_en": "Marzo - Ottobre",
-    "highlights": [
-      "Tour in bici etna\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tGiorno 1 – Benvenuti nel cuore verde della Sicilia",
-      "Il viaggio inizia con un transfer privato da Catania a Cesarò, cuore dei Nebrodi.Dopo il check-in in",
-      "\t\t\t\t\tTour in bici etna\t\t\t\t"
-    ],
-    "highlights_en": [
-      "Tour in bici etna\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tGiorno 1 – Benvenuti nel cuore verde della Sicilia",
-      "Il viaggio inizia con un transfer privato da Catania a Cesarò, cuore dei Nebrodi.Dopo il check-in in",
-      "\t\t\t\t\tTour in bici etna\t\t\t\t"
-    ],
-    "included": [
-      "3 escursioni in e-bike",
-      "Guida bilingue (inglese/italiano)",
-      "3 notti in hotel /agriturismo in camera doppia + colazione",
-      "1 cena ,1 pranzo a sacco",
-      "Van di supporto durante il tour",
-      "transfer da a\\r aeroporto",
-      "transfer bagagli",
-      "Assicurazione viaggio",
-      "Noleggio e-bike + casco"
-    ],
-    "included_en": [
-      "3 escursioni in e-bike",
-      "Guida bilingue (inglese/italiano)",
-      "3 notti in hotel /agriturismo in camera doppia + colazione",
-      "1 cena ,1 pranzo a sacco",
-      "Van di supporto durante il tour",
-      "transfer da a\\r aeroporto",
-      "transfer bagagli",
-      "Assicurazione viaggio",
-      "Noleggio e-bike + casco"
-    ],
-    "excluded": [
-      "Tutto quello non specificato alla\" quota comprende\""
-    ],
-    "excluded_en": [
-      "Tutto quello non specificato alla\" quota comprende\""
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "etna",
-    "categories": [
-      "borghi",
-      "gusto",
-      "piu-giorni",
-      "etna",
-      "nebrodi"
-    ]
-  },
-  {
-    "id": 5,
-    "wp_id": 1059,
-    "slug": "tour-ebike-etna-sicilia-3-giorni",
-    "type": "tour",
-    "category": "Vulcano Etna & Crateri",
-    "category_en": "Mount Etna & Craters",
-    "area": "Etna",
-    "area_tag": "etna",
-    "featured": false,
-    "title": "Meraviglioso Tour in e-bike tra  Etna, Randazzo e Bronte",
-    "title_en": "Meraviglioso Tour in e-bike tra  Etna, Randazzo e Bronte",
-    "subtitle": "Tour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t Etna & Nebrodi in E-Bike: Sapori, Natura e Storia \n\nPreparati per un'avventura indimenticabile di due giorni in e...",
-    "subtitle_en": "Tour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t Etna & Nebrodi in E-Bike: Sapori, Natura e Storia \n\nPreparati per un'avventura indimenticabile di due giorni in e...",
-    "description": "Tour in bici Etna -Bronte-Randazzo\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tcicloturismo  Etna -Bronte-Randazzo\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tBorghi, Pistacchi e Vulcani: il meglio dell'Etna in 3 giorni di pura bellezza.\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tUn viaggio lento e avventuroso alla scoperta dell’Etna e dei Nebrodi, tra paesaggi vulcanici, borghi medievali e tradizioni gastronomiche. Tre giorni in e-bike per vivere la Sicilia più autentica, immersi nella natura e nella storia.\n\nScrivi per maggiori informazioni",
-    "description_en": "Tour in bici Etna -Bronte-Randazzo\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tcicloturismo  Etna -Bronte-Randazzo\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tBorghi, Pistacchi e Vulcani: il meglio dell'Etna in 3 giorni di pura bellezza.\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tUn viaggio lento e avventuroso alla scoperta dell’Etna e dei Nebrodi, tra paesaggi vulcanici, borghi medievali e tradizioni gastronomiche. Tre giorni in e-bike per vivere la Sicilia più autentica, immersi nella natura e nella storia.\n\nScrivi per maggiori informazioni",
-    "itinerary": "Tour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t Etna & Nebrodi in E-Bike: Sapori, Natura e Storia \n\nPreparati per un'avventura indimenticabile di due giorni in e-bike che ti condurrà attraverso i paesaggi mozzafiato e i sapori autentici della Sicilia orientale. Partendo da Randazzo, esplorerai il maestoso vulcano Etna e la rigogliosa riserva naturale dei Nebrodi. Questo tour è un mix perfetto di pedalate dinamiche, scoperte storiche e deliziose esperienze gastronomiche, con un focus speciale sul celebre Pistacchio di Bronte.\n\nGiorno 1-Arrivo individuale nel pomeriggio presso la struttura ricettiva- Check-in e sistemazione nelle camere.Passeggiata libera nel borgo medievale di Randazzo.\n\nCena e Pernottamento\n\n \n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tTour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 2 – Da Randazzo a Bronte\n\nDopo una fantastica colazione a base di prodotti locali, per fare il pieno di energia con i sapori autentici dell’Etna si parte per una giornata spettacolare in e-bike tra colate laviche, boschi secolari e strade panoramiche immerse nella natura. Lungo il tragitto incontreremo antichi rifugi forestali, un tempo riparo per pastori, oggi luoghi di sosta immersi nella quiete.\n\nL'arrivo a Bronte segna l'ingresso nel \"regno del pistacchio DOP\" tra terra vulcanica e coltivazioni secolari. A pranzo, una gustosa degustazione a base di pistacchio ci farà scoprire sapori autentici.\n\nNel pomeriggio, si visita il suggestivo Castello di Nelson, un luogo dove storia e natura si fondono. Il rientro a Randazzo conclude la giornata\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tTour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 3 – Verso Floresta: tra boschi incantati e sapori d’altura\n\nIl secondo giorno è dedicato al Parco dei Nebrodi, la più vasta riserva naturale della Sicilia. Si pedala lungo la valle del fiume Flascio, attraversando sorgenti cristalline e boschi secolari in un paesaggio che invita alla contemplazione. Giunti a Floresta, il paese più alto della Sicilia, si assapora un pranzo in trattoria a base di prodotti tipici locali: formaggi stagionati, salumi artigianali e piatti della tradizione contadina.\n\nNel pomeriggio, il rientro verso Randazzo sarà una piacevole discesa immersa nella natura. Attraverseremo un bosco spettacolare.Un percorso rigenerante che chiude in bellezza un’avventura indimenticabile.",
-    "itinerary_en": "Tour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t Etna & Nebrodi in E-Bike: Sapori, Natura e Storia \n\nPreparati per un'avventura indimenticabile di due giorni in e-bike che ti condurrà attraverso i paesaggi mozzafiato e i sapori autentici della Sicilia orientale. Partendo da Randazzo, esplorerai il maestoso vulcano Etna e la rigogliosa riserva naturale dei Nebrodi. Questo tour è un mix perfetto di pedalate dinamiche, scoperte storiche e deliziose esperienze gastronomiche, con un focus speciale sul celebre Pistacchio di Bronte.\n\nGiorno 1-Arrivo individuale nel pomeriggio presso la struttura ricettiva- Check-in e sistemazione nelle camere.Passeggiata libera nel borgo medievale di Randazzo.\n\nCena e Pernottamento\n\n \n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tTour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 2 – Da Randazzo a Bronte\n\nDopo una fantastica colazione a base di prodotti locali, per fare il pieno di energia con i sapori autentici dell’Etna si parte per una giornata spettacolare in e-bike tra colate laviche, boschi secolari e strade panoramiche immerse nella natura. Lungo il tragitto incontreremo antichi rifugi forestali, un tempo riparo per pastori, oggi luoghi di sosta immersi nella quiete.\n\nL'arrivo a Bronte segna l'ingresso nel \"regno del pistacchio DOP\" tra terra vulcanica e coltivazioni secolari. A pranzo, una gustosa degustazione a base di pistacchio ci farà scoprire sapori autentici.\n\nNel pomeriggio, si visita il suggestivo Castello di Nelson, un luogo dove storia e natura si fondono. Il rientro a Randazzo conclude la giornata\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tTour in bici etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 3 – Verso Floresta: tra boschi incantati e sapori d’altura\n\nIl secondo giorno è dedicato al Parco dei Nebrodi, la più vasta riserva naturale della Sicilia. Si pedala lungo la valle del fiume Flascio, attraversando sorgenti cristalline e boschi secolari in un paesaggio che invita alla contemplazione. Giunti a Floresta, il paese più alto della Sicilia, si assapora un pranzo in trattoria a base di prodotti tipici locali: formaggi stagionati, salumi artigianali e piatti della tradizione contadina.\n\nNel pomeriggio, il rientro verso Randazzo sarà una piacevole discesa immersa nella natura. Attraverseremo un bosco spettacolare.Un percorso rigenerante che chiude in bellezza un’avventura indimenticabile.",
-    "image": "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-1.jpg",
-    "gallery": [
-      "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-1.jpg",
-      "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-2.jpg",
-      "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-3.jpg",
-      "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-4.jpg",
-      "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-5.jpg",
-      "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-6.jpg"
-    ],
-    "price": 390,
-    "price_note": "a persona (preventivo su misura)",
-    "price_note_en": "per person (customized quote)",
-    "duration": "3 Giorni / 2 Notti",
-    "duration_en": "3 Giorni / 2 Notti",
-    "days": 3,
-    "distance": "150-200 km",
-    "elevation": "+2.100 m",
-    "difficulty": "Medio",
-    "difficulty_en": "Medio",
-    "start_location": "Randazzo",
-    "season": "Marzo - Novembre",
-    "season_en": "Marzo - Novembre",
-    "highlights": [
-      "Tour in bici etna\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\t Etna & Nebrodi in E-Bike: Sapori, Natura e Storia ",
-      "Preparati per un'avventura indimenticabile di due giorni in e-bike che ti condurrà attraverso i paes",
-      "Giorno 1-Arrivo individuale nel pomeriggio presso la struttura ricettiva- Check-in e sistemazione ne"
-    ],
-    "highlights_en": [
-      "Tour in bici etna\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\t Etna & Nebrodi in E-Bike: Sapori, Natura e Storia ",
-      "Preparati per un'avventura indimenticabile di due giorni in e-bike che ti condurrà attraverso i paes",
-      "Giorno 1-Arrivo individuale nel pomeriggio presso la struttura ricettiva- Check-in e sistemazione ne"
-    ],
-    "included": [
-      "2 escursioni in e-mtb",
-      "Guida qualificata bilingue (inglese/italiano)",
-      "2 notti in hotel/agriturismo in camera doppia",
-      "Pranzo a Bronte",
-      "Van di supporto",
-      "Noleggio E-bike",
-      "casco",
-      "Assicurazione"
-    ],
-    "included_en": [
-      "2 escursioni in e-mtb",
-      "Guida qualificata bilingue (inglese/italiano)",
-      "2 notti in hotel/agriturismo in camera doppia",
-      "Pranzo a Bronte",
-      "Van di supporto",
-      "Noleggio E-bike",
-      "casco",
-      "Assicurazione"
-    ],
-    "excluded": [
-      "Transfer da/per l'aeroporto di Catania",
-      "Tutto quello non elencato alla voce comprende"
-    ],
-    "excluded_en": [
-      "Transfer da/per l'aeroporto di Catania",
-      "Tutto quello non elencato alla voce comprende"
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "etna",
-    "categories": [
-      "borghi",
-      "gusto",
-      "piu-giorni",
-      "etna"
-    ]
-  },
-  {
-    "id": 6,
-    "wp_id": 1017,
-    "slug": "tour-isole-eolie-bici-barca-5giorni",
-    "type": "tour",
-    "category": "Isole Eolie Bici & Barca",
-    "category_en": "Aeolian Islands Bike & Boat",
-    "area": "Isole Eolie",
-    "area_tag": "eolie",
-    "featured": false,
-    "title": "Cicloturismo alle Isole Eolie",
-    "title_en": "Cicloturismo alle Isole Eolie",
-    "subtitle": "DEL TOUR\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tUn esperienza unica per scoprire le Isole Eolie da una doppia prospettiva: Il ritmo lento delle bici e la libertà della b...",
-    "subtitle_en": "DEL TOUR\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tUn esperienza unica per scoprire le Isole Eolie da una doppia prospettiva: Il ritmo lento delle bici e la libertà della b...",
-    "description": "cicloturismo alle isole eolie\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\ttour alle isole eolie\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tAlla scoperta delle Isole Eolie: Bici+barca\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri le Isole Eolie da una prospettiva unica, tra pedalate panoramiche e navigazioni rilassanti.\n\nUn'avventura attiva ,sostenibile e indimenticabile nel cuore del Mediterraneo.\n\nContattaci per maggiori informazioni",
-    "description_en": "cicloturismo alle isole eolie\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\ttour alle isole eolie\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tAlla scoperta delle Isole Eolie: Bici+barca\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri le Isole Eolie da una prospettiva unica, tra pedalate panoramiche e navigazioni rilassanti.\n\nUn'avventura attiva ,sostenibile e indimenticabile nel cuore del Mediterraneo.\n\nContattaci per maggiori informazioni",
-    "itinerary": "DEL TOUR\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tUn esperienza unica per scoprire le Isole Eolie da una doppia prospettiva: Il ritmo lento delle bici e la libertà della barca privata.\n\nIn cinque giorni esploreremo tre delle isole più affascinanti dell'arcipelago -Vulcano,Salina e Lipari-alternanado rilassanti navigazioni a pedalate panoramiche tra crateri,vigneti,borghi e viste mozzafiato sul mare.\n\nOgni giornata sarà un' avventura diversa: al mattino salperemo con la nostra barca privata verso una nuova isola ,e in sella alle nostre bici esploreremo l'entroterra, seguendo itinerari selezionati per offrire il giusto equilibrio tra natura,cultura e attività fisica. \n\nUn viaggio attivo ma accessibile,ideale per chi ama muoversi nella natura senza rinunciare al comfort,alla bellezza e alla scoperta. \n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tViaggio bici e barca Isole Eolie\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tViaggio bici e barca Isole Eolie\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 1-2: Lipari & La Cucina eolianaArrivo autonomo a Lipari e accoglienza in una struttura meravigliosa.\nPedalata Panoramica in E-Bike al tramonto per una vista mozzafiato.\n\nEsperienza Speciale: Cena con lezione di Home Cooking Eoliano.\n\nGiorno 2: Salina, il Gigante VerdeNavigazione Privata da Lipari a Salina, ammirando le cave di pomice.\nE-Bike Tour: Salita verso Monte Fossa delle Felci (962m) per la vista sulle sette sorelle eoliane.\n\nVisita a Pollara (resa celebre dal film Il Postino) e pausa rinfrescante con Granita Siciliana a Lingua.\n\n \n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 3-4: Lipari Profonda & RelaxTour Approfondito in E-Bike lungo la strada panoramica di Lipari.\n\nTappe ai belvedere di Quattrocchi e Quattropani, e visita alle cave di caolino dai colori surreali.\n\nPranzo Gourmet in una trattoria tipica con prodotti locali (birra e farina).\n\nTempo libero per shopping, relax o un tuffo in mare.\n\nGiorno 5: Saluti EolianiColazione, check-out e trasferimento in aliscafo verso Milazzo, con il cuore pieno di sapori e colori indimenticabili.",
-    "itinerary_en": "DEL TOUR\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tUn esperienza unica per scoprire le Isole Eolie da una doppia prospettiva: Il ritmo lento delle bici e la libertà della barca privata.\n\nIn cinque giorni esploreremo tre delle isole più affascinanti dell'arcipelago -Vulcano,Salina e Lipari-alternanado rilassanti navigazioni a pedalate panoramiche tra crateri,vigneti,borghi e viste mozzafiato sul mare.\n\nOgni giornata sarà un' avventura diversa: al mattino salperemo con la nostra barca privata verso una nuova isola ,e in sella alle nostre bici esploreremo l'entroterra, seguendo itinerari selezionati per offrire il giusto equilibrio tra natura,cultura e attività fisica. \n\nUn viaggio attivo ma accessibile,ideale per chi ama muoversi nella natura senza rinunciare al comfort,alla bellezza e alla scoperta. \n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tViaggio bici e barca Isole Eolie\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tViaggio bici e barca Isole Eolie\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 1-2: Lipari & La Cucina eolianaArrivo autonomo a Lipari e accoglienza in una struttura meravigliosa.\nPedalata Panoramica in E-Bike al tramonto per una vista mozzafiato.\n\nEsperienza Speciale: Cena con lezione di Home Cooking Eoliano.\n\nGiorno 2: Salina, il Gigante VerdeNavigazione Privata da Lipari a Salina, ammirando le cave di pomice.\nE-Bike Tour: Salita verso Monte Fossa delle Felci (962m) per la vista sulle sette sorelle eoliane.\n\nVisita a Pollara (resa celebre dal film Il Postino) e pausa rinfrescante con Granita Siciliana a Lingua.\n\n \n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tGiorno 3-4: Lipari Profonda & RelaxTour Approfondito in E-Bike lungo la strada panoramica di Lipari.\n\nTappe ai belvedere di Quattrocchi e Quattropani, e visita alle cave di caolino dai colori surreali.\n\nPranzo Gourmet in una trattoria tipica con prodotti locali (birra e farina).\n\nTempo libero per shopping, relax o un tuffo in mare.\n\nGiorno 5: Saluti EolianiColazione, check-out e trasferimento in aliscafo verso Milazzo, con il cuore pieno di sapori e colori indimenticabili.",
-    "image": "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-1.png",
-    "gallery": [
-      "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-1.png",
-      "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-2.png",
-      "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-3.png",
-      "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-4.jpeg",
-      "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-5.jpeg",
-      "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-6.jpeg"
-    ],
-    "price": 790,
-    "price_note": "a persona (preventivo su misura)",
-    "price_note_en": "per person (customized quote)",
-    "duration": "5 Giorni / 4 Notti",
-    "duration_en": "5 Giorni / 4 Notti",
-    "days": 5,
-    "distance": "350 km (totale)",
-    "elevation": "+1.200 m",
-    "difficulty": "Medio / Facile",
-    "difficulty_en": "Medio / Facile",
-    "start_location": "Catania / Milazzo",
-    "season": "Aprile - Maggio / Sett. - Ott.",
-    "season_en": "Aprile - Maggio / Sett. - Ott.",
-    "highlights": [
-      "\t\t\t\t\t\t\t\t\tUn esperienza unica per scoprire le Isole Eolie da una doppia prospettiva: Il ritmo lento d",
-      "In cinque giorni esploreremo tre delle isole più affascinanti dell'arcipelago -Vulcano,Salina e Lipa",
-      "Ogni giornata sarà un' avventura diversa: al mattino salperemo con la nostra barca privata verso una",
-      "Un viaggio attivo ma accessibile,ideale per chi ama muoversi nella natura senza rinunciare al comfor"
-    ],
-    "highlights_en": [
-      "\t\t\t\t\t\t\t\t\tUn esperienza unica per scoprire le Isole Eolie da una doppia prospettiva: Il ritmo lento d",
-      "In cinque giorni esploreremo tre delle isole più affascinanti dell'arcipelago -Vulcano,Salina e Lipa",
-      "Ogni giornata sarà un' avventura diversa: al mattino salperemo con la nostra barca privata verso una",
-      "Un viaggio attivo ma accessibile,ideale per chi ama muoversi nella natura senza rinunciare al comfor"
-    ],
-    "included": [
-      "Noleggio E-MTB biammortizzata di ultima generazione",
-      "Casco protettivo e kit di riparazione",
-      "Guida cicloturistica certificata",
-      "Assicurazione e assistenza logistica"
-    ],
-    "included_en": [
-      "Noleggio E-MTB biammortizzata di ultima generazione",
-      "Casco protettivo e kit di riparazione",
-      "Guida cicloturistica certificata",
-      "Assicurazione e assistenza logistica"
-    ],
-    "excluded": [
-      "Tutto quello non espressamente indicato alla \"quota comprende\"",
-      "Extra personali e mance"
-    ],
-    "excluded_en": [
-      "Tutto quello non espressamente indicato alla \"quota comprende\"",
-      "Extra personali e mance"
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "eolie",
-    "categories": [
-      "borghi",
-      "gusto",
-      "piu-giorni",
-      "eolie"
-    ]
-  },
-  {
-    "id": 7,
-    "wp_id": 888,
-    "slug": "sicilia-ebike-citta-barocche-spiagge",
-    "type": "tour",
-    "category": "Barocco Siciliano & Val di Noto",
-    "category_en": "Sicilian Baroque & Val di Noto",
-    "area": "Val di Noto",
-    "area_tag": "val-di-noto",
-    "featured": false,
-    "title": "Barocco Siciliano: Cinque Tappe di assoluta bellezza nella Val di Noto",
-    "title_en": "Barocco Siciliano: Cinque Tappe di assoluta bellezza nella Val di Noto",
-    "subtitle": "Cicloturismo Val di Noto\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tCicloturismo Val di Noto\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tUn",
-    "subtitle_en": "Cicloturismo Val di Noto\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tCicloturismo Val di Noto\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tUn",
-    "description": "Cicloturismo Val di Noto\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tCicloturismo Val di Noto\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tUn",
-    "description_en": "Cicloturismo Val di Noto\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tCicloturismo Val di Noto\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tUn",
-    "itinerary": "tra i paesaggi rurali e sapori autentici nella splendida Val di Noto.\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri la magia della Sicilia sud-orientale con un tour in e-bike che attraversa la splendida Val di Noto, Patrimonio dell’Umanità UNESCO. Si tratta di un viaggio tra arte barocca, paesaggi rurali e sapori autentici, pensato appositamente per chi ama esplorare lentamente, coinvolgendo così tutti i sensi.",
-    "itinerary_en": "tra i paesaggi rurali e sapori autentici nella splendida Val di Noto.\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri la magia della Sicilia sud-orientale con un tour in e-bike che attraversa la splendida Val di Noto, Patrimonio dell’Umanità UNESCO. Si tratta di un viaggio tra arte barocca, paesaggi rurali e sapori autentici, pensato appositamente per chi ama esplorare lentamente, coinvolgendo così tutti i sensi.",
-    "image": "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-1.png",
-    "gallery": [
-      "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-1.png",
-      "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-2.png",
-      "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-3.png",
-      "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-4.png",
-      "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-5.jpg",
-      "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-6.jpg"
-    ],
-    "price": 890,
-    "price_note": "a persona (preventivo su misura)",
-    "price_note_en": "per person (customized quote)",
-    "duration": "7 Giorni / 6 Notti",
-    "duration_en": "7 Giorni / 6 Notti",
-    "days": 7,
-    "distance": "250-300 km",
-    "elevation": "+2.500 m",
-    "difficulty": "Medio / Facile",
-    "difficulty_en": "Medio / Facile",
-    "start_location": "Siracusa",
-    "season": "Marzo - Giugno / Sett. - Nov.",
-    "season_en": "Marzo - Giugno / Sett. - Nov.",
-    "highlights": [
-      "tra i paesaggi rurali e sapori autentici nella splendida Val di Noto.\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tScopri la magia della Sicilia sud-orientale con un tour in e-bike che attraversa la splendi"
-    ],
-    "highlights_en": [
-      "tra i paesaggi rurali e sapori autentici nella splendida Val di Noto.\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tScopri la magia della Sicilia sud-orientale con un tour in e-bike che attraversa la splendi"
-    ],
-    "included": [
-      "Noleggio e-bike, Casco",
-      "Guida Mtb certificata",
-      "Kit riparazione, Hotel o B&B ,colazione ,cene, transfer bagagli."
-    ],
-    "included_en": [
-      "Noleggio e-bike, Casco",
-      "Guida Mtb certificata",
-      "Kit riparazione, Hotel o B&B ,colazione ,cene, transfer bagagli."
-    ],
-    "excluded": [
-      "Tutto quello non espressamente indicato alla “quota comprende”"
-    ],
-    "excluded_en": [
-      "Tutto quello non espressamente indicato alla “quota comprende”"
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "val-di-noto",
-    "categories": [
-      "barocco",
-      "borghi",
-      "gusto",
-      "piu-giorni",
-      "val-di-noto"
-    ]
-  },
-  {
-    "id": 8,
-    "wp_id": 866,
-    "slug": "escursione-in-bici-randazzo-bronte",
-    "type": "escursione",
-    "category": "Vulcano Etna & Crateri",
-    "category_en": "Mount Etna & Craters",
-    "area": "Etna",
-    "area_tag": "etna",
-    "featured": false,
-    "title": "Escursione in E-Bike alla scoperta dei sapori dell'Etna: da Randazzo a Bronte",
-    "title_en": "Escursione in E-Bike alla scoperta dei sapori dell'Etna: da Randazzo a Bronte",
-    "subtitle": "Escursione in bici paesi Etnei\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri uno degli angoli più autentici della Sicilia con questo affascinante tour in e-bike da Randazz...",
-    "subtitle_en": "Escursione in bici paesi Etnei\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri uno degli angoli più autentici della Sicilia con questo affascinante tour in e-bike da Randazz...",
-    "description": "Escursione in bici paesi Etnei\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in bici paesi Etnei\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in e-bike Randazzo, Bronte e Castello di Nelson\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tParti da Randazzo per un'avventura in e-bike alla scoperta di antichi borghi e paesaggi mozzafiato dell'Etna. Attraversa stradine medievali e boschi di querce e castagni fino a Bronte, celebre per i suoi pistacchi, e visita il maestoso Castello di Nelson. Un'esperienza indimenticabile che unisce storia, natura e cultura siciliana.( Da 95€ a persona)",
-    "description_en": "Escursione in bici paesi Etnei\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in bici paesi Etnei\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in e-bike Randazzo, Bronte e Castello di Nelson\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tParti da Randazzo per un'avventura in e-bike alla scoperta di antichi borghi e paesaggi mozzafiato dell'Etna. Attraversa stradine medievali e boschi di querce e castagni fino a Bronte, celebre per i suoi pistacchi, e visita il maestoso Castello di Nelson. Un'esperienza indimenticabile che unisce storia, natura e cultura siciliana.( Da 95€ a persona)",
-    "itinerary": "Escursione in bici paesi Etnei\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri uno degli angoli più autentici della Sicilia con questo affascinante tour in e-bike da Randazzo a Bronte, con tappa al suggestivo Castello di Nelson. Un’esperienza pensata per chi ama la natura, la storia e i sapori locali, accessibile a tutti grazie alla pedalata assistita.\n\nPartiremo da Randazzo, borgo medievale sul versante nord dell’Etna, con un breve briefing sull’uso delle e-bike. Un transfer ci porterà a Case Pirrao, da dove inizieremo a pedalare lungo la Pista Altomontana dell’Etna, un percorso panoramico a circa 1.500 metri tra boschi, colate laviche e scorci mozzafiato.\n\nFaremo una sosta al Rifugio Monte Spagnolo, immerso nel silenzio dei boschi, per poi proseguire verso Bronte, patria del pistacchio DOP. Qui potrai visitare il centro storico e gustare un pranzo in una tipica osteria con prodotti locali.\n\nDopo la pausa, raggiungeremo il Castello di Nelson, storica abbazia benedettina donata a Lord Horatio Nelson nel XVIII secolo. Il castello, affacciato sulla campagna brontese, offre un tuffo nella storia e una vista spettacolare sull’Etna.\n\nIl ritorno a Randazzo avverrà lungo le antiche Regie Trazzere, attraversando paesaggi rurali e vigneti, per concludere un’esperienza indimenticabile tra natura e tradizione siciliana.",
-    "itinerary_en": "Escursione in bici paesi Etnei\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri uno degli angoli più autentici della Sicilia con questo affascinante tour in e-bike da Randazzo a Bronte, con tappa al suggestivo Castello di Nelson. Un’esperienza pensata per chi ama la natura, la storia e i sapori locali, accessibile a tutti grazie alla pedalata assistita.\n\nPartiremo da Randazzo, borgo medievale sul versante nord dell’Etna, con un breve briefing sull’uso delle e-bike. Un transfer ci porterà a Case Pirrao, da dove inizieremo a pedalare lungo la Pista Altomontana dell’Etna, un percorso panoramico a circa 1.500 metri tra boschi, colate laviche e scorci mozzafiato.\n\nFaremo una sosta al Rifugio Monte Spagnolo, immerso nel silenzio dei boschi, per poi proseguire verso Bronte, patria del pistacchio DOP. Qui potrai visitare il centro storico e gustare un pranzo in una tipica osteria con prodotti locali.\n\nDopo la pausa, raggiungeremo il Castello di Nelson, storica abbazia benedettina donata a Lord Horatio Nelson nel XVIII secolo. Il castello, affacciato sulla campagna brontese, offre un tuffo nella storia e una vista spettacolare sull’Etna.\n\nIl ritorno a Randazzo avverrà lungo le antiche Regie Trazzere, attraversando paesaggi rurali e vigneti, per concludere un’esperienza indimenticabile tra natura e tradizione siciliana.",
-    "image": "assets/img/tours/escursione-in-bici-randazzo-bronte-1.png",
-    "gallery": [
-      "assets/img/tours/escursione-in-bici-randazzo-bronte-1.png",
-      "assets/img/tours/escursione-in-bici-randazzo-bronte-2.jpg",
-      "assets/img/tours/escursione-in-bici-randazzo-bronte-3.jpg",
-      "assets/img/tours/escursione-in-bici-randazzo-bronte-4.jpg",
-      "assets/img/tours/escursione-in-bici-randazzo-bronte-5.jpg",
-      "assets/img/tours/escursione-in-bici-randazzo-bronte-6.jpg"
-    ],
-    "price": 95,
-    "price_note": "a persona (minimo 2 persone)",
-    "price_note_en": "per person (min 2 persons)",
-    "duration": "4-6 ore",
-    "duration_en": "4-6 ore",
-    "days": 1,
-    "distance": "40-50 km",
-    "elevation": "+850 m",
-    "difficulty": "Medio",
-    "difficulty_en": "Medio",
-    "start_location": "Randazzo",
-    "season": "Aprile - Novembre",
-    "season_en": "Aprile - Novembre",
-    "highlights": [
-      "Escursione in bici paesi Etnei\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tScopri uno degli angoli più autentici della Sicilia con questo affascinante tour in e-bike ",
-      "Partiremo da Randazzo, borgo medievale sul versante nord dell’Etna, con un breve briefing sull’uso d",
-      "Faremo una sosta al Rifugio Monte Spagnolo, immerso nel silenzio dei boschi, per poi proseguire vers"
-    ],
-    "highlights_en": [
-      "Escursione in bici paesi Etnei\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tScopri uno degli angoli più autentici della Sicilia con questo affascinante tour in e-bike ",
-      "Partiremo da Randazzo, borgo medievale sul versante nord dell’Etna, con un breve briefing sull’uso d",
-      "Faremo una sosta al Rifugio Monte Spagnolo, immerso nel silenzio dei boschi, per poi proseguire vers"
-    ],
-    "included": [
-      "Noleggio e-bike, Casco",
-      "Guida MTB certificata",
-      "Kit riparazione, Transfer al punto di partenza"
-    ],
-    "included_en": [
-      "Noleggio e-bike, Casco",
-      "Guida MTB certificata",
-      "Kit riparazione, Transfer al punto di partenza"
-    ],
-    "excluded": [
-      "Tutto quello non espressamente indicato alla “quota comprende"
-    ],
-    "excluded_en": [
-      "Tutto quello non espressamente indicato alla “quota comprende"
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "etna",
-    "categories": [
-      "borghi",
-      "bronte",
-      "castelli",
-      "gusto",
-      "giornaliere",
-      "etna",
-      "nebrodi"
-    ]
-  },
-  {
-    "id": 9,
-    "wp_id": 841,
-    "slug": "escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta",
-    "type": "escursione",
-    "category": "Boschi & Laghi dei Nebrodi",
-    "category_en": "Nebrodi Woods & Lakes",
-    "area": "Nebrodi",
-    "area_tag": "nebrodi",
-    "featured": false,
-    "title": "Escursione in e-bike  da Randazzo a Floresta: vivi la Sicilia più verde",
-    "title_en": "Escursione in e-bike  da Randazzo a Floresta: vivi la Sicilia più verde",
-    "subtitle": "Escursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tRegalati un’esperienza indimenticabile tra natura, cultura e gastronomia con questo affascinante tour...",
-    "subtitle_en": "Escursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tRegalati un’esperienza indimenticabile tra natura, cultura e gastronomia con questo affascinante tour...",
-    "description": "Escursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in e-bike da Randazzo a Floresta\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri i paesaggi autentici della Sicilia con un tour in e-bike da Randazzo ai Nebrodi. Pedala tra boschi e viste panoramiche, fino a Floresta, il borgo più alto dell’isola, dove potrai gustare prodotti tipici locali. Il rientro in discesa ti regalerà panorami mozzafiato e una giornata ricca di emozioni.(Da 90€ a persona )",
-    "description_en": "Escursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in e-bike da Randazzo a Floresta\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tScopri i paesaggi autentici della Sicilia con un tour in e-bike da Randazzo ai Nebrodi. Pedala tra boschi e viste panoramiche, fino a Floresta, il borgo più alto dell’isola, dove potrai gustare prodotti tipici locali. Il rientro in discesa ti regalerà panorami mozzafiato e una giornata ricca di emozioni.(Da 90€ a persona )",
-    "itinerary": "Escursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tRegalati un’esperienza indimenticabile tra natura, cultura e gastronomia con questo affascinante tour in e-bike da Randazzo a Floresta, nel cuore del Parco dei Nebrodi, uno dei luoghi più incontaminati della Sicilia.\n\nPartendo dal pittoresco borgo medievale di Randazzo, pedalerai lungo strade panoramiche circondate da boschi secolari, muretti in pietra e silenzi che rigenerano. Il paesaggio si trasforma chilometro dopo chilometro: lasciandoti alle spalle le architetture in pietra lavica, ti immergerai tra querceti e castagneti, con viste che spaziano fino al mare.\n\nDurante il percorso faremo soste nei punti più panoramici, per godere appieno della bellezza selvaggia dei Nebrodi e scattare qualche foto memorabile. Arriveremo a Floresta, il comune più alto della Sicilia, dove ti attende una gustosa pausa pranzo in una tipica trattoria locale. Qui potrai assaporare formaggi, salumi, funghi e specialità montane, preparate secondo antiche ricette.\n\nDopo il pranzo, il rientro sarà tutto in discesa, tra boschi e vallate, fino a tornare dolcemente al punto di partenza.\n\n Un’esperienza all’aria aperta che ti farà sentire parte di una Sicilia che in pochi conoscono, ma che conquista al primo sguardo.",
-    "itinerary_en": "Escursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tRegalati un’esperienza indimenticabile tra natura, cultura e gastronomia con questo affascinante tour in e-bike da Randazzo a Floresta, nel cuore del Parco dei Nebrodi, uno dei luoghi più incontaminati della Sicilia.\n\nPartendo dal pittoresco borgo medievale di Randazzo, pedalerai lungo strade panoramiche circondate da boschi secolari, muretti in pietra e silenzi che rigenerano. Il paesaggio si trasforma chilometro dopo chilometro: lasciandoti alle spalle le architetture in pietra lavica, ti immergerai tra querceti e castagneti, con viste che spaziano fino al mare.\n\nDurante il percorso faremo soste nei punti più panoramici, per godere appieno della bellezza selvaggia dei Nebrodi e scattare qualche foto memorabile. Arriveremo a Floresta, il comune più alto della Sicilia, dove ti attende una gustosa pausa pranzo in una tipica trattoria locale. Qui potrai assaporare formaggi, salumi, funghi e specialità montane, preparate secondo antiche ricette.\n\nDopo il pranzo, il rientro sarà tutto in discesa, tra boschi e vallate, fino a tornare dolcemente al punto di partenza.\n\n Un’esperienza all’aria aperta che ti farà sentire parte di una Sicilia che in pochi conoscono, ma che conquista al primo sguardo.",
-    "image": "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-1.jpg",
-    "gallery": [
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-1.jpg",
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-2.jpg",
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-3.jpg",
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-4.jpg",
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-5.jpg",
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-6.jpg"
-    ],
-    "price": 90,
-    "price_note": "a persona (minimo 2 persone)",
-    "price_note_en": "per person (min 2 persons)",
-    "duration": "4-6 ore",
-    "duration_en": "4-6 ore",
-    "days": 1,
-    "distance": "46 km",
-    "elevation": "+950 m",
-    "difficulty": "Medio",
-    "difficulty_en": "Medio",
-    "start_location": "Randazzo",
-    "season": "Aprile - Ottobre",
-    "season_en": "Aprile - Ottobre",
-    "highlights": [
-      "Escursione in bici sui nebrodi\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tRegalati un’esperienza indimenticabile tra natura, cultura e gastronomia con questo affasci",
-      "Partendo dal pittoresco borgo medievale di Randazzo, pedalerai lungo strade panoramiche circondate d",
-      "Durante il percorso faremo soste nei punti più panoramici, per godere appieno della bellezza selvagg"
-    ],
-    "highlights_en": [
-      "Escursione in bici sui nebrodi\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tRegalati un’esperienza indimenticabile tra natura, cultura e gastronomia con questo affasci",
-      "Partendo dal pittoresco borgo medievale di Randazzo, pedalerai lungo strade panoramiche circondate d",
-      "Durante il percorso faremo soste nei punti più panoramici, per godere appieno della bellezza selvagg"
-    ],
-    "included": [
-      "Noleggio della e-bike",
-      "Casco",
-      "Guida Mtb certificata",
-      "Kit riparazione"
-    ],
-    "included_en": [
-      "Noleggio della e-bike",
-      "Casco",
-      "Guida Mtb certificata",
-      "Kit riparazione"
-    ],
-    "excluded": [
-      "Tutto quello non espressamente indicato alla “quota comprende”"
-    ],
-    "excluded_en": [
-      "Tutto quello non espressamente indicato alla “quota comprende”"
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "nebrodi",
-    "categories": [
-      "borghi",
-      "giornaliere",
-      "nebrodi"
-    ]
-  },
-  {
-    "id": 10,
-    "wp_id": 810,
-    "slug": "escursione-in-bicicletta-etna",
-    "type": "escursione",
-    "category": "Vulcano Etna & Crateri",
-    "category_en": "Mount Etna & Craters",
-    "area": "Etna",
-    "area_tag": "etna",
-    "featured": false,
-    "title": "Escursione in E-Bike sull’Etna con Visita alla Grotta dei Lamponi",
-    "title_en": "Escursione in E-Bike sull’Etna con Visita alla Grotta dei Lamponi",
-    "subtitle": "DEL TOUR\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tescursione in bicicletta etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tVivi un’esperienza unica tra i paesaggi vulcanici dell’Etna con un’...",
-    "subtitle_en": "DEL TOUR\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tescursione in bicicletta etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tVivi un’esperienza unica tra i paesaggi vulcanici dell’Etna con un’...",
-    "description": "escursione in bicicletta etna\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tescursione in bicicletta etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in E-Bike sull’Etna con Visita alla Grotta dei Lamponi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tEsplora l'Etna in E-Bike: l'avventura che unisce il comfort della pedalata assistita alla scoperta dei paesaggi vulcanici più selvaggi. Dalle colate laviche alle profondità della Grotta dei Lamponi, preparati a vivere un'esperienza unica tra natura, geologia e adrenalina.(Da 90€ a persona )",
-    "description_en": "escursione in bicicletta etna\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tescursione in bicicletta etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in E-Bike sull’Etna con Visita alla Grotta dei Lamponi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tEsplora l'Etna in E-Bike: l'avventura che unisce il comfort della pedalata assistita alla scoperta dei paesaggi vulcanici più selvaggi. Dalle colate laviche alle profondità della Grotta dei Lamponi, preparati a vivere un'esperienza unica tra natura, geologia e adrenalina.(Da 90€ a persona )",
-    "itinerary": "DEL TOUR\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tescursione in bicicletta etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tVivi un’esperienza unica tra i paesaggi vulcanici dell’Etna con un’escursione in e-bike che unisce avventura, natura e scoperta. Da Randazzo, pittoresco borgo alle pendici del vulcano, inizia la tua salita assistita verso le alture etnee, attraversando scenari lunari, colate laviche e boschi adattati al terreno vulcanico.\n\nIl percorso ti conduce alla spettacolare Grotta dei Lamponi, una delle più lunghe gallerie di scorrimento lavico dell’Etna, formata dalle antiche eruzioni. Qui potrai esplorare l’interno della grotta e immergerti in un ambiente affascinante e surreale.\n\nDopo la visita, la discesa in e-bike regala emozioni forti tra sentieri panoramici, campi di lava solidificata e viste mozzafiato sul paesaggio etneo.\n\nQuesta escursione è ideale per chi cerca un’attività outdoor coinvolgente, tra natura selvaggia, geologia vulcanica e avventura sostenibile. Un’esperienza indimenticabile nel cuore del vulcano più alto d’Europa.\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tescursione in bicicletta etna",
-    "itinerary_en": "DEL TOUR\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tescursione in bicicletta etna\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tVivi un’esperienza unica tra i paesaggi vulcanici dell’Etna con un’escursione in e-bike che unisce avventura, natura e scoperta. Da Randazzo, pittoresco borgo alle pendici del vulcano, inizia la tua salita assistita verso le alture etnee, attraversando scenari lunari, colate laviche e boschi adattati al terreno vulcanico.\n\nIl percorso ti conduce alla spettacolare Grotta dei Lamponi, una delle più lunghe gallerie di scorrimento lavico dell’Etna, formata dalle antiche eruzioni. Qui potrai esplorare l’interno della grotta e immergerti in un ambiente affascinante e surreale.\n\nDopo la visita, la discesa in e-bike regala emozioni forti tra sentieri panoramici, campi di lava solidificata e viste mozzafiato sul paesaggio etneo.\n\nQuesta escursione è ideale per chi cerca un’attività outdoor coinvolgente, tra natura selvaggia, geologia vulcanica e avventura sostenibile. Un’esperienza indimenticabile nel cuore del vulcano più alto d’Europa.\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tescursione in bicicletta etna",
-    "image": "assets/img/tours/escursione-in-bicicletta-etna-1.jpg",
-    "gallery": [
-      "assets/img/tours/escursione-in-bicicletta-etna-1.jpg",
-      "assets/img/tours/escursione-in-bicicletta-etna-2.jpg",
-      "assets/img/tours/escursione-in-bicicletta-etna-3.jpg",
-      "assets/img/tours/escursione-in-bicicletta-etna-4.jpg",
-      "assets/img/tours/escursione-in-bicicletta-etna-5.jpg",
-      "assets/img/tours/escursione-in-bicicletta-etna-6.jpg"
-    ],
-    "price": 90,
-    "price_note": "a persona (minimo 2 persone)",
-    "price_note_en": "per person (min 2 persons)",
-    "duration": "4-6 ore",
-    "duration_en": "4-6 ore",
-    "days": 1,
-    "distance": "35-45 km",
-    "elevation": "+900 m",
-    "difficulty": "Medio",
-    "difficulty_en": "Medio",
-    "start_location": "Randazzo",
-    "season": "Marzo - Novembre",
-    "season_en": "Marzo - Novembre",
-    "highlights": [
-      "\t\t\t\t\tescursione in bicicletta etna\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tVivi un’esperienza unica tra i paesaggi vulcanici dell’Etna con un’escursione in e-bike che",
-      "Il percorso ti conduce alla spettacolare Grotta dei Lamponi, una delle più lunghe gallerie di scorri",
-      "Dopo la visita, la discesa in e-bike regala emozioni forti tra sentieri panoramici, campi di lava so"
-    ],
-    "highlights_en": [
-      "\t\t\t\t\tescursione in bicicletta etna\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tVivi un’esperienza unica tra i paesaggi vulcanici dell’Etna con un’escursione in e-bike che",
-      "Il percorso ti conduce alla spettacolare Grotta dei Lamponi, una delle più lunghe gallerie di scorri",
-      "Dopo la visita, la discesa in e-bike regala emozioni forti tra sentieri panoramici, campi di lava so"
-    ],
-    "included": [
-      "Noleggio E-MTB biammortizzata di ultima generazione",
-      "Casco protettivo e kit di riparazione",
-      "Guida cicloturistica certificata",
-      "Assicurazione e assistenza logistica"
-    ],
-    "included_en": [
-      "Noleggio E-MTB biammortizzata di ultima generazione",
-      "Casco protettivo e kit di riparazione",
-      "Guida cicloturistica certificata",
-      "Assicurazione e assistenza logistica"
-    ],
-    "excluded": [
-      "Tutto quello non espressamente indicato alla \"quota comprende\"",
-      "Extra personali e mance"
-    ],
-    "excluded_en": [
-      "Tutto quello non espressamente indicato alla \"quota comprende\"",
-      "Extra personali e mance"
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "etna",
-    "categories": [
-      "borghi",
-      "giornaliere",
-      "etna",
-      "grotte"
-    ]
-  },
-  {
-    "id": 11,
-    "wp_id": 798,
-    "slug": "escursione-in-bici-sui-nebrodi",
-    "type": "escursione",
-    "category": "Boschi & Laghi dei Nebrodi",
-    "category_en": "Nebrodi Woods & Lakes",
-    "area": "Nebrodi",
-    "area_tag": "nebrodi",
-    "featured": false,
-    "title": "Escursione in e-bike: Dorsale dei Nebrodi",
-    "title_en": "Escursione in e-bike: Dorsale dei Nebrodi",
-    "subtitle": "Escursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in bici sui nebrodi\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tE-bike tra laghi e boschi: la dorsale dei Nebrodi",
-    "subtitle_en": "Escursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in bici sui nebrodi\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tE-bike tra laghi e boschi: la dorsale dei Nebrodi",
-    "description": "Escursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in bici sui nebrodi\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tE-bike tra laghi e boschi: la dorsale dei Nebrodi",
-    "description_en": "Escursione in bici sui nebrodi\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in bici sui nebrodi\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tE-bike tra laghi e boschi: la dorsale dei Nebrodi",
-    "itinerary": "Punto di incontro: la nostra sede nel suggestivo borgo medievale di Randazzo, dove verrai accolto dalla tua guida. Dopo una breve introduzione al percorso e un briefing sull’utilizzo delle biciclette elettriche, ci sposteremo verso il pittoresco paesino di Cesarò, nel cuore del Parco dei Nebrodi: punto di partenza della nostra escursione.\n\nDa qui avrà inizio la tua avventura in e-bike lungo la spettacolare dorsale dei Nebrodi. Pedaleremo attraverso scenari mozzafiato, tra boschi secolari, verdi pascoli e paesaggi montani di rara bellezza, immergendoci nella quiete della natura incontaminata. Lungo il percorso  ammireremo laghi di alta montagna come il Lago Maulazzo e il Biviere di Cesarò.\n\nDopo aver goduto di questo meraviglioso scenario raggiungeremo Floresta, il paese più alto della Sicilia, dove ci aspetta la calorosa accoglienza della trattoria a conduzione familiare di Giuseppe. Qui gusteremo un pranzo tipico a base di prodotti locali a km 0, in un ambiente immerso nella quiete e nella bellezza dei Nebrodi.\n\nNel pomeriggio, pedalando in  un meraviglioso sentiero immerso nel bosco giungeremo al nostro punto di partenza .\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in bici sui nebrodi",
-    "itinerary_en": "Punto di incontro: la nostra sede nel suggestivo borgo medievale di Randazzo, dove verrai accolto dalla tua guida. Dopo una breve introduzione al percorso e un briefing sull’utilizzo delle biciclette elettriche, ci sposteremo verso il pittoresco paesino di Cesarò, nel cuore del Parco dei Nebrodi: punto di partenza della nostra escursione.\n\nDa qui avrà inizio la tua avventura in e-bike lungo la spettacolare dorsale dei Nebrodi. Pedaleremo attraverso scenari mozzafiato, tra boschi secolari, verdi pascoli e paesaggi montani di rara bellezza, immergendoci nella quiete della natura incontaminata. Lungo il percorso  ammireremo laghi di alta montagna come il Lago Maulazzo e il Biviere di Cesarò.\n\nDopo aver goduto di questo meraviglioso scenario raggiungeremo Floresta, il paese più alto della Sicilia, dove ci aspetta la calorosa accoglienza della trattoria a conduzione familiare di Giuseppe. Qui gusteremo un pranzo tipico a base di prodotti locali a km 0, in un ambiente immerso nella quiete e nella bellezza dei Nebrodi.\n\nNel pomeriggio, pedalando in  un meraviglioso sentiero immerso nel bosco giungeremo al nostro punto di partenza .\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in bici sui nebrodi",
-    "image": "assets/img/tours/escursione-in-bici-sui-nebrodi-1.jpg",
-    "gallery": [
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-1.jpg",
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-2.jpg",
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-3.jpg",
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-4.jpg",
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-5.jpg",
-      "assets/img/tours/escursione-in-bici-sui-nebrodi-6.jpg"
-    ],
-    "price": 140,
-    "price_note": "a persona (minimo 4 persone)",
-    "price_note_en": "per person (min 4 persons)",
-    "duration": "4-6 ore",
-    "duration_en": "4-6 ore",
-    "days": 1,
-    "distance": "35-40 km",
-    "elevation": "+1.100 m",
-    "difficulty": "Medio / Impegnativo",
-    "difficulty_en": "Medio / Impegnativo",
-    "start_location": "Cesarò",
-    "season": "Aprile - Ottobre",
-    "season_en": "Aprile - Ottobre",
-    "highlights": [
-      "Punto di incontro: la nostra sede nel suggestivo borgo medievale di Randazzo, dove verrai accolto da",
-      "Da qui avrà inizio la tua avventura in e-bike lungo la spettacolare dorsale dei Nebrodi. Pedaleremo ",
-      "Dopo aver goduto di questo meraviglioso scenario raggiungeremo Floresta, il paese più alto della Sic",
-      "Nel pomeriggio, pedalando in  un meraviglioso sentiero immerso nel bosco giungeremo al nostro punto "
-    ],
-    "highlights_en": [
-      "Punto di incontro: la nostra sede nel suggestivo borgo medievale di Randazzo, dove verrai accolto da",
-      "Da qui avrà inizio la tua avventura in e-bike lungo la spettacolare dorsale dei Nebrodi. Pedaleremo ",
-      "Dopo aver goduto di questo meraviglioso scenario raggiungeremo Floresta, il paese più alto della Sic",
-      "Nel pomeriggio, pedalando in  un meraviglioso sentiero immerso nel bosco giungeremo al nostro punto "
-    ],
-    "included": [
-      "Noleggio  e-bike, Casco",
-      "Guida MTB certificata",
-      "Kit riparazione",
-      "Transfer"
-    ],
-    "included_en": [
-      "Noleggio  e-bike, Casco",
-      "Guida MTB certificata",
-      "Kit riparazione",
-      "Transfer"
-    ],
-    "excluded": [
-      "Tutto quello non espressamente indicato alla “quota comprende”"
-    ],
-    "excluded_en": [
-      "Tutto quello non espressamente indicato alla “quota comprende”"
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "nebrodi",
-    "categories": [
-      "giornaliere",
-      "nebrodi"
-    ]
-  },
-  {
-    "id": 12,
-    "wp_id": 505,
-    "slug": "escursione-etna-e-degustazione-vino",
-    "type": "escursione",
-    "category": "Vulcano Etna & Crateri",
-    "category_en": "Mount Etna & Craters",
-    "area": "Etna",
-    "area_tag": "etna",
-    "featured": false,
-    "title": "Escursione in e-bike sull’Etna con degustazione di Vini",
-    "title_en": "Escursione in e-bike sull’Etna con degustazione di Vini",
-    "subtitle": "Tour in e-bike con degustazione in cantina\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tLa giornata inizia con l’accoglienza presso la nostra sede a Randazzo, pittoresco borgo a...",
-    "subtitle_en": "Tour in e-bike con degustazione in cantina\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tLa giornata inizia con l’accoglienza presso la nostra sede a Randazzo, pittoresco borgo a...",
-    "description": "Escursione Etna con wine tasting\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione Etna con wine tasting\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in e-bike sull'Etna con degustazione in una bellissima cantina\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tConquista l'Etna in E-Bike e Brinda al Tuo Successo! Pedala con leggerezza tra colate laviche e crateri storici per poi concederti una degustazione di vini Etna DOC in una cantina d'eccellenza, unendo avventura sostenibile e alta enogastronomia.",
-    "description_en": "Escursione Etna con wine tasting\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione Etna con wine tasting\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione in e-bike sull'Etna con degustazione in una bellissima cantina\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tConquista l'Etna in E-Bike e Brinda al Tuo Successo! Pedala con leggerezza tra colate laviche e crateri storici per poi concederti una degustazione di vini Etna DOC in una cantina d'eccellenza, unendo avventura sostenibile e alta enogastronomia.",
-    "itinerary": "Tour in e-bike con degustazione in cantina\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tLa giornata inizia con l’accoglienza presso la nostra sede a Randazzo, pittoresco borgo alle pendici dell’Etna. Qui incontrerai la tua guida esperta e riceverai un’e-bike di ultima generazione, ideale per affrontare in tutta sicurezza e comodità i sentieri del vulcano. Dopo un briefing introduttivo sull’uso della bici elettrica e le principali norme di sicurezza, prenderà il via la tua avventura.\n\nPedaleremo attraverso paesaggi mozzafiato: antiche colate laviche, boschi di castagni secolari e faggete lussureggianti ti faranno da cornice. Visiteremo vecchi crateri spenti e ammireremo da vicino l &#8216;enorme colata lavica che stava per distruggere il paese di Randazzo.\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione Etna con degustazione\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tDopo un’avventura emozionante tra i paesaggi spettacolari dell’Etna, raggiungeremo una rinomata cantina immersa tra i vigneti che abbracciano le pendici del vulcano.\n\nAd accoglierti troverai un’atmosfera autentica e il calore del personale della cantina, pronto a guidarti in un viaggio sensoriale alla scoperta dell’enologia etnea.\n\nDegusterai una selezione di vini pregiati, dal bianco minerale al corposo rosso, espressione del suolo vulcanico e del clima unico della zona. Il tutto sarà accompagnato da sapori locali: formaggi tipici, salumi artigianali e pane appena sfornato .\n\nAl termine della degustazione, faremo ritorno  sede",
-    "itinerary_en": "Tour in e-bike con degustazione in cantina\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tLa giornata inizia con l’accoglienza presso la nostra sede a Randazzo, pittoresco borgo alle pendici dell’Etna. Qui incontrerai la tua guida esperta e riceverai un’e-bike di ultima generazione, ideale per affrontare in tutta sicurezza e comodità i sentieri del vulcano. Dopo un briefing introduttivo sull’uso della bici elettrica e le principali norme di sicurezza, prenderà il via la tua avventura.\n\nPedaleremo attraverso paesaggi mozzafiato: antiche colate laviche, boschi di castagni secolari e faggete lussureggianti ti faranno da cornice. Visiteremo vecchi crateri spenti e ammireremo da vicino l &#8216;enorme colata lavica che stava per distruggere il paese di Randazzo.\n\n\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\tEscursione Etna con degustazione\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\tDopo un’avventura emozionante tra i paesaggi spettacolari dell’Etna, raggiungeremo una rinomata cantina immersa tra i vigneti che abbracciano le pendici del vulcano.\n\nAd accoglierti troverai un’atmosfera autentica e il calore del personale della cantina, pronto a guidarti in un viaggio sensoriale alla scoperta dell’enologia etnea.\n\nDegusterai una selezione di vini pregiati, dal bianco minerale al corposo rosso, espressione del suolo vulcanico e del clima unico della zona. Il tutto sarà accompagnato da sapori locali: formaggi tipici, salumi artigianali e pane appena sfornato .\n\nAl termine della degustazione, faremo ritorno  sede",
-    "image": "assets/img/tours/escursione-etna-e-degustazione-vino-1.png",
-    "gallery": [
-      "assets/img/tours/escursione-etna-e-degustazione-vino-1.png",
-      "assets/img/tours/escursione-etna-e-degustazione-vino-2.jpg",
-      "assets/img/tours/escursione-etna-e-degustazione-vino-3.jpg",
-      "assets/img/tours/escursione-etna-e-degustazione-vino-4.jpg",
-      "assets/img/tours/escursione-etna-e-degustazione-vino-5.jpg",
-      "assets/img/tours/escursione-etna-e-degustazione-vino-6.jpg"
-    ],
-    "price": 90,
-    "price_note": "a persona (degustazione cantina +45€)",
-    "price_note_en": "per person (winery tasting +€45)",
-    "duration": "3h tour + 2h tasting",
-    "duration_en": "3h tour + 2h tasting",
-    "days": 1,
-    "distance": "30-40 km",
-    "elevation": "+750 m",
-    "difficulty": "Medio / Facile",
-    "difficulty_en": "Medio / Facile",
-    "start_location": "Randazzo",
-    "season": "Marzo - Novembre",
-    "season_en": "Marzo - Novembre",
-    "highlights": [
-      "Tour in e-bike con degustazione in cantina\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tLa giornata inizia con l’accoglienza presso la nostra sede a Randazzo, pittoresco borgo all",
-      "Pedaleremo attraverso paesaggi mozzafiato: antiche colate laviche, boschi di castagni secolari e fag",
-      "\t\t\t\t\tEscursione Etna con degustazione\t\t\t\t"
-    ],
-    "highlights_en": [
-      "Tour in e-bike con degustazione in cantina\t\t\t\t",
-      "\t\t\t\t\t\t\t\t\tLa giornata inizia con l’accoglienza presso la nostra sede a Randazzo, pittoresco borgo all",
-      "Pedaleremo attraverso paesaggi mozzafiato: antiche colate laviche, boschi di castagni secolari e fag",
-      "\t\t\t\t\tEscursione Etna con degustazione\t\t\t\t"
-    ],
-    "included": [
-      "Noleggio E-MTB biammortizzata di ultima generazione",
-      "Casco protettivo e kit di riparazione",
-      "Guida cicloturistica certificata",
-      "Assicurazione e assistenza logistica"
-    ],
-    "included_en": [
-      "Noleggio E-MTB biammortizzata di ultima generazione",
-      "Casco protettivo e kit di riparazione",
-      "Guida cicloturistica certificata",
-      "Assicurazione e assistenza logistica"
-    ],
-    "excluded": [
-      "Tutto quello non espressamente indicato alla \"quota comprende\"",
-      "Extra personali e mance"
-    ],
-    "excluded_en": [
-      "Tutto quello non espressamente indicato alla \"quota comprende\"",
-      "Extra personali e mance"
-    ],
-    "schedule_dates": [
-      "2026-04-15",
-      "2026-05-01",
-      "2026-05-15",
-      "2026-06-01",
-      "2026-07-01",
-      "2026-08-01",
-      "2026-09-01",
-      "2026-10-01"
-    ],
-    "category_slug": "etna",
-    "categories": [
-      "gusto",
-      "giornaliere",
-      "etna"
-    ]
-  }
+    {
+        "id": 1,
+        "wp_id": 1651,
+        "slug": "tour-in-e-bike-e-pranzo-gourmet",
+        "type": "escursione",
+        "category": "Vulcano Etna & Crateri",
+        "category_en": "Mount Etna & Craters",
+        "area": "Etna",
+        "area_tag": "etna",
+        "featured": false,
+        "title": "Escursione in e-bike e pranzo gourmet",
+        "title_en": "Escursione in e-bike e pranzo gourmet",
+        "subtitle": "Un'indimenticabile avventura sull'Etna in e-bike tra antiche colate laviche e boschi secolari, coronata da un pranzo gourmet in location esclusiva.",
+        "subtitle_en": "An unforgettable e-bike adventure on Mount Etna through ancient lava flows and centuries-old woods, followed by a gourmet lunch in an exclusive setting.",
+        "description": "Vivi un'esperienza esclusiva sul versante orientale dell'Etna. Partendo da Milo, borgo incastonato tra il vulcano e il mare, pedaleremo in sella a confortevoli e-bike su sentieri panoramici immersi tra colate laviche storiche, boschi di betulle e castagni. Al termine della pedalata, ci aspetta un raffinato pranzo gourmet con degustazione dei migliori vini Etna DOC.",
+        "description_en": "Experience an exclusive e-bike tour on Mount Etna's eastern slopes. Starting from Milo, pedal along panoramic trails through historic lava flows and ancient birch and chestnut woods, ending with a refined gourmet lunch and Etna DOC wine tasting.",
+        "itinerary": "Partenza da Milo e briefing iniziale sull'uso delle e-bike biammortizzate.\n\nSalita graduale lungo i sentieri forestali del versante orientale dell'Etna, con soste panoramiche per ammirare il mar Ionio da una parte e i crateri sommitali dall'altra.\n\nAttraversamento di colate laviche storiche e percorsi boschivi fino a raggiungere punti d'interesse geologico e naturalistico.\n\nRientro rilassante e pranzo gourmet in un'esclusiva tenuta etnea con piatti della tradizione rivisitati e abbinamento di vini vulcanici d'eccellenza.",
+        "itinerary_en": "Departure from Milo with briefing on e-bike use.\n\nGradual climb through forest paths with scenic stops offering views of the Ionian Sea and summit craters.\n\nCrossing ancient lava fields and peaceful woodland tracks to reach geological points of interest.\n\nReturn ride followed by a gourmet lunch at an exclusive winery estate with Sicilian cuisine and volcanic wine pairings.",
+        "image": "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg",
+        "gallery": [
+            "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-1.jpg",
+            "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-2.jpg",
+            "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-3.jpg",
+            "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-4.jpeg",
+            "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-5.jpeg",
+            "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-6.jpeg",
+            "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-7.jpeg",
+            "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-8.jpeg",
+            "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-9.jpeg",
+            "assets/img/tours/tour-in-e-bike-e-pranzo-gourmet-10.jpeg"
+        ],
+        "price": 150,
+        "price_note": "a persona (guida + e-bike inclusa)",
+        "price_note_en": "per person (min 2 persons)",
+        "duration": "3-4 ore",
+        "duration_en": "3-4 ore",
+        "days": 1,
+        "distance": "30-35 km",
+        "elevation": "+1.100 m",
+        "difficulty": "Medio / Facile",
+        "difficulty_en": "Medio / Facile",
+        "start_location": "Milo",
+        "season": "Tutto l'anno",
+        "season_en": "Aprile - Novembre",
+        "highlights": [
+            "Escursione guidata in e-bike sul versante est dell'Etna tra antiche colate laviche e boschi secolari",
+            "Partenza dal borgo di Milo con salita panoramica e soste fotografiche verso i crateri",
+            "Ricco pranzo gourmet con menù degustazione e vini Etna DOC in location esclusiva",
+            "E-bike biammortizzata di ultima generazione con casco e guida certificata inclusi"
+        ],
+        "highlights_en": [
+            "Guided e-bike excursion on Mount Etna's eastern slopes across historic lava flows and woods",
+            "Scenic ride starting from Milo with panoramic stops overlooking sea and craters",
+            "Gourmet tasting lunch paired with Etna DOC wines at an exclusive wine estate",
+            "Full-suspension e-bike, helmet and certified cycling guide included"
+        ],
+        "included": [
+            "Noleggio e-bike",
+            "Casco",
+            "Guida Mtb certificata",
+            "Kit riparazione",
+            "Pranzo"
+        ],
+        "included_en": [
+            "Noleggio e-bike",
+            "Casco",
+            "Guida Mtb certificata",
+            "Kit riparazione",
+            "Pranzo"
+        ],
+        "excluded": [
+            "Tutto quello non espressamente indicato alla “quota comprende”"
+        ],
+        "excluded_en": [
+            "Tutto quello non espressamente indicato alla “quota comprende”"
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "etna",
+        "categories": [
+            "etna"
+        ],
+        "itinerary_summary": "Partenza da Milo e briefing iniziale sull'uso delle e-bike biammortizzate.\n\nSalita graduale lungo i sentieri forestali del versante orientale dell'Etna, con soste panoramiche per ammirare il mar Ionio da una parte e i crateri sommitali dall'altra.\n\nAttraversamento di colate laviche storiche e percorsi boschivi fino a raggiungere punti d'interesse geologico e naturalistico.\n\nRientro rilassante e pranzo gourmet in un'esclusiva tenuta etnea con piatti della tradizione rivisitati e abbinamento di vini vulcanici d'eccellenza."
+    },
+    {
+        "id": 2,
+        "wp_id": 1621,
+        "slug": "etna-e-bike-vulcano-avventura-sicilia",
+        "type": "escursione",
+        "category": "Vulcano Etna & Crateri",
+        "category_en": "Mount Etna & Craters",
+        "area": "Etna",
+        "area_tag": "etna",
+        "featured": false,
+        "title": "Etna Summit: la scalata del vulcano in E-bike",
+        "title_en": "Etna Summit: la scalata del vulcano in E-bike",
+        "subtitle": "La scalata dell'Etna in e-bike fino alle quote sommitali e ai grandi crateri storici, con discesa mozzafiato lungo sentieri vulcanici.",
+        "subtitle_en": "Climb Mount Etna on an e-bike towards summit altitudes and historical craters, with a breathtaking descent along volcanic trails.",
+        "description": "Trasforma la tua vacanza in Sicilia in un'avventura epica. Con il supporto di un comodo transfer fino a Piano Provenzana (versante nord), pedalerai su sentieri vulcanici unici al mondo, attraversando colate laviche recenti e avvicinandoti ai crateri d'alta quota in totale sicurezza con guida vulcanologica e cicloturistica.",
+        "description_en": "Transform your Sicilian journey into an epic adventure. With private transfer up to Piano Provenzana (north slope), ride unique volcanic gravel trails through recent lava fields towards high altitude craters in complete safety with certified guides.",
+        "itinerary": "Transfer privato verso Piano Provenzana sul versante nord dell'Etna.\n\nBriefing tecnico e inizio della scalata su piste sterrate vulcaniche tra antiche pinete e campi di lava.\n\nArrivo alle quote sommitali dei grandi crateri storici con spiegazione geologica e panorama a 360° sulla costa siciliana.\n\nDiscesa panoramica e divertente lungo i sentieri del vulcano fino al punto di ristoro e rientro in sede.",
+        "itinerary_en": "Private transfer to Piano Provenzana on Mount Etna's northern slope.\n\nTechnical briefing and start of the climb on gravel volcanic trails through pine forests and lava fields.\n\nArrival at high altitude craters with geological insights and 360° panoramas over the Sicilian coastline.\n\nExciting descent along volcano trails to the refreshment break and return.",
+        "image": "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-1.jpg",
+        "gallery": [
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-1.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-2.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-3.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-4.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-5.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-6.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-7.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-8.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-9.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-10.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-11.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-12.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-13.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-14.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-15.jpg",
+            "assets/img/tours/etna-e-bike-vulcano-avventura-sicilia-16.jpg"
+        ],
+        "price": 130,
+        "price_note": "a persona (guida + e-bike inclusa)",
+        "price_note_en": "per person (min 2 persons)",
+        "duration": "5-6 ore",
+        "duration_en": "5-6 ore",
+        "days": 1,
+        "distance": "40 km",
+        "elevation": "+1.300 m",
+        "difficulty": "Medio / Difficile",
+        "difficulty_en": "Medio / Difficile",
+        "start_location": "Randazzo",
+        "season": "Tutto l'anno",
+        "season_en": "Aprile - Ottobre",
+        "highlights": [
+            "La scalata dell'Etna in e-bike fino alle quote sommitali e ai grandi crateri storici",
+            "Partenza da Piano Provenzana (versante nord) attraversando paesaggi lunari mozzafiato",
+            "Discesa emozionante e sicura lungo sentieri vulcanici panoramici con vista fino al mare",
+            "Transfer privato incluso, noleggio e-bike biammortizzata e guida qualificata"
+        ],
+        "highlights_en": [
+            "E-bike ascent to Mount Etna's high altitudes and historic craters",
+            "Ride starting from Piano Provenzana through breathtaking lunar lava fields",
+            "Thrilling and safe descent on volcanic tracks with panoramic views to the sea",
+            "Private transfer included, premium full-suspension e-bike and certified guide"
+        ],
+        "included": [
+            "Noleggio  e-bike",
+            "Casco",
+            "Guida Mtb certificata",
+            "Kit riparazione",
+            "Transfer dalla nostra sede al punto di partenza"
+        ],
+        "included_en": [
+            "Noleggio  e-bike",
+            "Casco",
+            "Guida Mtb certificata",
+            "Kit riparazione",
+            "Transfer dalla nostra sede al punto di partenza"
+        ],
+        "excluded": [
+            "Tutto quello non espressamente indicato alla “quota comprende"
+        ],
+        "excluded_en": [
+            "Tutto quello non espressamente indicato alla “quota comprende"
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "etna",
+        "categories": [
+            "etna"
+        ],
+        "itinerary_summary": "Transfer privato verso Piano Provenzana sul versante nord dell'Etna.\n\nBriefing tecnico e inizio della scalata su piste sterrate vulcaniche tra antiche pinete e campi di lava.\n\nArrivo alle quote sommitali dei grandi crateri storici con spiegazione geologica e panorama a 360° sulla costa siciliana.\n\nDiscesa panoramica e divertente lungo i sentieri del vulcano fino al punto di ristoro e rientro in sede."
+    },
+    {
+        "id": 3,
+        "wp_id": 1598,
+        "slug": "tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara",
+        "type": "tour",
+        "category": "Boschi & Laghi dei Nebrodi",
+        "category_en": "Nebrodi Woods & Lakes",
+        "area": "Nebrodi",
+        "area_tag": "etna",
+        "featured": false,
+        "title": "Weekend in Sicilia:  Randazzo e valle dell'Alcantara",
+        "title_en": "Weekend in Sicilia:  Randazzo e valle dell'Alcantara",
+        "subtitle": "Esplora castelli medievali, formazioni rocciose millenarie e il fascino della Valle dell'Alcantara in un weekend indimenticabile in e-bike da Randazzo a Montalbano Elicona.",
+        "subtitle_en": "Explore medieval castles, ancient megalithic rock formations, and the charm of the Alcantara Valley on an unforgettable weekend e-bike tour.",
+        "description": "Un viaggio cicloturistico di 2 giorni alla scoperta dell'anima più autentica della Sicilia. Dai vigneti e vicoli medievali di Randazzo saliremo verso i boschi incontaminati del Parco dei Nebrodi e il borgo più alto dell'isola, Floresta, fino allo spettacolare castello svevo-aragonese di Montalbano Elicona. Il secondo giorno ci immergeremo nel silenzio millenario del Bosco di Malabotta e tra le suggestive formazioni rocciose dei Megaliti dell'Argimusco, per poi discendere lungo la rigogliosa Valle dell'Alcantara fino al cono vulcanico di Mojo Alcantara.",
+        "description_en": "A 2-day guided e-bike journey through the most authentic soul of Sicily. From the vineyards and medieval streets of Randazzo, pedal towards the pristine beech woods of Nebrodi Park and Sicily's highest village, Floresta, reaching the stunning castle of Montalbano Elicona. On day two, immerse yourself in the ancient Malabotta Forest and the mysterious Argimusco Megaliths, descending through the lush Alcantara Valley to the Mojo Alcantara volcanic cone.",
+        "itinerary": "Giorno 1: Da Randazzo alla Storia di Montalbano Elicona (Nebrodi e Floresta)\n\nLa nostra avventura inizia nel borgo medievale di Randazzo, alle pendici dell'Etna. In sella alle e-bike pedaliamo verso il cuore del Parco dei Nebrodi, attraversando boschi secolari e panorami incontaminati.\n\nLa prima tappa gastronomica è Floresta, il comune più alto della Sicilia (1.275 m s.l.m.), dove un pranzo tipico a base di eccellenze casearie e prodotti locali ricarica le energie. Nel pomeriggio proseguiamo verso Montalbano Elicona, eletto tra i Borghi più Belli d’Italia: passeggeremo tra le stradine in pietra e visiteremo l'imponente Castello Svevo-Aragonese, prima di concludere la giornata con cena tipica e pernottamento.\n\nGiorno 2: Dalla 'Stonehenge Siciliana' dell'Argimusco alla Valle dell'Alcantara\n\nDopo la colazione a Montalbano Elicona, la giornata inizia con l'esplorazione della Riserva Naturale del Bosco di Malabotta e l'altopiano dei Megaliti dell'Argimusco, maestose formazioni rocciose millenarie conosciute come la 'Stonehenge siciliana', con vista panoramica a 360° sull'Etna e sulle Isole Eolie.\n\nScendendo verso Malvagna ci godremo una gustosa sosta gastronomica con piatti della tradizione locale. Nel pomeriggio il percorso tocca il suggestivo Vulcanetto di Mojo Alcantara, cono vulcanico perfettamente conservato nella fertile vallata fluviale dell'Alcantara. Il tour si conclude con il rientro a Randazzo nel tardo pomeriggio.",
+        "itinerary_en": "Day 1: From Randazzo to the Historic Castle of Montalbano Elicona (Nebrodi & Floresta)\n\nOur adventure begins in the medieval village of Randazzo at the foot of Mount Etna. Aboard our e-bikes, we pedal into the heart of Nebrodi Regional Park through ancient beech forests and unspoiled mountain vistas.\n\nOur first gourmet stop is Floresta, Sicily's highest town (1,275 m), where a traditional lunch featuring local Nebrodi cheeses recharges our energy. In the afternoon we ride to Montalbano Elicona, voted one of Italy's Most Beautiful Villages, visiting the historic Swabian-Aragonese Castle before a traditional dinner and overnight stay.\n\nDay 2: From the 'Sicilian Stonehenge' of Argimusco to the Alcantara Valley\n\nFollowing breakfast in Montalbano Elicona, we explore the Malabotta Forest Nature Reserve and the Argimusco Megaliths plateau, monumental prehistoric rock formations known worldwide as the 'Sicilian Stonehenge' with 360° panoramic views of Mount Etna and the Aeolian Islands.\n\nDescending towards Malvagna we stop for another authentic Sicilian lunch. In the afternoon the itinerary visits the Mojo Alcantara volcanic cone in the fertile river valley, concluding with our scenic return to Randazzo.",
+        "image": "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-1.jpeg",
+        "gallery": [
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-1.jpeg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-2.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-3.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-4.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-5.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-6.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-7.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-8.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-9.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-10.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-11.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-12.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-13.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-14.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-15.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-16.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-17.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-18.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-19.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-20.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-21.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-22.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-23.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-24.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-25.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-26.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-27.jpg",
+            "assets/img/tours/tour-2-giorni-alla-scoperta-dei-borghi-tra-nebrodi-montalbano-elicona-alcantara-28.jpg"
+        ],
+        "price": 240,
+        "price_note": "a persona (guida + e-bike inclusa)",
+        "price_note_en": "per person (customized quote)",
+        "duration": "2 Giorni / 1 Notte",
+        "duration_en": "2 Giorni / 1 Notte",
+        "days": 2,
+        "distance": "100-150 km",
+        "elevation": "+1.800 m",
+        "difficulty": "Medio",
+        "difficulty_en": "Medio",
+        "start_location": "Randazzo",
+        "season": "Tutto l'anno",
+        "season_en": "Marzo - Novembre",
+        "highlights": [
+            "Tour guidato di 2 giorni in e-bike tra Parco dei Nebrodi, Bosco di Malabotta e Valle dell'Alcantara",
+            "Visita al borgo medievale di Randazzo e al Castello Svevo-Aragonese di Montalbano Elicona",
+            "Tappa a Floresta (il comune più alto della Sicilia) con pranzo degustazione di prodotti tipici dei Nebrodi",
+            "Escursione ai misteriosi Megaliti dell'Argimusco, la celebre 'Stonehenge siciliana'",
+            "Sosta panoramica al cono vulcanico di Mojo Alcantara e paesaggi fluviali",
+            "Assistenza con van di supporto al seguito, trasporto bagagli e guida bilingue certificata"
+        ],
+        "highlights_en": [
+            "2-day guided e-bike journey across Nebrodi Park, Malabotta Forest and the Alcantara Valley",
+            "Explore medieval Randazzo and the historic village and Castle of Montalbano Elicona",
+            "Stop in Floresta (Sicily's highest village) with traditional Nebrodi cheese and food tasting",
+            "Discover the mysterious Argimusco Megaliths, the renowned 'Sicilian Stonehenge'",
+            "Scenic stop at the Mojo Alcantara volcanic cone and river valley panoramas",
+            "Support van assistance, luggage transfer and certified bilingual cycling guide"
+        ],
+        "included": [
+            "2 escursioni in e-bike con guida bilingue (ITA/ENG)",
+            "1 notte in hotel o agriturismo (camera doppia,+ colazione)",
+            "Cena a Montalbano Elicona",
+            "Noleggio e-bike +casco",
+            "Van di supporto durante il tour",
+            "Transfer bagagli",
+            "Assicurazione viaggio"
+        ],
+        "included_en": [
+            "2 escursioni in e-bike con guida bilingue (ITA/ENG)",
+            "1 notte in hotel o agriturismo (camera doppia,+ colazione)",
+            "Cena a Montalbano Elicona",
+            "Noleggio e-bike +casco",
+            "Van di supporto durante il tour",
+            "Transfer bagagli",
+            "Assicurazione viaggio"
+        ],
+        "excluded": [
+            "Tutto quello non espressamente indicato alla \"quota comprende\""
+        ],
+        "excluded_en": [
+            "Tutto quello non espressamente indicato alla \"quota comprende\""
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "nebrodi",
+        "categories": [
+            "nebrodi",
+            "borghi"
+        ],
+        "itinerary_summary": "Giorno 1: Da Randazzo alla Storia di Montalbano Elicona (Nebrodi e Floresta)\n\nLa nostra avventura inizia nel borgo medievale di Randazzo, alle pendici dell'Etna. In sella alle e-bike pedaliamo verso il cuore del Parco dei Nebrodi, attraversando boschi secolari e panorami incontaminati.\n\nLa prima tappa gastronomica è Floresta, il comune più alto della Sicilia (1.275 m s.l.m.), dove un pranzo tipico a base di eccellenze casearie e prodotti locali ricarica le energie. Nel pomeriggio proseguiamo verso Montalbano Elicona, eletto tra i Borghi più Belli d’Italia: passeggeremo tra le stradine in pietra e visiteremo l'imponente Castello Svevo-Aragonese, prima di concludere la giornata con cena tipica e pernottamento.\n\nGiorno 2: Dalla 'Stonehenge Siciliana' dell'Argimusco alla Valle dell'Alcantara\n\nDopo la colazione a Montalbano Elicona, la giornata inizia con l'esplorazione della Riserva Naturale del Bosco di Malabotta e l'altopiano dei Megaliti dell'Argimusco, maestose formazioni rocciose millenarie conosciute come la 'Stonehenge siciliana', con vista panoramica a 360° sull'Etna e sulle Isole Eolie.\n\nScendendo verso Malvagna ci godremo una gustosa sosta gastronomica con piatti della tradizione locale. Nel pomeriggio il percorso tocca il suggestivo Vulcanetto di Mojo Alcantara, cono vulcanico perfettamente conservato nella fertile vallata fluviale dell'Alcantara. Il tour si conclude con il rientro a Randazzo nel tardo pomeriggio."
+    },
+    {
+        "id": 4,
+        "wp_id": 1580,
+        "slug": "tour-ebike-etna-nebrodi-sicilia",
+        "type": "tour",
+        "category": "Vulcano Etna & Crateri",
+        "category_en": "Mount Etna & Craters",
+        "area": "Etna",
+        "area_tag": "etna",
+        "featured": false,
+        "title": "Cicloturismo tra il Parco dei  Nebrodi e il Vulcano Etna",
+        "title_en": "Cicloturismo tra il Parco dei  Nebrodi e il Vulcano Etna",
+        "subtitle": "Un viaggio di 4 giorni tra i faggi secolari dei Nebrodi, la magia del Lago Maulazzo e le spettacolari colate laviche dell'Etna.",
+        "subtitle_en": "A 4-day cycling journey through the ancient beech woods of the Nebrodi, magical Lake Maulazzo, and Mount Etna's dramatic lava fields.",
+        "description": "Scopri la Sicilia più autentica con un tour itinerante in e-bike di 4 giorni tra i paesaggi mozzafiato del Parco dei Nebrodi e le colate laviche dell'Etna. Un'esperienza spettacolare tra natura incontaminata, borghi storici, laghi di montagna e sapori tipici, con van di supporto e trasporto bagagli sempre al seguito.",
+        "description_en": "Discover the most authentic Sicily on a 4-day guided e-bike journey across Nebrodi Regional Park and Mount Etna. A spectacular mix of unspoiled wilderness, mountain lakes, historic villages, and local food with full luggage support.",
+        "itinerary": "Giorno 1: Benvenuti nel cuore verde dei Nebrodi & Lago Maulazzo\nTransfer privato da Catania a Cesarò, cuore del Parco dei Nebrodi. Nel pomeriggio prima escursione in e-bike tra faggete secolari fino al suggestivo specchio d'acqua del Lago Maulazzo, incastonato tra le montagne. Cena tipica a base di prodotti locali di stagione e pernottamento.\n\nGiorno 2: La grande traversata della Dorsale dei Nebrodi fino a Randazzo\nTappa memorabile attraverso la dorsale montuosa: pascoli d'alta quota, scorci sul mar Tirreno e sosta a Floresta, il comune più alto dell'isola, per un pranzo tipico a base di provola dei Nebrodi. Discesa panoramica verso il borgo medievale di Randazzo, con visita al centro storico e granita artigianale.\n\nGiorno 3: La scalata dell'Etna tra colate laviche, rifugi e grotta sotterranea\nRisalita del vulcano lungo la colata storica del 1981 su sentieri panoramici tra paesaggi lunari e boschi silenziosi. Pranzo in rifugio montano e avventurosa esplorazione a piedi con caschetto di una grotta di scorrimento lavico. Pernottamento a Randazzo.\n\nGiorno 4: Colazione tipica e transfer di rientro\nColazione con dolci della tradizione siciliana e transfer privato verso l'aeroporto o la stazione di Catania con ricordi ed emozioni indimenticabili.",
+        "itinerary_en": "Day 1: Heart of the Nebrodi Mountains & Lake Maulazzo\nPrivate transfer from Catania to Cesarò. Afternoon e-bike ride through ancient beech woods to Lake Maulazzo set against mountain peaks. Dinner featuring local seasonal cuisine and overnight stay.\n\nDay 2: Nebrodi Ridge Crossing to Randazzo\nSpectacular ride along the high mountain ridge with panoramic sea views. Stop in Floresta for a traditional cheese lunch, followed by a scenic descent into medieval Randazzo for an artisanal granita.\n\nDay 3: Mount Etna Lava Fields & Volcanic Cave\nClimb Mount Etna following the 1981 historic lava flow. Lunch at a mountain chalet and exploration of a volcanic lava tube cave with helmets and torches. Overnight in Randazzo.\n\nDay 4: Breakfast & Airport Transfer\nTraditional Sicilian breakfast and transfer to Catania airport with memories of a lifetime.",
+        "image": "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-1.jpg",
+        "gallery": [
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-1.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-2.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-3.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-4.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-5.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-6.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-7.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-8.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-9.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-10.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-11.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-12.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-13.jpg",
+            "assets/img/tours/tour-ebike-etna-nebrodi-sicilia-14.jpg"
+        ],
+        "price": 520,
+        "price_note": "a persona (guida + e-bike inclusa)",
+        "price_note_en": "per person (customized quote)",
+        "duration": "4 Giorni / 3 Notti",
+        "duration_en": "4 Days / 3 Nights",
+        "days": 4,
+        "distance": "150-200 km",
+        "elevation": "+2.400 m",
+        "difficulty": "Medio",
+        "difficulty_en": "Medio",
+        "start_location": "Cesarò",
+        "season": "Tutto l'anno",
+        "season_en": "Marzo - Ottobre",
+        "highlights": [
+            "Tour guidato in e-bike di 4 giorni tra il Parco Regionale dei Nebrodi e il vulcano Etna",
+            "Pedalata panoramica immersi nella natura incontaminata fino al suggestivo Lago Maulazzo",
+            "Spettacolare traversata della Dorsale dei Nebrodi con sosta a Floresta e arrivo a Randazzo",
+            "Risalita dell'Etna lungo la colata storica del 1981 con esplorazione di una grotta lavica",
+            "Soggiorni selezionati in agriturismo e cene con prodotti tipici a km zero della tradizione",
+            "Van di supporto sempre al seguito per transfer bagagli e assistenza logistica completa"
+        ],
+        "highlights_en": [
+            "4-day guided e-bike journey across Nebrodi Regional Park and Mount Etna",
+            "Scenic mountain biking to pristine Lake Maulazzo surrounded by beech forests",
+            "Traverse of the legendary Nebrodi Ridge with a foodie stop in Floresta and descent to Randazzo",
+            "Mount Etna climb across historic lava flows and guided exploration of a volcanic cave",
+            "Selected agriturismo stays with farm-to-table traditional dinners",
+            "Support van with luggage transport and complete logistical assistance"
+        ],
+        "included": [
+            "3 escursioni in e-bike",
+            "Guida bilingue (inglese/italiano)",
+            "3 notti in hotel /agriturismo in camera doppia + colazione",
+            "1 cena ,1 pranzo a sacco",
+            "Van di supporto durante il tour",
+            "transfer da a\\r aeroporto",
+            "transfer bagagli",
+            "Assicurazione viaggio",
+            "Noleggio e-bike + casco"
+        ],
+        "included_en": [
+            "3 escursioni in e-bike",
+            "Guida bilingue (inglese/italiano)",
+            "3 notti in hotel /agriturismo in camera doppia + colazione",
+            "1 cena ,1 pranzo a sacco",
+            "Van di supporto durante il tour",
+            "transfer da a\\r aeroporto",
+            "transfer bagagli",
+            "Assicurazione viaggio",
+            "Noleggio e-bike + casco"
+        ],
+        "excluded": [
+            "Tutto quello non specificato alla\" quota comprende\""
+        ],
+        "excluded_en": [
+            "Tutto quello non specificato alla\" quota comprende\""
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "etna",
+        "categories": [
+            "etna",
+            "nebrodi",
+            "borghi"
+        ],
+        "itinerary_summary": "Giorno 1: Benvenuti nel cuore verde dei Nebrodi & Lago Maulazzo\nTransfer privato da Catania a Cesarò, cuore del Parco dei Nebrodi. Nel pomeriggio prima escursione in e-bike tra faggete secolari fino al suggestivo specchio d'acqua del Lago Maulazzo, incastonato tra le montagne. Cena tipica a base di prodotti locali di stagione e pernottamento.\n\nGiorno 2: La grande traversata della Dorsale dei Nebrodi fino a Randazzo\nTappa memorabile attraverso la dorsale montuosa: pascoli d'alta quota, scorci sul mar Tirreno e sosta a Floresta, il comune più alto dell'isola, per un pranzo tipico a base di provola dei Nebrodi. Discesa panoramica verso il borgo medievale di Randazzo, con visita al centro storico e granita artigianale.\n\nGiorno 3: La scalata dell'Etna tra colate laviche, rifugi e grotta sotterranea\nRisalita del vulcano lungo la colata storica del 1981 su sentieri panoramici tra paesaggi lunari e boschi silenziosi. Pranzo in rifugio montano e avventurosa esplorazione a piedi con caschetto di una grotta di scorrimento lavico. Pernottamento a Randazzo.\n\nGiorno 4: Colazione tipica e transfer di rientro\nColazione con dolci della tradizione siciliana e transfer privato verso l'aeroporto o la stazione di Catania con ricordi ed emozioni indimenticabili."
+    },
+    {
+        "id": 5,
+        "wp_id": 1059,
+        "slug": "tour-ebike-etna-sicilia-3-giorni",
+        "type": "tour",
+        "category": "Vulcano Etna & Crateri",
+        "category_en": "Mount Etna & Craters",
+        "area": "Etna",
+        "area_tag": "etna",
+        "featured": false,
+        "title": "Meraviglioso Tour in e-bike tra  Etna, Randazzo e Bronte",
+        "title_en": "Meraviglioso Tour in e-bike tra  Etna, Randazzo e Bronte",
+        "subtitle": "Un'avventura di 3 giorni tra i vigneti dell'Etna, la capitale del pistacchio di Bronte e i boschi secolari di Floresta.",
+        "subtitle_en": "A 3-day journey through Mount Etna vineyards, the pistachio capital of Bronte, and the ancient woods of Floresta.",
+        "description": "Preparati per un affascinante viaggio di tre giorni in e-bike che ti condurrà attraverso i paesaggi più vari della Sicilia nord-orientale: le fertili vigne alle pendici dell'Etna, la Pista Altomontana, il Castello di Nelson a Bronte e i pascoli d'altura di Floresta. Un connubio perfetto tra cicloturismo attivo, sapori DOP e borghi storici.",
+        "description_en": "A 3-day e-bike journey through the contrasting landscapes of northeast Sicily: volcanic vineyards, Mount Etna's high altitude track, Bronte's historic Nelson Castle, and Floresta's mountain pastures with tastings of pistachio and local cheeses.",
+        "itinerary": "Giorno 1: Benvenuti a Randazzo & prime pedalate tra le vigne\nArrivo a Randazzo e sistemazione in struttura. Nel primo pomeriggio briefing sulle e-bike e facile escursione d'ambientamento tra muretti a secco in pietra lavica e secolari vigneti di Nerello Mascalese. Rientro in hotel e cena tipica.\n\nGiorno 2: La Pista Altomontana dell'Etna fino a Bronte e Castello di Nelson\nPedalata lungo i sentieri della Pista Altomontana dell'Etna, tra antichi crateri spenti, colate laviche e boschi di querce. Discesa verso Bronte, capitale mondiale del pistacchio: visita alla storica abbazia benedettina del Castello di Nelson e ricca degustazione di dolci e pesti artigianali al Pistacchio Verde di Bronte DOP. Rientro a Randazzo.\n\nGiorno 3: Verso Floresta tra boschi incantati e sapori d'altura\nRisalita verso il Parco dei Nebrodi lungo le antiche Regie Trazzere fino a Floresta (1.275 m). Pranzo rustico in trattoria a base di provola dei Nebrodi, salumi artigianali e pane di grano antico. Discesa rigenerante attraverso boschi panoramici verso Randazzo e conclusione del tour.",
+        "itinerary_en": "Day 1: Arrival in Randazzo & Vineyard Warm-up Ride\nCheck-in in Randazzo, briefing, and afternoon ride along volcanic dry-stone walls and historic Nerello Mascalese vineyards. Traditional dinner.\n\nDay 2: Mount Etna Altomontana Track, Bronte & Nelson Castle\nRide along the volcano's northern trail through oak woods and lava flows. Descend into Bronte, the world capital of pistachios: visit Nelson's Castle and enjoy an artisanal tasting of Pistacchio di Bronte DOP delicacies.\n\nDay 3: Climb to Floresta & Mountain Flavors\nAscent towards Nebrodi Park along ancient cattle paths to Floresta (1,275 m). Hearty rustic lunch with traditional cheeses and artisan cured meats, followed by a scenic forest descent to Randazzo.",
+        "image": "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-1.jpg",
+        "gallery": [
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-1.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-2.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-3.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-4.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-5.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-6.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-7.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-8.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-9.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-10.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-11.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-12.jpg",
+            "assets/img/tours/tour-ebike-etna-sicilia-3-giorni-13.jpg"
+        ],
+        "price": 390,
+        "price_note": "a persona (preventivo su misura)",
+        "price_note_en": "per person (customized quote)",
+        "duration": "3 Giorni / 2 Notti",
+        "duration_en": "3 Days / 2 Nights",
+        "days": 3,
+        "distance": "150-200 km",
+        "elevation": "+2.100 m",
+        "difficulty": "Medio",
+        "difficulty_en": "Medio",
+        "start_location": "Randazzo",
+        "season": "Marzo - Novembre",
+        "season_en": "Marzo - Novembre",
+        "highlights": [
+            "Tour itinerante in e-bike di 3 giorni tra versante nord dell'Etna e monti Nebrodi",
+            "Pedalata lungo la scenografica Pista Altomontana dell'Etna fino al Castello di Nelson",
+            "Visita guidata a Bronte con degustazione di prodotti artigianali al Pistacchio Verde DOP",
+            "Salita panoramica a Floresta, il comune più alto della Sicilia, con pranzo rustico tipico",
+            "Soggiorno di 2 notti in hotel/agriturismo tipico con colazioni contadine e cene della tradizione",
+            "Guida bilingue certificata e assistenza tecnica con mezzo di supporto lungo l'itinerario"
+        ],
+        "highlights_en": [
+            "3-day e-bike journey across northern Mount Etna and the Nebrodi Mountains",
+            "Ride along Mount Etna's high altitude Altomontana trail down to Nelson Castle",
+            "Guided visit to Bronte with tasting of artisan Pistacchio Verde di Bronte DOP specialties",
+            "Scenic climb to Floresta (Sicily's highest town) with authentic mountain tasting lunch",
+            "2 nights in charming local lodging with traditional farm breakfasts and dinners",
+            "Certified bilingual guide and technical support van throughout the tour"
+        ],
+        "included": [
+            "2 escursioni in e-mtb",
+            "Guida qualificata bilingue (inglese/italiano)",
+            "2 notti in hotel/agriturismo in camera doppia",
+            "Pranzo a Bronte",
+            "Van di supporto",
+            "Noleggio E-bike",
+            "casco",
+            "Assicurazione"
+        ],
+        "included_en": [
+            "2 escursioni in e-mtb",
+            "Guida qualificata bilingue (inglese/italiano)",
+            "2 notti in hotel/agriturismo in camera doppia",
+            "Pranzo a Bronte",
+            "Van di supporto",
+            "Noleggio E-bike",
+            "casco",
+            "Assicurazione"
+        ],
+        "excluded": [
+            "Transfer da/per l'aeroporto di Catania",
+            "Tutto quello non elencato alla voce comprende"
+        ],
+        "excluded_en": [
+            "Transfer da/per l'aeroporto di Catania",
+            "Tutto quello non elencato alla voce comprende"
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "etna",
+        "categories": [
+            "borghi",
+            "gusto",
+            "piu-giorni",
+            "etna"
+        ],
+        "itinerary_summary": "Giorno 1: Benvenuti a Randazzo & prime pedalate tra le vigne\nArrivo a Randazzo e sistemazione in struttura. Nel primo pomeriggio briefing sulle e-bike e facile escursione d'ambientamento tra muretti a secco in pietra lavica e secolari vigneti di Nerello Mascalese. Rientro in hotel e cena tipica.\n\nGiorno 2: La Pista Altomontana dell'Etna fino a Bronte e Castello di Nelson\nPedalata lungo i sentieri della Pista Altomontana dell'Etna, tra antichi crateri spenti, colate laviche e boschi di querce. Discesa verso Bronte, capitale mondiale del pistacchio: visita alla storica abbazia benedettina del Castello di Nelson e ricca degustazione di dolci e pesti artigianali al Pistacchio Verde di Bronte DOP. Rientro a Randazzo.\n\nGiorno 3: Verso Floresta tra boschi incantati e sapori d'altura\nRisalita verso il Parco dei Nebrodi lungo le antiche Regie Trazzere fino a Floresta (1.275 m). Pranzo rustico in trattoria a base di provola dei Nebrodi, salumi artigianali e pane di grano antico. Discesa rigenerante attraverso boschi panoramici verso Randazzo e conclusione del tour."
+    },
+    {
+        "id": 6,
+        "wp_id": 1017,
+        "slug": "tour-isole-eolie-bici-barca-5giorni",
+        "type": "tour",
+        "category": "Isole Eolie Bici & Barca",
+        "category_en": "Aeolian Islands Bike & Boat",
+        "area": "Isole Eolie",
+        "area_tag": "eolie",
+        "featured": false,
+        "title": "Cicloturismo alle Isole Eolie",
+        "title_en": "Cicloturismo alle Isole Eolie",
+        "subtitle": "Un'avventura di 5 giorni tra mare e vulcani: pedalate panoramiche in e-bike e navigazioni private tra Lipari, Vulcano e Salina.",
+        "subtitle_en": "A 5-day adventure combining sea and volcanoes: scenic e-bike rides and private boat crossings between Lipari, Vulcano, and Salina.",
+        "description": "Un'esperienza unica per scoprire le Isole Eolie da una doppia prospettiva: il ritmo rilassato dell'e-bike e la libertà della navigazione in barca privata. In cinque giorni esploreremo tre delle isole più affascinanti dell'arcipelago (Lipari, Vulcano e Salina), alternando scorci marini mozzafiato, sentieri vulcanici, cucina tipica e momenti di relax.",
+        "description_en": "A unique journey discovering the UNESCO Aeolian Islands from two perspectives: the slow rhythm of e-biking and private boat cruises. Explore Lipari, Vulcano, and Salina, cycling along coastal ridges, volcanic slopes, and enjoying authentic island food.",
+        "itinerary": "Giorno 1: Arrivo a Lipari, pedalata panoramica al tramonto e Home Cooking\nArrivo a Lipari, accoglienza in hotel e prima pedalata d'ambientamento in e-bike lungo la costa. In serata, speciale esperienza gastronomica con lezione di Home Cooking eoliano e cena conviviale.\n\nGiorno 2: Salina, l'Isola Verde tra Monte Fossa delle Felci e Pollara\nNavigazione in barca privata verso Salina ammirando dal mare le candide cave di pomice. In e-bike salita verso Monte Fossa delle Felci (962 m) con panorama sulle 'sette sorelle'. Visita alla spettacolare baia di Pollara (celebre per 'Il Postino') e sosta con granita a Lingua.\n\nGiorno 3: Isola di Vulcano tra fanghi, fumarole e il Gran Cratere\nTraversata in barca a Vulcano: escursione in e-bike tra le spiagge nere e le suggestive formazioni vulcaniche di Vulcanello, con opzione di trekking al Gran Cratere della Fossa per ammirare le fumarole attive e la vista sull'arcipelago.\n\nGiorno 4: Lipari segreta: belvedere di Quattrocchi e cave di caolino\nTour approfondito dell'isola di Lipari lungo la strada panoramica: soste ai famosi punti panoramici di Quattrocchi e Quattropani, visita alle surreali cave di caolino dai mille colori e pranzo tipico in trattoria locale. Pomeriggio libero per relax o mare.\n\nGiorno 5: Colazione e transfer di rientro\nColazione eoliana con vista mare, saluti all'arcipelago e imbarco in aliscafo per il rientro a Milazzo/Catania.",
+        "itinerary_en": "Day 1: Arrival in Lipari, Sunset E-Bike Ride & Home Cooking\nArrival in Lipari, check-in, and sunset coastal e-bike ride. Evening hands-on Eolian Home Cooking class with dinner.\n\nDay 2: Salina Island, Monte Fossa delle Felci & Pollara\nPrivate boat cruise to Salina past the pumice quarries. Ride up towards Monte Fossa delle Felci (962 m), visit Pollara bay ('The Postman' film set), and stop for granita at Lingua.\n\nDay 3: Vulcano Island & the Grand Crater\nBoat transfer to Vulcano. E-bike ride around black sand beaches, with optional hike to the summit of the Grand Crater overlooking active fumaroles and island views.\n\nDay 4: Secret Lipari, Quattrocchi Belvedere & Kaolin Mines\nComprehensive e-bike ride around Lipari's panoramic roads: stops at Quattrocchi viewpoints and the surreal multicolored kaolin quarries, followed by a seaside lunch.\n\nDay 5: Island Breakfast & Hydrofoil Departure\nTraditional breakfast with sea views and hydrofoil departure to Milazzo/Catania.",
+        "image": "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-1.png",
+        "gallery": [
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-1.png",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-2.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-3.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-4.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-5.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-6.png",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-7.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-8.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-9.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-10.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-11.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-12.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-13.jpg",
+            "assets/img/tours/tour-isole-eolie-bici-barca-5giorni-14.jpg"
+        ],
+        "price": 790,
+        "price_note": "a persona (preventivo su misura)",
+        "price_note_en": "per person (customized quote)",
+        "duration": "5 Giorni / 4 Notti",
+        "duration_en": "5 Days / 4 Nights",
+        "days": 5,
+        "distance": "350 km (totale)",
+        "elevation": "+1.200 m",
+        "difficulty": "Medio / Facile",
+        "difficulty_en": "Medio / Facile",
+        "start_location": "Catania / Milazzo",
+        "season": "Aprile - Maggio / Sett. - Ott.",
+        "season_en": "Aprile - Maggio / Sett. - Ott.",
+        "highlights": [
+            "Vacanza attiva di 5 giorni combinando e-bike panoramiche e navigazioni in barca privata",
+            "Esplorazione completa di Lipari, della verdeggiante Salina e dei paesaggi vulcanici di Vulcano",
+            "Salita a Monte Fossa delle Felci e sosta nell'incantevole borgo di Pollara (set de 'Il Postino')",
+            "Esperienza gastronomica speciale con lezione di Home Cooking tipico eoliano",
+            "Soste panoramiche ai belvedere di Quattrocchi e Quattropani e alle cave surreali di caolino",
+            "Trasferimenti in aliscafo da/per Milazzo e alloggio di 4 notti in struttura selezionata con colazione"
+        ],
+        "highlights_en": [
+            "5-day active journey combining panoramic e-biking and private boat cruises",
+            "Full discovery of Lipari, verdant Salina, and the volcanic landscapes of Vulcano",
+            "Ascent towards Monte Fossa delle Felci and visit to scenic Pollara ('The Postman' film)",
+            "Exclusive hands-on Sicilian Home Cooking culinary lesson and dinner",
+            "Panoramic viewpoints at Quattrocchi and the surreal colorful kaolin quarries",
+            "Round-trip hydrofoil transfers and 4 nights in charming hotel lodging with breakfast"
+        ],
+        "included": [
+            "Noleggio E-MTB biammortizzata di ultima generazione",
+            "Casco protettivo e kit di riparazione",
+            "Guida cicloturistica certificata",
+            "Assicurazione e assistenza logistica"
+        ],
+        "included_en": [
+            "Noleggio E-MTB biammortizzata di ultima generazione",
+            "Casco protettivo e kit di riparazione",
+            "Guida cicloturistica certificata",
+            "Assicurazione e assistenza logistica"
+        ],
+        "excluded": [
+            "Tutto quello non espressamente indicato alla \"quota comprende\"",
+            "Extra personali e mance"
+        ],
+        "excluded_en": [
+            "Tutto quello non espressamente indicato alla \"quota comprende\"",
+            "Extra personali e mance"
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "eolie",
+        "categories": [
+            "borghi",
+            "gusto",
+            "piu-giorni",
+            "eolie"
+        ],
+        "itinerary_summary": "Giorno 1: Arrivo a Lipari, pedalata panoramica al tramonto e Home Cooking\nArrivo a Lipari, accoglienza in hotel e prima pedalata d'ambientamento in e-bike lungo la costa. In serata, speciale esperienza gastronomica con lezione di Home Cooking eoliano e cena conviviale.\n\nGiorno 2: Salina, l'Isola Verde tra Monte Fossa delle Felci e Pollara\nNavigazione in barca privata verso Salina ammirando dal mare le candide cave di pomice. In e-bike salita verso Monte Fossa delle Felci (962 m) con panorama sulle 'sette sorelle'. Visita alla spettacolare baia di Pollara (celebre per 'Il Postino') e sosta con granita a Lingua.\n\nGiorno 3: Isola di Vulcano tra fanghi, fumarole e il Gran Cratere\nTraversata in barca a Vulcano: escursione in e-bike tra le spiagge nere e le suggestive formazioni vulcaniche di Vulcanello, con opzione di trekking al Gran Cratere della Fossa per ammirare le fumarole attive e la vista sull'arcipelago.\n\nGiorno 4: Lipari segreta: belvedere di Quattrocchi e cave di caolino\nTour approfondito dell'isola di Lipari lungo la strada panoramica: soste ai famosi punti panoramici di Quattrocchi e Quattropani, visita alle surreali cave di caolino dai mille colori e pranzo tipico in trattoria locale. Pomeriggio libero per relax o mare.\n\nGiorno 5: Colazione e transfer di rientro\nColazione eoliana con vista mare, saluti all'arcipelago e imbarco in aliscafo per il rientro a Milazzo/Catania."
+    },
+    {
+        "id": 7,
+        "wp_id": 888,
+        "slug": "sicilia-ebike-citta-barocche-spiagge",
+        "type": "tour",
+        "category": "Barocco Siciliano & Val di Noto",
+        "category_en": "Sicilian Baroque & Val di Noto",
+        "area": "Val di Noto",
+        "area_tag": "val-di-noto",
+        "featured": false,
+        "title": "Barocco Siciliano: Cinque Tappe di assoluta bellezza nella Val di Noto",
+        "title_en": "Barocco Siciliano: Cinque Tappe di assoluta bellezza nella Val di Noto",
+        "subtitle": "Un suggestivo viaggio cicloturistico di 7 giorni tra le capitali del Barocco UNESCO, agrumeti secolari e spiagge dorate.",
+        "subtitle_en": "A scenic 7-day cycling journey through UNESCO Baroque capitals, historic citrus groves, and golden Mediterranean beaches.",
+        "description": "Scopri la magia della Sicilia sud-orientale con un tour in e-bike che attraversa la splendida Val di Noto, Patrimonio dell'Umanità UNESCO. Un viaggio a ritmo lento tra capolavori barocchi in pietra dorata, colline di mandorli e carrubi, tonnare storiche e l'inconfondibile calore dell'ospitalità siciliana.",
+        "description_en": "Discover the magic of southeast Sicily on an e-bike tour across the UNESCO World Heritage Val di Noto. A slow-paced journey through golden stone baroque masterpieces, almond and carob groves, historic tuna fisheries, and warm Sicilian hospitality.",
+        "itinerary": "Giorno 1: Benvenuti a Siracusa & Isola di Ortigia\nArrivo individuale a Siracusa, check-in e incontro con la guida. Consegna e regolazione delle e-bike, seguita da una passeggiata ciclabile al tramonto tra i vicoli marinari e i palazzi barocchi dell'isola di Ortigia.\n\nGiorno 2: Da Siracusa a Palazzolo Acreide tra necropoli e monti Iblei\nPedalata nell'entroterra tra colline calcaree, muretti a secco e canyon fluviali. Visita al borgo medievale e greco-romano di Palazzolo Acreide, gioiello barocco d'altura.\n\nGiorno 3: Dagli altipiani iblei a Noto, la capitale del Barocco\nDiscesa panoramica verso la celebre Noto, capitale del Barocco siciliano: pedalata lungo Corso Vittorio Emanuele tra cattedrali maestose e palazzi nobiliari in pietra dorata.\n\nGiorno 4: Da Noto a Ragusa Ibla attraverso agrumeti e vigne\nPedalata nel cuore della campagna iblea fino all'incantevole profilo di Ragusa Ibla, città arroccata su una collina con oltre cinquanta chiese barocche e vicoli suggestivi.\n\nGiorno 5: La magia di Modica e l'arte del Cioccolato lavorato a freddo\nTappa breve ma intensa verso Modica: visita ai quartieri storici e speciale laboratorio degustazione del celebre cioccolato di Modica IGP lavorato secondo l'antica ricetta azteca.\n\nGiorno 6: Scicli, le Tonnare storiche e la Riserva di Vendicari\nPassaggio per la scenografica Scicli (set televisivo del Commissario Montalbano), discesa verso il mare tra Sampieri e Portopalo, costeggiando le antiche tonnare e la riserva naturale di Vendicari tra fenicotteri rosa e spiagge selvagge.\n\nGiorno 7: Colazione tipica e transfer di rientro\nUltima colazione con granita di mandorla e brioche, saluti e transfer di rientro a Siracusa o all'aeroporto di Catania.",
+        "itinerary_en": "Day 1: Arrival in Syracuse & Ortigia Island\nArrival in Syracuse, check-in, bike fitting, and a gentle sunset ride through the coastal lanes of Ortigia.\n\nDay 2: Syracuse to Palazzolo Acreide & Hyblaean Hills\nCycle inland through limestone valleys, dry stone walls, and river gorges to the historic hilltop village of Palazzolo Acreide.\n\nDay 3: Down to Noto, Capital of Sicilian Baroque\nScenic descent into Noto: ride along the grand main avenue admiring golden sandstone cathedrals and palaces.\n\nDay 4: Noto to Ragusa Ibla through Citrus & Olive Groves\nRide across the Hyblaean countryside towards the dramatic skyline of Ragusa Ibla with its fifty Baroque churches.\n\nDay 5: Enchanting Modica & Cold-Crafted Chocolate Tasting\nRide into steep-valleyed Modica with an artisan tasting workshop of renowned ancient-recipe Modica PGI chocolate.\n\nDay 6: Scicli, Coastal Tuna Fisheries & Vendicari Nature Reserve\nCycle through Scicli ('Inspector Montalbano' set) down to the sea, passing historic tuna fisheries and the Vendicari coastal reserve with flamingos.\n\nDay 7: Breakfast & Departure Transfer\nTraditional almond granita breakfast and return transfer to Syracuse or Catania airport.",
+        "image": "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-1.png",
+        "gallery": [
+            "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-1.png",
+            "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-2.jpg",
+            "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-3.jpg",
+            "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-4.jpg",
+            "assets/img/tours/sicilia-ebike-citta-barocche-spiagge-5.jpg"
+        ],
+        "price": 890,
+        "price_note": "a persona (preventivo su misura)",
+        "price_note_en": "per person (customized quote)",
+        "duration": "7 Giorni / 6 Notti",
+        "duration_en": "7 Days / 6 Nights",
+        "days": 7,
+        "distance": "250-300 km",
+        "elevation": "+2.500 m",
+        "difficulty": "Medio / Facile",
+        "difficulty_en": "Medio / Facile",
+        "start_location": "Siracusa",
+        "season": "Marzo - Giugno / Sett. - Nov.",
+        "season_en": "Marzo - Giugno / Sett. - Nov.",
+        "highlights": [
+            "Grande tour cicloturistico di 7 giorni attraverso il Barocco della Val di Noto, Patrimonio UNESCO",
+            "Tappe nelle perle architettoniche: Siracusa, Noto, Palazzolo Acreide, Ragusa Ibla, Modica e Scicli",
+            "Itinerari ciclabili tra colline di mandorli, carrubi secolari e sentieri con viste sul Mediterraneo",
+            "Degustazioni di eccellenze territoriali: dal cioccolato artigianale di Modica ai vini Nero d'Avola",
+            "Sosta rigenerante tra le tonnare storiche, la riserva di Vendicari e spiagge dorate",
+            "Hotel e dimore storiche selezionate, trasporto giornaliero dei bagagli e guida certificata"
+        ],
+        "highlights_en": [
+            "7-day grand cycling journey through the UNESCO Baroque Val di Noto",
+            "Visits to Sicily's finest architectural gems: Syracuse, Noto, Ragusa Ibla, Modica, and Scicli",
+            "Riding across scenic hills of almond trees, carobs, and coastal trails overlooking the sea",
+            "Tastings of local delicacies: cold-worked Modica chocolate and Nero d'Avola wines",
+            "Stops at historic tuna fisheries, Vendicari wildlife reserve, and golden beaches",
+            "Charming boutique hotels, daily luggage transfers, and certified guide support"
+        ],
+        "included": [
+            "Noleggio e-bike, Casco",
+            "Guida Mtb certificata",
+            "Kit riparazione, Hotel o B&B ,colazione ,cene, transfer bagagli."
+        ],
+        "included_en": [
+            "Noleggio e-bike, Casco",
+            "Guida Mtb certificata",
+            "Kit riparazione, Hotel o B&B ,colazione ,cene, transfer bagagli."
+        ],
+        "excluded": [
+            "Tutto quello non espressamente indicato alla “quota comprende”"
+        ],
+        "excluded_en": [
+            "Tutto quello non espressamente indicato alla “quota comprende”"
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "val-di-noto",
+        "categories": [
+            "barocco",
+            "borghi",
+            "gusto",
+            "piu-giorni",
+            "val-di-noto"
+        ],
+        "itinerary_summary": "Giorno 1: Benvenuti a Siracusa & Isola di Ortigia\nArrivo individuale a Siracusa, check-in e incontro con la guida. Consegna e regolazione delle e-bike, seguita da una passeggiata ciclabile al tramonto tra i vicoli marinari e i palazzi barocchi dell'isola di Ortigia.\n\nGiorno 2: Da Siracusa a Palazzolo Acreide tra necropoli e monti Iblei\nPedalata nell'entroterra tra colline calcaree, muretti a secco e canyon fluviali. Visita al borgo medievale e greco-romano di Palazzolo Acreide, gioiello barocco d'altura.\n\nGiorno 3: Dagli altipiani iblei a Noto, la capitale del Barocco\nDiscesa panoramica verso la celebre Noto, capitale del Barocco siciliano: pedalata lungo Corso Vittorio Emanuele tra cattedrali maestose e palazzi nobiliari in pietra dorata.\n\nGiorno 4: Da Noto a Ragusa Ibla attraverso agrumeti e vigne\nPedalata nel cuore della campagna iblea fino all'incantevole profilo di Ragusa Ibla, città arroccata su una collina con oltre cinquanta chiese barocche e vicoli suggestivi.\n\nGiorno 5: La magia di Modica e l'arte del Cioccolato lavorato a freddo\nTappa breve ma intensa verso Modica: visita ai quartieri storici e speciale laboratorio degustazione del celebre cioccolato di Modica IGP lavorato secondo l'antica ricetta azteca.\n\nGiorno 6: Scicli, le Tonnare storiche e la Riserva di Vendicari\nPassaggio per la scenografica Scicli (set televisivo del Commissario Montalbano), discesa verso il mare tra Sampieri e Portopalo, costeggiando le antiche tonnare e la riserva naturale di Vendicari tra fenicotteri rosa e spiagge selvagge.\n\nGiorno 7: Colazione tipica e transfer di rientro\nUltima colazione con granita di mandorla e brioche, saluti e transfer di rientro a Siracusa o all'aeroporto di Catania."
+    },
+    {
+        "id": 8,
+        "wp_id": 866,
+        "slug": "escursione-in-bici-randazzo-bronte",
+        "type": "escursione",
+        "category": "Vulcano Etna & Crateri",
+        "category_en": "Mount Etna & Craters",
+        "area": "Etna",
+        "area_tag": "etna",
+        "featured": false,
+        "title": "Escursione in E-Bike alla scoperta dei sapori dell'Etna: da Randazzo a Bronte",
+        "title_en": "Escursione in E-Bike alla scoperta dei sapori dell'Etna: da Randazzo a Bronte",
+        "subtitle": "Un'affascinante escursione in e-bike alle pendici dell'Etna tra borghi medievali, la Pista Altomontana, Bronte e il Castello di Nelson.",
+        "subtitle_en": "A charming e-bike excursion on Mount Etna between medieval villages, the Altomontana trail, Bronte, and Nelson Castle.",
+        "description": "Parti da Randazzo per un'avventura in e-bike alla scoperta di antichi borghi e paesaggi incontaminati del versante nord dell'Etna. Attraverseremo boschi di querce e castagni fino a Bronte, celebre per il suo pistacchio verde DOP, e visiteremo il maestoso Castello di Nelson tra storia, natura e tradizione siciliana.",
+        "description_en": "Start from Randazzo for an e-bike ride across northern Mount Etna's wild landscapes. Ride through oak woods towards Bronte, world famous for its green pistachios, and visit the historical Nelson Castle.",
+        "itinerary": "Partenza da Randazzo e breve briefing sull'uso delle e-bike biammortizzate.\n\nPedalata panoramica lungo la Pista Altomontana dell'Etna a circa 1.500 metri tra boschi, colate laviche e scorci spettacolari.\n\nSosta rigenerante al Rifugio Monte Spagnolo, immerso nella quiete delle faggete montane.\n\nArrivo a Bronte, visita al centro storico e pranzo tipico in trattoria con specialità a base di pistacchio DOP.\n\nVisita all'abbazia benedettina del Castello di Nelson e rientro panoramico a Randazzo lungo antiche regie trazzere.",
+        "itinerary_en": "Departure from Randazzo with briefing on e-bike use.\n\nPanoramic ride along the Mount Etna Altomontana track at 1,500m through lava fields and woods.\n\nScenic break at Monte Spagnolo refuge surrounded by mountain beech trees.\n\nArrival in Bronte with lunch featuring local Pistacchio DOP specialties.\n\nVisit to Nelson Castle and scenic return to Randazzo along ancient rural trails.",
+        "image": "assets/img/tours/escursione-in-bici-randazzo-bronte-1.png",
+        "gallery": [
+            "assets/img/tours/escursione-in-bici-randazzo-bronte-1.png",
+            "assets/img/tours/escursione-in-bici-randazzo-bronte-2.jpg",
+            "assets/img/tours/escursione-in-bici-randazzo-bronte-3.jpg",
+            "assets/img/tours/escursione-in-bici-randazzo-bronte-4.jpg",
+            "assets/img/tours/escursione-in-bici-randazzo-bronte-5.jpg",
+            "assets/img/tours/escursione-in-bici-randazzo-bronte-6.jpg"
+        ],
+        "price": 95,
+        "price_note": "a persona (guida + e-bike inclusa)",
+        "price_note_en": "per person (min 2 persons)",
+        "duration": "4-6 ore",
+        "duration_en": "4-6 ore",
+        "days": 1,
+        "distance": "40-50 km",
+        "elevation": "+850 m",
+        "difficulty": "Medio",
+        "difficulty_en": "Medio",
+        "start_location": "Randazzo",
+        "season": "Tutto l'anno",
+        "season_en": "Aprile - Novembre",
+        "highlights": [
+            "Escursione in e-bike da Randazzo a Bronte lungo i sentieri vulcanici dell'Etna nord",
+            "Pedalata panoramica sulla Pista Altomontana dell'Etna con sosta al Rifugio Monte Spagnolo",
+            "Visita al Castello di Nelson e al centro storico di Bronte, patria del Pistacchio Verde DOP",
+            "Pranzo tipico in trattoria locale con piatti a base di pistacchio ed eccellenze siciliane"
+        ],
+        "highlights_en": [
+            "E-bike excursion from Randazzo to Bronte along northern Mount Etna volcanic trails",
+            "Panoramic riding on the Altomontana trail with a scenic stop at Monte Spagnolo refuge",
+            "Visit to Nelson Castle and Bronte, world capital of Pistacchio Verde di Bronte DOP",
+            "Authentic lunch at a local trattoria with pistachio-based delicacies"
+        ],
+        "included": [
+            "Noleggio e-bike, Casco",
+            "Guida MTB certificata",
+            "Kit riparazione, Transfer al punto di partenza"
+        ],
+        "included_en": [
+            "Noleggio e-bike, Casco",
+            "Guida MTB certificata",
+            "Kit riparazione, Transfer al punto di partenza"
+        ],
+        "excluded": [
+            "Tutto quello non espressamente indicato alla “quota comprende"
+        ],
+        "excluded_en": [
+            "Tutto quello non espressamente indicato alla “quota comprende"
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "etna",
+        "categories": [
+            "etna",
+            "nebrodi",
+            "borghi"
+        ],
+        "itinerary_summary": "Partenza da Randazzo e breve briefing sull'uso delle e-bike biammortizzate.\n\nPedalata panoramica lungo la Pista Altomontana dell'Etna a circa 1.500 metri tra boschi, colate laviche e scorci spettacolari.\n\nSosta rigenerante al Rifugio Monte Spagnolo, immerso nella quiete delle faggete montane.\n\nArrivo a Bronte, visita al centro storico e pranzo tipico in trattoria con specialità a base di pistacchio DOP.\n\nVisita all'abbazia benedettina del Castello di Nelson e rientro panoramico a Randazzo lungo antiche regie trazzere."
+    },
+    {
+        "id": 9,
+        "wp_id": 841,
+        "slug": "escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta",
+        "type": "escursione",
+        "category": "Boschi & Laghi dei Nebrodi",
+        "category_en": "Nebrodi Woods & Lakes",
+        "area": "Nebrodi",
+        "area_tag": "etna",
+        "featured": false,
+        "title": "Escursione in e-bike  da Randazzo a Floresta: vivi la Sicilia più verde",
+        "title_en": "Escursione in e-bike  da Randazzo a Floresta: vivi la Sicilia più verde",
+        "subtitle": "Un'emozionante pedalata nel cuore del Parco dei Nebrodi da Randazzo fino a Floresta, il comune più alto della Sicilia.",
+        "subtitle_en": "An exciting ride into Nebrodi Regional Park from Randazzo up to Floresta, Sicily's highest mountain village.",
+        "description": "Regalati un'esperienza indimenticabile tra natura, cultura montana e gastronomia con questo tour in e-bike da Randazzo a Floresta. Pedaleremo attraverso i boschi più incontaminati del Parco dei Nebrodi fino a 1.275 metri di quota, premiati da panorami unici e da un pranzo contadino con la famosa provola dei Nebrodi.",
+        "description_en": "Treat yourself to an unforgettable nature and gourmet journey into Nebrodi Regional Park. Ride from Randazzo to Floresta at 1,275 m altitude, rewarded with mountain vistas and a traditional lunch featuring Nebrodi provola cheese.",
+        "itinerary": "Ritrovo presso la sede di Randazzo e partenza in sella alle e-bike verso i contrafforti dei Nebrodi.\n\nSalita graduale lungo piste forestali tra pascoli d'altura e boschi di querce e faggi secolari.\n\nArrivo a Floresta (1.275 m), il borgo più alto della Sicilia, e sosta in trattoria per un pranzo a base di formaggi, salumi artigianali e pane casereccio.\n\nDiscesa rigenerante e divertente lungo sentieri panoramici immersi nella quiete del bosco fino al rientro a Randazzo.",
+        "itinerary_en": "Meeting in Randazzo and departure on e-bikes toward the Nebrodi range.\n\nGradual climb on forest trails through mountain pastures, ancient oaks, and beech woods.\n\nArrival in Floresta (1,275 m), Sicily's highest town, with a hearty farmhouse lunch of cheeses and artisan meats.\n\nFun scenic descent on quiet woodland paths returning to Randazzo.",
+        "image": "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-1.jpg",
+        "gallery": [
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-1.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-2.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-3.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-4.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-5.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-6.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-da-randazzo-a-floresta-7.jpg"
+        ],
+        "price": 90,
+        "price_note": "a persona (guida + e-bike inclusa)",
+        "price_note_en": "per person (min 2 persons)",
+        "duration": "4-6 ore",
+        "duration_en": "4-6 ore",
+        "days": 1,
+        "distance": "46 km",
+        "elevation": "+950 m",
+        "difficulty": "Medio",
+        "difficulty_en": "Medio",
+        "start_location": "Randazzo",
+        "season": "Tutto l'anno",
+        "season_en": "Aprile - Ottobre",
+        "highlights": [
+            "Avventura in e-bike nel Parco dei Nebrodi dal borgo di Randazzo a Floresta",
+            "Raggiungimento del comune più alto della Sicilia (1.275 m s.l.m.) lungo percorsi boschivi",
+            "Pranzo degustazione a Floresta con provola dei Nebrodi e salumi tipici dei monti",
+            "Discesa rigenerante attraverso boschi secolari di faggio e scorci panoramici mozzafiato"
+        ],
+        "highlights_en": [
+            "E-bike adventure in Nebrodi Park from medieval Randazzo to Floresta",
+            "Climb to Sicily's highest mountain village (1,275 m) along pristine forest trails",
+            "Artisan tasting lunch in Floresta featuring renowned Nebrodi provola cheese",
+            "Scenic descent through ancient beech forests with breathtaking mountain views"
+        ],
+        "included": [
+            "Noleggio della e-bike",
+            "Casco",
+            "Guida Mtb certificata",
+            "Kit riparazione"
+        ],
+        "included_en": [
+            "Noleggio della e-bike",
+            "Casco",
+            "Guida Mtb certificata",
+            "Kit riparazione"
+        ],
+        "excluded": [
+            "Tutto quello non espressamente indicato alla “quota comprende”"
+        ],
+        "excluded_en": [
+            "Tutto quello non espressamente indicato alla “quota comprende”"
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "nebrodi",
+        "categories": [
+            "nebrodi",
+            "borghi"
+        ],
+        "itinerary_summary": "Ritrovo presso la sede di Randazzo e partenza in sella alle e-bike verso i contrafforti dei Nebrodi.\n\nSalita graduale lungo piste forestali tra pascoli d'altura e boschi di querce e faggi secolari.\n\nArrivo a Floresta (1.275 m), il borgo più alto della Sicilia, e sosta in trattoria per un pranzo a base di formaggi, salumi artigianali e pane casereccio.\n\nDiscesa rigenerante e divertente lungo sentieri panoramici immersi nella quiete del bosco fino al rientro a Randazzo."
+    },
+    {
+        "id": 10,
+        "wp_id": 810,
+        "slug": "escursione-in-bicicletta-etna",
+        "type": "escursione",
+        "category": "Vulcano Etna & Crateri",
+        "category_en": "Mount Etna & Craters",
+        "area": "Etna",
+        "area_tag": "etna",
+        "featured": false,
+        "title": "Escursione in E-Bike sull’Etna con Visita alla Grotta dei Lamponi",
+        "title_en": "Escursione in E-Bike sull’Etna con Visita alla Grotta dei Lamponi",
+        "subtitle": "Un'avvincente escursione in e-bike sui campi lavici dell'Etna nord con esplorazione sotterranea della spettacolare Grotta dei Lamponi.",
+        "subtitle_en": "A thrilling e-bike ride on northern Mount Etna's lava fields with underground exploration of the spectacular Raspberry Cave.",
+        "description": "Vivi un'esperienza unica tra i paesaggi vulcanici dell'Etna con un'escursione in e-bike che unisce la pedalata all'aria aperta all'esplorazione speleologica. Raggiungeremo la celebre Grotta dei Lamponi, una delle più lunghe gallerie di scorrimento lavico dell'Etna, camminando al suo interno con casco e torcia tra formazioni geologiche millenarie.",
+        "description_en": "Experience Mount Etna's volcanic landscapes on an e-bike ride combining cycling with cave exploration. Reach the renowned Grotta dei Lamponi, one of the volcano's longest lava tube galleries, exploring its interior with helmets and flashlights.",
+        "itinerary": "Partenza in e-bike dai margini della pineta di Linguaglossa/Piano Provenzana.\n\nPedalata su piste sterrate vulcaniche attraverso le colate laviche storiche che hanno modellato il versante nord dell'Etna.\n\nArrivo all'ingresso della Grotta dei Lamponi: calzata del caschetto protettivo con torcia ed emozionante camminata nel tunnel lavico con spiegazione della guida.\n\nDiscesa panoramica e divertente lungo i sentieri forestali con vista sul litorale ionico e rientro.",
+        "itinerary_en": "Departure on e-bikes near the Linguaglossa pine forest.\n\nRide across volcanic gravel tracks along the historic lava fields shaping the northern slopes.\n\nArrival at the Grotta dei Lamponi: equip helmets and flashlights for an exploration of the ancient lava tube.\n\nExciting descent along forest paths with panoramic views over the Ionian Sea and return.",
+        "image": "assets/img/tours/escursione-in-bicicletta-etna-1.jpg",
+        "gallery": [
+            "assets/img/tours/escursione-in-bicicletta-etna-1.jpg",
+            "assets/img/tours/escursione-in-bicicletta-etna-2.jpg",
+            "assets/img/tours/escursione-in-bicicletta-etna-3.jpg",
+            "assets/img/tours/escursione-in-bicicletta-etna-4.jpg",
+            "assets/img/tours/escursione-in-bicicletta-etna-5.jpg",
+            "assets/img/tours/escursione-in-bicicletta-etna-6.jpg",
+            "assets/img/tours/escursione-in-bicicletta-etna-7.jpg",
+            "assets/img/tours/escursione-in-bicicletta-etna-8.jpg",
+            "assets/img/tours/escursione-in-bicicletta-etna-9.jpg",
+            "assets/img/tours/escursione-in-bicicletta-etna-10.jpg"
+        ],
+        "price": 90,
+        "price_note": "a persona (guida + e-bike inclusa)",
+        "price_note_en": "per person (min 2 persons)",
+        "duration": "4-6 ore",
+        "duration_en": "4-6 ore",
+        "days": 1,
+        "distance": "35-45 km",
+        "elevation": "+900 m",
+        "difficulty": "Medio",
+        "difficulty_en": "Medio",
+        "start_location": "Randazzo",
+        "season": "Tutto l'anno",
+        "season_en": "Marzo - Novembre",
+        "highlights": [
+            "Spettacolare tour in e-bike sui sentieri lavici del versante nord dell'Etna",
+            "Esplorazione a piedi con caschetto e torcia della Grotta dei Lamponi, tunnel lavico millenario",
+            "Pedalata tra deserti di lava nera, pinete storiche e vedute fino al Mar Ionio",
+            "Accompagnamento con guida esperta del territorio ed e-bike professionale inclusa"
+        ],
+        "highlights_en": [
+            "Spectacular e-bike tour on northern Mount Etna's volcanic gravel trails",
+            "Guided underground walk inside Grotta dei Lamponi lava tube with helmets and torches",
+            "Riding across black lava deserts, historic pine woods, and panoramic views of the Ionian Sea",
+            "Accompaniment by an expert local guide with premium e-bike included"
+        ],
+        "included": [
+            "Noleggio E-MTB biammortizzata di ultima generazione",
+            "Casco protettivo e kit di riparazione",
+            "Guida cicloturistica certificata",
+            "Assicurazione e assistenza logistica"
+        ],
+        "included_en": [
+            "Noleggio E-MTB biammortizzata di ultima generazione",
+            "Casco protettivo e kit di riparazione",
+            "Guida cicloturistica certificata",
+            "Assicurazione e assistenza logistica"
+        ],
+        "excluded": [
+            "Tutto quello non espressamente indicato alla \"quota comprende\"",
+            "Extra personali e mance"
+        ],
+        "excluded_en": [
+            "Tutto quello non espressamente indicato alla \"quota comprende\"",
+            "Extra personali e mance"
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "etna",
+        "categories": [
+            "etna",
+            "borghi"
+        ],
+        "itinerary_summary": "Partenza in e-bike dai margini della pineta di Linguaglossa/Piano Provenzana.\n\nPedalata su piste sterrate vulcaniche attraverso le colate laviche storiche che hanno modellato il versante nord dell'Etna.\n\nArrivo all'ingresso della Grotta dei Lamponi: calzata del caschetto protettivo con torcia ed emozionante camminata nel tunnel lavico con spiegazione della guida.\n\nDiscesa panoramica e divertente lungo i sentieri forestali con vista sul litorale ionico e rientro."
+    },
+    {
+        "id": 11,
+        "wp_id": 798,
+        "slug": "escursione-in-bici-sui-nebrodi",
+        "type": "escursione",
+        "category": "Boschi & Laghi dei Nebrodi",
+        "category_en": "Nebrodi Woods & Lakes",
+        "area": "Nebrodi",
+        "area_tag": "nebrodi",
+        "featured": false,
+        "title": "Escursione in e-bike: Dorsale dei Nebrodi",
+        "title_en": "Escursione in e-bike: Dorsale dei Nebrodi",
+        "subtitle": "Un'indimenticabile traversata in e-bike lungo i crinali montuosi della celebre Dorsale dei Nebrodi tra laghi e faggi secolari.",
+        "subtitle_en": "An unforgettable e-bike ride along the mountain crests of the famous Nebrodi Ridge between lakes and ancient beech trees.",
+        "description": "Pedala lungo uno dei percorsi cicloturistici più panoramici del Mediterraneo: la Dorsale dei Nebrodi. Partendo da Randazzo saliremo verso le creste della catena montuosa più verde della Sicilia, pedalando tra fitti boschi, laghi d'altura e viste grandiose che spaziano dall'Etna alle Isole Eolie.",
+        "description_en": "Ride along one of the Mediterranean's most scenic mountain biking routes: the Nebrodi Ridge. Starting from Randazzo, climb to the crests of Sicily's greenest mountain chain, cycling between dense beech forests, alpine lakes, and views stretching from Mount Etna to the Aeolian Islands.",
+        "itinerary": "Punto di incontro presso la sede di Randazzo, controllo e regolazione delle e-bike.\n\nSalita verso la Dorsale dei Nebrodi lungo strade forestali immerse tra querce, cerri e faggi maestosi.\n\nTraversata del crinale panoramico con soste fotografiche sui laghi montani e sulle valli circostanti.\n\nTappa gastronomica a Floresta per un pranzo rustico a base di formaggi locali e piatti della tradizione contadina.\n\nDiscesa pomeridiana attraverso sentieri boschivi scorrevoli fino al rientro in sede.",
+        "itinerary_en": "Meeting at the Randazzo base, e-bike setup, and departure.\n\nClimb toward the Nebrodi Ridge along forest trails through majestic oak and beech woods.\n\nRide along the panoramic crest with photo stops overlooking mountain lakes and wild valleys.\n\nGourmet stop in Floresta for a traditional farmhouse lunch of mountain cheeses and cured meats.\n\nAfternoon descent on flowing forest tracks returning to Randazzo.",
+        "image": "assets/img/tours/escursione-in-bici-sui-nebrodi-1.jpg",
+        "gallery": [
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-1.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-2.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-3.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-4.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-5.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-6.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-7.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-8.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-9.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-10.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-11.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-12.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-13.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-14.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-15.jpg",
+            "assets/img/tours/escursione-in-bici-sui-nebrodi-16.jpg"
+        ],
+        "price": 140,
+        "price_note": "a persona (minimo 4 persone)",
+        "price_note_en": "per person (min 4 persons)",
+        "duration": "4-6 ore",
+        "duration_en": "4-6 ore",
+        "days": 1,
+        "distance": "35-40 km",
+        "elevation": "+1.100 m",
+        "difficulty": "Medio / Impegnativo",
+        "difficulty_en": "Medio / Impegnativo",
+        "start_location": "Cesarò",
+        "season": "Aprile - Ottobre",
+        "season_en": "Aprile - Ottobre",
+        "highlights": [
+            "Escursione panoramica in e-bike lungo la celebre Dorsale dei Nebrodi",
+            "Partenza dalla sede di Randazzo verso i crinali montani e pascoli d'alta quota",
+            "Sosta enogastronomica a Floresta con prodotti tipici e formaggi d'alpeggio",
+            "Discesa immersa tra faggi e querce secolari su sentieri battuti e sicuri"
+        ],
+        "highlights_en": [
+            "Panoramic e-bike ride along the legendary Nebrodi Mountain Ridge",
+            "Departure from Randazzo climbing to high-altitude mountain crests and pastures",
+            "Gourmet food stop in Floresta featuring mountain artisan cheeses and delicacies",
+            "Safe and flowing forest descent through centuries-old beech and oak woods"
+        ],
+        "included": [
+            "Noleggio  e-bike, Casco",
+            "Guida MTB certificata",
+            "Kit riparazione",
+            "Transfer"
+        ],
+        "included_en": [
+            "Noleggio  e-bike, Casco",
+            "Guida MTB certificata",
+            "Kit riparazione",
+            "Transfer"
+        ],
+        "excluded": [
+            "Tutto quello non espressamente indicato alla “quota comprende”"
+        ],
+        "excluded_en": [
+            "Tutto quello non espressamente indicato alla “quota comprende”"
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "nebrodi",
+        "categories": [
+            "giornaliere",
+            "nebrodi"
+        ],
+        "itinerary_summary": "Punto di incontro presso la sede di Randazzo, controllo e regolazione delle e-bike.\n\nSalita verso la Dorsale dei Nebrodi lungo strade forestali immerse tra querce, cerri e faggi maestosi.\n\nTraversata del crinale panoramico con soste fotografiche sui laghi montani e sulle valli circostanti.\n\nTappa gastronomica a Floresta per un pranzo rustico a base di formaggi locali e piatti della tradizione contadina.\n\nDiscesa pomeridiana attraverso sentieri boschivi scorrevoli fino al rientro in sede."
+    },
+    {
+        "id": 12,
+        "wp_id": 505,
+        "slug": "escursione-etna-e-degustazione-vino",
+        "type": "escursione",
+        "category": "Vulcano Etna & Crateri",
+        "category_en": "Mount Etna & Craters",
+        "area": "Etna",
+        "area_tag": "etna",
+        "featured": false,
+        "title": "Escursione in e-bike sull’Etna con degustazione di Vini",
+        "title_en": "Escursione in e-bike sull’Etna con degustazione di Vini",
+        "subtitle": "Un'esperienza sensoriale che unisce una pedalata in e-bike sui sentieri vulcanici dell'Etna a una degustazione di vini pregiati in cantina.",
+        "subtitle_en": "A sensory experience pairing an e-bike ride on Mount Etna volcanic trails with fine wine and gourmet tasting at a winery.",
+        "description": "Conquista l'Etna in e-bike e brinda alla tua avventura! Pedaleremo con leggerezza tra colate laviche e crateri storici alle pendici del vulcano, per poi concludere con una raffinata degustazione di vini Etna DOC e sapori tipici in una rinomata cantina etnea.",
+        "description_en": "Conquer Mount Etna on an e-bike and toast to your journey! Pedal effortlessly through historical lava flows and craters, finishing with an exclusive Etna DOC wine tasting and local food specialties at a renowned winery estate.",
+        "itinerary": "Accoglienza presso la sede a Randazzo e briefing sull'uso delle e-bike.\n\nPedalata attraverso paesaggi mozzafiato alle pendici dell'Etna: antiche colate laviche, boschi di castagni e vecchi crateri spenti.\n\nArrivo in una rinomata cantina etnea immersa tra i vigneti vulcanici.\n\nDegustazione guidata di vini pregiati Etna DOC (bianco minerale e corposo rosso) accompagnati da formaggi locali, salumi artigianali e pane appena sfornato.\n\nRientro rilassante in e-bike al punto di partenza.",
+        "itinerary_en": "Welcome at Randazzo base and technical e-bike briefing.\n\nRide through breathtaking Etna scenery: historic lava fields, chestnut woods, and extinct craters.\n\nArrival at an esteemed Etna winery nestled among volcanic vineyards.\n\nGuided tasting of mineral white and structured red Etna DOC wines paired with artisanal cheeses, cured meats, and warm bread.\n\nRelaxing e-bike ride back to the base.",
+        "image": "assets/img/tours/escursione-etna-e-degustazione-vino-1.png",
+        "gallery": [
+            "assets/img/tours/escursione-etna-e-degustazione-vino-1.png",
+            "assets/img/tours/escursione-etna-e-degustazione-vino-2.jpg",
+            "assets/img/tours/escursione-etna-e-degustazione-vino-3.jpg",
+            "assets/img/tours/escursione-etna-e-degustazione-vino-4.jpg",
+            "assets/img/tours/escursione-etna-e-degustazione-vino-5.jpg",
+            "assets/img/tours/escursione-etna-e-degustazione-vino-6.jpg",
+            "assets/img/tours/escursione-etna-e-degustazione-vino-7.jpg",
+            "assets/img/tours/escursione-etna-e-degustazione-vino-8.jpg",
+            "assets/img/tours/escursione-etna-e-degustazione-vino-9.jpg"
+        ],
+        "price": 90,
+        "price_note": "a persona (guida + e-bike inclusa)",
+        "price_note_en": "per person (winery tasting +€45)",
+        "duration": "3h tour + 2h tasting",
+        "duration_en": "3h tour + 2h tasting",
+        "days": 1,
+        "distance": "30-40 km",
+        "elevation": "+750 m",
+        "difficulty": "Medio / Facile",
+        "difficulty_en": "Medio / Facile",
+        "start_location": "Randazzo",
+        "season": "Tutto l'anno",
+        "season_en": "Marzo - Novembre",
+        "highlights": [
+            "Tour in e-bike tra crateri spenti e boschi secolari alle pendici dell'Etna",
+            "Visita guidata a una prestigiosa cantina vinicola immersa tra i vigneti vulcanici",
+            "Degustazione di vini Etna DOC accompagnati da formaggi locali, salumi e pane casereccio",
+            "Esperienza sensoriale completa che unisce cicloturismo sostenibile ed eccellenza enologica"
+        ],
+        "highlights_en": [
+            "E-bike tour across extinct craters and ancient woods on Mount Etna's slopes",
+            "Guided visit to an acclaimed winery nestled among volcanic vineyards",
+            "Tasting of mineral Etna DOC wines paired with artisan cheeses, cured meats, and bread",
+            "Complete sensory journey combining sustainable cycling and Sicilian wine excellence"
+        ],
+        "included": [
+            "Noleggio E-MTB biammortizzata di ultima generazione",
+            "Casco protettivo e kit di riparazione",
+            "Guida cicloturistica certificata",
+            "Assicurazione e assistenza logistica"
+        ],
+        "included_en": [
+            "Noleggio E-MTB biammortizzata di ultima generazione",
+            "Casco protettivo e kit di riparazione",
+            "Guida cicloturistica certificata",
+            "Assicurazione e assistenza logistica"
+        ],
+        "excluded": [
+            "Tutto quello non espressamente indicato alla \"quota comprende\"",
+            "Extra personali e mance"
+        ],
+        "excluded_en": [
+            "Tutto quello non espressamente indicato alla \"quota comprende\"",
+            "Extra personali e mance"
+        ],
+        "schedule_dates": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-15",
+            "2026-06-01",
+            "2026-07-01",
+            "2026-08-01",
+            "2026-09-01",
+            "2026-10-01"
+        ],
+        "category_slug": "etna",
+        "categories": [
+            "etna"
+        ],
+        "itinerary_summary": "Accoglienza presso la sede a Randazzo e briefing sull'uso delle e-bike.\n\nPedalata attraverso paesaggi mozzafiato alle pendici dell'Etna: antiche colate laviche, boschi di castagni e vecchi crateri spenti.\n\nArrivo in una rinomata cantina etnea immersa tra i vigneti vulcanici.\n\nDegustazione guidata di vini pregiati Etna DOC (bianco minerale e corposo rosso) accompagnati da formaggi locali, salumi artigianali e pane appena sfornato.\n\nRientro rilassante in e-bike al punto di partenza."
+    }
 ]

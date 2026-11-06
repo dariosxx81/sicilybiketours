@@ -66,9 +66,21 @@ require_once BASE_PATH . '/includes/navbar.php';
             selectedType: 'all',
             selectedCat: 'all',
             applyFilter() {
+                if (this.selectedType === 'all' && this.selectedCat === 'all') {
+                    const el = document.getElementById('esperienze');
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth' });
+                        return;
+                    }
+                    window.location.href = '<?= BASE_URL ?>/escursioni.php';
+                    return;
+                }
                 let targetUrl = '<?= BASE_URL ?>/escursioni.php';
-                if (this.selectedType === 'tour') {
+                if (this.selectedType === 'tour' || ['plurigiornalieri', 'eolie'].includes(this.selectedCat)) {
                     targetUrl = '<?= BASE_URL ?>/tour.php';
+                } else if (this.selectedCat === 'gruppi') {
+                    window.location.href = '<?= BASE_URL ?>/personalizza-tour.php';
+                    return;
                 }
                 if (this.selectedCat !== 'all') {
                     targetUrl += '?cat=' + encodeURIComponent(this.selectedCat);
@@ -117,6 +129,9 @@ require_once BASE_PATH . '/includes/navbar.php';
             <p class="section-subtitle" style="font-size: 1.12rem; color: var(--color-gray-700); line-height: 1.7;">
                 <?= htmlspecialchars($hp['categories_section']['subtitle'] ?? 'Pedalare in Sicilia con le nostre E-MTB di ultima generazione è un\'emozione accessibile a tutti.') ?>
             </p>
+            <div class="hide-on-desktop" style="font-size: 0.78rem; font-weight: 600; color: var(--color-gray-500); margin-top: 0.65rem;">
+                <i class="fa-solid fa-arrows-left-right" style="color: var(--color-primary); margin-right: 4px;"></i> Scorri orizzontalmente per vedere tutte le categorie
+            </div>
         </div>
 
         <!-- Griglia Categorie Dinamiche (Collegate ai filtri) -->

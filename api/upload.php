@@ -28,10 +28,31 @@ $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp', 'svg', 'gif'];
 $uploadedFiles = [];
 $errors = [];
 
+function getUploadErrorMessage($code) {
+    switch ($code) {
+        case UPLOAD_ERR_INI_SIZE:
+            return 'Il file supera la dimensione massima consentita dal server (' . ini_get('upload_max_filesize') . '). Riduci il peso o risoluzione della foto.';
+        case UPLOAD_ERR_FORM_SIZE:
+            return 'Il file supera la dimensione massima consentita dal modulo.';
+        case UPLOAD_ERR_PARTIAL:
+            return 'Il file è stato caricato solo parzialmente. Riprova.';
+        case UPLOAD_ERR_NO_FILE:
+            return 'Nessun file selezionato per l\'upload.';
+        case UPLOAD_ERR_NO_TMP_DIR:
+            return 'Cartella temporanea mancante sul server.';
+        case UPLOAD_ERR_CANT_WRITE:
+            return 'Impossibile salvare il file su disco (permessi cartella).';
+        case UPLOAD_ERR_EXTENSION:
+            return 'Caricamento bloccato da un\'estensione di sicurezza del server.';
+        default:
+            return 'Errore nel caricamento del file (codice ' . $code . ').';
+    }
+}
+
 // Funzione helper per processare singolo file
 function processSingleUpload($file, $uploadDir, $allowedExtensions) {
     if ($file['error'] !== UPLOAD_ERR_OK) {
-        return ['error' => 'Errore nel caricamento del file (codice ' . $file['error'] . ')'];
+        return ['error' => getUploadErrorMessage($file['error'])];
     }
 
     $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));

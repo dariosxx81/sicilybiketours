@@ -166,6 +166,7 @@ $aboutFile = BASE_PATH . '/data/about.json';
 $menusFile = BASE_PATH . '/data/menus.json';
 $categoriesFile = BASE_PATH . '/data/categories.json';
 $reviewsFile = BASE_PATH . '/data/reviews.json';
+$affiliatesFile = BASE_PATH . '/data/partners.json';
 
 function load_json($file, $default = []) {
     return file_exists($file) ? json_decode(file_get_contents($file), true) ?: $default : $default;
@@ -186,12 +187,41 @@ $about = load_json($aboutFile);
 $menus = load_json($menusFile);
 $categories = load_json($categoriesFile);
 $reviews = load_json($reviewsFile);
+$affiliates = load_json($affiliatesFile);
 
 $savedNotice = '';
+$postedTab = '';
 
 // GESTIONE AZIONI POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cms_action'])) {
     $action = $_POST['cms_action'];
+
+    // Determina il tab corrispondente all'azione
+    if (in_array($action, ['save_tour', 'delete_tour'])) {
+        $postedTab = 'tours';
+    } elseif (in_array($action, ['save_category', 'delete_category'])) {
+        $postedTab = 'categories';
+    } elseif (in_array($action, ['save_article', 'delete_article'])) {
+        $postedTab = 'magazine';
+    } elseif (in_array($action, ['save_review', 'delete_review'])) {
+        $postedTab = 'reviews';
+    } elseif ($action === 'save_homepage') {
+        $postedTab = 'homepage';
+    } elseif ($action === 'save_about') {
+        $postedTab = 'about';
+    } elseif ($action === 'save_menus') {
+        $postedTab = 'menus';
+    } elseif ($action === 'save_configurator') {
+        $postedTab = 'configurator';
+    } elseif (in_array($action, ['save_partner', 'delete_partner', 'toggle_partner_status'])) {
+        $postedTab = 'referrals';
+    } elseif ($action === 'save_settings') {
+        $postedTab = 'settings';
+    } elseif ($action === 'save_seo') {
+        $postedTab = 'seo';
+    } elseif (in_array($action, ['update_lead_status', 'delete_lead'])) {
+        $postedTab = 'leads';
+    }
 
     // 1. SALVA HOMEPAGE (Tutti gli elementi)
     if ($action === 'save_homepage') {
@@ -487,12 +517,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cms_action'])) {
             'highlights' => $highlights,
             'included' => $included,
             'excluded' => $excluded,
-            'itinerary_summary' => trim($_POST['itinerary_summary'] ?? '')
+            'itinerary' => trim($_POST['itinerary'] ?? $_POST['itinerary_summary'] ?? ''),
+            'itinerary_summary' => trim($_POST['itinerary_summary'] ?? $_POST['itinerary'] ?? '')
         ];
 
         $found = false;
         foreach ($tours as &$t) {
             if ($t['id'] === $tourId) {
+                // Preserva campi se non specificati o lasciati vuoti nel POST
+                if (empty($tourData['image']) && !empty($t['image'])) {
+                    $tourData['image'] = $t['image'];
+                }
+                if (empty($tourData['gallery']) && !empty($t['gallery'])) {
+                    $tourData['gallery'] = $t['gallery'];
+                }
+                if (empty($tourData['subtitle']) && !empty($t['subtitle'])) {
+                    $tourData['subtitle'] = $t['subtitle'];
+                }
+                if (empty($tourData['duration']) && !empty($t['duration'])) {
+                    $tourData['duration'] = $t['duration'];
+                }
+                if (empty($tourData['distance']) && !empty($t['distance'])) {
+                    $tourData['distance'] = $t['distance'];
+                }
+                if (empty($tourData['elevation']) && !empty($t['elevation'])) {
+                    $tourData['elevation'] = $t['elevation'];
+                }
+                if (empty($tourData['start_location']) && !empty($t['start_location'])) {
+                    $tourData['start_location'] = $t['start_location'];
+                }
+                if (empty($tourData['highlights']) && !empty($t['highlights'])) {
+                    $tourData['highlights'] = $t['highlights'];
+                }
+                if (empty($tourData['included']) && !empty($t['included'])) {
+                    $tourData['included'] = $t['included'];
+                }
+                if (empty($tourData['excluded']) && !empty($t['excluded'])) {
+                    $tourData['excluded'] = $t['excluded'];
+                }
+                if (empty($tourData['itinerary']) && !empty($t['itinerary'])) {
+                    $tourData['itinerary'] = $t['itinerary'];
+                    $tourData['itinerary_summary'] = $t['itinerary'];
+                }
                 $t = array_merge($t, $tourData);
                 $found = true;
                 break;
@@ -580,11 +646,96 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cms_action'])) {
         if (!empty($_POST['configurator_json'])) {
             $parsed = json_decode($_POST['configurator_json'], true);
             if ($parsed) {
+                if (isset($parsed['pricing'])) {
+                    $parsed['pricing']['show_prices'] = !empty($parsed['pricing']['show_prices']);
+                    $parsed['pricing']['base_per_day_person'] = intval($parsed['pricing']['base_per_day_person'] ?? 90);
+                }
                 $configurator = $parsed;
                 save_json($cfgFile, $configurator);
-                $savedNotice = 'Opzioni configuratore aggiornate!';
+                $savedNotice = 'Opzioni configuratore e visibilità prezzi aggiornate!';
             }
         }
+    }
+
+    // 12.B PARTNER REFERRAL, AFFILIAZIONI & QR CODE
+    elseif ($action === 'save_partner') {
+        $pId = trim($_POST['partner_id'] ?? '');
+        $pName = trim($_POST['partner_name'] ?? '');
+        $pCategory = trim($_POST['partner_category'] ?? 'Hotel & Resort');
+        $pContact = trim($_POST['contact_name'] ?? '');
+        $pEmail = trim($_POST['email'] ?? '');
+        $pPhone = trim($_POST['phone'] ?? '');
+        $pNotes = trim($_POST['notes'] ?? '');
+        $pCommission = floatval($_POST['commission_rate'] ?? 10);
+        $pDiscount = floatval($_POST['discount_rate'] ?? 0);
+        $pActive = !empty($_POST['active']);
+
+        $rawRef = trim($_POST['referral_code'] ?? '');
+        if (empty($rawRef)) {
+            $rawRef = preg_replace('/[^A-Z0-9]/', '', strtoupper($pName));
+        }
+        $pCode = preg_replace('/[^A-Z0-9_-]/', '', strtoupper($rawRef));
+
+        if (!empty($pName)) {
+            $found = false;
+            foreach ($affiliates as &$p) {
+                if ($p['id'] === $pId) {
+                    $p['name'] = $pName;
+                    $p['category'] = $pCategory;
+                    $p['contact_name'] = $pContact;
+                    $p['email'] = $pEmail;
+                    $p['phone'] = $pPhone;
+                    $p['notes'] = $pNotes;
+                    $p['referral_code'] = $pCode;
+                    $p['commission_rate'] = $pCommission;
+                    $p['discount_rate'] = $pDiscount;
+                    $p['active'] = $pActive;
+                    $found = true;
+                    break;
+                }
+            }
+            if (!$found) {
+                $newPartner = [
+                    'id' => 'partner_' . time(),
+                    'name' => $pName,
+                    'category' => $pCategory,
+                    'contact_name' => $pContact,
+                    'email' => $pEmail,
+                    'phone' => $pPhone,
+                    'referral_code' => $pCode,
+                    'commission_rate' => $pCommission,
+                    'discount_rate' => $pDiscount,
+                    'notes' => $pNotes,
+                    'active' => $pActive,
+                    'visits_count' => 0,
+                    'leads_count' => 0,
+                    'confirmed_bookings' => 0,
+                    'total_revenue' => 0,
+                    'commission_accrued' => 0,
+                    'created_at' => date('Y-m-d H:i:s')
+                ];
+                $affiliates[] = $newPartner;
+            }
+            save_json($affiliatesFile, $affiliates);
+            $savedNotice = 'Partner referral salvato con successo!';
+        }
+    }
+    elseif ($action === 'delete_partner') {
+        $delId = trim($_POST['partner_id'] ?? '');
+        $affiliates = array_values(array_filter($affiliates, function($p) use ($delId) { return $p['id'] !== $delId; }));
+        save_json($affiliatesFile, $affiliates);
+        $savedNotice = 'Partner rimosso con successo.';
+    }
+    elseif ($action === 'toggle_partner_status') {
+        $tId = trim($_POST['partner_id'] ?? '');
+        foreach ($affiliates as &$p) {
+            if ($p['id'] === $tId) {
+                $p['active'] = empty($p['active']);
+                break;
+            }
+        }
+        save_json($affiliatesFile, $affiliates);
+        $savedNotice = 'Stato partner aggiornato.';
     }
 
     // 13. IMPOSTAZIONI GENERALI & RECAPITI
@@ -655,11 +806,34 @@ if (is_dir($uploadsPath)) {
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 
+    <!-- QRCode Generator for Partner Affiliates & Brochures -->
+    <script src="<?= BASE_URL ?>/assets/js/qrcode.min.js"></script>
+
     <!-- Alpine.js -->
     <script defer src="<?= BASE_URL ?>/assets/js/alpine.min.js"></script>
 
     <style>
         [x-cloak] { display: none !important; }
+
+        /* Stile di stampa per Flyer da banco Partner */
+        @media print {
+            body * { visibility: hidden !important; }
+            #printableFlyer, #printableFlyer * { visibility: visible !important; }
+            #printableFlyer {
+                position: fixed !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                background: #ffffff !important;
+                padding: 3rem !important;
+                z-index: 9999999 !important;
+            }
+        }
 
         /* Master Dashboard Layout */
         .admin-layout {
@@ -1082,6 +1256,41 @@ if (is_dir($uploadsPath)) {
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 1.5px solid var(--color-gray-100); padding-bottom: 0.75rem; margin-bottom: 1.5rem;
         }
+
+        /* Generic Admin Modal System */
+        .admin-modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+        .admin-modal-backdrop[style*="display: none"],
+        [x-cloak].admin-modal-backdrop {
+            display: none !important;
+        }
+        .admin-modal-dialog {
+            background: #ffffff;
+            width: 100%;
+            max-width: 680px;
+            border-radius: 0;
+            padding: 2.2rem;
+            max-height: 90vh;
+            overflow-y: auto;
+            margin: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            position: relative;
+        }
     </style>
 </head>
 <body style="background: #f8fafc;" x-data="adminApp()">
@@ -1159,6 +1368,11 @@ if (is_dir($uploadsPath)) {
                 <button class="nav-sidebar-item" :class="{ 'active': activeTab === 'configurator' }" @click="activeTab = 'configurator'; mobileSidebarOpen = false" title="Configuratore Su Misura">
                     <span class="nav-sidebar-icon"><i class="fa-solid fa-sliders"></i></span>
                     <span class="nav-sidebar-label">Configuratore Su Misura</span>
+                </button>
+                <button class="nav-sidebar-item" :class="{ 'active': activeTab === 'referrals' }" @click="activeTab = 'referrals'; mobileSidebarOpen = false" title="Partner, Affiliazioni & QR Code">
+                    <span class="nav-sidebar-icon"><i class="fa-solid fa-qrcode"></i></span>
+                    <span class="nav-sidebar-label">Partner & Referral QR</span>
+                    <span class="nav-badge-pill subtle"><?= count($affiliates) ?></span>
                 </button>
 
                 <!-- GRUPPO: CONTENUTI -->
@@ -1317,6 +1531,11 @@ if (is_dir($uploadsPath)) {
                                             <span style="display: inline-block; padding: 0.25rem 0.65rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; background: <?= $l['type'] === 'configuratore' ? '#fef3c7; color: #b45309;' : ($l['type'] === 'prenotazione_tour' ? '#ecfdf5; color: #047857;' : '#e0f2fe; color: #0369a1;') ?>">
                                                 <?= htmlspecialchars($l['source_label'] ?? $l['type']) ?>
                                             </span>
+                                            <?php if (!empty($l['referral'])): ?>
+                                                <span style="display: block; margin-top: 0.35rem; font-size: 0.72rem; color: #166534; background: #dcfce7; padding: 0.18rem 0.5rem; border-radius: 4px; border: 1px solid #bbf7d0; font-weight: 700;" title="Segnalato da partner referral">
+                                                    <i class="fa-solid fa-handshake"></i> <?= htmlspecialchars($l['referral']['partner_name']) ?>
+                                                </span>
+                                            <?php endif; ?>
                                         </td>
                                         <td>
                                             <strong style="color: var(--color-primary-dark);"><?= htmlspecialchars($l['tour_title'] ?? '') ?></strong>
@@ -1364,41 +1583,178 @@ if (is_dir($uploadsPath)) {
             </div>
 
             <!-- MODAL DETTAGLI RICHIESTA -->
-            <div x-show="selectedLeadModal" x-cloak style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 1.5rem;">
-                <div style="background: #fff; width: 100%; max-width: 650px; border-radius: var(--radius-xl); padding: 2.2rem; max-height: 90vh; overflow-y: auto;" @click.away="selectedLeadModal = false">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div x-show="selectedLeadModal" x-cloak class="admin-modal-backdrop" style="display: none;">
+                <div class="admin-modal-dialog" @click.away="selectedLeadModal = false">
+                    <!-- HEADER MODAL -->
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; border-bottom: 1px solid var(--color-gray-200); padding-bottom: 1rem;">
                         <div>
-                            <span class="badge badge-accent" x-text="activeLead.id"></span>
-                            <h3 style="font-size: 1.4rem; color: var(--color-primary-dark); margin: 0.4rem 0 0 0;" x-text="activeLead.customer_name"></h3>
+                            <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.35rem;">
+                                <span class="badge badge-accent" x-text="activeLead.id"></span>
+                                <span class="badge" style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem;" x-text="activeLead.source_label"></span>
+                            </div>
+                            <h3 style="font-size: 1.45rem; color: var(--color-primary-dark); margin: 0;" x-text="activeLead.customer_name"></h3>
                         </div>
-                        <button type="button" @click="selectedLeadModal = false" style="background: none; font-size: 1.4rem; cursor: pointer;">
+                        <button type="button" @click="selectedLeadModal = false" style="background: none; border: none; font-size: 1.4rem; color: #64748b; cursor: pointer; padding: 0.25rem 0.5rem; line-height: 1;">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; background: var(--color-gray-50); padding: 1.25rem; border-radius: var(--radius-md);">
-                        <div><strong>Email:</strong> <span x-text="activeLead.customer_email"></span></div>
-                        <div><strong>Telefono:</strong> <span x-text="activeLead.customer_phone"></span></div>
-                        <div><strong>Data:</strong> <span x-text="activeLead.created_at"></span></div>
-                        <div><strong>Canale:</strong> <span x-text="activeLead.source_label"></span></div>
+                    <!-- CONTATTI CLIENTE -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.85rem; margin-bottom: 1.5rem; background: var(--color-gray-50); padding: 1.1rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--color-gray-200); font-size: 0.9rem;">
+                        <div><strong style="color: var(--color-primary-dark); display: block; font-size: 0.78rem; text-transform: uppercase;">Email:</strong> <a :href="'mailto:' + activeLead.customer_email" style="color: var(--color-primary); font-weight: 600;" x-text="activeLead.customer_email"></a></div>
+                        <div><strong style="color: var(--color-primary-dark); display: block; font-size: 0.78rem; text-transform: uppercase;">Telefono:</strong> <a :href="'tel:' + activeLead.customer_phone" style="color: var(--color-primary); font-weight: 600;" x-text="activeLead.customer_phone"></a></div>
+                        <div><strong style="color: var(--color-primary-dark); display: block; font-size: 0.78rem; text-transform: uppercase;">Data Invio:</strong> <span style="color: #475569;" x-text="activeLead.created_at"></span></div>
+                        <div><strong style="color: var(--color-primary-dark); display: block; font-size: 0.78rem; text-transform: uppercase;">Data Desiderata:</strong> <span style="color: #475569; font-weight: 600;" x-text="activeLead.date || 'Flessibile'"></span></div>
                     </div>
 
-                    <h4 style="font-size: 1.1rem; color: var(--color-primary-dark); margin-bottom: 0.5rem;">Dati Esperienza</h4>
-                    <ul style="list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.95rem;">
-                        <li><strong>Tour:</strong> <span x-text="activeLead.tour_title"></span></li>
-                        <li><strong>Data Desiderata:</strong> <span x-text="activeLead.date || 'Flessibile'"></span></li>
-                        <li><strong>Partecipanti:</strong> <span x-text="activeLead.participants + ' persone'"></span></li>
-                        <template x-if="activeLead.details">
-                            <li style="margin-top: 0.5rem; background: #fff; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 6px;">
-                                <pre style="font-family: inherit; font-size: 0.85rem; white-space: pre-wrap; margin: 0;" x-text="JSON.stringify(activeLead.details, null, 2)"></pre>
-                            </li>
-                        </template>
-                    </ul>
+                    <!-- DETTAGLI TOUR & CONFIGURATORE -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="font-size: 1.1rem; color: var(--color-primary-dark); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fa-solid fa-route" style="color: var(--color-primary);"></i> Dati Esperienza & Scelte del Cliente
+                        </h4>
 
-                    <h4 style="font-size: 1.1rem; color: var(--color-primary-dark); margin-bottom: 0.5rem;">Messaggio / Note</h4>
-                    <div style="background: #f8fafc; border-left: 3px solid var(--color-primary); padding: 1rem; border-radius: 4px; font-size: 0.95rem; margin-bottom: 1.5rem;" x-text="activeLead.notes || 'Nessuna nota specificata.'"></div>
+                        <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: var(--radius-md); padding: 1.25rem; display: flex; flex-direction: column; gap: 0.9rem; font-size: 0.92rem;">
+                            <!-- Titolo e Partecipanti -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 0.75rem;">
+                                <div>
+                                    <span style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase; display: block;">Tour / Itinerario:</span>
+                                    <strong style="font-size: 1.05rem; color: var(--color-primary-dark);" x-text="activeLead.tour_title"></strong>
+                                </div>
+                                <span class="badge" style="background: #ecfdf5; color: #047857; font-weight: 700; font-size: 0.85rem; padding: 0.4rem 0.8rem; border-radius: 9999px;">
+                                    <i class="fa-solid fa-users"></i> <span x-text="(activeLead.participants || 0) + ' Partecipanti'"></span>
+                                </span>
+                            </div>
 
-                    <div style="display: flex; justify-content: flex-end;">
+                            <template x-if="activeLead.details">
+                                <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                                    <!-- Se ha destinazioni (Configuratore) -->
+                                    <template x-if="activeLead.details.destinations && activeLead.details.destinations.length">
+                                        <div>
+                                            <span style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.35rem;">
+                                                <i class="fa-solid fa-map-location-dot" style="color: var(--color-primary);"></i> Destinazioni Selezionate:
+                                            </span>
+                                            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                                <template x-for="dest in activeLead.details.destinations" :key="dest">
+                                                    <span class="badge" style="background: #e6f4f1; color: var(--color-primary-dark); font-weight: 700; padding: 0.35rem 0.75rem; border-radius: 6px; font-size: 0.85rem; border: 1px solid #c7e6e0;">
+                                                        <i class="fa-solid fa-location-dot" style="color: var(--color-primary);"></i> <span x-text="dest"></span>
+                                                    </span>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </template>
+
+                                    <!-- Parametri Tour su Misura (Durata, Difficoltà, Bici) -->
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; background: #f8fafc; padding: 0.85rem; border-radius: 6px; border: 1px solid #f1f5f9;">
+                                        <template x-if="activeLead.details.duration_days">
+                                            <div>
+                                                <span style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase; display: block;">Durata:</span>
+                                                <strong style="color: var(--color-primary-dark);"><i class="fa-solid fa-calendar-days" style="color: var(--color-primary);"></i> <span x-text="activeLead.details.duration_days + ' Giorni'"></span></strong>
+                                            </div>
+                                        </template>
+                                        <template x-if="activeLead.details.difficulty">
+                                            <div>
+                                                <span style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase; display: block;">Livello / Difficoltà:</span>
+                                                <span style="color: #334155; font-weight: 600;" x-text="activeLead.details.difficulty"></span>
+                                            </div>
+                                        </template>
+                                        <template x-if="activeLead.details.ebike">
+                                            <div style="grid-column: 1 / -1;">
+                                                <span style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase; display: block;">Bici / Mezzo Scelto:</span>
+                                                <strong style="color: var(--color-primary-dark);"><i class="fa-solid fa-bicycle" style="color: var(--color-primary);"></i> <span x-text="activeLead.details.ebike"></span></strong>
+                                            </div>
+                                        </template>
+                                    </div>
+
+                                    <!-- Servizi Extra Selezionati -->
+                                    <template x-if="activeLead.details.extras && activeLead.details.extras.length">
+                                        <div>
+                                            <span style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 0.4rem;">
+                                                <i class="fa-solid fa-star" style="color: var(--color-volcano);"></i> Servizi Extra Inclusi:
+                                            </span>
+                                            <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+                                                <template x-for="extra in activeLead.details.extras" :key="extra">
+                                                    <div style="display: flex; align-items: center; gap: 0.5rem; background: #faf5ff; border: 1px solid #f3e8ff; padding: 0.45rem 0.75rem; border-radius: 6px; font-size: 0.85rem; color: #6b21a8; font-weight: 600;">
+                                                        <i class="fa-solid fa-circle-check" style="color: #9333ea;"></i>
+                                                        <span x-text="extra"></span>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </template>
+
+                                    <!-- Dettagli per Escursioni Singole Dirette -->
+                                    <template x-if="activeLead.details.has_ridden_ebike || activeLead.details.need_transfer || activeLead.details.need_lunch">
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                            <template x-if="activeLead.details.has_ridden_ebike">
+                                                <span class="badge" style="background: #f1f5f9; color: #334155;">
+                                                    Già guidato E-Bike: <strong x-text="activeLead.details.has_ridden_ebike === 'yes' ? 'Sì' : 'No'"></strong>
+                                                </span>
+                                            </template>
+                                            <template x-if="activeLead.details.need_transfer">
+                                                <span class="badge" style="background: #fef3c7; color: #92400e;">
+                                                    <i class="fa-solid fa-van-shuttle"></i> Richiesto Transfer
+                                                </span>
+                                            </template>
+                                            <template x-if="activeLead.details.need_lunch">
+                                                <span class="badge" style="background: #fed7aa; color: #9a3412;">
+                                                    <i class="fa-solid fa-utensils"></i> Richiesto Pranzo Tipico
+                                                </span>
+                                            </template>
+                                        </div>
+                                    </template>
+
+                                    <!-- Preventivo Stimato -->
+                                    <template x-if="activeLead.details.estimate || activeLead.details.total_estimate">
+                                        <div style="margin-top: 0.25rem; background: linear-gradient(135deg, #f0fdf4 0%, #e6f7f2 100%); border: 1.5px solid var(--color-accent); border-radius: var(--radius-md); padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+                                            <div>
+                                                <span style="font-weight: 700; color: #166534; font-size: 0.92rem; display: block;">
+                                                    <i class="fa-solid fa-calculator" style="color: var(--color-accent);"></i> Preventivo Calcolato dal Configuratore:
+                                                </span>
+                                                <span style="font-size: 0.72rem; color: #15803d; font-weight: 600;">(Stima interna per formulare la proposta al cliente)</span>
+                                            </div>
+                                            <strong style="font-size: 1.3rem; color: var(--color-primary-dark);" x-text="'€ ' + (activeLead.details.estimate || activeLead.details.total_estimate)"></strong>
+                                        </div>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- BOX REFERRAL PARTNER (SE PRESENTE) -->
+                    <template x-if="activeLead.referral">
+                        <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: var(--radius-md); padding: 1.1rem 1.25rem; margin-bottom: 1.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; flex-wrap: wrap; gap: 0.5rem;">
+                                <strong style="color: #166534; font-size: 0.95rem; display: flex; align-items: center; gap: 0.45rem;">
+                                    <i class="fa-solid fa-handshake"></i> Segnalazione Struttura / Partner Convenzionato
+                                </strong>
+                                <span class="badge" style="background: #bbf7d0; color: #14532d; font-weight: 700;" x-text="'Provvigione: ' + activeLead.referral.commission_rate + '%'"></span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; font-size: 0.88rem;">
+                                <div><span style="color: #64748b; font-size: 0.74rem; text-transform: uppercase; font-weight: 700; display: block;">Struttura:</span> <strong style="color: #1e293b;" x-text="activeLead.referral.partner_name"></strong> (<span style="color: #64748b;" x-text="activeLead.referral.partner_category"></span>)</div>
+                                <div><span style="color: #64748b; font-size: 0.74rem; text-transform: uppercase; font-weight: 700; display: block;">Codice Referral / QR:</span> <code style="background: #e2e8f0; padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 700; color: #0f172a;" x-text="activeLead.referral.referral_code"></code></div>
+                                <div><span style="color: #64748b; font-size: 0.74rem; text-transform: uppercase; font-weight: 700; display: block;">Stima Provvigione:</span> <strong style="color: #15803d; font-size: 1.15rem;" x-text="'€ ' + (activeLead.referral.estimated_commission || '0.00')"></strong></div>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- NOTE / MESSAGGIO CLIENTE -->
+                    <div style="margin-bottom: 1.8rem;">
+                        <h4 style="font-size: 1rem; color: var(--color-primary-dark); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+                            <i class="fa-solid fa-message" style="color: var(--color-primary);"></i> Messaggio o Note del Cliente
+                        </h4>
+                        <div style="background: #f8fafc; border-left: 3.5px solid var(--color-primary); padding: 0.9rem 1.1rem; border-radius: 4px; font-size: 0.92rem; color: #334155; line-height: 1.5;" x-text="activeLead.notes || 'Nessuna nota aggiuntiva specificata dal cliente.'"></div>
+                    </div>
+
+                    <!-- PULSANTI AZIONE IN BASSO -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; border-top: 1px solid var(--color-gray-200); padding-top: 1.25rem;">
+                        <div style="display: flex; gap: 0.5rem;">
+                            <a :href="'https://wa.me/' + (activeLead.customer_phone || '').replace(/[^0-9]/g, '')" target="_blank" class="btn btn-sm" style="background: #25d366; color: #fff; font-weight: 700;" x-show="activeLead.customer_phone">
+                                <i class="fa-brands fa-whatsapp"></i> Contatta su WhatsApp
+                            </a>
+                            <a :href="'mailto:' + activeLead.customer_email" class="btn btn-sm btn-outline-primary">
+                                <i class="fa-solid fa-envelope"></i> Invia Email
+                            </a>
+                        </div>
                         <button type="button" class="btn btn-outline-primary" @click="selectedLeadModal = false">Chiudi</button>
                     </div>
                 </div>
@@ -2514,8 +2870,8 @@ if (is_dir($uploadsPath)) {
             </div>
 
             <!-- MODAL / FORM CREAZIONE E MODIFICA CATEGORIA -->
-            <div x-show="editingCategoryModal" x-cloak style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 1.5rem;">
-                <div style="background: #fff; width: 100%; max-width: 640px; border-radius: var(--radius-xl); padding: 2.2rem; max-height: 90vh; overflow-y: auto;" @click.away="editingCategoryModal = false">
+            <div x-show="editingCategoryModal" x-cloak class="admin-modal-backdrop" style="display: none;">
+                <div class="admin-modal-dialog" style="max-width: 640px;" @click.away="editingCategoryModal = false">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--color-gray-200); padding-bottom: 0.85rem;">
                         <h3 style="font-size: 1.4rem; color: var(--color-primary-dark); margin: 0;" x-text="currentCat.id ? 'Modifica Categoria' : 'Nuova Categoria Dinamica'"></h3>
                         <button type="button" class="btn btn-sm" style="background: #f1f5f9; color: #475569;" @click="editingCategoryModal = false">
@@ -2845,7 +3201,7 @@ if (is_dir($uploadsPath)) {
                         </div>
                     </div>
 
-                    <div class="form-row-2">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
                         <div class="form-group">
                             <label class="form-label">Highlights (1 per riga)</label>
                             <textarea name="highlights" class="form-control" rows="5" x-model="currentTour.highlights_raw"></textarea>
@@ -2854,11 +3210,16 @@ if (is_dir($uploadsPath)) {
                             <label class="form-label">Cosa Include il Prezzo (1 per riga)</label>
                             <textarea name="included" class="form-control" rows="5" x-model="currentTour.included_raw"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label class="form-label">Cosa Non Include (1 per riga)</label>
+                            <textarea name="excluded" class="form-control" rows="5" x-model="currentTour.excluded_raw"></textarea>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Descrizione Itinerario Dettagliata</label>
-                        <textarea name="itinerary_summary" class="form-control" rows="4" x-model="currentTour.itinerary_summary"></textarea>
+                        <textarea name="itinerary" class="form-control" rows="6" x-model="currentTour.itinerary" placeholder="Descrizione dettagliata delle tappe e dell'itinerario..."></textarea>
+                        <input type="hidden" name="itinerary_summary" :value="currentTour.itinerary">
                     </div>
 
                     <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem;">
@@ -2888,23 +3249,130 @@ if (is_dir($uploadsPath)) {
                     <input type="hidden" name="cms_action" value="save_configurator">
                     <input type="hidden" name="configurator_json" :value="JSON.stringify(configData)">
 
-                    <div style="background: var(--color-gray-50); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--color-gray-200); margin-bottom: 2rem; display: flex; align-items: center; gap: 1.5rem;">
-                        <div>
-                            <strong style="display: block; font-size: 1rem; color: var(--color-primary-dark);">Prezzo Base al Giorno per Persona (€):</strong>
-                            <span style="font-size: 0.82rem; color: var(--color-gray-500);">Costo indicativo di riferimento.</span>
+                    <!-- BLOCCO: GESTIONE PREZZI & FLUSSO PREVENTIVO -->
+                    <div style="background: #ffffff; border: 1.5px solid var(--color-gray-200); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 2rem; box-shadow: var(--shadow-sm);">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid var(--color-gray-200); padding-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
+                            <div>
+                                <h3 style="font-size: 1.15rem; margin: 0; color: var(--color-primary-dark); display: flex; align-items: center; gap: 0.5rem;">
+                                    <i class="fa-solid fa-calculator" style="color: var(--color-primary);"></i>
+                                    Gestione Prezzi & Flusso Preventivo (Tour su Misura)
+                                </h3>
+                                <p style="font-size: 0.85rem; color: var(--color-gray-500); margin: 0.2rem 0 0 0;">
+                                    Scegli se mostrare la stima economica in tempo reale all'utente o indirizzarlo alla richiesta di preventivo personalizzato.
+                                </p>
+                            </div>
+                            <span class="badge" :style="!configData.pricing.show_prices ? 'background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; font-weight: 700;' : 'background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; font-weight: 700;'">
+                                <i class="fa-solid" :class="!configData.pricing.show_prices ? 'fa-envelope-open-text' : 'fa-tag'"></i>
+                                <span x-text="!configData.pricing.show_prices ? 'Modalità Preventivo Attiva (Prezzi Nascosti)' : 'Prezzi Visibili Live'"></span>
+                            </span>
                         </div>
-                        <input type="number" class="form-control" style="width: 120px;" x-model="configData.pricing.base_per_day_person">
+
+                        <!-- SELEZIONE MODALITÀ (2 CARD CLICCABILI) -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+                            <!-- CARD 1: PREZZI NASCOSTI / LEAD GENERATION -->
+                            <div @click="configData.pricing.show_prices = false" 
+                                 :style="!configData.pricing.show_prices ? 'border: 2px solid #16a34a; background: #f0fdf4;' : 'border: 1.5px solid var(--color-gray-200); background: #f8fafc; opacity: 0.75;'"
+                                 style="cursor: pointer; border-radius: var(--radius-md); padding: 1.1rem; transition: all 0.2s; position: relative;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <div style="display: flex; align-items: center; gap: 0.6rem;">
+                                        <i class="fa-solid fa-envelope-open-text" style="font-size: 1.25rem; color: #16a34a;"></i>
+                                        <strong style="color: var(--color-primary-dark); font-size: 0.98rem;">Nascondi Prezzi (Consigliato)</strong>
+                                    </div>
+                                    <input type="radio" :checked="!configData.pricing.show_prices" name="ui_pricing_mode" style="accent-color: #16a34a; transform: scale(1.2);">
+                                </div>
+                                <p style="font-size: 0.82rem; color: #334155; margin: 0; line-height: 1.45;">
+                                    <strong>Flusso Preventivo / Lead Generation:</strong> I clienti configurano tappe, durata, bici ed esperienze, ma <strong>non vedono i prezzi</strong> degli extra né la stima totale. Al posto del prezzo vedono il box di richiesta preventivo gratuito, massimizzando le richieste dirette (email, telefono, WhatsApp).
+                                </p>
+                                <span style="display: inline-block; margin-top: 0.6rem; font-size: 0.74rem; color: #15803d; font-weight: 700;">
+                                    <i class="fa-solid fa-circle-check"></i> La stima calcolata rimane comunque visibile a te nel pannello admin e via email.
+                                </span>
+                            </div>
+
+                            <!-- CARD 2: PREZZI VISIBILI -->
+                            <div @click="configData.pricing.show_prices = true" 
+                                 :style="configData.pricing.show_prices ? 'border: 2px solid var(--color-primary); background: #eef6f5;' : 'border: 1.5px solid var(--color-gray-200); background: #f8fafc; opacity: 0.75;'"
+                                 style="cursor: pointer; border-radius: var(--radius-md); padding: 1.1rem; transition: all 0.2s; position: relative;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <div style="display: flex; align-items: center; gap: 0.6rem;">
+                                        <i class="fa-solid fa-tag" style="font-size: 1.25rem; color: var(--color-primary);"></i>
+                                        <strong style="color: var(--color-primary-dark); font-size: 0.98rem;">Mostra Prezzi Pubblici</strong>
+                                    </div>
+                                    <input type="radio" :checked="configData.pricing.show_prices" name="ui_pricing_mode" style="accent-color: var(--color-primary); transform: scale(1.2);">
+                                </div>
+                                <p style="font-size: 0.82rem; color: #334155; margin: 0; line-height: 1.45;">
+                                    <strong>Calcolatore Trasparente:</strong> Mostra i singoli costi degli extra (+€28, +€30...) nello Step 4 e calcola la <strong>stima orientativa totale del gruppo</strong> in tempo reale nello Step 5.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- PREZZO BASE GIORNALIERO -->
+                        <div style="background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                            <div>
+                                <strong style="display: block; font-size: 0.92rem; color: var(--color-primary-dark);">Prezzo Base al Giorno per Persona (€):</strong>
+                                <span style="font-size: 0.8rem; color: var(--color-gray-500);">
+                                    Tariffa base usata dal sistema per calcolare la stima interna (e mostrata nel totale se i prezzi sono visibili).
+                                </span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-weight: 700; color: var(--color-primary); font-size: 1.1rem;">€</span>
+                                <input type="number" class="form-control" style="width: 110px; font-weight: 700; font-size: 1rem;" x-model.number="configData.pricing.base_per_day_person" min="10" step="5">
+                            </div>
+                        </div>
+
+                        <!-- AVVISO CHIAREZZA TOUR STANDARD -->
+                        <div style="margin-top: 0.85rem; padding: 0.75rem 1rem; background: #fffbeb; border: 1px solid #fef3c7; border-radius: 6px; display: flex; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: #92400e;">
+                            <i class="fa-solid fa-circle-info" style="color: #d97706; font-size: 0.95rem;"></i>
+                            <span>
+                                <strong>Nota sui Tour a Catalogo (B2C):</strong> I prezzi dei Tour Standard e Plurigiornalieri fissi (schede catalogo es. Etna Summit, Nebrodi, ecc.) restano sempre pubblici e indicati chiaramente nelle rispettive schede e griglie. Questa opzione agisce esclusivamente sul <strong>Configuratore Tour su Misura</strong>.
+                            </span>
+                        </div>
                     </div>
 
                     <h3 style="font-size: 1.25rem; color: var(--color-primary-dark); margin-bottom: 1rem;">Destinazioni (Step 1)</h3>
                     <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
                         <template x-for="(dest, dIdx) in configData.destinations" :key="dIdx">
-                            <div style="padding: 1.2rem; background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); display: flex; gap: 1rem; align-items: flex-start;">
-                                <div style="flex: 1; display: grid; grid-template-columns: 1fr 2fr; gap: 1rem;">
-                                    <div><label class="form-label">Nome</label><input type="text" class="form-control" x-model="dest.name"></div>
-                                    <div><label class="form-label">Descrizione</label><input type="text" class="form-control" x-model="dest.desc_it"></div>
+                            <div style="padding: 1.2rem; background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); display: flex; gap: 1.25rem; align-items: flex-start; flex-wrap: wrap;">
+                                <!-- FOTO DESTINAZIONE & UPLOAD -->
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; width: 140px; flex-shrink: 0;">
+                                    <div style="width: 140px; height: 95px; border-radius: var(--radius-sm); overflow: hidden; background: #e2e8f0; border: 1.5px solid #cbd5e1; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                                        <template x-if="dest.image">
+                                            <img :src="dest.image.startsWith('http') ? dest.image : ('<?= BASE_URL ?>/' + dest.image)" alt="Foto destinazione" style="width: 100%; height: 100%; object-fit: cover;">
+                                        </template>
+                                        <template x-if="!dest.image">
+                                            <div style="text-align: center; color: #94a3b8; font-size: 0.72rem; padding: 0.5rem;">
+                                                <i class="fa-solid fa-image" style="font-size: 1.4rem; display: block; margin-bottom: 0.2rem;"></i>
+                                                Nessuna foto
+                                            </div>
+                                        </template>
+                                    </div>
+                                    <label class="btn btn-sm btn-outline-primary" style="font-size: 0.76rem; padding: 0.35rem 0.6rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; width: 100%; justify-content: center;">
+                                        <i class="fa-solid fa-cloud-arrow-up"></i> Carica Foto
+                                        <input type="file" accept="image/*" style="display: none;" @change="uploadDestinationImage($event, dIdx)">
+                                    </label>
                                 </div>
-                                <button type="button" class="btn btn-sm" style="background: #fee2e2; color: #991b1b; align-self: center;" @click="configData.destinations.splice(dIdx, 1)"><i class="fa-solid fa-trash"></i></button>
+
+                                <!-- DATI TESTUALI E PERCORSO FOTO -->
+                                <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 0.75rem;">
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                        <div>
+                                            <label class="form-label" style="font-size: 0.82rem; margin-bottom: 0.25rem;">Nome Destinazione *</label>
+                                            <input type="text" class="form-control" x-model="dest.name" placeholder="es. Vulcano Etna">
+                                        </div>
+                                        <div>
+                                            <label class="form-label" style="font-size: 0.82rem; margin-bottom: 0.25rem;">Percorso Immagine (URL o locale)</label>
+                                            <input type="text" class="form-control" x-model="dest.image" placeholder="assets/img/gallery/nome-foto.jpg">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="form-label" style="font-size: 0.82rem; margin-bottom: 0.25rem;">Descrizione Breve</label>
+                                        <input type="text" class="form-control" x-model="dest.desc_it" placeholder="es. Crateri, colate laviche, grotte e pinete...">
+                                    </div>
+                                </div>
+
+                                <!-- PULSANTE ELIMINA -->
+                                <button type="button" class="btn btn-sm" style="background: #fee2e2; color: #991b1b; align-self: flex-start; margin-top: 1.4rem;" @click="configData.destinations.splice(dIdx, 1)" title="Elimina destinazione">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
                             </div>
                         </template>
                         <button type="button" class="btn btn-outline-primary btn-sm" style="align-self: flex-start;" @click="configData.destinations.push({ id: 'dest_' + Date.now(), name: 'Nuova Zona', desc_it: 'Descrizione...', image: 'assets/img/gallery/summit.jpg' })">
@@ -2915,13 +3383,59 @@ if (is_dir($uploadsPath)) {
                     <h3 style="font-size: 1.25rem; color: var(--color-primary-dark); margin-bottom: 1rem;">Servizi Extra (Step 4)</h3>
                     <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
                         <template x-for="(extra, eIdx) in configData.extra_experiences" :key="eIdx">
-                            <div style="padding: 1.2rem; background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); display: flex; gap: 1rem; align-items: flex-start;">
-                                <div style="flex: 1; display: grid; grid-template-columns: 2fr 2fr 1fr; gap: 1rem;">
-                                    <div><label class="form-label">Nome Servizio</label><input type="text" class="form-control" x-model="extra.name_it"></div>
-                                    <div><label class="form-label">Descrizione</label><input type="text" class="form-control" x-model="extra.desc_it"></div>
-                                    <div><label class="form-label">Prezzo (€)</label><input type="number" class="form-control" x-model="extra.price"></div>
+                            <div style="padding: 1.2rem; background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: var(--radius-md); display: flex; gap: 1.25rem; align-items: flex-start; flex-wrap: wrap;">
+                                <!-- ANTEPRIMA ICONA LIVE -->
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem; width: 64px; flex-shrink: 0; padding-top: 0.2rem;">
+                                    <div style="width: 58px; height: 58px; background: #e0f2fe; color: var(--color-primary); border: 1.5px solid #bae6fd; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                                        <i class="fa-solid" :class="'fa-' + (extra.icon || 'check')"></i>
+                                    </div>
+                                    <span style="font-size: 0.72rem; color: #64748b; font-weight: 600; text-align: center; word-break: break-all;" x-text="extra.icon || 'check'"></span>
                                 </div>
-                                <button type="button" class="btn btn-sm" style="background: #fee2e2; color: #991b1b; align-self: center;" @click="configData.extra_experiences.splice(eIdx, 1)"><i class="fa-solid fa-trash"></i></button>
+
+                                <!-- CAMPI SERVIZIO EXTRA -->
+                                <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 0.75rem;">
+                                    <div style="display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 1rem;">
+                                        <div>
+                                            <label class="form-label" style="font-size: 0.82rem; margin-bottom: 0.25rem;">Nome Servizio *</label>
+                                            <input type="text" class="form-control" x-model="extra.name_it" placeholder="es. Pranzo Tipico">
+                                        </div>
+                                        <div>
+                                            <label class="form-label" style="font-size: 0.82rem; margin-bottom: 0.25rem;">Icona FontAwesome (senza 'fa-')</label>
+                                            <input type="text" class="form-control" x-model="extra.icon" placeholder="es. utensils, bed, children">
+                                        </div>
+                                        <div>
+                                            <label class="form-label" style="font-size: 0.82rem; margin-bottom: 0.25rem;">Prezzo (€) *</label>
+                                            <input type="number" class="form-control" x-model="extra.price" placeholder="30">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="form-label" style="font-size: 0.82rem; margin-bottom: 0.25rem;">Descrizione Breve</label>
+                                        <input type="text" class="form-control" x-model="extra.desc_it" placeholder="es. Sosta gourmet con sapori tradizionali autentici.">
+                                    </div>
+
+                                    <!-- PALETTE ICONE RAPIDE -->
+                                    <div style="background: #ffffff; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 0.5rem 0.75rem;">
+                                        <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; margin-bottom: 0.35rem; display: block;">
+                                            <i class="fa-solid fa-icons" style="color: var(--color-primary);"></i> Clicca un'icona per sceglierla:
+                                        </span>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                                            <template x-for="ic in extraIconPresets" :key="ic">
+                                                <button type="button" class="btn btn-sm" @click="extra.icon = ic"
+                                                        :style="extra.icon === ic ? 'background: var(--color-primary); color: #fff; border: 1px solid var(--color-primary); font-weight: 700;' : 'background: #f8fafc; color: #475569; border: 1px solid #e2e8f0;'"
+                                                        style="padding: 0.2rem 0.5rem; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 0.3rem;">
+                                                    <i class="fa-solid" :class="'fa-' + ic"></i>
+                                                    <span x-text="ic"></span>
+                                                </button>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PULSANTE ELIMINA -->
+                                <button type="button" class="btn btn-sm" style="background: #fee2e2; color: #991b1b; align-self: flex-start; margin-top: 1.4rem;" @click="configData.extra_experiences.splice(eIdx, 1)" title="Elimina servizio">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
                             </div>
                         </template>
                         <button type="button" class="btn btn-outline-primary btn-sm" style="align-self: flex-start;" @click="configData.extra_experiences.push({ id: 'extra_' + Date.now(), name_it: 'Nuovo Servizio', desc_it: 'Descrizione...', price: 30, icon: 'check' })">
@@ -2933,6 +3447,377 @@ if (is_dir($uploadsPath)) {
                         <button type="submit" class="btn btn-primary btn-lg">Salva Opzioni Configuratore</button>
                     </div>
                 </form>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 5.B: PARTNER, AFFILIAZIONI & GENERATORE QR CODE
+             =================================================================== -->
+        <section x-show="activeTab === 'referrals'" x-cloak>
+            <div class="admin-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h2 style="font-size: 1.5rem; margin: 0; color: var(--color-primary-dark); display: flex; align-items: center; gap: 0.6rem;">
+                            <i class="fa-solid fa-qrcode" style="color: var(--color-primary);"></i>
+                            Partner, Affiliazioni & Generatore QR Code
+                        </h2>
+                        <p style="color: var(--color-gray-500); font-size: 0.9rem; margin: 0.2rem 0 0 0;">
+                            Crea link di tracciamento e QR Code per Hotel, B&B, palestre e tour operator con calcolo automatico provvigioni (% sui tour prenotati).
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-primary" @click="startNewPartner()">
+                        <i class="fa-solid fa-plus"></i> Aggiungi Nuovo Partner
+                    </button>
+                </div>
+
+                <!-- KPI STATISTICHE REFERRAL -->
+                <?php
+                    $totVisits = array_sum(array_column($affiliates, 'visits_count'));
+                    $totLeads = array_sum(array_column($affiliates, 'leads_count'));
+                    $totComm = array_sum(array_column($affiliates, 'commission_accrued'));
+                    $totRev = array_sum(array_column($affiliates, 'total_revenue'));
+                ?>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                    <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: var(--radius-lg); padding: 1.25rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-sm);">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: #e0f2fe; color: #0284c7; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            <i class="fa-solid fa-hotel"></i>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: #64748b; display: block;">Strutture Partner</span>
+                            <strong style="font-size: 1.6rem; color: var(--color-primary-dark);"><?= count($affiliates) ?></strong>
+                        </div>
+                    </div>
+
+                    <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: var(--radius-lg); padding: 1.25rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-sm);">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: #fef3c7; color: #d97706; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            <i class="fa-solid fa-qrcode"></i>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: #64748b; display: block;">Scansioni & Clic</span>
+                            <strong style="font-size: 1.6rem; color: var(--color-primary-dark);"><?= $totVisits ?></strong>
+                        </div>
+                    </div>
+
+                    <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: var(--radius-lg); padding: 1.25rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-sm);">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: #dcfce7; color: #16a34a; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: #64748b; display: block;">Richieste Ricevute</span>
+                            <strong style="font-size: 1.6rem; color: var(--color-primary-dark);"><?= $totLeads ?></strong>
+                        </div>
+                    </div>
+
+                    <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: var(--radius-lg); padding: 1.25rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-sm);">
+                        <div style="width: 48px; height: 48px; border-radius: 12px; background: #ecfdf5; color: #047857; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <div>
+                            <span style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: #64748b; display: block;">Provvigioni Maturate</span>
+                            <strong style="font-size: 1.6rem; color: #166534;">€ <?= number_format($totComm, 2, ',', '.') ?></strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABELLA STRUTTURE PARTNER & AFFILIATI -->
+                <div style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                    <h3 style="font-size: 1.2rem; color: var(--color-primary-dark); margin: 0;">Elenco Strutture Convenzionate</h3>
+                    <input type="text" class="form-control" placeholder="Cerca per nome o codice..." style="max-width: 280px;" x-model="partnerSearchQuery">
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Struttura / Partner</th>
+                                <th>Codice Referral</th>
+                                <th>Commissione (%)</th>
+                                <th>Visite / Lead</th>
+                                <th>Fatturato / Provvigioni</th>
+                                <th>Stato</th>
+                                <th style="text-align: right;">Azioni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template x-for="p in affiliatesList" :key="p.id">
+                                <tr x-show="!partnerSearchQuery || p.name.toLowerCase().includes(partnerSearchQuery.toLowerCase()) || (p.referral_code && p.referral_code.toLowerCase().includes(partnerSearchQuery.toLowerCase()))">
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 0.6rem;">
+                                            <div style="width: 38px; height: 38px; border-radius: 8px; background: #f1f5f9; color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">
+                                                <i class="fa-solid" :class="p.category === 'Palestra & Fitness' ? 'fa-dumbbell' : (p.category === 'Tour Operator / Agenzia' ? 'fa-plane' : (p.category === 'B&B / Agriturismo' ? 'fa-bed' : 'fa-hotel'))"></i>
+                                            </div>
+                                            <div>
+                                                <strong style="color: var(--color-primary-dark); font-size: 0.95rem;" x-text="p.name"></strong>
+                                                <div style="font-size: 0.78rem; color: #64748b;">
+                                                    <span x-text="p.category"></span>
+                                                    <span x-show="p.contact_name" x-text="' • ' + p.contact_name"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div style="display: inline-flex; align-items: center; gap: 0.4rem; background: #e0f2fe; color: #0369a1; padding: 0.3rem 0.65rem; border-radius: 6px; font-weight: 800; font-family: monospace; font-size: 0.88rem; border: 1px solid #bae6fd;">
+                                            <i class="fa-solid fa-tag"></i>
+                                            <span x-text="p.referral_code"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge" style="background: #ecfdf5; color: #047857; font-weight: 800; font-size: 0.85rem; padding: 0.35rem 0.7rem; border-radius: 9999px;">
+                                            <span x-text="p.commission_rate + '% sui tour'"></span>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div style="font-size: 0.85rem; color: #334155;">
+                                            <span style="font-weight: 700;" x-text="p.visits_count || 0"></span> visite • 
+                                            <strong style="color: #166534;" x-text="p.leads_count || 0"></strong> richieste
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div style="font-size: 0.85rem;">
+                                            <span style="color: #64748b; font-size: 0.78rem; display: block;">Fatturato: <strong style="color: #1e293b;" x-text="'€ ' + (p.total_revenue || 0)"></strong></span>
+                                            <span style="color: #15803d; font-weight: 800; font-size: 0.95rem;" x-text="'Provv: € ' + (p.commission_accrued || '0.00')"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <form method="POST" style="margin: 0;">
+                                            <input type="hidden" name="cms_action" value="toggle_partner_status">
+                                            <input type="hidden" name="partner_id" :value="p.id">
+                                            <button type="submit" class="btn btn-sm" :style="p.active ? 'background: #dcfce7; color: #166534; border: 1px solid #bbf7d0;' : 'background: #f1f5f9; color: #64748b; border: 1px solid #cbd5e1;'" style="font-size: 0.78rem; padding: 0.25rem 0.6rem; border-radius: 9999px; font-weight: 700;">
+                                                <i class="fa-solid" :class="p.active ? 'fa-circle-check' : 'fa-circle-xmark'"></i>
+                                                <span x-text="p.active ? 'Attivo' : 'Inattivo'"></span>
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <div style="display: flex; gap: 0.4rem; justify-content: flex-end;">
+                                            <button type="button" class="btn btn-sm btn-primary" style="font-size: 0.82rem; padding: 0.35rem 0.7rem; display: inline-flex; align-items: center; gap: 0.35rem;" @click="openQRModal(p)" title="Genera QR Code e Link">
+                                                <i class="fa-solid fa-qrcode"></i> QR & Link
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-outline-primary" style="font-size: 0.82rem; padding: 0.35rem 0.6rem;" @click="editPartner(p)" title="Modifica dati">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </button>
+                                            <form method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo partner?');" style="margin: 0;">
+                                                <input type="hidden" name="cms_action" value="delete_partner">
+                                                <input type="hidden" name="partner_id" :value="p.id">
+                                                <button type="submit" class="btn btn-sm" style="background: #fee2e2; color: #991b1b; padding: 0.35rem 0.6rem;" title="Elimina partner">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- MODALE 1: GENERATORE QR CODE & LINK INTERATTIVO -->
+            <div class="modal-overlay" x-show="qrModalOpen" style="display: none;" x-transition.opacity @click.self="qrModalOpen = false">
+                <div class="modal-dialog" style="max-width: 640px; background: #ffffff; border-radius: var(--radius-xl); padding: 2rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);" x-show="qrModalOpen" x-transition>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; border-bottom: 1px solid var(--color-gray-200); padding-bottom: 0.85rem;">
+                        <div>
+                            <span class="badge" style="background: #e0f2fe; color: #0369a1; font-weight: 700; margin-bottom: 0.3rem;">
+                                <i class="fa-solid fa-qrcode"></i> Generatore QR Code & Link Referral
+                            </span>
+                            <h3 style="font-size: 1.35rem; color: var(--color-primary-dark); margin: 0;" x-text="selectedPartnerForQR ? selectedPartnerForQR.name : ''"></h3>
+                        </div>
+                        <button type="button" @click="qrModalOpen = false" style="background: none; border: none; font-size: 1.4rem; color: #64748b; cursor: pointer;">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <!-- SELETTORE PAGINA DI DESTINAZIONE -->
+                    <div style="margin-bottom: 1.25rem;">
+                        <label class="form-label" style="font-size: 0.88rem; margin-bottom: 0.4rem; font-weight: 700; color: var(--color-primary-dark);">
+                            1. Scegli a quale pagina indirizzare chi inquadra il QR Code:
+                        </label>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.5rem; margin-bottom: 0.6rem;">
+                            <button type="button" class="btn btn-sm" @click="qrTargetType = 'home'; generateQRCode()"
+                                    :style="qrTargetType === 'home' ? 'background: var(--color-primary); color: #fff; font-weight: 700;' : 'background: #f8fafc; color: #334155; border: 1px solid #cbd5e1;'">
+                                🏠 Homepage
+                            </button>
+                            <button type="button" class="btn btn-sm" @click="qrTargetType = 'tours'; generateQRCode()"
+                                    :style="qrTargetType === 'tours' ? 'background: var(--color-primary); color: #fff; font-weight: 700;' : 'background: #f8fafc; color: #334155; border: 1px solid #cbd5e1;'">
+                                📅 Tour Completi
+                            </button>
+                            <button type="button" class="btn btn-sm" @click="qrTargetType = 'escursioni'; generateQRCode()"
+                                    :style="qrTargetType === 'escursioni' ? 'background: var(--color-primary); color: #fff; font-weight: 700;' : 'background: #f8fafc; color: #334155; border: 1px solid #cbd5e1;'">
+                                🚴 Escursioni Day
+                            </button>
+                            <button type="button" class="btn btn-sm" @click="qrTargetType = 'configurator'; generateQRCode()"
+                                    :style="qrTargetType === 'configurator' ? 'background: var(--color-primary); color: #fff; font-weight: 700;' : 'background: #f8fafc; color: #334155; border: 1px solid #cbd5e1;'">
+                                🛠 Su Misura
+                            </button>
+                            <button type="button" class="btn btn-sm" @click="qrTargetType = 'tour_detail'; generateQRCode()"
+                                    :style="qrTargetType === 'tour_detail' ? 'background: var(--color-primary); color: #fff; font-weight: 700;' : 'background: #f8fafc; color: #334155; border: 1px solid #cbd5e1;'">
+                                📍 Singolo Tour
+                            </button>
+                        </div>
+
+                        <!-- Dropdown singolo tour se selezionato -->
+                        <div x-show="qrTargetType === 'tour_detail'" style="margin-top: 0.5rem;" x-transition>
+                            <label class="form-label" style="font-size: 0.8rem; margin-bottom: 0.2rem;">Seleziona Tour Specifico:</label>
+                            <select class="form-control" x-model="qrSelectedTourSlug" @change="generateQRCode()">
+                                <?php foreach ($tours as $t): ?>
+                                    <option value="<?= htmlspecialchars($t['slug']) ?>"><?= htmlspecialchars($t['title']) ?> (<?= htmlspecialchars($t['area']) ?>)</option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- CAMPO LINK GENERATO CON COPIA RAPIDA -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <label class="form-label" style="font-size: 0.88rem; margin-bottom: 0.35rem; font-weight: 700; color: var(--color-primary-dark);">
+                            2. Link di Tracciamento Referral:
+                        </label>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="text" class="form-control" readonly :value="getPartnerUrl()" style="background: #f8fafc; font-weight: 600; font-size: 0.88rem; color: #0f172a;">
+                            <button type="button" class="btn btn-outline-primary" @click="copyPartnerUrl()" style="white-space: nowrap; min-width: 110px;">
+                                <i class="fa-solid" :class="qrCopied ? 'fa-check' : 'fa-copy'"></i>
+                                <span x-text="qrCopied ? 'Copiato!' : 'Copia Link'"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- BOX ANTEPRIMA QR CODE LIVE -->
+                    <div style="background: #f8fafc; border: 1.5px dashed #cbd5e1; border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; margin-bottom: 1.5rem;">
+                        <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: #64748b; display: block; margin-bottom: 0.85rem;">
+                            <i class="fa-solid fa-qrcode" style="color: var(--color-primary);"></i> Anteprima QR Code Ufficiale
+                        </span>
+                        
+                        <div id="partnerQrContainer" style="display: inline-flex; padding: 1rem; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 0.85rem;"></div>
+
+                        <p style="font-size: 0.8rem; color: var(--color-gray-600); margin: 0; max-width: 440px; margin: 0 auto; line-height: 1.4;">
+                            QR Code ad alta definizione scansionabile con qualsiasi smartphone. Quando il cliente inquadra o prenota, la commissione del <strong style="color: #15803d;" x-text="(selectedPartnerForQR ? selectedPartnerForQR.commission_rate : 10) + '%'"></strong> viene attribuita automaticamente a questa struttura.
+                        </p>
+                    </div>
+
+                    <!-- AZIONI MODALE: DOWNLOAD & STAMPA FLYER -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; border-top: 1px solid var(--color-gray-200); padding-top: 1.25rem;">
+                        <button type="button" class="btn btn-outline-primary" @click="qrModalOpen = false">Chiudi</button>
+                        <div style="display: flex; gap: 0.6rem;">
+                            <button type="button" class="btn btn-outline-primary" @click="downloadPartnerQR()">
+                                <i class="fa-solid fa-download"></i> Scarica QR (PNG)
+                            </button>
+                            <button type="button" class="btn btn-accent" @click="printPartnerFlyer()">
+                                <i class="fa-solid fa-print"></i> Stampa Scheda / Flyer da Banco
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODALE 2: CREAZIONE / MODIFICA PARTNER -->
+            <div class="modal-overlay" x-show="partnerModalOpen" style="display: none;" x-transition.opacity @click.self="partnerModalOpen = false">
+                <div class="modal-dialog" style="max-width: 600px; background: #ffffff; border-radius: var(--radius-xl); padding: 2rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);" x-show="partnerModalOpen" x-transition>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--color-gray-200); padding-bottom: 0.85rem;">
+                        <h3 style="font-size: 1.4rem; color: var(--color-primary-dark); margin: 0;" x-text="editingPartner.id ? 'Modifica Struttura Partner' : 'Aggiungi Struttura / Partner Convenzionato'"></h3>
+                        <button type="button" @click="partnerModalOpen = false" style="background: none; border: none; font-size: 1.4rem; color: #64748b; cursor: pointer;">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <form method="POST">
+                        <input type="hidden" name="cms_action" value="save_partner">
+                        <input type="hidden" name="partner_id" :value="editingPartner.id">
+
+                        <div class="form-group" style="margin-bottom: 1rem;">
+                            <label class="form-label">Nome Struttura o Ragione Sociale *</label>
+                            <input type="text" class="form-control" name="partner_name" placeholder="es. Grand Hotel Timeo / B&B Etna Relax" x-model="editingPartner.name" required>
+                        </div>
+
+                        <div class="form-row-2" style="margin-bottom: 1rem;">
+                            <div class="form-group">
+                                <label class="form-label">Tipologia Partner</label>
+                                <select class="form-control" name="partner_category" x-model="editingPartner.category">
+                                    <option value="Hotel & Resort">Hotel & Resort</option>
+                                    <option value="B&B / Agriturismo">B&B / Agriturismo</option>
+                                    <option value="Palestra & Fitness">Palestra & Fitness Club</option>
+                                    <option value="Tour Operator / Agenzia">Tour Operator / Agenzia</option>
+                                    <option value="Ristorante / Cantina">Ristorante / Cantina DOC</option>
+                                    <option value="Altro Partner">Altro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Codice Referral / QR (Univoco) *</label>
+                                <input type="text" class="form-control" name="referral_code" style="text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;" placeholder="es. HOTEL-DIODORO" x-model="editingPartner.referral_code" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row-2" style="margin-bottom: 1rem;">
+                            <div class="form-group">
+                                <label class="form-label">Referente / Contatto</label>
+                                <input type="text" class="form-control" name="contact_name" placeholder="es. Concierge / Mario Rossi" x-model="editingPartner.contact_name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Commissione Riconosciuta (% sui tour) *</label>
+                                <input type="number" class="form-control" name="commission_rate" min="1" max="50" step="0.5" placeholder="10" x-model.number="editingPartner.commission_rate" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row-2" style="margin-bottom: 1rem;">
+                            <div class="form-group">
+                                <label class="form-label">Email di Contatto</label>
+                                <input type="email" class="form-control" name="email" placeholder="concierge@hotel.it" x-model="editingPartner.email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Telefono / WhatsApp</label>
+                                <input type="tel" class="form-control" name="phone" placeholder="+39 095 123456" x-model="editingPartner.phone">
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1.25rem;">
+                            <label class="form-label">Note Operative & Posizione QR Code</label>
+                            <textarea class="form-control" name="notes" rows="2" placeholder="es. Espositore posizionato al desk della reception, flyer nelle camere..." x-model="editingPartner.notes"></textarea>
+                        </div>
+
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.85rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.6rem;">
+                            <input type="checkbox" id="partner_active_chk" name="active" value="1" :checked="editingPartner.active" style="width: 18px; height: 18px; cursor: pointer;">
+                            <label for="partner_active_chk" style="margin: 0; cursor: pointer; font-weight: 700; font-size: 0.92rem; color: #1e293b;">
+                                Partner Attivo (abilita il tracciamento automatico e le commissioni)
+                            </label>
+                        </div>
+
+                        <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+                            <button type="button" class="btn btn-outline-primary" @click="partnerModalOpen = false">Annulla</button>
+                            <button type="submit" class="btn btn-primary">Salva Struttura Partner</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- SCHEDA / FLYER DA BANCO STAMPABILE (A4/A5) - ATTIVO SOLO DURANTE LA STAMPA -->
+            <div id="printableFlyer" style="display: none;">
+                <div style="max-width: 600px; margin: 0 auto; text-align: center; border: 3px double #184449; padding: 2.5rem; border-radius: 16px;">
+                    <img src="<?= BASE_URL ?>/assets/img/logo/logo.png" alt="Sicily Bike Tours" style="height: 60px; margin-bottom: 1rem;">
+                    
+                    <div style="font-size: 0.95rem; font-weight: 700; color: #166534; background: #dcfce7; padding: 0.35rem 0.85rem; border-radius: 9999px; display: inline-block; margin-bottom: 1.25rem; border: 1px solid #bbf7d0;">
+                        In Convenzione Esclusiva per gli Ospiti di: <span x-text="selectedPartnerForQR ? selectedPartnerForQR.name : 'Voi'"></span>
+                    </div>
+
+                    <h1 style="font-size: 2.2rem; color: #0f2c30; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                        Vivi la Sicilia in E-Bike
+                    </h1>
+                    <p style="font-size: 1.1rem; color: #475569; max-width: 480px; margin: 0 auto 1.8rem auto; line-height: 1.5;">
+                        Dalle vette dell'Etna ai boschi dei Nebrodi e le Gole dell'Alcantara. Escursioni guidate con e-bike top di gamma e transfer concordabile.
+                    </p>
+
+                    <div id="printFlyerQrContainer" style="display: inline-flex; padding: 1.25rem; background: #ffffff; border: 2.5px solid #0f2c30; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 1.25rem;"></div>
+
+                    <p style="font-size: 1.05rem; font-weight: 800; color: #0f2c30; margin-bottom: 1rem;">
+                        <i class="fa-solid fa-camera"></i> Inquadra il QR Code con il tuo smartphone
+                    </p>
+                    <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 1.8rem;">
+                        Scopri tutti gli itinerari, verifica le date e richiedi la tua prenotazione diretta con tariffa riservata.
+                    </p>
+
+                    <div style="border-top: 1.5px dashed #cbd5e1; padding-top: 1.25rem; font-size: 0.88rem; color: #334155;">
+                        <strong>Sicily Bike Tours</strong> &bull; Randazzo (CT), Sicilia<br>
+                        Tel & WhatsApp: <strong>+39 329 756 8883</strong> &bull; Email: <strong>info@sicilybiketours.it</strong><br>
+                        Web: <strong>www.sicilybiketours.it</strong>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -3130,8 +4015,8 @@ if (is_dir($uploadsPath)) {
             </div>
 
             <!-- MODAL RECENSIONE -->
-            <div x-show="editingReviewModal" x-cloak style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 1.5rem;">
-                <div style="background: #fff; width: 100%; max-width: 580px; border-radius: var(--radius-xl); padding: 2.2rem; max-height: 90vh; overflow-y: auto;" @click.away="editingReviewModal = false">
+            <div x-show="editingReviewModal" x-cloak class="admin-modal-backdrop" style="display: none;">
+                <div class="admin-modal-dialog" style="max-width: 580px;" @click.away="editingReviewModal = false">
                     <h3 style="font-size: 1.4rem; color: var(--color-primary-dark); margin-bottom: 1.5rem;" x-text="currentRev.id ? 'Modifica Recensione' : 'Nuova Recensione'"></h3>
                     <form method="POST">
                         <input type="hidden" name="cms_action" value="save_review">
@@ -3404,7 +4289,7 @@ if (is_dir($uploadsPath)) {
     <script>
         function adminApp() {
             return {
-                activeTab: 'leads',
+                activeTab: '<?= !empty($postedTab) ? $postedTab : (!empty($_GET['tab']) ? htmlspecialchars($_GET['tab']) : '') ?>' || localStorage.getItem('sbt_admin_active_tab') || 'leads',
                 sidebarCollapsed: localStorage.getItem('sbt_sidebar_collapsed') === 'true',
                 mobileSidebarOpen: false,
 
@@ -3422,6 +4307,7 @@ if (is_dir($uploadsPath)) {
                         'categories': { title: 'Categorie Dinamiche', icon: 'fa-shapes' },
                         'tours': { title: 'Tour & Escursioni', icon: 'fa-bicycle' },
                         'configurator': { title: 'Configuratore Su Misura', icon: 'fa-sliders' },
+                        'referrals': { title: 'Partner, Affiliazioni & QR Code', icon: 'fa-qrcode' },
                         'magazine': { title: 'Magazine & Blog', icon: 'fa-newspaper' },
                         'reviews': { title: 'Recensioni Clienti', icon: 'fa-star' },
                         'settings': { title: 'Recapiti & Partner', icon: 'fa-gear' },
@@ -3455,6 +4341,9 @@ if (is_dir($uploadsPath)) {
                 // Presets icone FontAwesome per categorie
                 iconPresets: ['bicycle', 'volcano', 'mountain', 'seedling', 'tree', 'wine-glass', 'sun', 'water', 'landmark', 'users', 'people-roof', 'calendar-week', 'ship', 'compass', 'route', 'trophy', 'star', 'gem', 'camera', 'map-location-dot', 'shield-halved', 'circle-check', 'spa', 'utensils', 'person-biking', 'flag'],
 
+                // Presets icone FontAwesome per esperienze extra configuratore
+                extraIconPresets: ['utensils', 'wine-glass', 'bed', 'ship', 'van-shuttle', 'children', 'child', 'users', 'camera', 'bicycle', 'shield-halved', 'circle-check', 'spa', 'map-location-dot', 'ticket', 'heart', 'star', 'music', 'sun', 'mountain'],
+
                 // Menus state
                 menusData: <?= json_encode($menus) ?>,
 
@@ -3463,13 +4352,45 @@ if (is_dir($uploadsPath)) {
                 partnersList: <?= json_encode($settings['partners'] ?? []) ?>,
                 heroBgPreview: '<?= htmlspecialchars($homepage['hero']['bg_image'] ?? 'assets/img/gallery/summit.jpg') ?>',
 
+                // Affiliates & Referral Partner state
+                affiliatesList: <?= json_encode($affiliates) ?>,
+                selectedPartnerForQR: null,
+                qrTargetType: 'home',
+                qrSelectedTourSlug: '<?= !empty($tours[0]['slug']) ? $tours[0]['slug'] : '' ?>',
+                qrBaseUrl: window.location.origin + '<?= BASE_URL ?>',
+                qrCopied: false,
+                qrModalOpen: false,
+                partnerModalOpen: false,
+                partnerSearchQuery: '',
+                editingPartner: {
+                    id: '',
+                    name: '',
+                    category: 'Hotel & Resort',
+                    contact_name: '',
+                    email: '',
+                    phone: '',
+                    referral_code: '',
+                    commission_rate: 10,
+                    discount_rate: 0,
+                    notes: '',
+                    active: true
+                },
+
                 // Chi Siamo state
                 aboutHeroBgPreview: '<?= htmlspecialchars($about['header']['bg_image'] ?? '') ?>',
                 aboutStoryImgPreview: '<?= htmlspecialchars($about['story']['image'] ?? '') ?>',
                 aboutValues: <?= json_encode($about['story']['values'] ?? []) ?>,
                 aboutFleetItems: <?= json_encode($about['fleet']['items'] ?? []) ?>,
 
-                init() {},
+                init() {
+                    if (!this.configData) this.configData = {};
+                    if (!this.configData.pricing) this.configData.pricing = { base_per_day_person: 90, show_prices: false };
+                    if (this.configData.pricing.show_prices === undefined) this.configData.pricing.show_prices = false;
+                    localStorage.setItem('sbt_admin_active_tab', this.activeTab);
+                    this.$watch('activeTab', (val) => {
+                        localStorage.setItem('sbt_admin_active_tab', val);
+                    });
+                },
 
                 slugify(str) {
                     return (str || '').toLowerCase().trim()
@@ -3505,6 +4426,131 @@ if (is_dir($uploadsPath)) {
                     this.editingReviewModal = true;
                 },
 
+                // Partner & Referral Methods
+                openQRModal(p) {
+                    this.selectedPartnerForQR = p;
+                    this.qrTargetType = 'home';
+                    this.qrModalOpen = true;
+                    this.$nextTick(() => {
+                        this.generateQRCode();
+                    });
+                },
+
+                getPartnerUrl() {
+                    if (!this.selectedPartnerForQR) return '';
+                    let base = this.qrBaseUrl;
+                    let refParam = 'ref=' + encodeURIComponent(this.selectedPartnerForQR.referral_code);
+                    if (this.qrTargetType === 'tours') {
+                        return base + '/tour.php?' + refParam;
+                    } else if (this.qrTargetType === 'escursioni') {
+                        return base + '/escursioni.php?' + refParam;
+                    } else if (this.qrTargetType === 'configurator') {
+                        return base + '/personalizza-tour.php?' + refParam;
+                    } else if (this.qrTargetType === 'tour_detail') {
+                        return base + '/tour-dettaglio.php?slug=' + encodeURIComponent(this.qrSelectedTourSlug) + '&' + refParam;
+                    }
+                    return base + '/?' + refParam;
+                },
+
+                generateQRCode() {
+                    const container = document.getElementById('partnerQrContainer');
+                    if (!container) return;
+                    container.innerHTML = '';
+                    const url = this.getPartnerUrl();
+                    if (typeof QRCode !== 'undefined') {
+                        new QRCode(container, {
+                            text: url,
+                            width: 200,
+                            height: 200,
+                            colorDark: '#0f2c30',
+                            colorLight: '#ffffff',
+                            correctLevel: QRCode.CorrectLevel.H
+                        });
+                    }
+                    const printContainer = document.getElementById('printFlyerQrContainer');
+                    if (printContainer) {
+                        printContainer.innerHTML = '';
+                        if (typeof QRCode !== 'undefined') {
+                            new QRCode(printContainer, {
+                                text: url,
+                                width: 260,
+                                height: 260,
+                                colorDark: '#0f2c30',
+                                colorLight: '#ffffff',
+                                correctLevel: QRCode.CorrectLevel.H
+                            });
+                        }
+                    }
+                },
+
+                copyPartnerUrl() {
+                    const url = this.getPartnerUrl();
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(url).then(() => {
+                            this.qrCopied = true;
+                            setTimeout(() => { this.qrCopied = false; }, 2500);
+                        });
+                    } else {
+                        const inp = document.createElement('input');
+                        inp.value = url;
+                        document.body.appendChild(inp);
+                        inp.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(inp);
+                        this.qrCopied = true;
+                        setTimeout(() => { this.qrCopied = false; }, 2500);
+                    }
+                },
+
+                downloadPartnerQR() {
+                    const container = document.getElementById('partnerQrContainer');
+                    if (!container) return;
+                    const img = container.querySelector('img');
+                    const canvas = container.querySelector('canvas');
+                    let dataUrl = '';
+                    if (img && img.src && img.src.startsWith('data:image')) {
+                        dataUrl = img.src;
+                    } else if (canvas) {
+                        dataUrl = canvas.toDataURL('image/png');
+                    }
+                    if (!dataUrl) {
+                        alert('Generazione QR Code in corso, riprova tra un istante.');
+                        return;
+                    }
+                    const a = document.createElement('a');
+                    a.href = dataUrl;
+                    a.download = 'QR_SicilyBikeTours_' + (this.selectedPartnerForQR ? this.selectedPartnerForQR.referral_code : 'partner') + '.png';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                },
+
+                printPartnerFlyer() {
+                    window.print();
+                },
+
+                startNewPartner() {
+                    this.editingPartner = {
+                        id: '',
+                        name: '',
+                        category: 'Hotel & Resort',
+                        contact_name: '',
+                        email: '',
+                        phone: '',
+                        referral_code: '',
+                        commission_rate: 10,
+                        discount_rate: 0,
+                        notes: '',
+                        active: true
+                    };
+                    this.partnerModalOpen = true;
+                },
+
+                editPartner(p) {
+                    this.editingPartner = JSON.parse(JSON.stringify(p));
+                    this.partnerModalOpen = true;
+                },
+
                 editReview(r) {
                     this.currentRev = JSON.parse(JSON.stringify(r));
                     this.editingReviewModal = true;
@@ -3514,7 +4560,8 @@ if (is_dir($uploadsPath)) {
                     this.currentTour = {
                         id: null, title: '', slug: '', subtitle: '', type: 'escursione',
                         category_slug: '', categories: [], area: 'Etna', price: 85, duration: '5-6 ore',
-                        image: '', gallery: [], highlights_raw: '', included_raw: '', itinerary_summary: ''
+                        image: '', gallery: [], highlights_raw: '', included_raw: '', excluded_raw: '',
+                        itinerary: '', itinerary_summary: ''
                     };
                     this.editingTour = true;
                 },
@@ -3525,6 +4572,9 @@ if (is_dir($uploadsPath)) {
                     this.currentTour.gallery = this.currentTour.gallery || [];
                     this.currentTour.highlights_raw = (this.currentTour.highlights || []).join('\n');
                     this.currentTour.included_raw = (this.currentTour.included || []).join('\n');
+                    this.currentTour.excluded_raw = (this.currentTour.excluded || []).join('\n');
+                    this.currentTour.itinerary = this.currentTour.itinerary || this.currentTour.itinerary_summary || this.currentTour.description || '';
+                    this.currentTour.itinerary_summary = this.currentTour.itinerary;
                     this.editingTour = true;
                 },
 
@@ -3570,6 +4620,27 @@ if (is_dir($uploadsPath)) {
                             alert('Logo partner caricato con successo!');
                         } else {
                             alert('Errore upload logo: ' + (data.error || 'Riprova'));
+                        }
+                    })
+                    .catch(err => {
+                        alert('Errore di connessione durante l\'upload: ' + err.message);
+                    });
+                },
+
+                uploadDestinationImage(event, dIdx) {
+                    const file = event.target.files[0];
+                    if (!file) return;
+                    const formData = new FormData();
+                    formData.append('image', file);
+                    fetch('<?= BASE_URL ?>/api/upload.php', { method: 'POST', body: formData })
+                    .then(r => r.json()).then(data => {
+                        if (data.success && data.first_url) {
+                            if (this.configData.destinations[dIdx]) {
+                                this.configData.destinations[dIdx].image = data.first_url;
+                            }
+                            alert('Foto destinazione caricata con successo! Ricordati di cliccare "Salva Opzioni Configuratore" in fondo.');
+                        } else {
+                            alert('Errore upload foto: ' + (data.error || 'Riprova'));
                         }
                     })
                     .catch(err => {
