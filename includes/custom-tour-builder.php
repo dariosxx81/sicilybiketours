@@ -31,8 +31,305 @@ $cfgExtras = $cfg['extra_experiences'] ?? [
 $basePerDay = intval($cfg['pricing']['base_per_day_person'] ?? 90);
 $showPrices = !empty($cfg['pricing']['show_prices']);
 ?>
+
+<style>
+/* Stili dedicati ed ergonomici per il configuratore su misura */
+#configuratore.builder-box {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Extra Cards Ergonomia Desktop & Mobile */
+.builder-extra-card {
+    background: #ffffff;
+    border: 1.5px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1.15rem 1.25rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+}
+.builder-extra-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+.builder-extra-card.selected {
+    border-color: var(--color-primary) !important;
+    background: #f7faf5 !important;
+    box-shadow: 0 4px 15px -2px rgba(144, 201, 92, 0.25) !important;
+}
+.extra-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+}
+.extra-card-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
+}
+.extra-card-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(144, 201, 92, 0.16);
+    color: var(--color-primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+.extra-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin: 0;
+    line-height: 1.35;
+}
+.extra-card-checkbox-wrap {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.extra-card-checkbox {
+    width: 24px;
+    height: 24px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+    border-radius: 4px;
+}
+.extra-card-desc {
+    font-size: 0.86rem;
+    color: var(--color-gray-600);
+    line-height: 1.45;
+    margin: 0;
+    padding-left: 0;
+}
+.extra-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 0.15rem;
+}
+.extra-included-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    background: rgba(144, 201, 92, 0.22);
+    border: 1px solid rgba(144, 201, 92, 0.55);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+}
+.extra-price-tag {
+    font-size: 0.94rem;
+    font-weight: 800;
+    color: var(--color-primary);
+}
+
+/* Partecipanti Box */
+.builder-participants-box {
+    background: var(--color-gray-50);
+    border: 1.5px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+}
+.builder-participants-info {
+    flex: 1;
+}
+.builder-participants-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-primary-dark);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+.builder-participants-sub {
+    font-size: 0.85rem;
+    color: var(--color-gray-500);
+}
+.builder-participants-counter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+.builder-participants-counter .btn-counter {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 1.15rem;
+    cursor: pointer;
+    border: 1.5px solid var(--color-primary);
+}
+.builder-participants-num {
+    font-size: 1.7rem;
+    font-weight: 800;
+    min-width: 36px;
+    text-align: center;
+    color: var(--color-primary-dark);
+}
+
+/* Pulsanti Navigazione & Invio Step (Desktop standard) */
+.builder-nav-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+.builder-nav-actions .btn-prev {
+    order: 1;
+}
+.builder-nav-actions .btn-next {
+    order: 2;
+}
+.builder-submit-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ADATTAMENTO MOBILE RESPONSIVE (<= 768px) */
+@media (max-width: 768px) {
+    #configuratore.builder-box {
+        padding: 1.25rem 0.85rem !important;
+        border-radius: var(--radius-lg) !important;
+        overflow: hidden !important;
+    }
+    
+    /* Box Partecipanti: Impilato e centrato su mobile per non andare mai off-screen */
+    .builder-participants-box {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1.1rem !important;
+        padding: 1.35rem 1rem !important;
+    }
+    .builder-participants-info {
+        text-align: center !important;
+    }
+    .builder-participants-counter {
+        width: 100% !important;
+        justify-content: center !important;
+        gap: 1.75rem !important;
+    }
+    .builder-participants-counter .btn-counter {
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px !important;
+        min-height: 50px !important;
+    }
+    .builder-participants-num {
+        font-size: 2rem !important;
+        min-width: 50px !important;
+    }
+
+    /* Extra Card su mobile */
+    .builder-extra-card {
+        padding: 1rem 0.95rem !important;
+        gap: 0.65rem !important;
+    }
+    .extra-card-title {
+        font-size: 0.96rem !important;
+    }
+    .extra-card-desc {
+        font-size: 0.83rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* TUTTI I PULSANTI MOBILE: Stessa Lunghezza (100%), Perfettamente Allineati e Spaziati */
+    .builder-nav-actions,
+    .builder-submit-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.75rem !important;
+        margin-top: 1.5rem !important;
+        box-sizing: border-box !important;
+    }
+    .builder-nav-actions .btn,
+    .builder-nav-actions button,
+    .builder-submit-actions .btn,
+    .builder-submit-actions button,
+    .builder-submit-actions a {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 50px !important;
+        font-size: 0.98rem !important;
+        font-weight: 700 !important;
+        border-radius: var(--radius-md) !important;
+        padding: 0.85rem 1.25rem !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        margin: 0 !important;
+        gap: 0.55rem !important;
+        box-shadow: var(--shadow-sm) !important;
+    }
+    .builder-nav-actions .btn-next,
+    .builder-submit-actions .btn-submit-main {
+        order: 1 !important;
+        background: var(--color-primary-dark) !important;
+        color: #ffffff !important;
+        border: none !important;
+    }
+    .builder-submit-actions .btn-submit-wa {
+        order: 2 !important;
+        background: var(--color-accent) !important;
+        color: var(--color-primary-dark) !important;
+        border: none !important;
+    }
+    .builder-nav-actions .btn-prev {
+        order: 2 !important;
+        background: #ffffff !important;
+        border: 1.5px solid var(--color-gray-300) !important;
+        color: var(--color-gray-700) !important;
+        box-shadow: none !important;
+    }
+    .builder-submit-actions .btn-prev {
+        order: 3 !important;
+        background: #ffffff !important;
+        border: 1.5px solid var(--color-gray-300) !important;
+        color: var(--color-gray-700) !important;
+        box-shadow: none !important;
+    }
+}
+</style>
+
 <!-- Tailor Made Custom Tour Builder Component (Alpine.js) -->
-<div class="builder-box" x-data="{
+<div class="builder-box" id="configuratore" x-data="{
     step: 1,
     showPrices: <?= $showPrices ? 'true' : 'false' ?>,
     selectedRegions: ['Etna', 'Nebrodi'],
@@ -49,6 +346,22 @@ $showPrices = !empty($cfg['pricing']['show_prices']);
     builderSubmitted: false,
     isSubmitting: false,
     
+    goToStep(newStep) {
+        this.step = newStep;
+        this.$nextTick(() => {
+            const el = document.getElementById('configuratore');
+            if (el) {
+                const rect = el.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const offset = 80; // Offset per la navbar fissa
+                window.scrollTo({
+                    top: Math.max(0, rect.top + scrollTop - offset),
+                    behavior: 'smooth'
+                });
+            }
+        });
+    },
+
     toggleRegion(region) {
         if (this.selectedRegions.includes(region)) {
             if (this.selectedRegions.length > 1) {
@@ -187,7 +500,7 @@ $showPrices = !empty($cfg['pricing']['show_prices']);
         </div>
 
         <div class="builder-nav-actions" style="justify-content: flex-end;">
-            <button class="btn btn-primary btn-next" @click="step = 2">
+            <button type="button" class="btn btn-primary btn-next" @click="goToStep(2)">
                 Continua (Giorni & Persone) <i class="fa-solid fa-arrow-right"></i>
             </button>
         </div>
@@ -202,7 +515,7 @@ $showPrices = !empty($cfg['pricing']['show_prices']);
 
         <div style="max-width: 650px; margin: 0 auto;">
             <!-- Giorni Slider -->
-            <div class="builder-card-compact" style="background: var(--color-gray-50); border: 1.5px solid var(--color-gray-200); border-radius: var(--radius-lg); padding: 1.8rem; margin-bottom: 1.8rem;">
+            <div class="builder-card-compact" style="background: var(--color-gray-50); border: 1.5px solid var(--color-gray-200); border-radius: var(--radius-lg); padding: 1.6rem; margin-bottom: 1.6rem;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                     <span style="font-weight: 700; font-size: 1.05rem; color: var(--color-primary-dark);">Durata del Tour:</span>
                     <span style="font-size: 1.4rem; font-weight: 800; color: var(--color-primary);" x-text="durationDays + (durationDays == 1 ? ' Giorno' : ' Giorni')"></span>
@@ -215,28 +528,28 @@ $showPrices = !empty($cfg['pricing']['show_prices']);
                 </div>
             </div>
 
-            <!-- Partecipanti Counter -->
-            <div class="builder-card-compact builder-participants-box" style="background: var(--color-gray-50); border: 1.5px solid var(--color-gray-200); border-radius: var(--radius-lg); padding: 1.8rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between;">
-                <div>
-                    <span style="font-weight: 700; font-size: 1.05rem; color: var(--color-primary-dark); display: block;">Numero Partecipanti:</span>
-                    <span style="font-size: 0.85rem; color: var(--color-gray-500);">Gruppi privati, coppie o famiglie</span>
+            <!-- Partecipanti Counter (Ergonomico e Anti-Overflow) -->
+            <div class="builder-card-compact builder-participants-box">
+                <div class="builder-participants-info">
+                    <span class="builder-participants-title">Numero Partecipanti:</span>
+                    <span class="builder-participants-sub">Gruppi privati, coppie o famiglie</span>
                 </div>
-                <div class="builder-participants-counter" style="display: flex; align-items: center; gap: 1rem;">
-                    <button type="button" class="btn btn-outline-primary btn-icon-round" style="width: 44px; height: 44px;" @click="if (participants > 1) participants--">
+                <div class="builder-participants-counter">
+                    <button type="button" class="btn btn-outline-primary btn-counter" @click="if (participants > 1) participants--">
                         <i class="fa-solid fa-minus"></i>
                     </button>
-                    <span style="font-size: 1.5rem; font-weight: 800; min-width: 32px; text-align: center; color: var(--color-primary-dark);" x-text="participants"></span>
-                    <button type="button" class="btn btn-primary btn-icon-round" style="width: 44px; height: 44px;" @click="participants++">
+                    <span class="builder-participants-num" x-text="participants"></span>
+                    <button type="button" class="btn btn-primary btn-counter" @click="participants++">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </div>
             </div>
 
             <div class="builder-nav-actions">
-                <button class="btn btn-primary btn-next" @click="step = 3">
+                <button type="button" class="btn btn-primary btn-next" @click="goToStep(3)">
                     Continua (Livello & Bici) <i class="fa-solid fa-arrow-right"></i>
                 </button>
-                <button class="btn btn-outline-primary btn-prev" @click="step = 1">
+                <button type="button" class="btn btn-outline-primary btn-prev" @click="goToStep(1)">
                     <i class="fa-solid fa-arrow-left"></i> Indietro
                 </button>
             </div>
@@ -251,17 +564,23 @@ $showPrices = !empty($cfg['pricing']['show_prices']);
         </div>
 
         <div style="max-width: 650px; margin: 0 auto;">
+            <!-- Livello Ciclistico -->
             <div class="form-group" style="margin-bottom: 1.8rem;">
-                <label class="form-label" style="font-weight: 700;">Livello Ciclistico del Gruppo:</label>
+                <label class="form-label" style="font-weight: 700; color: var(--color-primary-dark); font-size: 1rem; margin-bottom: 0.5rem;">
+                    Livello Ciclistico del Gruppo:
+                </label>
                 <select class="form-control" x-model="difficultyLevel">
-                    <?php foreach ($cfgDifficulties as $diff): ?>
-                        <option value="<?= htmlspecialchars($diff['name_it']) ?>"><?= htmlspecialchars($diff['name_it']) ?></option>
+                    <?php foreach ($cfgDifficulties as $d): ?>
+                        <option value="<?= htmlspecialchars($d['name_it']) ?>"><?= htmlspecialchars($d['name_it']) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
 
+            <!-- Tipologia Bici -->
             <div class="form-group" style="margin-bottom: 2rem;">
-                <label class="form-label" style="font-weight: 700;">Tipologia di E-Bike Preferita:</label>
+                <label class="form-label" style="font-weight: 700; color: var(--color-primary-dark); font-size: 1rem; margin-bottom: 0.5rem;">
+                    Tipologia di E-Bike Preferita:
+                </label>
                 <select class="form-control" x-model="ebikeType">
                     <?php foreach ($cfgBikes as $b): ?>
                         <option value="<?= htmlspecialchars($b['name_it']) ?>"><?= htmlspecialchars($b['name_it']) ?></option>
@@ -271,10 +590,10 @@ $showPrices = !empty($cfg['pricing']['show_prices']);
             </div>
 
             <div class="builder-nav-actions">
-                <button class="btn btn-primary btn-next" @click="step = 4">
+                <button type="button" class="btn btn-primary btn-next" @click="goToStep(4)">
                     Continua (Esperienze Extra) <i class="fa-solid fa-arrow-right"></i>
                 </button>
-                <button class="btn btn-outline-primary btn-prev" @click="step = 2">
+                <button type="button" class="btn btn-outline-primary btn-prev" @click="goToStep(2)">
                     <i class="fa-solid fa-arrow-left"></i> Indietro
                 </button>
             </div>
@@ -295,23 +614,27 @@ $showPrices = !empty($cfg['pricing']['show_prices']);
                 $extraIcon = $extra['icon'] ?? 'check';
                 $extraPrice = intval($extra['price'] ?? 0);
             ?>
-            <div class="region-checkbox-card builder-extra-card" :class="{ 'selected': selectedExtras.includes('<?= addslashes($extraName) ?>') }" @click="toggleExtra('<?= addslashes($extraName) ?>')">
-                <div class="extra-info-left">
-                    <i class="fa-solid fa-<?= htmlspecialchars($extraIcon) ?>" style="color: var(--color-primary); font-size: 1.3rem; margin-top: 3px;"></i>
-                    <div>
-                        <strong style="display: block; font-size: 0.98rem; color: var(--color-primary-dark); margin-bottom: 0.2rem;"><?= htmlspecialchars($extraName) ?></strong>
-                        <span style="font-size: 0.82rem; color: var(--color-gray-600); line-height: 1.4; display: block;"><?= htmlspecialchars($extraDesc) ?></span>
+            <div class="builder-extra-card" :class="{ 'selected': selectedExtras.includes('<?= addslashes($extraName) ?>') }" @click="toggleExtra('<?= addslashes($extraName) ?>')">
+                <div class="extra-card-header">
+                    <div class="extra-card-title-wrap">
+                        <div class="extra-card-icon-box">
+                            <i class="fa-solid fa-<?= htmlspecialchars($extraIcon) ?>"></i>
+                        </div>
+                        <h4 class="extra-card-title"><?= htmlspecialchars($extraName) ?></h4>
+                    </div>
+                    <div class="extra-card-checkbox-wrap">
+                        <input type="checkbox" :checked="selectedExtras.includes('<?= addslashes($extraName) ?>')" class="extra-card-checkbox" @click.stop="toggleExtra('<?= addslashes($extraName) ?>')">
                     </div>
                 </div>
-                <div class="extra-action-right">
+                <p class="extra-card-desc"><?= htmlspecialchars($extraDesc) ?></p>
+                <div class="extra-card-meta">
                     <?php if ($showPrices && $extraPrice > 0): ?>
-                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary);">+€<?= $extraPrice ?></span>
-                    <?php elseif (!$showPrices): ?>
-                        <span style="font-size: 0.74rem; font-weight: 700; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px; white-space: nowrap;">
-                            <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> <?= t('custom_extra_included') ?>
+                        <span class="extra-price-tag">+€<?= $extraPrice ?> <small style="font-weight: 500; font-size: 0.75rem; color: var(--color-gray-600);">/ persona</small></span>
+                    <?php else: ?>
+                        <span class="extra-included-tag">
+                            <i class="fa-solid fa-circle-check"></i> <?= t('custom_extra_included') ?>
                         </span>
                     <?php endif; ?>
-                    <input type="checkbox" :checked="selectedExtras.includes('<?= addslashes($extraName) ?>')" style="accent-color: var(--color-primary); transform: scale(1.3); cursor: pointer;">
                 </div>
             </div>
             <?php endforeach; ?>
@@ -319,10 +642,10 @@ $showPrices = !empty($cfg['pricing']['show_prices']);
 
         <div style="max-width: 650px; margin: 0 auto;">
             <div class="builder-nav-actions">
-                <button class="btn btn-primary btn-next" @click="step = 5">
+                <button type="button" class="btn btn-primary btn-next" @click="goToStep(5)">
                     Vedi Riepilogo & Invia <i class="fa-solid fa-arrow-right"></i>
                 </button>
-                <button class="btn btn-outline-primary btn-prev" @click="step = 3">
+                <button type="button" class="btn btn-outline-primary btn-prev" @click="goToStep(3)">
                     <i class="fa-solid fa-arrow-left"></i> Indietro
                 </button>
             </div>
@@ -405,7 +728,7 @@ $showPrices = !empty($cfg['pricing']['show_prices']);
                         <a :href="getCustomWaLink()" target="_blank" class="btn btn-accent btn-submit-wa">
                             <i class="fa-brands fa-whatsapp"></i> Invia su WhatsApp
                         </a>
-                        <button type="button" class="btn btn-outline-primary btn-prev" @click="step = 4">
+                        <button type="button" class="btn btn-outline-primary btn-prev" @click="goToStep(4)">
                             <i class="fa-solid fa-arrow-left"></i> Torna a Modificare le Opzioni
                         </button>
                     </div>
