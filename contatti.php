@@ -156,7 +156,7 @@ require_once BASE_PATH . '/includes/navbar.php';
                             <select class="form-control" x-model="selectedTourName">
                                 <option value="">-- Scegli un tour dal catalogo --</option>
                                 <?php foreach ($tours as $t): ?>
-                                    <option value="<?= htmlspecialchars($t['title']) ?>"><?= htmlspecialchars($t['title']) ?> (<?= htmlspecialchars($t['duration']) ?> - da €<?= $t['price'] ?>)</option>
+                                    <option value="<?= htmlspecialchars($t['title']) ?>"><?= htmlspecialchars($t['title']) ?> (<?= htmlspecialchars($t['duration']) ?><?= SHOW_PRICES ? ' - da €' . $t['price'] : '' ?>)</option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

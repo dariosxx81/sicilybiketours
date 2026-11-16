@@ -73,7 +73,11 @@
                         <i class="fa-solid fa-calendar-check"></i> Richiesta Disponibilità & Prenotazione
                     </span>
                     <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);" x-text="selectedTour ? selectedTour.title : 'Prenota il tuo Tour in E-Bike'"></h3>
-                    <p style="font-size: 0.92rem; color: var(--color-gray-600);" x-text="selectedTour ? ('Prezzo base: €' + selectedTour.price + ' a persona') : 'Seleziona data e partecipanti per verificare la disponibilità.'"></p>
+                    <?php if (SHOW_PRICES): ?>
+                        <p style="font-size: 0.92rem; color: var(--color-gray-600);" x-text="selectedTour ? ('Prezzo base: €' + selectedTour.price + ' a persona') : 'Seleziona data e partecipanti per verificare la disponibilità.'"></p>
+                    <?php else: ?>
+                        <p style="font-size: 0.92rem; color: var(--color-gray-600);">Richiedi disponibilità e quotazione su misura per il tuo gruppo. Nessun pagamento online richiesto.</p>
+                    <?php endif; ?>
 
                     <!-- Banner Struttura Partner Convenzionata -->
                     <template x-if="partnerName">
@@ -130,11 +134,23 @@
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
                                 <span><input type="checkbox" x-model="needTransfer"> Transfer A/R dal vostro Hotel / Alloggio</span>
-                                <span style="font-weight: 700; color: var(--color-primary);">+€35/persona</span>
+                                <?php if (SHOW_PRICES): ?>
+                                    <span style="font-weight: 700; color: var(--color-primary);">+€35/persona</span>
+                                <?php else: ?>
+                                    <span style="font-size: 0.74rem; font-weight: 700; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                                        <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Su richiesta
+                                    </span>
+                                <?php endif; ?>
                             </label>
                             <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
                                 <span><input type="checkbox" x-model="needGourmetLunch"> Pranzo Gourmet tipico o Degustazione Vini</span>
-                                <span style="font-weight: 700; color: var(--color-primary);">+€30/persona</span>
+                                <?php if (SHOW_PRICES): ?>
+                                    <span style="font-weight: 700; color: var(--color-primary);">+€30/persona</span>
+                                <?php else: ?>
+                                    <span style="font-size: 0.74rem; font-weight: 700; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                                        <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Su richiesta
+                                    </span>
+                                <?php endif; ?>
                             </label>
                         </div>
                     </div>
@@ -157,20 +173,35 @@
                         </div>
                     </div>
 
-                    <!-- Live Total Calculation Bar -->
-                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: 0; padding: 1rem; margin-bottom: 1.5rem;">
-                        <div>
-                            <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary);">Preventivo Stimato:</span>
-                            <div style="font-size: 1.45rem; font-weight: 800; color: var(--color-primary-dark);">
-                                €<span x-text="calcTotal()"></span>
+                    <?php if (SHOW_PRICES): ?>
+                        <!-- Live Total Calculation Bar -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+                            <div>
+                                <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary);">Preventivo Stimato:</span>
+                                <div style="font-size: 1.45rem; font-weight: 800; color: var(--color-primary-dark);">
+                                    €<span x-text="calcTotal()"></span>
+                                </div>
+                            </div>
+                            <span style="font-size: 0.82rem; color: var(--color-gray-600);">Pagamento e conferma in loco/accordo</span>
+                        </div>
+                    <?php else: ?>
+                        <!-- Quote Request Badge -->
+                        <div style="display: flex; align-items: center; gap: 0.85rem; background: var(--color-accent-light); border: 1.5px solid rgba(144, 201, 92, 0.6); border-radius: var(--radius-md); padding: 0.95rem 1rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);">
+                            <div style="width: 40px; height: 40px; border-radius: 50%; background: #ffffff; color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; box-shadow: var(--shadow-sm);">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <div>
+                                <strong style="display: block; font-size: 0.92rem; color: var(--color-primary-dark);"><?= CURRENT_LANG === 'en' ? 'Free Quote & Availability Request' : 'Richiesta Preventivo & Disponibilità' ?></strong>
+                                <span style="font-size: 0.78rem; color: var(--color-gray-600); line-height: 1.35; display: block;">
+                                    <?= CURRENT_LANG === 'en' ? 'No payment required now. Mariella will send you our best custom proposal.' : 'Nessun pagamento immediato. Riceverai la proposta personalizzata con date e dettagli.' ?>
+                                </span>
                             </div>
                         </div>
-                        <span style="font-size: 0.82rem; color: var(--color-gray-600);">Pagamento e conferma in loco/accordo</span>
-                    </div>
+                    <?php endif; ?>
 
                     <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
                         <button type="submit" class="btn btn-primary" style="flex: 1;" :disabled="isSubmitting">
-                            <i class="fa-solid fa-paper-plane"></i> <span x-text="isSubmitting ? 'Invio in corso...' : '<?= t('form_submit') ?>'"></span>
+                            <i class="fa-solid fa-paper-plane"></i> <span x-text="isSubmitting ? 'Invio in corso...' : '<?= SHOW_PRICES ? t('form_submit') : (CURRENT_LANG === 'en' ? 'Request Free Quote' : 'Invia Richiesta Preventivo') ?>'"></span>
                         </button>
                         <a :href="getWaLink()" target="_blank" class="btn btn-accent">
                             <i class="fa-brands fa-whatsapp"></i> WhatsApp

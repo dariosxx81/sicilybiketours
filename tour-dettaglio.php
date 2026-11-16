@@ -411,11 +411,24 @@ require_once BASE_PATH . '/includes/navbar.php';
             <div style="position: sticky; top: 100px;">
                 <div style="background: var(--color-white); border-radius: 0; padding: 2.2rem; box-shadow: var(--shadow-xl); border: 1.5px solid rgba(144, 201, 92, 0.5);">
                     <div style="margin-bottom: 1.2rem; border-bottom: 1px solid var(--color-gray-100); padding-bottom: 1.2rem;">
-                        <span style="font-size: 0.85rem; color: var(--color-gray-500); text-transform: uppercase; font-weight: 700;"><?= t('tour_price_from') ?></span>
-                        <div style="display: flex; align-items: baseline; gap: 0.4rem; margin-top: 0.2rem;">
-                            <span style="font-size: 2.4rem; font-weight: 800; color: var(--color-primary-dark);">€<?= htmlspecialchars($tour['price']) ?></span>
-                            <span style="font-size: 0.88rem; color: var(--color-gray-500);"><?= CURRENT_LANG === 'en' ? $tour['price_note_en'] : $tour['price_note'] ?></span>
-                        </div>
+                        <?php if (SHOW_PRICES): ?>
+                            <span style="font-size: 0.85rem; color: var(--color-gray-500); text-transform: uppercase; font-weight: 700;"><?= t('tour_price_from') ?></span>
+                            <div style="display: flex; align-items: baseline; gap: 0.4rem; margin-top: 0.2rem;">
+                                <span style="font-size: 2.4rem; font-weight: 800; color: var(--color-primary-dark);">€<?= htmlspecialchars($tour['price']) ?></span>
+                                <span style="font-size: 0.88rem; color: var(--color-gray-500);"><?= CURRENT_LANG === 'en' ? $tour['price_note_en'] : $tour['price_note'] ?></span>
+                            </div>
+                        <?php else: ?>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                                    <i class="fa-solid fa-clipboard-check"></i>
+                                </div>
+                                <div>
+                                    <span style="font-size: 0.78rem; color: var(--color-gray-500); text-transform: uppercase; font-weight: 700; display: block;"><?= CURRENT_LANG === 'en' ? 'Pricing & Dates' : 'Tariffa & Date' ?></span>
+                                    <span style="font-size: 1.35rem; font-weight: 800; color: var(--color-primary-dark);"><?= CURRENT_LANG === 'en' ? 'Quote on Request' : 'Su Preventivo' ?></span>
+                                </div>
+                            </div>
+                            <span style="font-size: 0.82rem; color: var(--color-gray-500); display: block; margin-top: 0.4rem;"><?= CURRENT_LANG === 'en' ? 'Personalized quote tailored to group size, dates and guide service.' : 'Quotazione su misura per il tuo gruppo con guida certificata ed e-bike inclusa.' ?></span>
+                        <?php endif; ?>
                     </div>
 
                     <div style="margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--color-gray-600); display: flex; flex-direction: column; gap: 0.6rem;">
@@ -437,10 +450,10 @@ require_once BASE_PATH . '/includes/navbar.php';
                         'id' => $tour['id'],
                         'slug' => $tour['slug'],
                         'title' => $title,
-                        'price' => $tour['price'],
+                        'price' => SHOW_PRICES ? $tour['price'] : null,
                         'duration' => $duration
                     ])) ?>)">
-                        <i class="fa-solid fa-calendar-check"></i> Prenota / Richiedi Data
+                        <i class="fa-solid fa-calendar-check"></i> <?= SHOW_PRICES ? 'Prenota / Richiedi Data' : (CURRENT_LANG === 'en' ? 'Request Free Quote & Availability' : 'Richiedi Preventivo & Date') ?>
                     </button>
 
                     <a href="https://wa.me/<?= WA_NUMBER ?>?text=<?= urlencode('Ciao Mariella! Vorrei prenotare o chiedere info per il tour: ' . $title) ?>" target="_blank" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 1.5rem;">
@@ -460,8 +473,13 @@ require_once BASE_PATH . '/includes/navbar.php';
 <!-- Mobile Sticky Bottom Booking CTA Bar -->
 <div class="mobile-sticky-cta">
     <div class="price-box">
-        <span class="price-lbl"><?= t('tour_price_from') ?></span>
-        <span class="price-val">€<?= htmlspecialchars($tour['price']) ?></span>
+        <?php if (SHOW_PRICES): ?>
+            <span class="price-lbl"><?= t('tour_price_from') ?></span>
+            <span class="price-val">€<?= htmlspecialchars($tour['price']) ?></span>
+        <?php else: ?>
+            <span class="price-lbl"><?= CURRENT_LANG === 'en' ? 'Quote & Dates' : 'Tariffa & Date' ?></span>
+            <span class="price-val" style="font-size: 1.05rem;"><?= CURRENT_LANG === 'en' ? 'On Request' : 'Su Misura' ?></span>
+        <?php endif; ?>
     </div>
     <div class="cta-actions">
         <a href="https://wa.me/<?= WA_NUMBER ?>?text=<?= urlencode('Ciao Mariella! Vorrei info per il tour: ' . $title) ?>" target="_blank" class="btn btn-sm" style="background: #25D366; color: #fff; padding: 0.65rem 0.85rem;" aria-label="WhatsApp">
@@ -471,10 +489,10 @@ require_once BASE_PATH . '/includes/navbar.php';
             'id' => $tour['id'],
             'slug' => $tour['slug'],
             'title' => $title,
-            'price' => $tour['price'],
+            'price' => SHOW_PRICES ? $tour['price'] : null,
             'duration' => $duration
         ])) ?>)">
-            <i class="fa-solid fa-calendar-check"></i> Prenota Ora
+            <i class="fa-solid fa-calendar-check"></i> <?= SHOW_PRICES ? 'Prenota Ora' : (CURRENT_LANG === 'en' ? 'Request Quote' : 'Preventivo & Date') ?>
         </button>
     </div>
 </div>
