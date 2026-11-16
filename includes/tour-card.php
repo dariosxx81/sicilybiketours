@@ -36,15 +36,9 @@ $detailUrl = BASE_URL . '/tour-dettaglio.php?slug=' . urlencode($tour['slug']);
             </span>
         <?php endif; ?>
 
-        <?php if (SHOW_PRICES): ?>
-            <div class="tour-card-price-tag">
-                <?= t('tour_price_from') ?> <span>€<?= htmlspecialchars($tour['price']) ?></span>
-            </div>
-        <?php else: ?>
-            <div class="tour-card-price-tag" style="background: rgba(15, 44, 48, 0.88); color: #ffffff; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.02em;">
-                <i class="fa-solid fa-envelope-open-text" style="color: var(--color-accent); margin-right: 3px;"></i> <?= CURRENT_LANG === 'en' ? 'On Request' : 'Su Preventivo' ?>
-            </div>
-        <?php endif; ?>
+        <div class="tour-card-price-tag">
+            <?= t('tour_price_from') ?> <span>€<?= htmlspecialchars($tour['price']) ?></span>
+        </div>
     </div>
 
     <div class="tour-card-body">
@@ -95,10 +89,10 @@ $detailUrl = BASE_URL . '/tour-dettaglio.php?slug=' . urlencode($tour['slug']);
                 'id' => $tour['id'],
                 'slug' => $tour['slug'],
                 'title' => $title,
-                'price' => SHOW_PRICES ? $tour['price'] : null,
+                'price' => $tour['price'],
                 'duration' => $duration
             ])) ?>)">
-                <i class="fa-solid fa-calendar-check"></i> <?= SHOW_PRICES ? t('tour_book') : (CURRENT_LANG === 'en' ? 'Request Quote' : 'Preventivo / Date') ?>
+                <i class="fa-solid fa-calendar-check"></i> <?= t('tour_book') ?>
             </button>
         </div>
     </div>

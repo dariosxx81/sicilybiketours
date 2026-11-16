@@ -678,17 +678,12 @@
             <div style="position: sticky; top: 100px;">
                 <div style="background: var(--color-white); border-radius: 0; padding: 2.2rem; box-shadow: var(--shadow-xl); border: 1.5px solid rgba(144, 201, 92, 0.5);">
                     <div style="margin-bottom: 1.2rem; border-bottom: 1px solid var(--color-gray-100); padding-bottom: 1.2rem;">
-                                                    <div style="display: flex; align-items: center; gap: 0.75rem;">
-                                <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-light); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
-                                    <i class="fa-solid fa-clipboard-check"></i>
-                                </div>
-                                <div>
-                                    <span style="font-size: 0.78rem; color: var(--color-gray-500); text-transform: uppercase; font-weight: 700; display: block;">Tariffa & Date</span>
-                                    <span style="font-size: 1.35rem; font-weight: 800; color: var(--color-primary-dark);">Su Preventivo</span>
-                                </div>
-                            </div>
-                            <span style="font-size: 0.82rem; color: var(--color-gray-500); display: block; margin-top: 0.4rem;">Quotazione su misura per il tuo gruppo con guida certificata ed e-bike inclusa.</span>
-                                            </div>
+                        <span style="font-size: 0.85rem; color: var(--color-gray-500); text-transform: uppercase; font-weight: 700;">A partire da</span>
+                        <div style="display: flex; align-items: baseline; gap: 0.4rem; margin-top: 0.2rem;">
+                            <span style="font-size: 2.4rem; font-weight: 800; color: var(--color-primary-dark);">€150</span>
+                            <span style="font-size: 0.88rem; color: var(--color-gray-500);">a persona (guida + e-bike inclusa)</span>
+                        </div>
+                    </div>
 
                     <div style="margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--color-gray-600); display: flex; flex-direction: column; gap: 0.6rem;">
                         <div style="display: flex; justify-content: space-between;">
@@ -705,8 +700,9 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-accent btn-lg" style="width: 100%; margin-bottom: 0.85rem;" @click="openBooking({&quot;id&quot;:1,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;title&quot;:&quot;Escursione in e-bike e pranzo gourmet&quot;,&quot;price&quot;:null,&quot;duration&quot;:&quot;3-4 ore&quot;})">
-                        <i class="fa-solid fa-calendar-check"></i> Richiedi Preventivo & Date                    </button>
+                    <button class="btn btn-accent btn-lg" style="width: 100%; margin-bottom: 0.85rem;" @click="openBooking({&quot;id&quot;:1,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;title&quot;:&quot;Escursione in e-bike e pranzo gourmet&quot;,&quot;price&quot;:150,&quot;duration&quot;:&quot;3-4 ore&quot;})">
+                        <i class="fa-solid fa-calendar-check"></i> Prenota / Richiedi Data
+                    </button>
 
                     <a href="https://wa.me/393297568883?text=Ciao+Mariella%21+Vorrei+prenotare+o+chiedere+info+per+il+tour%3A+Escursione+in+e-bike+e+pranzo+gourmet" target="_blank" class="btn btn-outline-primary" style="width: 100%; margin-bottom: 1.5rem;">
                         <i class="fa-brands fa-whatsapp"></i> Chiedi subito su WhatsApp
@@ -725,15 +721,16 @@
 <!-- Mobile Sticky Bottom Booking CTA Bar -->
 <div class="mobile-sticky-cta">
     <div class="price-box">
-                    <span class="price-lbl">Tariffa & Date</span>
-            <span class="price-val" style="font-size: 1.05rem;">Su Misura</span>
-            </div>
+        <span class="price-lbl">A partire da</span>
+        <span class="price-val">€150</span>
+    </div>
     <div class="cta-actions">
         <a href="https://wa.me/393297568883?text=Ciao+Mariella%21+Vorrei+info+per+il+tour%3A+Escursione+in+e-bike+e+pranzo+gourmet" target="_blank" class="btn btn-sm" style="background: #25D366; color: #fff; padding: 0.65rem 0.85rem;" aria-label="WhatsApp">
             <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i>
         </a>
-        <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:1,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;title&quot;:&quot;Escursione in e-bike e pranzo gourmet&quot;,&quot;price&quot;:null,&quot;duration&quot;:&quot;3-4 ore&quot;})">
-            <i class="fa-solid fa-calendar-check"></i> Preventivo & Date        </button>
+        <button class="btn btn-accent btn-sm" @click="openBooking({&quot;id&quot;:1,&quot;slug&quot;:&quot;tour-in-e-bike-e-pranzo-gourmet&quot;,&quot;title&quot;:&quot;Escursione in e-bike e pranzo gourmet&quot;,&quot;price&quot;:150,&quot;duration&quot;:&quot;3-4 ore&quot;})">
+            <i class="fa-solid fa-calendar-check"></i> Prenota Ora
+        </button>
     </div>
 </div>
 
@@ -851,10 +848,7 @@ document.body.classList.add('has-sticky-cta');
     
     calcTotal() {
         if (!this.selectedTour) return 0;
-        let base = Number(this.selectedTour.price) * this.participants;
-        if (this.needTransfer) base += (35 * this.participants);
-        if (this.needGourmetLunch) base += (30 * this.participants);
-        return base;
+        return Number(this.selectedTour.price) * this.participants;
     },
     
     getWaLink() {
@@ -907,8 +901,8 @@ document.body.classList.add('has-sticky-cta');
                         <i class="fa-solid fa-calendar-check"></i> Richiesta Disponibilità & Prenotazione
                     </span>
                     <h3 style="font-size: 1.5rem; color: var(--color-primary-dark);" x-text="selectedTour ? selectedTour.title : 'Prenota il tuo Tour in E-Bike'"></h3>
-                                            <p style="font-size: 0.92rem; color: var(--color-gray-600);">Richiedi disponibilità e quotazione su misura per il tuo gruppo. Nessun pagamento online richiesto.</p>
-                    
+                    <p style="font-size: 0.92rem; color: var(--color-gray-600);" x-text="selectedTour ? ('Prezzo base: €' + selectedTour.price + ' a persona') : 'Seleziona data e partecipanti per verificare la disponibilità.'"></p>
+
                     <!-- Banner Struttura Partner Convenzionata -->
                     <template x-if="partnerName">
                         <div style="margin-top: 0.75rem; display: flex; align-items: center; gap: 0.5rem; background: #f0fdf4; border: 1.5px solid #86efac; padding: 0.5rem 0.85rem; border-radius: 6px; font-size: 0.82rem; color: #166534;">
@@ -962,16 +956,16 @@ document.body.classList.add('has-sticky-cta');
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
                                 <span><input type="checkbox" x-model="needTransfer"> Transfer A/R dal vostro Hotel / Alloggio</span>
-                                                                    <span style="font-size: 0.74rem; font-weight: 700; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
-                                        <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Su richiesta
-                                    </span>
-                                                            </label>
+                                <span style="font-size: 0.74rem; font-weight: 700; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                                    Su richiesta
+                                </span>
+                            </label>
                             <label style="display: flex; align-items: center; justify-content: space-between; font-size: 0.92rem; cursor: pointer;">
                                 <span><input type="checkbox" x-model="needGourmetLunch"> Pranzo Gourmet tipico o Degustazione Vini</span>
-                                                                    <span style="font-size: 0.74rem; font-weight: 700; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
-                                        <i class="fa-solid fa-check" style="font-size: 0.7rem;"></i> Su richiesta
-                                    </span>
-                                                            </label>
+                                <span style="font-size: 0.74rem; font-weight: 700; color: var(--color-primary-dark); background: rgba(144, 201, 92, 0.25); border: 1px solid rgba(144, 201, 92, 0.5); padding: 0.2rem 0.55rem; border-radius: 9999px;">
+                                    Su richiesta
+                                </span>
+                            </label>
                         </div>
                     </div>
 
@@ -993,21 +987,23 @@ document.body.classList.add('has-sticky-cta');
                         </div>
                     </div>
 
-                                            <!-- Quote Request Badge -->
-                        <div style="display: flex; align-items: center; gap: 0.85rem; background: var(--color-accent-light); border: 1.5px solid rgba(144, 201, 92, 0.6); border-radius: var(--radius-md); padding: 0.95rem 1rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);">
-                            <div style="width: 40px; height: 40px; border-radius: 50%; background: #ffffff; color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; box-shadow: var(--shadow-sm);">
-                                <i class="fa-solid fa-clipboard-check"></i>
-                            </div>
-                            <div>
-                                <strong style="display: block; font-size: 0.92rem; color: var(--color-primary-dark);">Richiesta Preventivo & Disponibilità</strong>
-                                <span style="font-size: 0.78rem; color: var(--color-gray-600); line-height: 1.35; display: block;">
-                                    Nessun pagamento immediato. Riceverai la proposta personalizzata con date e dettagli.                                </span>
+                    <!-- Live Total Calculation Bar -->
+                    <div style="display: flex; align-items: center; justify-content: space-between; background: var(--color-accent-light); border: 1px solid rgba(144, 201, 92, 0.4); border-radius: 0; padding: 1rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-primary);">Preventivo Stimato:</span>
+                            <div style="font-size: 1.45rem; font-weight: 800; color: var(--color-primary-dark); display: flex; align-items: baseline; gap: 0.4rem; flex-wrap: wrap;">
+                                <span>€<span x-text="calcTotal()"></span></span>
+                                <template x-if="needTransfer || needGourmetLunch">
+                                    <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-primary);">(+ extra su richiesta)</span>
+                                </template>
                             </div>
                         </div>
-                    
+                        <span style="font-size: 0.82rem; color: var(--color-gray-600);">Pagamento e conferma in loco/accordo</span>
+                    </div>
+
                     <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
                         <button type="submit" class="btn btn-primary" style="flex: 1;" :disabled="isSubmitting">
-                            <i class="fa-solid fa-paper-plane"></i> <span x-text="isSubmitting ? 'Invio in corso...' : 'Invia Richiesta Preventivo'"></span>
+                            <i class="fa-solid fa-paper-plane"></i> <span x-text="isSubmitting ? 'Invio in corso...' : 'Invia Richiesta di Prenotazione'"></span>
                         </button>
                         <a :href="getWaLink()" target="_blank" class="btn btn-accent">
                             <i class="fa-brands fa-whatsapp"></i> WhatsApp

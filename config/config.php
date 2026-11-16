@@ -34,11 +34,6 @@ define('CONTACT_ADDRESS', $settings['contact_address'] ?? 'Via Bonaventura, 66 -
 define('INSTAGRAM_URL', $settings['instagram_url'] ?? 'https://www.instagram.com/sicilybiketours');
 define('FACEBOOK_URL', $settings['facebook_url'] ?? 'https://www.facebook.com/groups/768589132144246');
 
-// Configurazione Prezzi Globale (mostrati / nascosti per lead generation)
-$configuratorConfigFile = BASE_PATH . '/data/configurator.json';
-$globalCfg = file_exists($configuratorConfigFile) ? json_decode(file_get_contents($configuratorConfigFile), true) : [];
-define('SHOW_PRICES', !empty($globalCfg['pricing']['show_prices']));
-
 // Gestione Lingua (IT di default, EN supportato)
 if (isset($_GET['lang']) && in_array($_GET['lang'], ['it', 'en'])) {
     $_SESSION['lang'] = $_GET['lang'];
